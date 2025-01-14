@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Probability and At Least One Probability</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/main.min.css">
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>Special Probabilities</h1>
+
+                    <h2>The Probability of “At Least One”</h2>
+                    <p>
+                        The phrase "at least one" is equivalent to "one or more". That is to so, "1 or 2 or 3 or ...".
+                        When looking at it in terms of numbers, it is easy to see that "0" is missing, and this would be
+                        the complement of "at least one": the complement of "at least one" is that we get "none" of some particular desired outcome.  
+                    </p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Writing out the complement of an event.</h2>
+                        <p>
+                            Use the following given statements and write a statement that represents the complement of the given statement using the phrase <b>"at least one"</b>.
+                        <ol class="list-a">
+                            <li>Given Statement: "Probability that None of the Flips are Heads"</li>
+                            <li>Given Statement: "Probability that All the Chosen Units are Good"</li>
+                        </ol>
+                        </p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            Let's write the complements of the given statements using the phrase <b>"at least one"</b>. Remember: "at least one" and "none" are complements so often we can just replace those phrases to have the complement:
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Given Statement: "Probability that None of the Flips are Heads" <br>
+                                    Complement: "Probability that <b>At Least One</b> of the Flips is a Head".
+                                </p>  
+                            </li>
+                            <li>
+                                <p>
+                                    Given Statement: "Probability that All the Chosen Units are Good" <br>
+                                    A strategy we could implement is to attempt to re-write the given statement so it has the phrase "none" in it. If we can do that, we will simply swap the phrase "none" out with "at least one" to have the complement. If we think about the original statement, "all good" is really the same as saying "none of the units are defective". So we can re-write the given statement to be <b>"Probability that none of the chosen units are defective"</b>. Then we can get the solution as follows: <br>
+                                    Complement: "Probability that <b>At Least One</b> of the Chosen Units are defective"
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="caution">
+                        <p>
+                            <strong>Caution:</strong> A common mistake when dealing with complements is assuming that the complement of "none" is "all". 
+                            For example, the complement of "none of the flips are heads" is not "all of the flips are heads". Instead, the correct complement 
+                            is "at least one of the flips is a head". Always ensure that complements cover all possibilities not included in the original event.
+                        </p>
+                    </div>
+                    
+                    <p>So if we remember, one of the formulas for probabilities involving complements from the previous sections was 
+                        \[ P(A) = 1 - P(\overline{A}) \]
+                        So to calculate the probability of "at least one," we will let \(A=\text{"at least one"}\) and \(\overline{A}=\text{"none"}\) and use the following formula:
+                        \[
+                        P(\text{At Least One}) = 1 - P(\text{None}).
+                        \]
+                        The reasoning behind this formula is that it is much easier to calculate 0 (None) of some occurrence than calculating the ways that 1 or 2 or 3 or etc events can occur.</p>
+
+                    <p>Let’s justify the reasoning with an example:</p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Justifying the Formula</h2>
+                        <p>
+                            Use two methods for finding the "probability of getting at least one tail" when flipping a coin three times. First, list out the sample space to find this probability. Then, for the second method, use the formula
+                            \[
+                            P(\text{At Least One}) = 1 - P(\text{None}).
+                            \]
+                            to find the "probability of getting at least one tail".
+                        </p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            To find the "probability of getting at least one tail" when flipping a coin three times, we will use two methods.
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    <strong>Method 1: Listing the Sample Space</strong><br>
+                                    The sample space for flipping a coin three times is as follows:
+                                    \[ \text{Sample Space} = \{HHH, HHT, THH, HTH, HTT, THT, TTH, TTT\} \]
+                                    Out of these 8 possible outcomes, 7 contain at least one tail (HHT, HTH, HTT, THH, THT, TTH, TTT). Thus, the probability of getting at least one tail is:
+                                    \[
+                                    P(\text{At Least One Tail}) = \frac{\text{Number of Favorable Outcomes}}{\text{Total Outcomes}} = \frac{7}{8}
+                                    \]
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Method 2: Using the Complement Formula</strong><br>
+                                    The complement of "getting at least one tail" is "getting no tails," which means all the flips must be heads. There is only one outcome in the sample space where this happens: {HHH}. Thus, the probability of getting no tails is:
+                                    \[
+                                    P(\text{None of the flips are Tails}) = \frac{\text{Number of Outcomes with No Tails}}{\text{Total Outcomes}} = \frac{1}{8}
+                                    \]
+                                    We could have also used the "multiplication rule" to compute this probability as well if we didn't have the sample space like this:
+                                    \[
+                                    P(\text{None of the flips are Tails}) = P(\text{1st not tails & 2nd not tails & 3rd not tails})
+                                    \]
+                                    And since the probability of not getting a tail on any flip of a standard coin is \(\cfrac{1}{2}\) we have the calculation as
+                                    \[
+                                    P(\text{None of the flips are Tails}) = \frac{1}{2}\cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}
+                                    \]
+                                    Finally, using the complement formula we get the probability of "at least one tail":
+                                    \[
+                                    P(\text{At Least One Tail}) = 1 - P(\text{None}) = 1 - \frac{1}{8} = \frac{7}{8}
+                                    \]
+                                </p>
+                            </li>
+                        </ol>
+                        <p>
+                            <strong>Note:</strong> This example highlights how using the complement is often easier. Calculating "at least one tail" directly requires counting 7 outcomes, while calculating "no tails" requires identifying just 1 outcome. While this problem wasn't as complicated to list out all possibilities, imagine doing a problem with 100 coin flips where there is no way to list ALL the possible outcomes. It will be easier for us to use the formula going forward to compute the "probability of at least one" since it only counts the one occurrence of "none". 
+                        </p>
+                    </div>
+                    
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: At Least One</h2>
+                        <p>
+                            The FICO (Fair Isaac & Company) score is a common credit rating. Among consumers with a FICO
+                            score above 800, the delinquency rate is 1%. If four consumers with FICO scores above 800
+                            are selected, find the probability that at least one becomes delinquent.
+                        </p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            If the delinquency rate is 1%, then the probability of a consumer "not being delinquent" is 99% or \( 0.99 \).
+                        So to find the probability that at least one of the four selected consumers becomes delinquent, we use the complement formula:
+                            \[
+                            P(\text{At Least One}) = 1 - P(\text{None})
+                            \]
+                            where \( P(\text{None}) \) is the probability that none of the four consumers becomes delinquent.
+                        </p>
+                        <p>
+                            The probability of "not being delinquent" for one consumer is \( 0.99 \). If all four consumers are not delinquent, the combined probability is:
+                            \[
+                            P(\text{None})=P(\text{1st not delinquent & 2nd not delinquent & 3rd not delinquent & 4th not delinquent}) 
+                            \]
+                            Making the assumption that 4 people chosen out of all the people with credit ratings above 800 is less than 5%, we can apply the multiplication rule assuming the events are "independent". We ge
+                            \[
+                            P(\text{none})=0.99 \cdot 0.99 \cdot 0.99 \cdot 0.99 = 0.99^4
+                            \]
+                            Calculating \( 0.99^4 \):
+                            \[
+                            P(\text{None}) = 0.960596
+                            \]
+                        </p>
+                        <p>
+                            Now, using the complement formula:
+                            \[
+                            P(\text{At Least One}) = 1 - P(\text{None}) = 1 - 0.960596 = 0.039404
+                            \]
+                        </p>
+                        <p>
+                            Thus, the probability that at least one of the four selected consumers becomes delinquent is approximately \( 0.0394 \) or \( 3.94\% \).
+                        </p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Principle of Redundancy</h2>
+                        <p>
+                            The principle of redundancy is all about improving overall system reliability by including backup components. This is often the reason why many people have back-up alarm clocks to ensure they wake up. To observe this, consider an alarm clock with a 0.86 probability of working on any given morning. Use this to find the following:
+                            <ol>
+                                <li>What is the probability of the clock not working on any given morning?</li>
+                                <li>If we had two such clocks, what would be the probability of them not working on any given morning?</li>
+                                <li>With two of these alarm clocks, what would be the chance of waking up on any given morning?</li>
+                                <li>Does overall system reliability improve with the second alarm clock?</li>
+                            </ol>
+                        </p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <ol>
+                            <li>
+                                <strong>Probability of the clock not working:</strong><br>
+                                The probability of the clock working is \( P(\text{working}) = 0.86 \). Therefore, the probability of the clock not working is:
+                                \[
+                                P(\text{not working}) = 1 - P(\text{working}) = 1 - 0.86 = 0.14
+                                \]
+                            </li>
+                            <li>
+                                <strong>Probability of both clocks not working:</strong><br>
+                                If we have two clocks, the events are assumed to be independent. The probability of both clocks not working is the product of their individual probabilities:
+                                \[
+                                P(\text{both not working}) = P(\text{not working}) \times P(\text{not working}) = 0.14 \times 0.14 = 0.0196
+                                \]
+                            </li>
+                            <li>
+                                <strong>Chance of waking up (at least one clock works):</strong><br>
+                                The event of "waking up" corresponds to "at least one clock works." Using the complement formula for at least one:
+                                \[
+                                P(\text{at least one works}) = 1 - P(\text{none work})
+                                \]
+                                From part (b), we know \( P(\text{none work}) = 0.0196 \). Thus:
+                                \[
+                                P(\text{at least one works}) = 1 - 0.0196 = 0.9804
+                                \]
+                                Therefore, the chance of waking up is approximately \( 0.9804 \) or \( 98.04\% \).
+                            </li>
+                            <li>
+                                <strong>Improvement in overall system reliability:</strong><br>
+                                By adding a second clock, the probability of waking up improves significantly from \( 86\% \) (with one clock) to \( 98.04\% \) (with two clocks). This demonstrates the effectiveness of redundancy in increasing system reliability.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <h2>Conditional Probability</h2>
+                    <p>
+                        Conditional probability considers the likelihood of an event given additional knowledge that another event has occurred. For instance, the probability of a golfer making a hole-in-one is \( 1/12,500 \), but if the golfer is a professional, the probability improves to \( 1/2,500 \). 
+                    </p>
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Conditional Probability</h2>
+                        <p>
+                            A conditional probability of an event is a probability obtained with the additional information that some other event occurred.
+                        </p>
+                    </div>
+                    <p>
+                        <strong>Notation:</strong> Often we see conditional probability written in the form \( P(B|A) \) which represents "the probability of event \( B \) occurring, given that event \( A \) has already occurred". While there is a formula for finding conditional probabilities, the easiest way often to calculate this is found by using the intuitive approach.
+                    </p>
+                    <div class="definition">
+                        <h2 class="definition-header">Intuitive Approach for Finding \( P(B|A) \)</h2>
+                        <p>
+                            The conditional probability of \( B \) occurring, given \( A \), can be calculated by assuming \( A \) occurred and determining the likelihood of \( B \) occurring under this condition.
+                        </p>
+                    </div> 
+                    
+                    <p>By assuming event \(A\) already occurred, this restricts your sample space greatly. We can see this using the following problem.</p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Finding Conditional Probability</h2>
+                        <p>
+                            Use the table below to find the following conditional probabilities:
+                            <ol class="list-a">
+                                <li>probability of a negative test given the subject didn’t lie</li>
+                                <li>probability of a positive test given the subject lied</li>
+                                <li>probability of the subject lying given the subject had a positive test</li>
+                            </ol>
+                        </p>
+                        <table aria-describedby="tableDescription">
+                            <caption>Table 1: Polygraph Results</caption>
+                            <thead>
+                                <tr>
+
+                                    <th scope="col">Test Result</th>
+                                    <th scope="col">No (Did Not Lie)</th>
+                                    <th scope="col">Yes (Lied)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Positive Test Result</th>
+                                    <td>12</td>
+                                    <td>37</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Negative Test Result</th>
+                                    <td>30</td>
+                                    <td>6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p id="tableDescription" class="visually-hidden">This table summarizes the results of a
+                            polygraph test, showing counts
+                            for
+                            positive and negative test results against actual lying and not lying behavior.</p>
+                    </div>
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            To solve each part, we use the concept of conditional probability. By "assuming" the given part already happened, we reduce the total sample space, meaning the denominator of the probability will differ from the total in the entire table.
+                        </p>
+                        <ol>
+                            <li>
+                                <strong>Probability of a negative test given the subject didn’t lie:</strong><br>
+                                The entire table has 85 result, but by assuming the subject didn’t lie, we focus only on the column labeled "No (Did Not Lie)". The total for this column is:
+                                \[
+                                12 + 30 = 42
+                                \]
+                                Now from this new total, we can find the number of negative tests (which is 30). Therefor, we get negative test given the subject didn’t lie is:
+                                \[
+                                P(\text{Negative Test | Did Not Lie}) = \frac{30}{42} \approx 0.714
+                                \]
+                            </li>
+                            <li>
+                                <strong>Probability of a positive test given the subject lied:</strong><br>
+                                Assuming the subject lied, we focus only on the column labeled "Yes (Lied)". The total for this column is:
+                                \[
+                                37 + 6 = 43
+                                \]
+                                Since these are the only two values that matter now, we can look to see how many had a positive test result of these 43 which is 37. So we get the probability of a positive test given the subject lied to be
+                                \[
+                                P(\text{Positive Test | Lied}) = \frac{37}{43} \approx 0.860
+                                \]
+                            </li>
+                            <li>
+                                <strong>Probability of the subject lying given the subject had a positive test:</strong><br>
+                                Assuming the subject had a positive test, we focus only on the row labeled "Positive Test Result". The total for this row is:
+                                \[
+                                12 + 37 = 49
+                                \]
+                                Of these 49 people, we can see that 37 of them lied. So the probability of the subject lying given the subject had a positive test is:
+                                \[
+                                P(\text{Lied | Positive Test}) = \frac{37}{49} \approx 0.755
+                                \]
+                            </li>
+                        </ol>
+                    </div>
+                    
+                </div>
+            </div>
+    </div>
+    </div>
+    </main>
+    </div>
+</body>
+
+</html>

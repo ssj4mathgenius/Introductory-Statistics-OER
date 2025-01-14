@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Measures of Center</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
+
+    <!-- Bootstrap CDN CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Course Styles -->
+    <link rel="stylesheet" href="../css/main.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>Measures of Center</h1>
+                    <p>Statistics provides tools to understand and summarize data. Measures of center are essential in
+                        statistics because they give us a single value that represents the entire dataset. This helps in
+                        making decisions, identifying trends, and comparing datasets effectively. The three most
+                        commonly used
+                        measures of center are the mean, median, and mode.</p>
+
+                    <h2>Mean</h2>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Mean</h2>
+                        <p>The mean, also commonly known as the "average", is the sum of all data values divided by the
+                            number of
+                            values. The sample mean is often denoted as \( \bar{x} \), while the population mean is
+                            denoted as
+                            \( \mu \). Sometimes the mathematical formulas for calculating the mean are given as shown
+                            below:</p>
+                        <p>\[
+                            \text{Sample Mean: } \bar{x} = \frac{\sum x}{n}
+                            \]</p>
+                    </div>
+
+                    <p>There are several times throughout the course you may encounter formulas used to find a
+                        particular statistic so we will attempt to explain some of the symbols as we progress. The
+                        \(\sum \) symbol in mathematics means "add", the \( x \) symbol represents data values in the
+                        sample, and \( n \) represents the number of values in the sample. So interpreting the formula
+                        above for finding the sample mean \( \bar{x} \) is found by adding all the data values and
+                        dividing by the number of values in the dataset.</p>
+                    <p>While there are formulas for many of the statistics used to describe datasets, it is important to
+                        not focus so much on the formula but to understand the meaning of the values. When trying to
+                        understand the mean, it is important to keep these key concepts in mind:</p>
+                    <ul>
+                        <li>Sample means drawn from the same population tend to vary less than other measures of center
+                        </li>
+                        <li>The mean takes every data value into consideration</li>
+                        <li>If there are extreme values (outliers) in the dataset, they can impact the mean
+                            substantially</li>
+                    </ul>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Calculating the Mean
+                        </h2>
+                        <p>Consider the following data representing test scores: 75, 80, 85, 90, 95.</p>
+                        <pre style="display: none" ; id="dataset1">Student,Score
+                            1,75
+                            2,80
+                            3,85
+                            4,90
+                            5,95</pre>
+                        <button onclick="copyToClipboard('dataset1')">Copy Data to Clipboard</button>
+                        <table>
+                            <tr>
+                                <th>Score</th>
+                            </tr>
+                            <tr>
+                                <td>75</td>
+                            </tr>
+                            <tr>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <td>95</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>In order to find the mean for this sample of test scores, we will just sum up all the scores
+                            and then divide by the number of scores. This gives us the following \[
+                            \bar{x} = \frac{75 + 80 + 85 + 90 + 95}{5} = 85
+                            \]</p>
+                    </div>
+
+                    <h2>Median</h2>
+                    <p>The median can be described as the "middle value" of a dataset, where approximately half of the
+                        values are smaller than the median and the other half are larger. A more precise definition
+                        follows.</p>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Median</h2>
+                        <p>The median is the middle value in an ordered dataset. If the dataset has an odd number of
+                            values, the median is the center value. If the dataset has an even number of values, the
+                            median is the average of the two center values.</p>
+                    </div>
+
+                    <p>When interpreting the median it is important to keep a few important properties in mind:</p>
+                    <ul>
+                        <li>The median is not effected by extreme values in the dataset</li>
+                        <li>The median does not take every data value into consideration</li>
+                    </ul>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Identifying the Median
+                        </h2>
+                        <p>Consider the data given in the table below and find both the mean and the median of the
+                            dataset. Which value better captures the middle of the dataset?</p>
+                        <pre id="dataset2" style="display: none">
+                                Value
+                                72
+                                84
+                                90
+                                63
+                                20
+                                74
+                                93
+                                59
+                                72
+                                84
+                                72
+                                78
+                                81
+                                63
+                                59
+                                84
+                                72
+                                83
+                                76
+                                72
+                                </pre>
+                        <button onclick="copyToClipboard('dataset2')">Copy Data to Clipboard</button>
+                        <table>
+                            <tr>
+                                <th>Value</th>
+                            </tr>
+                            <tr>
+                                <td>72</td>
+                            </tr>
+                            <tr>
+                                <td>84</td>
+                            </tr>
+                            <tr>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <td>63</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>74</td>
+                            </tr>
+                            <tr>
+                                <td>93</td>
+                            </tr>
+                            <tr>
+                                <td>59</td>
+                            </tr>
+                            <tr>
+                                <td>72</td>
+                            </tr>
+                            <tr>
+                                <td>84</td>
+                            </tr>
+                            <tr>
+                                <td>72</td>
+                            </tr>
+                            <tr>
+                                <td>78</td>
+                            </tr>
+                            <tr>
+                                <td>81</td>
+                            </tr>
+                            <tr>
+                                <td>63</td>
+                            </tr>
+                            <tr>
+                                <td>59</td>
+                            </tr>
+                            <tr>
+                                <td>84</td>
+                            </tr>
+                            <tr>
+                                <td>72</td>
+                            </tr>
+                            <tr>
+                                <td>83</td>
+                            </tr>
+                            <tr>
+                                <td>76</td>
+                            </tr>
+                            <tr>
+                                <td>72</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>First, to find the mean, we just need to sum up all the values and divide by how many we
+                            have. This will give us a mean of
+                            \[ \bar{x} = \frac{1449}{20}=72.45 \] </p>
+                        <p> Next we will need to order the data to find the median. This is best done with technology,
+                            but we get the following order: </p>
+                        <p> 20, 53, 59, 59, 63, 63, 72, 72, 72, 72, 72, 76, 78, 81, 83, 84, 84, 84, 90, 93. Since there
+                            are twenty values (even number), the median
+                            is the average of the two middle values: \[
+                            \text{Median} = \frac{72 + 74}{2} = 73.
+                            \]</p>
+                        <p>Median is preferred over the mean in datasets with outliers as it is not affected by extreme
+                            values, but in this particular dataset both values are very close to one another.</p>
+                    </div>
+
+                    <h2>Mode</h2>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Mode</h2>
+                        <p>The mode is the most frequent value in a dataset. A dataset can have one mode (unimodal),
+                            more than one mode
+                            (multimodal), or no mode.</p>
+                    </div>
+
+                    <p>It is important to note that the mode isn't used as much with quantitative dat, but it is the
+                        only measure of center applicable
+                        to qualitative (or categorical) data.</p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Determining the Mode
+                        </h2>
+                        <p>Consider the dataset: red, blue, green, blue, blue, red.</p>
+                        <pre style="display:none" ;id="dataset3">Color
+                            red
+                            blue
+                            green
+                            blue
+                            blue
+                            red</pre>
+                        <button onclick="copyToClipboard('dataset3')">Copy Data to Clipboard</button>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>The mode is <strong>blue</strong>, as it appears most frequently.</p>
+                    </div>
+
+                    <p>Each measure of center provides unique insights into a dataset, making them critical tools for
+                        data analysis. Measures of center can always be calculated from a sample, but it is crucial to
+                        consider if doing so is meaningful. For nominal data, which consist of names or categories,
+                        calculations like the mean or median are meaningless. Additionally, the validity of these
+                        statistics depends on the soundness of the sampling method; poor methods can lead to misleading
+                        results.</p>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Hypothesis Testing</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../js/loadmathjax.js"></script>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+<link rel="stylesheet" href="../css/main.min.css">
+
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row bottom-md">
+<div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+    <h1>Introduction to Hypothesis Testing</h1>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Gender Choice Drug</h2>
+        <p>Consider a gender choice drug that claims to increase the chance of having a girl. Conduct an informal analysis of the following two scenarios:</p>
+        <ul>
+            <li>53 girls out of 100 births</li>
+            <li>95 girls out of 100 births</li>
+        </ul>
+        <p>Determine whether these results support the claim that the drug increases the likelihood of having a girl.</p>
+    </div>
+
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <p>Let’s informally make a decision about the two scenarios:</p>
+        <ol class="list-a">
+            <li>
+                We normally expect around 50 girls in 100 births. The result of 53 girls is close to 50, so we should not conclude that the Gender Choice product is effective at increasing the chance of having a baby girl. Why? The result of 53 girls could easily occur by chance, so there isn’t sufficient evidence to conclude that the Gender Choice drug is effective, despite the fact that the proportion of girls in this experiment is slightly larger than the 50% we normally expect.
+            </li>
+            <li>
+                If we had 95 girls in 100 births, that would be extremely unlikely to occur by chance. Why? Because we normally expect around 50 girls in 100 births. We could explain the occurrence of 95 girls in one of two ways: (1) Either an extremely rare event has occurred by chance, or (2) this situation is good evidence in support of the Gender Choice drug being effective. So we would reject our original assumption that “the drug has no effect.”
+            </li>
+        </ol>
+    </div>
+    
+    
+    <h2>Components of Hypothesis Testing</h2>
+    <p>Before performing a full hypothesis test, it is important to understand the key components. This section introduces the foundational elements of hypothesis testing.</p>
+    
+    <div class="definition">
+        <h2 class="definition-header">Definition: Hypothesis</h2>
+        <p>A hypothesis is a claim or statement about a property of a population parameter.</p>
+    </div>
+    
+    <div class="definition">
+        <h2 class="definition-header">Definition: Hypothesis Test</h2>
+        <p>A hypothesis test (or test of significance) is a formal procedure for testing a claim about the property of a population parameter.</p>
+    </div>
+    
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Claims and Symbols</h2>
+        <p>Below are two example claims with their symbolic representations:</p>
+        <ul>
+            <li>Claim: "The mean body temperature of humans is less than \( 98.6^\circ F \)"</li>
+            <ul>
+                <li>Symbolic form: \( \mu < 98.6 \)</li>
+            </ul>
+            <li>Claim: "The proportion of children preferring the Helper toy is greater than 50%"</li>
+            <ul>
+                <li>Symbolic form: \( p > 0.50 \)</li>
+            </ul>
+        </ul>
+    </div>
+    
+    <div class="definition">
+        <h2 class="definition-header">Definition: Null Hypothesis</h2>
+        <p>The null hypothesis (\( H_0 \)) is a statement that the value of a population parameter is equal to some claimed value.</p>
+    </div>
+    
+    <div class="definition">
+        <h2 class="definition-header">Definition: Alternative Hypothesis</h2>
+        <p>The alternative hypothesis (\( H_a \)) is the statement that the parameter has a value that differs from the null hypothesis. The alternative hypothesis always includes one of the following symbols: \( <, >, \neq \).</p>
+    </div>
+    
+    <h2>Steps for Identifying \( H_0 \) and \( H_a \)</h2>
+    <ol>
+        <li>Identify the original claim and express it in symbolic form.</li>
+        <li>Write the opposite claim in symbolic form.</li>
+        <li>Determine which claim represents the null hypothesis (\( H_0 \)) and which represents the alternative hypothesis (\( H_a \)).</li>
+    </ol>
+    
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Identifying \( H_0 \) and \( H_a \)</h2>
+        <p>For each claim below, identify the null and alternative hypotheses:</p>
+        <ol>
+            <li>"The proportion of drivers admitting to running red lights is greater than 0.7."</li>
+            <li>"The average height of professional basketball players is at most 7 feet."</li>
+            <li>"The standard deviation of IQ scores of actors is equal to 15."</li>
+        </ol>
+    </div>
+    
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <ol>
+            <li>Original Claim: \( p > 0.7 \)<br>Opposite Claim: \( p \leq 0.7 \)<br>\( H_0: p = 0.7 \), \( H_a: p > 0.7 \)</li>
+            <li>Original Claim: \( \mu \leq 7 \)<br>Opposite Claim: \( \mu > 7 \)<br>\( H_0: \mu = 7 \), \( H_a: \mu > 7 \)</li>
+            <li>Original Claim: \( \sigma = 15 \)<br>Opposite Claim: \( \sigma \neq 15 \)<br>\( H_0: \sigma = 15 \), \( H_a: \sigma \neq 15 \)</li>
+        </ol>
+    </div>
+    
+    <h2>Conducting Hypothesis Tests with GeoGebra</h2>
+    <p>We will use GeoGebra to perform hypothesis testing. Input the null and alternative hypotheses and the relevant sample data into the applet.</p>
+    
+    <div class="iframe-container">
+        <iframe id="hypothesisTestCalculator" scrolling="no" title="Confidence Interval and Hypothesis Test Calculator"
+            src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+            width="1100px" height="651px" style="border:0px;">
+        </iframe>
+        <p class="visually-hidden" id="iframeDescription">Interactive calculator for confidence intervals and hypothesis tests.</p>
+        <button onclick="window.open('https://www.geogebra.org/material/iframe/id/sqbsgdkk', '_blank')"
+            aria-describedby="iframeButtonDescription">Open in a New Tab</button>
+        <p id="iframeButtonDescription" class="visually-hidden">Opens the hypothesis testing calculator in a new tab.</p>
+    </div>
+
+    <h2>P-Value Method for Hypothesis Testing</h2>
+<p>The p-value method is commonly used to make initial conclusions about a hypothesis test. After obtaining the p-value from GeoGebra, the decision-making process is as follows:</p>
+<ul>
+    <li><strong>Reject \( H_0 \):</strong> If the p-value \( \leq \alpha \) (where \( \alpha \) is the significance level, such as 0.05, 0.01, or 0.1). "If the p is low, the null must go."</li>
+    <li><strong>Fail to Reject \( H_0 \):</strong> If the p-value \( > \alpha \). "If the p is high, the null will fly."</li>
+</ul>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span>: Small P-Value</h2>
+    <p>A hypothesis test yields a p-value of \( 2.4 \times 10^{-4} \). If \( \alpha = 0.01 \), determine the initial conclusion.</p>
+</div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span>: Larger P-Value</h2>
+    <p>A hypothesis test yields a p-value of \( 0.086 \). If \( \alpha = 0.05 \), determine the initial conclusion.</p>
+</div>
+
+<h2>Wording the Final Conclusion</h2>
+<p>The final conclusion of a hypothesis test must be clearly stated, addressing the original claim in non-technical language. Avoid stating "reject the null hypothesis" or "fail to reject the null hypothesis." Instead, frame the conclusion based on the context of the problem and evidence provided by the test.</p>
+
+<h2>Flowchart for Final Conclusions</h2>
+<p>The flowchart below outlines the decision-making process for formulating the final conclusion in a hypothesis test:</p>
+
+<div class="flowchart-container">
+    <figure>
+        <img class="img-centered" src="../images/final_conclusion_flowchart.png" 
+             alt="Flowchart for making final conclusions in hypothesis testing" aria-describedby="flowchartDescription">
+        <figcaption id="flowchartDescription" class="visually-hidden">
+            Flowchart detailing the process of determining final conclusions in hypothesis testing based on p-values and original claims.
+        </figcaption>
+    </figure>
+</div>
+
+<h2>Examples with Final Conclusions</h2>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span>: Proportion of Blue M&Ms</h2>
+    <p>Given the following information, determine the final conclusion of the hypothesis test:</p>
+    <ul>
+        <li><strong>Original Claim:</strong> The proportion of blue M&Ms is greater than 5%.</li>
+        <li><strong>Initial Conclusion:</strong> Fail to reject the null hypothesis.</li>
+    </ul>
+</div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span>: Mean Volume of Soda Cans</h2>
+    <p>Given the following information, determine the final conclusion of the hypothesis test:</p>
+    <ul>
+        <li><strong>Original Claim:</strong> The mean volume of soda cans is 12 oz.</li>
+        <li><strong>Initial Conclusion:</strong> Reject the null hypothesis.</li>
+    </ul>
+</div>
+
+</div>
+</div>
+</main>
+</div>
+</body>
+
+</html>

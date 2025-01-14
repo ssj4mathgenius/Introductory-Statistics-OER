@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.5">
+  <diagram name="Page-1" id="Ji0JlV81raNBh3TML82b">
+    <mxGraphModel dx="1434" dy="780" grid="0" gridSize="12" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-1" value="Start &#xa;Is the Original Claim the Null Hypothesis?" style="whiteSpace=wrap;strokeWidth=2;rounded=1;labelBackgroundColor=none;fillColor=#fad7ac;strokeColor=#b46504;fontFamily=Ariel;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="491" y="36" width="291" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-2" value="Is the Null Hypothesis Rejected?" style="whiteSpace=wrap;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;labelBackgroundColor=none;fontFamily=Ariel;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="196" y="169" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-3" value="Is the Null Hypothesis Rejected?" style="whiteSpace=wrap;strokeWidth=2;rounded=1;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=20;fontFamily=Ariel;" vertex="1" parent="1">
+          <mxGeometry x="795" y="169" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-4" value="Final Conclusion&#xa;&quot;There is Sufficient Sample Evidence to Warrant Rejection of the Original Claim&quot;" style="whiteSpace=wrap;strokeWidth=2;rounded=1;labelBackgroundColor=none;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Ariel;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="29" y="330" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-5" value="Final Conclusion&#xa;&quot;There is Insufficient Sample Evidence to Warrant Rejection of the Original Claim&quot;" style="whiteSpace=wrap;strokeWidth=2;rounded=1;labelBackgroundColor=none;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Ariel;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="334" y="330" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-6" value="Final Conclusion&#xa;&quot;There is Sufficient Sample Evidence to Support the Original Claim&quot;" style="whiteSpace=wrap;strokeWidth=2;rounded=1;labelBackgroundColor=none;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Ariel;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="639" y="330" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-7" value="Final Conclusion&#xa;&quot;There is insufficient Sample Evidence to Support the Original Claim&quot;" style="whiteSpace=wrap;strokeWidth=2;rounded=1;labelBackgroundColor=none;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Ariel;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="948" y="330" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-8" value="Yes" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.91;entryX=0.5;entryY=0;rounded=1;labelBackgroundColor=none;strokeColor=#182E3E;fontColor=default;fontSize=20;fontFamily=Ariel;" edge="1" parent="1" source="h0RFoN2msvDKC0AnCWZX-1" target="h0RFoN2msvDKC0AnCWZX-2">
+          <mxGeometry x="0.1139" y="-14" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="305" y="135" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-9" value="No" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.91;entryX=0.5;entryY=0;rounded=1;labelBackgroundColor=none;strokeColor=#182E3E;fontColor=default;fontSize=20;fontFamily=Ariel;" edge="1" parent="1" source="h0RFoN2msvDKC0AnCWZX-1" target="h0RFoN2msvDKC0AnCWZX-3">
+          <mxGeometry x="0.0536" y="12" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="925" y="135" />
+            </Array>
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-10" value="Yes" style="curved=1;startArrow=none;endArrow=block;exitX=0.19;exitY=1;entryX=0.5;entryY=0;rounded=1;labelBackgroundColor=none;strokeColor=#182E3E;fontColor=default;fontFamily=Ariel;fontSize=20;" edge="1" parent="1" source="h0RFoN2msvDKC0AnCWZX-2" target="h0RFoN2msvDKC0AnCWZX-4">
+          <mxGeometry x="0.1462" y="-19" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="286" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-11" value="No" style="curved=1;startArrow=none;endArrow=block;exitX=0.81;exitY=1;entryX=0.5;entryY=0;rounded=1;labelBackgroundColor=none;strokeColor=#182E3E;fontColor=default;fontFamily=Ariel;fontSize=20;" edge="1" parent="1" source="h0RFoN2msvDKC0AnCWZX-2" target="h0RFoN2msvDKC0AnCWZX-5">
+          <mxGeometry x="0.1398" y="15" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="286" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-12" value="Yes" style="curved=1;startArrow=none;endArrow=block;exitX=0.19;exitY=1;entryX=0.5;entryY=0;rounded=1;labelBackgroundColor=none;strokeColor=#182E3E;fontColor=default;fontSize=20;fontFamily=Ariel;" edge="1" parent="1" source="h0RFoN2msvDKC0AnCWZX-3" target="h0RFoN2msvDKC0AnCWZX-6">
+          <mxGeometry x="0.1314" y="-14" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="286" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h0RFoN2msvDKC0AnCWZX-13" value="No" style="curved=1;startArrow=none;endArrow=block;exitX=0.81;exitY=1;entryX=0.5;entryY=0;rounded=1;labelBackgroundColor=none;strokeColor=#182E3E;fontColor=default;fontFamily=Ariel;fontSize=20;" edge="1" parent="1" source="h0RFoN2msvDKC0AnCWZX-3" target="h0RFoN2msvDKC0AnCWZX-7">
+          <mxGeometry x="0.2078" y="13" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1080" y="286" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

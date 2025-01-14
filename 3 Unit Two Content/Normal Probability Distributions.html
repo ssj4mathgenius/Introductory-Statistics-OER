@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Normal Probability Distribution</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/main.min.css">
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>The Normal Distribution</h1>
+                    <p>The normal distribution, a continuous probability distribution, is one of the most widely used
+                        and studied distributions. Its bell-shaped curve appears in various fields such as psychology,
+                        business, economics, and the sciences. Examples include IQ scores, real estate prices, and more.
+                        It is essential for inferential statistics and probability analysis.</p>
+                    <p>The normal distribution is characterized by a symmetric, bell-shaped curve when plotted. It is
+                        defined by two parameters: the mean (\( \mu \)) and the standard deviation (\( \sigma \)). The
+                        total area under the curve is equal to 1 making it a <b>density curve</b> which sets up that
+                        same connection between area and probability we observed with uniform distributions.</p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>The graph is symmetric around the mean (\(\mu\)), which is also the median and mode.</li>
+                        <li>It is defined by two parameters: the mean (\(\mu\)) and the standard deviation (\(\sigma\)).
+                        </li>
+                        <li>
+                            <p>The density curve for the normal probability distribution is graphed by using the
+                                following formula:</p>
+                            <p>\[
+                                f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma}
+                                \right)^2}
+                                \]</p>
+                            <p><strong>Note:</strong> It is not necessary to memorize this formula.</p>
+                        </li>
+                        <li>Since it has a more complicated bell-shape, we will have to rely on technology to find
+                            values associated with it.</li>
+                    </ul>
+
+                    <h2>The Standard Normal Distribution</h2>
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Standard Normal Distribution</h2>
+                        <p>The standard normal distribution is a special case of the normal distribution where the
+                            <b>mean is 0</b> and <b>the standard deviation is 1</b>. Values in this distribution are
+                            represented as z-scores.</p>
+                    </div>
+
+                    <p>Finding the area under the normal distribution is not quite as easy as it was for uniform
+                        distributions so we will heavily be relying on technology to help us find the area under these
+                        more complicated bell-shapes. The following tool in GeoGebra can both be used to find
+                        areas/probabilities as well as horizontal values ($z$-scores for standard normal distributions
+                        and $x$-values for non-standard normal distributions).</p>
+                    <div class="iframe-container">
+
+                        <iframe id="normalDistributionCalculator" scrolling="no" title="Normal Distribution Calculator"
+                            src="https://www.geogebra.org/material/iframe/id/qgquy9qs/width/1350/height/545/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                            aria-describedby="iframeDescription">
+                        </iframe>
+
+                        <p id="iframeDescription" class="visually-hidden">
+                            This is an embedded calculator designed to help with understanding normal distribution
+                            concepts in statistics.
+                        </p>
+
+                        <button onclick="window.open('https://www.geogebra.org/material/iframe/id/qgquy9qs', '_blank')"
+                            aria-describedby="iframeButtonDescription">
+                            Open Normal Distribution Calculator in a New Tab
+                        </button>
+
+                        <p id="iframeButtonDescription" class="visually-hidden">
+                            This button opens the normal distribution calculator in a new tab for better accessibility
+                            and usability.
+                        </p>
+                    </div>
+                    <p>In order to use the applet, it is best to first choose <strong>raw data</strong> where we can enter our horizontal value(s) (denoted as $x$ in the applet). Then we can choose one of the "Tail Types":</p>
+                    <ul>
+                        <li><strong>Left-Tail:</strong> Use when normal distributions are shaded to the left side</li>
+                        <li><strong>Right-Tail:</strong> Use when normal distributions are shaded to the right side</li>
+                        <li><strong>Two-Tail:</strong> Use when normal distributions are shaded outward on two sides (this will not be used in this section)</li>
+                         <li><strong>Between:</strong> Use when normal distributions are shaded between two horizontal $x$ values.</li>
+                    </ul>
+                        <p>Then, depending on the problem, we will have to change the "Input Types:</p>
+                        <ul>
+                            <li><strong>Data:</strong> Use when finding the area/probability from a known $z$ or $x$ value</li>
+                            <li><strong>Area/Probability:</strong> Use when the area/probability/percentage is given and we need to find the $z$ or $x$ value the cuts off this proportion of the normal distribution</li>
+                        </ul>
+                        <p>We will practice using this tool in the the example problems that follow.</p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Finding Area to Left
+                        </h2>
+                        <p>Find the area under the standard normal distribution to the left of \( z = 1.25 \) as
+                            pictured below. Round to three decimal places or one decimal place as a percentage.</p>
+                        <figure>
+                            <img class="img-centered" src="../images/normalplot1.png"
+                                alt="Graph of a standard normal distribution with shading starting at z-score of 1.25 and shading left under the bell-curve"
+                                aria-describedby="normalplot1">
+                            <figcaption id="normalplot1" class="visually-hidden">
+                                a standard normal distribution is graphed where the shading under the bell-curve is
+                                going from the z-score of 1.25 on the horizontal axis (x-axis if graphing normally but
+                                it represents the z-score axis for this problem) to the left. The z-score the shading
+                                starts at is 1.25 which is marked and the shading is to the left of this z-score between
+                                the bell-curve and the horizontal axis.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Using technology, we will select the "problem type" as <strong>Raw Data</strong> and choose <strong>Left-Tail</strong> as our "Tail Type:". It will look like the image below:</p>
+                        <figure>
+                            <img class="img-centered" src="../images/standardNormalLeftTail.jpg"
+                                alt="Graph of a standard normal distribution with shading starting at z-score of 1.25 and shading left under the bell-curve"
+                                aria-describedby="standardNormalLeftTail">
+                            <figcaption id="standardNormalLeftTail" class="visually-hidden">
+                                an image showing the GeoGebra app is pictured displaying a normal distribution centered at 0 shaded on the left side from a value of 1.25 on the $x$-axis. The Problem Type selection is "raw data" and the Tail Type selection is "Left-Tail". The $x=$ value is 1.25. No other changes were made to the default values in this GeoGebra applet. 
+                            </figcaption>
+                        </figure>
+                            <p>Now enter an $x$ value of 1.25 to find the area is approximately 0.894 or $89.4\%$.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Finding Area Between
+                        </h2>
+                        <p>Find the probability of getting a z-score between \(-1.2\) and \(0.7\) for a normal
+                            distribution with mean of 0 (\(\mu=0\)) and a standard deviation of 1 (\(\sigma=1\)). Use
+                            the picture below as a guide. Round to three decimal places or one decimal place as a
+                            percentage.</p>
+                        <figure>
+                            <img class="img-centered" src="../images/normalplot2.png"
+                                alt="Graph of a standard normal distribution with shading going from a horizontal value of \(-1.2\) to \(0.7\) under the bell-curve"
+                                aria-describedby="normalplot2">
+                            <figcaption id="normalplot2" class="visually-hidden">
+                                a standard normal distribution is graphed where the shading under the bell-curve is
+                                going from the z-score of \(-1.2\) to a z-score \(0.7\).
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Using technology, we will select the "problem type" as <strong>Raw Data</strong> and choose <strong>Between</strong> as our "Tail Type:". We can then enter an $x_1$ as $-1.2$ and an $x_2$ as $0.7$. It will look like the image below:</p>
+                        <figure>
+                            <img class="img-centered" src="../images/standardNormalBetween.jpg"
+                                alt="Graph of a standard normal distribution with shading starting at z-score of 1.25 and shading left under the bell-curve"
+                                aria-describedby="standardNormalBetween">
+                            <figcaption id="standardNormalBetween" class="visually-hidden">
+                                an image showing the GeoGebra app is pictured displaying a normal distribution centered at 0 shaded between the $x$-values of $-1.2$ and $0.7$. The Problem Type selection is "raw data" and the Tail Type selection is "between". The $x_1=$ value is $-1.2$ and the $x_2=$ value is $0.7$. No other changes were made to the default values in this GeoGebra applet. 
+                            </figcaption>
+                        </figure>
+                        <p>We get that the area/probability is approximately 0.643 or $64.3\%$.</p>
+                    </div>
+
+                    <p>We can not only find areas/probabilities for the normal distribution but we can also find
+                        horizontal values (z-scores or x-values depending on if the normal distribution is standard or
+                        not) for these distributions from a known area/probability. Using the GeoGebra applet we will first choose at "Tail Type" based on the shading. Then we choose an "Input Type" of Area/Probability. Let's look at an example.</p>
+
+                     <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Finding Z-Scores</h2>
+                        <p>Determine the z-score that corresponds to the 90th percentile of the standard normal
+                            distribution. Round z-scores to two decimal places.</p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Since z-scores are standard normally distributed, we know what the image of this should look
+                            like. When we are looking for the z-score corresponding to the 90th percentile, this means
+                            that 90% of the area is below this value and 10% is above this \(z\)-value we want to find.
+                            So essentially, we are solving for the \(z\) in a picture like this:</p>
+                        <figure>
+                            <img class="img-centered" src="../images/normalplot3.png"
+                                alt="Graph of a standard normal distribution with shading going from an unknown z-score to the left"
+                                aria-describedby="normalplot3">
+                            <figcaption id="normalplot3" class="visually-hidden">
+                                a standard normal distribution is graphed where the shading under the bell-curve is
+                                going from an unknown z-score (marked as a z on the graph) shading to the left. An area
+                                of 0.90 is designated on the image to show the amount of area that is shaded.
+                            </figcaption>
+                        </figure>
+                        <p>Similar to how we found the previous answers, we will use GeoGebra to solve this problem. We will first choose at "Tail Type". If we plan to use the $90\%$ area that is shaded to the left, let's choose <strong>left tail</strong>. Then we choose an "Input Type" of Area/Probability. After putting in $0.90$ in the box we will see the following result</p>
+                        <figure>
+                            <img class="img-centered" src="../images/standardNormalGivenArea.jpg"
+                                alt="Graph of a standard normal distribution with shading going from an unknown z-score to the left"
+                                aria-describedby="normalplot4">
+                            <figcaption id="normalplot4" class="visually-hidden">
+                                a standard normal distribution is graphed using the GeoGebra applet where the shading under the bell-curve is
+                                going from an unknown z-score (marked as a z on the graph) shading to the left. The selections on the applet are as follows: Problem Type = Raw Data, Tail Type = Left-Tail, Input Type = Area/Probability, Area/Probability = 0.90. The mean $\mu$ equals 0 and the standard deviation $\sigma$ equals 1. The displayed answer for the value of $z$ is $1.282$.
+                            </figcaption>
+                        </figure>
+                        <p>So we get a $z$-score of $1.28$ as the 90th percentile. </p>
+                    </div>
+
+                    <h2>Applications of Normal Distributions</h2>
+                    <p> For any normal distribution problems that have a mean and standard deviation that are different from $0$ and $1$, respectively, it will be very similar to calculate the respective probabilities/areas using the GeoGebra applet. The only parameters we will need to change are the $\mu$ (mean) and $\sigma$ (standard deviation) parameters to find the solution for any application type problems. </p>
+                    
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: IQ Scores</h2>
+                        <p>IQ scores are normally distributed with a mean of 100 and a standard deviation of 15. What
+                            percentage of individuals have an IQ between 85 and 115?</p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Using technology, we will want to set the Tail Type to be <strong>between</strong> and have the Input Type be <strong>Data</strong>. Then we can enter our $x_1$ and $x_2$ to be 85 and 115 respectively as wll as enter our mean ($\mu$) and standard deviation ($\sigma$) given in the problem. We get the following display:</p>
+                        <figure>
+                            <img class="img-centered" src="../images/normalApplication1.jpg"
+                                alt="Graph of a standard normal distribution with shading going from an unknown z-score to the left"
+                                aria-describedby="normalApplication1">
+                            <figcaption id="normalApplication1" class="visually-hidden">
+                                a standard normal distribution is graphed using the GeoGebra applet where the shading under the bell-curve is
+                                going from 85 to 115. The selections on the applet are as follows: Problem Type = Raw Data, Tail Type = Between, Input Type = Data. For $x_1$ the value is 85 and for $x_2$ the value is 115. The mean $\mu$ equals 100 and the standard deviation $\sigma$ equals 15. The displayed answer for the value of the probability is 0.68.
+                            </figcaption>
+                        </figure>
+                        <p>So we see that the percentage is approximately 68%.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Pregnancy Lengths</h2>
+                        <p>Pregnancy lengths are normally distributed with a mean of 268 days and a standard deviation
+                            of 15 days. Find the length corresponding to the 4th percentile.</p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Using technology we can change the Tail Type to "Left-Tail" and the Input Type to "Area/Probability". We then change our mean $\mu$ and standard deviation $\sigma$ to be 268 and 15 respectively. Then set the Area/Probability to be 0.04 since $4\%$ of the area is to the left of the value we intend to find. You will get an output screen like the following setting all of that up in the GeoGebra applet. </p>
+                        <figure>
+                            <img class="img-centered" src="../images/normalApplication2.jpg"
+                                alt="Graph of a standard normal distribution with shading going from an unknown z-score to the left"
+                                aria-describedby="normalApplication2">
+                            <figcaption id="normalApplication2" class="visually-hidden">
+                                a standard normal distribution is graphed using the GeoGebra applet where the shading under the bell-curve is
+                                going from an unknown z-score (marked as a z on the graph) shading to the left. The selections on the applet are as follows: Problem Type = Raw Data, Tail Type = Left-Tail, Input Type = Area/Probability, Area/Probability = 0.04. The mean $\mu$ equals 268 and the standard deviation $\sigma$ equals 15. The displayed answer for the value of $x$ is $241.7397$.
+                            </figcaption>
+                        </figure>
+                        <p>So we get the length of days separating the lower 4% of pregnancies from the upper 96% of pregnancies to be <strong>241.7 days</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

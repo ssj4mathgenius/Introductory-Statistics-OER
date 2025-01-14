@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Uniform Probability Distribution</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../js/loadmathjax.js"></script>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+<link rel="stylesheet" href="../css/main.min.css">
+
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row bottom-md">
+<div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+    <h1>Continuous Probability Distributions</h1>
+    <p>Continuous probability distributions describe the likelihood of a random variable taking on a value within a continuous range without gaps or interruptions. Continuous random variables have numerous applications across various fields. For example, they are used to model baseball batting averages, IQ scores, the duration of long-distance telephone calls, the lifespan of a computer chip, rates of return on investments, and SAT scores. Other examples include daily temperatures in a city, blood pressure readings, fuel efficiency of vehicles, reaction times in psychological tests, and time between arrivals of customers at a service center.</p>
+
+    <p>The field of reliability engineering relies heavily on continuous random variables to predict the longevity of products and systems, such as the time until failure of machinery or electronic components. Similarly, risk analysis across industries like finance, insurance, and environmental science depends on modeling continuous variables, such as stock market volatility, claim amounts in insurance policies, and river water levels during floods. These variables help professionals make informed decisions and manage uncertainty in real-world scenarios. This lesson focuses on two key continuous probability distributions: the uniform distribution and the normal distribution. These distributions are fundamental in statistical analysis later in the course (especially the normal distribution) so we must have a good understanding of how to work with each one.</p>
+
+    <h2>The Uniform Distribution</h2>
+    <div class="definition">
+        <h2 class="definition-header">Definition: Uniform Distribution</h2>
+        <p>A random variable has a uniform distribution if its values are spread evenly over the range of possibilities. The graph of a uniform distribution results in a rectangular (i.e. box) shape, where the total area under the curve is equal to 1.</p>
+    </div>
+
+    <p>In this lesson, we will explore how to calculate probabilities for uniform distributions. Uniform distributions are represented by a rectangular shape, where the total area under the curve equals 1 (or 100%). This establishes a direct relationship between probability and area. To find probabilities for uniform distributions, we calculate the area of the corresponding section of the rectangle, which is determined by the formula for area: length multiplied by width. Let’s apply this concept with some examples below.</p>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Voltage Levels</h2>
+        <p>Suppose a power company provides voltage levels uniformly distributed between 123.0 volts and 125.0 volts as pictured below in the image. What is the probability that a randomly selected voltage level is <b>less than 123.7 volts</b>?</p>
+        <figure>
+            <img class="img-centered" src="../images/UniformVoltage.jpg" 
+                 alt="Graph of a uniform distribution showing voltage levels from 123 to 125" 
+                 aria-describedby="uniformVoltageCaption">
+            <figcaption id="uniformVoltageCaption" class="visually-hidden">
+                Uniform distribution showing voltage levels ranging from 123 to 125 on the x-axis (horizontal axis) and the y-axis (vertical axis) ranges from 0 to 0.5.
+            </figcaption>
+        </figure>
+    </div>    
+
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <p>Since we want a voltage <b>less than 123.7 volts</b>, we can identify this region on our probability distribution and shade it as we see in the image below:</p>
+        <figure>
+            <img class="img-centered" src="../images/UniformVoltage1.jpg" 
+                 alt="Graph of a uniform distribution showing voltage levels from 123 kWh to 125 kWh with 123 to 123.7 highlighted" 
+                 aria-describedby="uniformVoltageCaption1">
+            <figcaption id="uniformVoltageCaption1" class="visually-hidden">
+                Uniform distribution showing voltage levels ranging from 123 to 125 on the x-axis (horizontal axis) and the y-axis (vertical axis) ranges from 0 to 0.5. A portion from 123 to 123.5 is shaded.
+            </figcaption>
+        </figure>
+        <p>Now all we would need to do is find the area of this shaded region. Using a length of 0.7 and a width of 0.5, we know the total area of this highlighted piece from 123 volts to 123.7 volts would be \(0.7*0.5 = 0.35\). Since the area under the entire shape is equal to 1, this tells us that the probability is approximately 0.35 or <b>35% chance to select a voltage less than 123.7 volts</b>.</p>
+    </div>
+
+    <h2>Density Curves</h2>
+    
+    <p>This previous example introduced us to a graph of a <b>density curve</b>, which you will be seeing more and more of throughout the rest of the course.</p>
+
+    <div class="definition">
+        <h2 class="definition-header">Definition: Density Curve</h2>
+        <p>A <strong>density curve</strong> (also known as a <strong>probability density function</strong> or PDF) is a graph that represents the probability distribution of a continuous random variable. It shows how probabilities are distributed over the range of possible values. Key properties of a density curve include:</p>
+        <ul>
+            <li>The total area under the curve is always 1.</li>
+            <li>Probabilities correspond to areas under the curve between two points.</li>
+            <li>The curve lies entirely above the x-axis.</li>
+        </ul>
+    </div>
+
+    <p>When the graph of a continuous probability distribution (such as the rectangular "box" in the previous example) is drawn these are what are called <strong>density curves</strong> (or probability density functions, abbreviated as PDFs). Density curves always represent probabilities as areas under the curve. The total area under the curve is always equal to 1 for any density curve (this is true for both the uniform distribution observed in this section but also for the normal distributions we will see in the next section), indicating 100% certainty over all possible outcomes. For continuous random variables, the probability of any specific value is 0 which is in contrast to discrete probability distributions seen in previous sections, as probabilities are calculated over intervals, not individual points.</p>
+        
+        <h3>Key Features of a Density Curve:</h3>
+        <ul>
+            <li>The outcomes are measured, not counted.</li>
+            <li>Probability is the area under the curve for a range of \(x\)-values.</li>
+            <li>The total area under the density curve equals 1.</li>
+            <li>\(P(c < x < d)\) represents the probability that \(x\) falls between \(c\) and \(d\).</li>
+        </ul>
+        
+        <p>Since the area under each of these density curves is equal to 1, this gives us our connection between area and probability meaning we can calculate probabilities using geometry, formulas, technology, or probability tables. Let's look at one more example of the uniform distribution before moving onto normal distributions. </p>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Class Duration</h2>
+        <p>A statistics teacher’s classes are <b>uniformly distributed</b> between 45 and 57 minutes. Find the probability that a particular class lasts between 49 and 53 minutes.</p>
+    </div>
+
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <p>Since there is no clear image drawn for this particular distribution, it is best that we ourselves make one and shade the appropriate area that we need to find in order to solve the problem. We get the following image:</p>
+        <figure>
+            <img class="img-centered" src="../images/uniformclasstimes1.png" 
+                 alt="Graph of a uniform distribution showing class times from 45 mins to 57 mins with 49 to 53 mins shaded" 
+                 aria-describedby="uniformclasstimes1">
+            <figcaption id="uniformclasstimes1" class="visually-hidden">
+                Uniform distribution showing class times ranging from 45 to 57 minutes on the x-axis (horizontal axis). The uniform distribution is drawn as a rectangular box shape ranging from 45 to 57 minutes labeled on the x-axis. The y-axis has no labeling in this image. There is shading on the region from 49 to 53 minutes indicating the area intended to be found to solve the problem.
+            </figcaption>
+        </figure>
+        <p>With drawing the figure we notice there is no y-axis. However, we do know the total area under the figure must be equal to 1 so we can set up the following relationship 
+            \[A_{\text{fullbox}}=L_{\text{fullbox}}*W_{\text{fullbox}}\] 
+            where \( A_{\text{fullbox}}\) represents the area of the uniform distribution (which we know is 1 since this is a density function), \( L_{\text{fullbox}}\) represents the length of the uniform distribution (which we see is 12 by performing the subtraction \(57-45=12\)), and \( W_{\text{fullbox}}\) represents the width of the uniform distribution. Then doing a little algebra we can solve for the width \( W_{\text{fullbox}}\) as follows
+            \[ A_{\text{fullbox}}=L_{\text{fullbox}}*W_{\text{fullbox}} \to 1 = 12*W_{\text{fullbox}}\]
+            which reduces to (after dividing by 12 on both sides)
+            \[ W_{\text{fullbox}} = \cfrac{1}{12} \approx 0.08\overline{3}\]
+        </p>
+        <p> Since we now know the width of our probability distribution, we can get a much better picture of what area we want to find with all the appropriate labeling</p>
+        <figure>
+            <img class="img-centered" src="../images/uniformclasstimes2.png" 
+                 alt="Graph of a uniform distribution showing class times from 45 mins to 57 mins with 49 ot 53 mins shaded in the middle and 0.083 labeled on the y-axis" 
+                 aria-describedby="uniformclasstimes2">
+            <figcaption id="uniformclasstimes2" class="visually-hidden">
+                Uniform distribution showing class times ranging from 45 to 57 minutes on the x-axis (horizontal axis). The uniform distribution is drawn as a rectangular box shape ranging from 45 to 57 minutes labeled on the x-axis. The y-axis has labeling from 0 to 0.083 which is the range of the drawn rectangular shape. There is shading on the region from 49 to 53 minutes indicating the area intended to be found to solve the problem.
+            </figcaption>
+        </figure>
+        <p>Now finding the solution for the problem we simply apply geometry to find the area which will be length times width. This gives us \(A=4*0.08\overline{3}\approx 0.33\overline{3}\). So the probability for a class time lasting between 49 mins and 53 mins is found to be about <b>33.3%</b>.</p>
+    </div>
+
+    <div class="caution">
+        <h2 class="caution-header">Finding the Width of Any Uniform Distribution</h2>
+        <p>Just as a helpful guideline going forward: It is always going to be the case that the width of any uniform distribution will always be 1 divided by the length of the full uniform distribution. So knowing this can be helpful going forward so no algebra is required to find this value like in the previous problem. So keep this connection in mind:
+        \[ \text{Width} = \frac{1}{\text{length of full uniform distribution}}\]    
+        </p>
+    </div>
+
+    <div class="definition">
+        <h2 class="definition-header">Definition: Descriptive Statistics for a Uniform Distribution</h2>
+        <p>A uniform distribution is a continuous probability distribution where all intervals of the same length within the range \([a, b]\) are equally probable. The descriptive statistics for a uniform distribution are as follows:</p>
+        <ul>
+            <li><strong>Mean (\(\mu\)):</strong>
+            \[
+            \mu = \frac{a + b}{2}
+            \]
+            This is the midpoint of the distribution.</li>
+            <li><strong>Standard Deviation (\(\sigma\)):</strong>
+            \[
+            \sigma = \sqrt{\frac{(b - a)^2}{12}}
+            \]
+            This measures the spread of the distribution.</li>
+        </ul>
+        <p>Here, \(a\) and \(b\) represent the minimum and maximum values (or the beginning and end points) of the uniform distribution, respectively.</p>
+    </div>
+    
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Uniform Distribution of Baseball Game Durations</h2>
+        <p>The total duration of baseball games in the major league in a typical season is uniformly distributed between 447 hours and 521 hours inclusive.</p>
+        <p>1. Find \(a\) and \(b\) and describe what they represent.</p>
+        <p>2. Find the mean and the standard deviation of this uniform distribution.</p>
+        <p>3. What is the probability that the duration of games for a team in a single season is between 480 and 500 hours?</p>
+    </div>
+    
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <p>1. The values of \(a\) and \(b\) are:</p>
+        <ul>
+            <li>\(a = 447\): The minimum total duration of games in a season.</li>
+            <li>\(b = 521\): The maximum total duration of games in a season.</li>
+        </ul>
+        <p>These represent the bounds of the uniform distribution.</p>
+    
+        <p>2. The mean and standard deviation are calculated as follows:</p>
+        <ul>
+            <li>Mean: \(\mu = \frac{a + b}{2} = \frac{447 + 521}{2} = 484\)</li>
+            <li>Standard deviation: \(\sigma = \sqrt{\frac{(b - a)^2}{12}} = \sqrt{\frac{(521 - 447)^2}{12}} = \sqrt{\frac{74^2}{12}} = \sqrt{\frac{5476}{12}} \approx 21.4\)</li>
+        </ul>
+    
+        <p>3. The probability that the total duration is between 480 and 500 hours can be found in a similar way to the previous problem since we know the width of the uniform distribution will be \(\frac{1}{74}\). This gives us
+        \[ A=L*W=(500-480)*\cfrac{1}{74} \approx 0.27 \]</p>
+        <p>So we see that the probability of games lasting between 480 hours and 500 hours for a particular team is approximately 0.27, or 27%.</p>
+    </div>
+    
+</div>
+</div>
+</main>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measures of Location</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/main.min.css">
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>Measures of Location</h1>
+                    <p>Understanding the position of data values relative to others in a dataset helps us interpret and
+                        compare data effectively. This lesson covers four key concepts: z-scores, percentiles,
+                        quartiles, and box plots. These tools allow us to analyze individual data points in context and
+                        summarize datasets visually.</p>
+                    <h2>Z-Scores</h2>
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Z-Score</h2>
+                        <p>A z-score measures how many standard deviations a sample data value is from the mean of the
+                            dataset.
+                            It is calculated using the formula:</p>
+                        <p>\[
+                            z = \frac{x - \bar{x}}{s}
+                            \]</p>
+                        <p>where \( x \) is the data value, \( \bar{x} \) is the sample mean, and \( s \) is the sample
+                            standard
+                            deviation.</p>
+                    </div>
+
+                    <h3>Important Properties of Z-Scores</h3>
+                    <ul>
+                        <li>A z-score is the number of standard deviations that a given value \( x \) is above or below
+                            the mean.</li>
+                        <li>Z-scores are expressed as numbers with no units of measurement.</li>
+                        <li>Data values are considered significantly low if their z-score is \( \leq -2 \) and
+                            significantly high if their z-score is \( \geq 2 \).</li>
+                        <li>Values <strong>less than</strong> than the mean will have a negative z-score and values
+                            <strong>greater than</strong> the mean will have a positive z-score.</li>
+                    </ul>
+
+                    <p><strong>Round-Off Rule for Z-Scores:</strong> Typically we round z-scores to two decimal places.
+                    </p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Calculating a Z-Score
+                        </h2>
+                        <p>Suppose the mean test score in a class is 70 with a standard deviation of 10. A student
+                            scored 85. Calculate the z-score for this student.</p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>\[
+                            z = \frac{85 - 70}{10} = 1.5
+                            \]</p>
+                        <p>This means the student scored 1.5 standard deviations above the mean.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Comparing Exam Scores
+                            from Different Classes</h2>
+                        <p>Student A scored 90 on an exam with a mean of 85 and a standard deviation of 5. Student B
+                            scored 78 on an exam with a mean of 70 and a standard deviation of 4. Which student
+                            performed better relative to their class?</p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>For Student A:</p>
+                        <p>\[
+                            z = \frac{90 - 85}{5} = 1.00
+                            \]</p>
+                        <p>For Student B:</p>
+                        <p>\[
+                            z = \frac{78 - 70}{4} = 2.00
+                            \]</p>
+                        <p>Interpretation: Student B performed better relative to their class, as their z-score is
+                            higher.</p>
+                    </div>
+
+                    <h2>Percentiles</h2>
+                    <p>Percentiles are an essential tool in statistical analysis, used to divide data into groups with equal proportions of values. They help in understanding the distribution and significance of data points, which is crucial not only for everyday data interpretation but also for advanced statistical methods like resampling.</p>
+   
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Percentile</h2>
+                        <p>A percentile indicates the percentage of data values below a particular value in a dataset. For example, the 90th percentile means 90% of the data values are below the given value. We can find the percentile of a data value \( x \) using the following formula:
+                            \[ \text{Percentile of value }x=\frac{\text{number of values less than}\, x}{n}*100\]
+                            Often a percentile is represented as \( P_k \) where \( k \) is the percentile. So the 90th percentile would be \(P_{90}\).</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Finding a Percentile
+                        </h2>
+                        <p>The following data represents the daily number of customers visiting a coffee shop over the course of 10 days: 35, 10, 45, 5, 30, 25, 15, 50, 20, 40. What is \(P_{40} \) for this dataset or the 40th percentile?</p>
+                        <pre id="percentileData" style="display:none;">5, 10, 15, 20, 25, 30, 35, 40, 45, 50</pre>
+        <button onclick="copyToClipboard('percentileData')">Copy Data to Clipboard</button>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>We first need to make sure we order the dataset. We can use technology to order the data for later datasets. We get 5, 10, 15, 20, 25, 30, 35, 40, 45, 50. Then we perform the calculation, the 40th percentile lies at the 4th value (calculated as \( 0.4 \times
+                            10 = 4 \)). Thus, the 40th percentile is 20.</p>
+                    </div>
+
+                    <h2>Quartiles</h2>
+                    <p>Quartiles divide data into four equal groups, with approximately 25% of the data in each group. These are key measures of location that help in understanding the distribution of a dataset. Just as there are 99 percentiles dividing data into 100 groups, there are three quartiles dividing data into four groups.</p>
+   
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Quartiles</h2>
+                        <p>Quartiles are denoted as Q<sub>1</sub>, Q<sub>2</sub>, and Q<sub>3</sub>:</p>
+                        <ul>
+                            <li>Q<sub>1</sub> (First Quartile): The same as the 25th percentile, separating the lowest 25% of values from the rest.</li>
+                            <li>Q<sub>2</sub> (Second Quartile): The same as the median or 50th percentile, dividing the dataset into two equal halves.</li>
+                            <li>Q<sub>3</sub> (Third Quartile): The same as the 75th percentile, marking the cutoff for the top 25% of values.</li>
+                        </ul>                     
+                    </div>
+                    <p>Finding quartile values follows the same procedure as finding percentiles. For example, if the 25th percentile is calculated to be 25 minutes, Q1 is also 25 minutes.</p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Calculating Quartiles</h2>
+                        <p>The following dataset represents the daily high temperatures (in Fahrenheit) recorded over a 20-day period in a city: 72, 85, 88, 90, 78, 84, 82, 76, 79, 91, 87, 83, 89, 86, 80, 92, 77, 81, 75, 88. Find Q<sub>1</sub>, Q<sub>2</sub>, and Q<sub>3</sub> for this temperature data.</p>
+                        <pre id="temperatureData" style="display:none;">72, 85, 88, 90, 78, 84, 82, 76, 79, 91, 87, 83, 89, 86, 80, 92, 77, 81, 75, 88</pre>
+                        <button onclick="copyToClipboard('temperatureData')">Copy Data to Clipboard</button>
+                    </div>
+                
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>First, we will order the data: 72, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 88, 89, 90, 91, 92. For larger datasets, it is preferred that technology is used to calculate these quartiles. Using technology we get the following:</p>
+                        <p>Q<sub>1</sub> (First Quartile) = 78.5.</p>
+                        <p>Q<sub>2</sub> (Second Quartile) = 83.5 which is the median of the dataset.</p>
+                        <p>Q<sub>3</sub> (Third Quartile) = 88.</p>
+                        <p>Thus, Q1 = 78.5, Q2 = 83.5, and Q3 = 88.</p>
+                    </div>
+
+                    <h2>Box Plots</h2>
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Box Plot</h2>
+                        <p>A box plot is a visual representation of the five-number summary: minimum, Q1, median (Q2),
+                            Q3, and maximum. It helps identify the spread and potential outliers in the dataset.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Box Plot from Speed Dating Study</h2>
+                        <p>In a study of speed dating conducted at Columbia University, female subjects rated the attractiveness of their male dates on a scale from 1 (not attractive) to 10 (extremely attractive). The following data represents a sample of the results: 
+                            \[ 2.0, 3.0, 4.0, 5.0, 6.0, 6.0, 7.0, 7.0, 7.0, 7.0, 7.0, 7.0, 8.0, 8.0, 8.0, 8.0, 9.0, 9.5, 10.0, 10.0. \]
+                            Use this data to find the five-number summary and construct a box plot.</p>
+                        <pre id="speedDatingData" style="display:none;">2.0, 3.0, 4.0, 5.0, 6.0, 6.0, 7.0, 7.0, 7.0, 7.0, 7.0, 7.0, 8.0, 8.0, 8.0, 8.0, 9.0, 9.5, 10.0, 10.0</pre>
+                        <button onclick="copyToClipboard('speedDatingData')">Copy Data to Clipboard</button>
+                    </div>
+                
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>We will be calculating the five-number summary using technology. We get the following results:</p>
+                        <ul>
+                            <li>Minimum: 2.0</li>
+                            <li>Q<sub>1</sub> (First Quartile) = 6.0</li>
+                            <li>Q<sub>2</sub> (Second Quartile) or Median = 7.0</li>
+                            <li>Q<sub>3</sub> (Third Quartile) = 8.0</li>
+                            <li>Maximum: 10.0</li>
+                        </ul>
+                        <p>Thus, the five-number summary is: Minimum = 2.0, Q<sub>1</sub> = 6.0, Median = 7.0, Q<sub>3</sub> = 8.0, Maximum = 10.0. A box plot can be constructed using these values.</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+</body>
+
+</html>

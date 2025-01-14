@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Data and Levels of Measurement</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
+
+    <!-- Bootstrap CDN CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Course Styles -->
+    <link rel="stylesheet" href="../css/main.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>Types of Data and Ways of Sampling</h1>
+                    <p>Understanding data begins with recognizing its classification and the processes used to collect
+                        it. Data can broadly be categorized into two classifications with each providing a unique
+                        insight into a population or sample allowing for a more targeted analysis of particular aspects.
+                        When collecting data it is important to implement an appropriate sampling method so that the
+                        data can be used to learn something about the population that it originated. This section will
+                        detail data types as well as the common sampling methods used to collect that data.</p>
+
+                    <h2>Data Classification</h2>
+                    <p>Data originates from either a population or a sample and can be classified into two main
+                        categories: <strong>Qualitative Data</strong> and <strong>Quantitative Data</strong>.</p>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Qualitative Data</h2>
+                        <p>Qualitative data (or categorical data) categorizes or describes attributes of a population,
+                            often using words or letters. Examples include hair color (e.g., black, brown), blood type
+                            (e.g., AB+, O-), or car types(e.g., Toyota, Explorer, Jeep). This type of data is not
+                            generally suited for mathematical analysis meaning that averages or standard deviations are
+                            not meaningful (e.g. you wouldn't be able to average hair colors).</p>
+                    </div>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Quantitative Data</h2>
+                        <p>Quantitative data represents numerical values obtained by counting or measuring attributes.
+                            Examples include weight, pulse rate, the number of people/objects, etc. Quantitative data is
+                            further divided into two subcategories:</p>
+                        <ul>
+                            <li><b>Discrete data</b> results when the number of possible values is either a finite
+                                number or a “countable” number (i.e. the number of possible values is 0, 1, 2, 3, . . .
+                                ). Examples might include number of phone calls: 0 calls, 1 call, 2 calls, etc.</li>
+                            <li><b>Continuous data</b> results from infinitely many possible values that correspond to
+                                some continuous scale that covers a range of values without gaps, interruptions, or
+                                jumps. This includes almost any measurement of distance, time, volume, temperature,
+                                mass, or combination of any of these. For example, weights like 2.4 grams and 7.5 pounds
+                                would be continuous data since the scale they originate from has infinite divisions
+                                (i.e. you could get the measurement as precise as possible). </li>
+                        </ul>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example 1: Discrete vs Continuous Data </h2>
+                        <p>Determine the correct data type (quantitative or qualitative). For data that is quantitative,
+                            indicate whether it is continuous or discrete. Hint: Data that are discrete often start with
+                            the words "the number of."</p>
+                        <ol type="a">
+                            <li>The number of pairs of shoes you own</li>
+                            <li>The type of car you drive</li>
+                            <li>The distance from your home to the nearest grocery store</li>
+                            <li>The number of classes you take per school year</li>
+                            <li>The type of calculator you use</li>
+                            <li>Weights of dogs at an animal shelter</li>
+                            <li>Number of correct answers on a quiz</li>
+                            <li>Amount of money you spend at the local Quickmart</li>
+                        </ol>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution: Discrete vs Continuous Data</h2>
+                        <ol type="a">
+                            <li>The number of pairs of shoes you own: Discrete Quantitative</li>
+                            <li>The type of car you drive: Qualitative</li>
+                            <li>The distance from your home to the nearest grocery store: Continuous Quantitative</li>
+                            <li>The number of classes you take per school year: Discrete Quantitative</li>
+                            <li>The type of calculator you use: Qualitative</li>
+                            <li>Weights of dogs at an animal shelter: Continuous Quantitative</li>
+                            <li>Number of correct answers on a quiz: Discrete Quantitative</li>
+                            <li>Money amounts: Discrete Quantitative (even though it can be a decimal, you can't break
+                                down money past cents so money doesn't use a continuous scale of measurement)</li>
+                        </ol>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example 2: Type of Data from an Image</h2>
+                        <p>The registrar at State University keeps records of the number of credit hours students
+                            complete each semester. The data collected are summarized in the histogram. The class
+                            boundaries are 10 to less than 13, 13 to less than 16, 16 to less than 19, 19 to less than
+                            22, and 22 to less than 25.</p>
+                        <img src="../images/StudentCreditHours.jpg"
+                            alt="Histogram showing 5 classes arranged in a pattern that looks like a normal distribution. The vertical axis is Number of Students. The height of the 5 bars from left to right are approximately 250, 580, 740, 625, and 240 students. The horizontal axis is credit hours completed matching the problem description.">
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution: Type of Data from an Image</h2>
+                        Since students would be countable (i.e. 0 students, 1 student, 2 students, etc.) this graph
+                        depicts data that is <b>Discrete Quantitative</b>.
+                    </div>
+
+                    <h2>Levels of Measurement</h2>
+                    <p>Statistics involves understanding, analyzing, and interpreting data, and a key component is determining the "level of measurement" of data. Levels of measurement are important because they determine the types of statistical analyses that can be performed and ensure proper interpretation of data. There are four levels of measurement: nominal, ordinal, interval, and ratio. Each builds upon the previous level, providing more information about the data.</p>
+
+                    <div class="definition">
+                      <h2 class="definition-header">Different Levels of Measurement</h2>
+                      <p><b>Nominal Level:</b> Data at this level are categorized without any order. For example, trying to classify people according to their favorite food does not make any sense: putting pizza first and sushi second is not meaningful. Examples might include anything that is qualitative data where there is no inherent order that can be prescribed: gender, eye color, types of fruits, etc.</p>
+                      <p><b>Ordinal Level:</b> Data are categorized with a meaningful order, but differences between categories are not measurable. Examples include rankings in a competition or survey responses such as "satisfied," "neutral," or "dissatisfied."</p>
+                      <p><b>Interval Level:</b> Data have meaningful order, measurable differences, but no true zero point. Examples include temperature in Celsius or years on a calendar. Interval level data can be used in calculations, but since there is no true zero point it isn't meaningful to make a ratio. For example: 6 PM isn't twice as big as 3 PM despite there being three hours between the two times of day.</p>
+                      <p><b>Ratio Level:</b> Data have a meaningful order, measurable differences, and a true zero point, allowing for meaningful ratios. Examples include weight, height, or age.</p>
+                    </div>
+                    
+                    <div class="example">
+                      <h2 class="example-header">Example Problem</h2>
+                      <p>Classify the following scenarios by their level of measurement:</p>
+                      <ol type="a">
+                        <li>Types of cars (e.g., SUV, sedan, truck).</li>
+                        <li>The ranking of runners in a race.</li>
+                        <li>Temperature readings in Fahrenheit.</li>
+                        <li>The time it takes for participants to complete a task, measured in seconds.</li>
+                      </ol>
+                    </div>
+                    
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <ol type="a">
+                          <li><b>Nominal:</b> Types of cars are categorized without order.</li>
+                          <li><b>Ordinal:</b> Rankings in a race indicate an order but do not provide measurable differences between positions.</li>
+                          <li><b>Interval:</b> Fahrenheit temperatures provide measurable differences but lack a true zero.</li>
+                          <li><b>Ratio:</b> Time in seconds includes meaningful differences and a true zero, allowing for ratios.</li>
+                        </ol>
+                      </div>
+
+                    <h2>Sampling Techniques</h2>
+                    <p>Sampling is used when gathering data from an entire population is impractical or too expensive. A
+                        sample should represent the population's characteristics, and random sampling methods help
+                        achieve this. Common random sampling techniques include:</p>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Definition: Sampling Techniques</h2>
+                        <p><b>Simple Random Sampling:</b> Every individual in the population has an equal chance of
+                            being selected, ensuring that all samples of the same size are equally likely.</p>
+                        <p><b>Stratified Sampling:</b> Divide the population into groups (strata) and take a
+                            proportionate random sample from each group. For instance, sample students from various
+                            departments to represent a college population.</p>
+                        <p><b>Cluster Sampling:</b> Divide the population into clusters, then randomly select some
+                            clusters and include all members from those clusters in the sample. For example, randomly
+                            select departments in a college and survey all their students.</p>
+                        <p><b>Systematic Sampling:</b> Randomly select a starting point and pick every nth member from a
+                            population list. For example, choose every 50th name in a phone book for a survey.</p>
+                    </div>
+
+                    <p>Non-random sampling, such as convenience sampling, selects readily available participants, which
+                        can lead to biased results. An example of convenience sampling might be selecting the first 20
+                        customers entering a coffee shop: this sample is not random and will likely be biased in some
+                        way. Sampling errors (e.g., small sample sizes) and nonsampling errors (e.g., data entry
+                        mistakes) can also affect results. Larger samples tend to reduce sampling error, but sampling
+                        bias occurs if some members have unequal chances of selection.</p>
+
+                    <p>Critical evaluation of studies is essential. Issues to consider include representativeness,
+                        sample size, undue influence, causality, and potential confounding factors.</p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example 3: Identify Sampling Techniques</h2>
+                        <p>A study intends to determine the average tuition paid by Tennessee Technological University undergraduate
+                            students per semester. Identify the sampling method used in each scenario:</p>
+                        <ol type="a">
+                            <li>Organize students by year (e.g., first-year, sophomore), then select 25 from each.</li>
+                            <li>Use a random number generator to select one student, then pick every 50th student until
+                                75 students are included.</li>
+                            <li>Select 75 students completely at random, with equal probability for all.</li>
+                            <li>Randomly pick two years (e.g., first-year and senior), and survey all students in those
+                                years.</li>
+                            <li>Survey the first 100 students encountered in front of the library on a specific day.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution: Identify Sampling Techniques</h2>
+                        <ol type="a">
+                            <li><b>Stratified Sampling:</b> Students are grouped by year and sampled proportionally.
+                            </li>
+                            <li><b>Systematic Sampling:</b> A starting point is randomly selected, and every 50th
+                                student is chosen.</li>
+                            <li><b>Simple Random Sampling:</b> All students have an equal probability of selection.</li>
+                            <li><b>Cluster Sampling:</b> Entire years are selected, and all students in those years are
+                                included.</li>
+                            <li><b>Convenience Sampling:</b> Students are chosen based on availability, leading to
+                                potential bias.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+</body>
+
+</html>

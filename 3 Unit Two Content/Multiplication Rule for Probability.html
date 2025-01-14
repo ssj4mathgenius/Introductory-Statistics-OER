@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability of AND Problems</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/main.min.css">
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h2>Multiplication Rule for Probability</h2>
+                    <p>
+                        The multiplication rule is used to find \(P(A \text{ and } B)\), the probability that event
+                        \(A\) occurs in one trial and event \(B\) occurs in the next trial. To build towards a formula
+                        and (more importantly) an intuitive way to approach these problems, we will look at a couple of
+                        examples.
+                    </p>
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Probability of Correct Answers</h2>
+                        <p>
+                            There are two problems on a quiz. The first problem is a True or False question, and the
+                            second question is a multiple-choice question with five possible answers (\(a, b, c, d,
+                            e\)).
+                            Find the probability that if someone makes random guesses for both answers, the first answer
+                            will be correct <strong>AND</strong> the second answer will be correct.
+                        </p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+
+                        <h3>Solution (Listing the Sample Space):</h3>
+                        <p>
+                            List out all the possible outcomes for the procedure of “answering a True/False question”
+                            and then “answering a multiple-choice question.” The total sample space consists of all
+                            combinations of a correct or incorrect answer for the True/False question and each option of
+                            the multiple-choice question.
+                        </p>
+                        <p class="p-centered">
+                            <b>Sample space:</b> {T-a, T-b, T-c, T-d, T-e, F-a, F-b, F-c, F-d, F-e}
+                        </p>
+                        <p>
+                            To calculate \( P(\text{both questions correct}) \), count the number of outcomes where the
+                            True/False question is correct (T) and the multiple-choice question is correct (e.g.,
+                            choosing the correct option out of \(a, b, c, d, e\)). Since there is only one of the 10
+                            different options that has <b>both questions correct</b>, we get the answer of
+
+                            \[P(\text{both questions correct}) = \frac{1}{10} = 0.1 = 10\% \]
+                        </p>
+
+                        <h3>Solution (Using Multiplication):</h3>
+                        <p>
+                            Alternatively, we calculate \(P(\text{both questions correct})\) by finding the probability
+                            that the True/False question is correct and multiplying it by the probability that the
+                            multiple-choice question is correct:
+
+                            \[ P(\text{both questions correct}) = P(\text{T/F correct AND multiple-choice correct}) \]
+                            Which leads to the following since these two events are <b>independent</b>
+
+                            \[ P(\text{T/F correct AND multiple-choice correct}) = P(\text{T/F correct}) \cdot
+                            P(\text{multiple-choice correct}) \]
+
+                            Now we just need the probability of each event first then we can perform the multiplication. For each event we see that
+
+                            \[P(\text{T/F correct}) = \frac{1}{2} \]
+                            </p>
+                            <p>(since there are 2 options: True or False, and 1 is correct) and </p>
+
+                            <p>\[ P(\text{multiple-choice correct}) = \frac{1}{5}\]
+                                (since there are 5 choices, and 1 is correct).</p>
+                            <p>Once we do the multiplication we see we get the same result as when we listed out the entire
+                            sample space.
+                            \[ P(\text{both questions correct}) = \frac{1}{2} \cdot \frac{1}{5} = \frac{1}{10} \]
+                            While the sample space for this particular problem wasn't difficult to list (there were only
+                            10 options), it will be more beneficial moving forward to try to implement this
+                            multiplication method presented here for finding probabilities of <b>"AND"</b> scenarios
+                            where there are multiple trials since listing the sample space can be very tedious for many
+                            problems.
+                        </p>
+                    </div>
+                    <p>
+                        So it does seem that when we are working with probabilities involving the word <b>"AND"</b> that
+                        we can just multiply the probabilities of each individual event. So we get
+                        \[
+                        P(A \text{ and } B) = P(A) \cdot P(B).
+                        \]
+                        However, before accepting this as our final formula, we need to observe another type of problem...
+                    </p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Probability with Blood
+                            Types</h2>
+                        <p>
+                            The data in the following table summarizes blood groups and Rh types for 100 typical people.
+                            If two people are randomly selected <strong>without replacement</strong>, find the
+                            probability that the first selected person has type O blood and the second selected person
+                            has type A blood.
+                        </p>
+                        <table aria-describedby="tableDescription">
+                            <caption>Blood Group and Rh Type Summary</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">O</th>
+                                    <th scope="col">A</th>
+                                    <th scope="col">B</th>
+                                    <th scope="col">AB</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Rh+</th>
+                                    <td>30</td>
+                                    <td>35</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Rh-</th>
+                                    <td>6</td>
+                                    <td>8</td>
+                                    <td>4</td>
+                                    <td>2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="tableDescription" class="visually-hidden">
+                            This table shows the distribution of blood groups (O, A, B, AB) and Rh factors (Rh+ and Rh-)
+                            among 100 people. The counts indicate how many people fall into each category.
+                        </p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            To solve this problem, calculate the probability that the first selected person has type O
+                            blood and the second selected person has type A blood. Since the selection is
+                            <strong>without replacement</strong>, the probabilities must account for the reduced total
+                            number of people after the first selection.
+                        </p>
+                        <p>
+                            Step 1: Calculate \(P(\text{1st person has type O})\):<br>
+                            There are \(30 + 6 = 36\) people with type O blood out of 100 total people.<br>
+                            \[
+                            P(\text{1st person has type O}) = \frac{36}{100}
+                            \]
+                        </p>
+                        <p>
+                            Step 2: Calculate \(P(\text{2nd person has type A})\):<br>
+                            After one person with type O is selected, there are \(100 - 1 = 99\) people remaining. The
+                            number of people with type A blood is \(35 + 8 = 43\).<br>
+                            \[
+                            P(\text{2nd person has type A}) = \frac{43}{99}
+                            \]
+                        </p>
+                        <p>
+                            Step 3: Multiply the probabilities:<br>
+                            Now we will use multiplication to find the solution for this problem:
+                            \[
+                            P(\text{1st person type O and 2nd person type A}) = P(\text{1st person has type O}) \cdot
+                            P(\text{2nd person has type A})
+                            \]
+                            \[
+                            P = \frac{36}{100} \cdot \frac{43}{99} = \frac{1548}{9900} \approx 0.1564
+                            \]
+                        </p>
+                        <p>
+                            Therefore, the probability that the first selected person has type O blood and the second
+                            has type A blood is approximately <b>0.1564</b>.
+                        </p>
+                    </div>
+
+                    <p>This last problem had one aspect in it that wasn't present in the problem with the two quiz
+                        questions: when we calculated the probability of the second event, we had to <b>adjust the
+                            total</b> for the second event based on the fact that we already made a selection. When this
+                        happens, these events are said to be <b>dependent</b> since the probability of the subsequent
+                        events will be adjusted based on the previous selections/outcomes. The finally leads us to the
+                        official "Multiplication Rule" for dealing with these "AND" probability problems.</p>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Notation for Multiplication Rule</h2>
+                        <p>
+                            The multiplication rule calculates the probability that event \(A\) occurs in a first trial
+                            and event \(B\) occurs in a second trial. The formula for this is:
+                            \[
+                            P(A \text{ and } B) = P(A) \cdot P(B | A)
+                            \]
+                            Here, \(P(B | A)\) represents the probability of event \(B\) occurring after event \(A\) has
+                            already occurred. This is called <b>conditional probability</b>.
+                        </p>
+                        <p>In the case that \(A\) and \(B\) are independent events, the formula breaks down to be simpler: 
+                            \[
+                            P(A \text{ and } B) = P(A) \cdot P(B)
+                            \]
+                        </p>
+                    </div>
+
+                    <div class="caution">
+                        <h3 class="caution-header">Caution</h3>
+                        <p>
+                            The notation \(P(A \text{ and } B)\) has two meanings depending on the context:
+                        </p>
+                        <ul>
+                            <li>
+                                For the multiplication rule, it denotes event \(A\) occurring in one trial and event
+                                \(B\) in another trial.
+                            </li>
+                            <li>
+                                For the addition rule, it refers to events \(A\) and \(B\) occurring in the same trial.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>The formula is good to acknowledge, but it is far better to focus on the intuitive idea behind the multiplication rule which is summed up below: </p>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Intuitive Multiplication Rule</h2>
+                        <p>
+                            To find the probability that event \(A\) occurs in one trial and event \(B\) occurs in
+                            another trial, multiply the probability of \(A\) by the probability of \(B\), ensuring that
+                            \(P(B)\) takes into consideration the previous occurrence of event \(A\).
+                        </p>
+                    </div>
+
+                    <div class="definition">
+                        <h2 class="definition-header">Independence and the Multiplication Rule</h2>
+                        <p>
+                            When using the multiplication rule, it’s important to consider whether events \(A\) and
+                            \(B\) are independent:
+                        </p>
+                        <ul>
+                            <li>
+                                Events \(A\) and \(B\) are <strong>independent</strong> if the occurrence of one does
+                                not affect the probability of the other. This would be similar to making selections <b>with replacement</b> when sampling.
+                            </li>
+                            <li>
+                                Events \(A\) and \(B\) are <strong>dependent</strong> if the occurrence of one affects
+                                the probability of the other. This would be equivalent to making selections <b>without replacement</b> when sampling.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Probability of Both
+                            Events</h2>
+                        <p>Suppose the probability of a flashlight not working is 0.1 and a homeowner
+                            has two flashlights. Find the probability that neither works during a power failure.</p>
+                    </div>
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            The events are independent because the functionality of one flashlight does not affect the
+                            other. This means when we multiply our probabilities we will not have to adjust the second probability to reflect the outcome of the first event. This gives us the following:
+                        </p>
+                        <p>
+                            \[
+                            P(\text{none work}) = P(\text{first light doesn't work AND second light doesn't work})\]
+                            \[\quad\quad\quad = P(\text{first fails}) \cdot P(\text{second fails}) = 0.1 \cdot 0.1 =
+                            0.01 = 1\%.
+                            \]
+                            So there is a 1\% chance that both lights fail during a power outage.
+                        </p>
+                    </div>
+
+                    <p><b>Note:</b> In this problem, we saw that the \(P(\text{none work}) = 1\%\). This means that there is a 99% chance she will have <b>at least one</b> working light should there be a power outage. We will explore the idea of finding the probability of <b>at least one</b> in a following section, but definitely note the connection for the time being.</p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Without Replacement
+                        </h2>
+                        <p>The Telektronics Company manufactured 400 backup power supply units, 8
+                            of which are defective. If two units are selected without replacement, find the probability
+                            both
+                            are good.</p>
+                    </div>
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            Since there are 400 units with 8 being bad, we know that there are 392 units that are good to choose from. Then, for the first unit, the probability of being good is \(\dfrac{392}{400}\). If the first unit
+                            is good, the probability the second is good is \(\dfrac{391}{399}\). Notice we subtracted 1 from both the numerator and denominator.</p> <ul>
+                                <li>We subtracted 1 from the numerator since there is one less good one to choose from because of the first selection of a good one in the first trial.</li>
+                                <li>We subtracted 1 from the denominator since there is one less total to choose since we selected a unit in the first trial.</li>
+                            </ul> <p> Thus we calculate the probability of getting two good ones by multiplying the two probabilities:
+                        </p>
+                        <p>
+                            \[
+                            P(\text{both good}) = \dfrac{392}{400} \cdot \dfrac{391}{399}.
+                            \]
+                        </p>
+
+                    </div>
+
+                    <h2>Application of the 5% Guideline</h2>
+                    <p>
+                        Some calculations are cumbersome (imagine doing the previous problem selecting <strong>10 units</strong>), but they can be made manageable by using the common practice of treating events as <strong>independent</strong> when <strong>small samples</strong> are drawn from large populations. In such cases, it is rare to select the same item twice. To verify if you can do this method, check if the sample size is no more than <strong>5%</strong> of the size of the population. If you find the sample size is less than 5%, you can treat the selections as being <strong>independent</strong> (i.e., with replacement). Why do we do this? It makes calculations much simpler when events are independent. See the next example:
+                    </p>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Using the 5% Guideline
+                        </h2>
+                        <p>A factory produces 10,000 light bulbs daily, 500 of which are defective. If a quality
+                            inspector randomly selects 20 bulbs for inspection, what is the probability that all 20
+                            bulbs are good, assuming the 5% guideline (small samples from large populations allow events
+                            to be treated as independent)?</p>
+                    </div>
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>
+                            The probability of selecting a good bulb on the first draw is \(P(\text{1st good}) =
+                            \dfrac{9500}{10000}\). If we continued in this manner, we would get \(P(\text{2nd good}) =
+                            \dfrac{9499}{9999}\) and \(P(\text{3rd good}) =
+                            \dfrac{9498}{9998}\) and so on. This would be a very messy calculation so is there a better way? Let's examine if the sample size meets the "less than 5% the size of the population" so we can use the guideline above. We see that 
+                            \[ \dfrac{20}{10000}=0.002=0.2\% \] 
+                            Since we see that the sample size is small (20) relative to the population size
+                            (10,000), the 5% guideline allows us to treat these draws as independent. That means that when we make a selection, we will be treating this as <b>"with replacement"</b> so that we do not have to adjust the probabilities. Thus:
+                        </p>
+                        <p>
+                            \[
+                            P(\text{all 20 good}) = \dfrac{9500}{10000}\cdot\dfrac{9500}{10000}\cdot\dfrac{9500}{10000}\cdots\]
+                            \[ \quad \quad =\left(\dfrac{9500}{10000}\right)^{20}.
+                            \]
+                        </p>
+                        <p>Using technology, this probability is approximately 0.3585.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
