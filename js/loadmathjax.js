@@ -309,36 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
     MathJax.typesetPromise();
 });
 
-fetch('/data/pages.json')
-    .then(response => response.json())
-    .then(data => {
-        // Flatten the JSON into a list of full paths
-        const pages = flattenPages(data);
-
-        // Decode the current path to match the list of pages
-        const currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, '')); // Remove leading slash
-        const currentIndex = pages.indexOf(currentPath);
-
-        // Create "Previous Page" link if applicable
-        if (currentIndex > 0) {
-            const previousPage = pages[currentIndex - 1];
-            const previousLink = document.createElement('a');
-            previousLink.href = `/${encodeURIComponent(previousPage)}`; // Encode the URL
-            previousLink.textContent = 'Previous Page';
-            document.body.appendChild(previousLink);
-        }
-
-        // Create "Next Page" link if applicable
-        if (currentIndex >= 0 && currentIndex < pages.length - 1) {
-            const nextPage = pages[currentIndex + 1];
-            const nextLink = document.createElement('a');
-            nextLink.href = `/${encodeURIComponent(nextPage)}`; // Encode the URL
-            nextLink.textContent = 'Next Page';
-            document.body.appendChild(nextLink);
-        }
-    })
-    .catch(err => console.error('Error fetching or parsing JSON:', err));
-
     previousLink.classList.add('navigation-link', 'previous');
 nextLink.classList.add('navigation-link', 'next');
 

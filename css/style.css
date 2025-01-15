@@ -347,3 +347,8 @@ td {
 .navigation-link.next {
     float: right;
 }
+
+.navigation-link:hover {
+    text-decoration: underline;
+    color: darkblue;
+}

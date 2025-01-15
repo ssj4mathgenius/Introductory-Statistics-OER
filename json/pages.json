@@ -1,0 +1,34 @@
+{
+  "0 Home": [
+        "index.html"
+    ],
+    "1 Start Here": [
+      "1 Start Here/Content_Page_Template.html",
+      "1 Start Here/Objectives.html"
+    ],
+    "2 Unit One Content": [
+      "2 Unit One Content/Data Levels of Measurement and Sampling.html",
+      "2 Unit One Content/Introductory Terms and Concepts for Statistics.html",
+      "2 Unit One Content/Measures of Center.html",
+      "2 Unit One Content/Measures of Location.html",
+      "2 Unit One Content/Measures of Variation.html"
+    ],
+    "3 Unit Two Content": [
+      "3 Unit Two Content/Addition Rule for Probability.html",
+      "3 Unit Two Content/Binomial Probability Distributions.html",
+      "3 Unit Two Content/Conditional Probability and At Least One.html",
+      "3 Unit Two Content/Introduction to Probability Distributions.html",
+      "3 Unit Two Content/Introduction to Probability Theory.html",
+      "3 Unit Two Content/Multiplication Rule for Probability.html",
+      "3 Unit Two Content/Normal Probability Distributions.html",
+      "3 Unit Two Content/Uniform Probability Distributions.html"
+    ],
+    "4 Unit Three Content": [
+      "4 Unit Three Content/Estimating a Population Mean.html",
+      "4 Unit Three Content/Estimating Population Proportions.html",
+      "4 Unit Three Content/Hypothesis Testing for Population Means and Population Proportions.html",
+      "4 Unit Three Content/Introduction to Hypothesis Testing.html"
+    ],
+    "5 Final Exam": []
+  }
+  
