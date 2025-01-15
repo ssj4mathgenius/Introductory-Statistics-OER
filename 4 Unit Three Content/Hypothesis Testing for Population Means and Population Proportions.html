@@ -88,7 +88,8 @@
             ,,,,0.887,
             ,,,,0.886,
         </pre>
-        <button aria-describedby="mmTableDescription" onclick="generateTable('../datasets/mm_data.csv', 'Table: M&M Data')">View M&M Data</button>
+<div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
+<button aria-describedby="mmTableDescription" onclick="generateTableFromPre('mmData', 'Table: M&M Data')">View M&M Data</button>
         <p id="mmTableDescription" class="visually-hidden">This button loads the M&M color dataset in a scrollable table on this page.</p>
         <a href="../datasets/mm_data.csv" download>Download M&M Data</a>
     </div>

@@ -94,6 +94,58 @@ function toggleTable() {
     }
 }
 
+function generateTableFromPre(preId, captionText) {
+    const tableContainer = document.getElementById('tableContainer');
+    tableContainer.innerHTML = ''; // Clear previous content
+
+    try {
+        const preElement = document.getElementById(preId);
+        const csvText = preElement.textContent.trim();
+
+        const rows = csvText.split('\n').filter(row => row.trim() !== '');
+        const headers = rows[0].split(',');
+        const data = rows.slice(1);
+
+        const table = document.createElement('table');
+
+        // Add caption
+        const caption = document.createElement('caption');
+        caption.textContent = captionText || 'Generated Table';
+        table.appendChild(caption);
+
+        // Add headers
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        headers.forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Add data rows
+        const tbody = document.createElement('tbody');
+        data.forEach(row => {
+            const dataRow = document.createElement('tr');
+            row.split(',').forEach(cell => {
+                const td = document.createElement('td');
+                td.textContent = cell || ''; // Fill empty cells with blank content
+                dataRow.appendChild(td);
+            });
+            tbody.appendChild(dataRow);
+        });
+        table.appendChild(tbody);
+
+        tableContainer.appendChild(table);
+        tableContainer.style.display = 'block'; // Show the container
+    } catch (error) {
+        tableContainer.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        tableContainer.style.display = 'block';
+    }
+}
+
+
 async function generateTable(csvUrl, captionText) {
     const tableContainer = document.getElementById('tableContainer');
     tableContainer.innerHTML = ''; // Clear any previous content
@@ -256,3 +308,37 @@ document.addEventListener("DOMContentLoaded", () => {
     // Trigger MathJax typesetting
     MathJax.typesetPromise();
 });
+
+fetch('/data/pages.json')
+    .then(response => response.json())
+    .then(data => {
+        // Flatten the JSON into a list of full paths
+        const pages = flattenPages(data);
+
+        // Decode the current path to match the list of pages
+        const currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, '')); // Remove leading slash
+        const currentIndex = pages.indexOf(currentPath);
+
+        // Create "Previous Page" link if applicable
+        if (currentIndex > 0) {
+            const previousPage = pages[currentIndex - 1];
+            const previousLink = document.createElement('a');
+            previousLink.href = `/${encodeURIComponent(previousPage)}`; // Encode the URL
+            previousLink.textContent = 'Previous Page';
+            document.body.appendChild(previousLink);
+        }
+
+        // Create "Next Page" link if applicable
+        if (currentIndex >= 0 && currentIndex < pages.length - 1) {
+            const nextPage = pages[currentIndex + 1];
+            const nextLink = document.createElement('a');
+            nextLink.href = `/${encodeURIComponent(nextPage)}`; // Encode the URL
+            nextLink.textContent = 'Next Page';
+            document.body.appendChild(nextLink);
+        }
+    })
+    .catch(err => console.error('Error fetching or parsing JSON:', err));
+
+    previousLink.classList.add('navigation-link', 'previous');
+nextLink.classList.add('navigation-link', 'next');
+

@@ -333,3 +333,17 @@ td {
     margin-top: 10px; /* Add some spacing for visual clarity */
     z-index: 1; /* Make sure the button is above the iframe */
 }
+
+.navigation-link {
+    margin: 10px;
+    text-decoration: none;
+    color: blue;
+}
+
+.navigation-link.previous {
+    float: left;
+}
+
+.navigation-link.next {
+    float: right;
+}
