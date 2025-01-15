@@ -117,12 +117,20 @@
 
                     <div class="example">
                         <h2 class="example-header">Example <span class="example-number"></span>: Pulse Rate Data</h2>
-                        <p>A study measured the resting pulse rates (in beats per minute) of 30 males and 30 females. Use the pulse rate dataset linked below to construct a 95% confidence interval for the mean pulse rate for males and then for females. Compare the two intervals to determine if there is evidence of a significant difference between the two groups.</p>
-                        <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed visually in a scrollable table by clicking the button below or by downloading the data here: <a href="../datasets/pulse_rate_data.csv" download>Download Pulse Rate Data</a>.</p>
-                        <button aria-describedby="pulseRateTableDescription" onclick="generateTable('../datasets/pulse_rate_data.csv', 'Table: Pulse Rate Data')">View Table of Pulse Rate Data</button>
-                        <p id="pulseRateTableDescription" class="visually-hidden">This button loads and displays data from a CSV file with pulse rate information on this page.</p>
+                        <p>A study measured the resting pulse rates (in beats per minute) of 30 males and 30 females.
+                            Use the pulse rate dataset linked below to construct a 95% confidence interval for the mean
+                            pulse rate for males and then for females. Compare the two intervals to determine if there
+                            is evidence of a significant difference between the two groups.</p>
+                        <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed
+                            visually in a scrollable table by clicking the button below or by downloading the data here:
+                            <a href="../datasets/pulse_rate_data.csv" download>Download Pulse Rate Data</a>.</p>
+                        <button aria-describedby="pulseRateTableDescription"
+                            onclick="generateTable('../datasets/pulse_rate_data.csv', 'Table: Pulse Rate Data')">View
+                            Table of Pulse Rate Data</button>
+                        <p id="pulseRateTableDescription" class="visually-hidden">This button loads and displays data
+                            from a CSV file with pulse rate information on this page.</p>
                         <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
-        
+
                         <pre id="pulseRateData" style="display:none;">
             Group,Rate
             Male,72
@@ -187,38 +195,48 @@
             Female,82
                         </pre>
                         <button onclick="copyToClipboard('pulseRateData')">Copy Data to Clipboard</button>
-            
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>1. For males:</p>
-                        <ul>
-                            <li>\( \bar{x}_{male} = 74.5 \)</li>
-                            <li>\( s_{male} = 2.1 \)</li>
-                            <li>\( n_{male} = 30 \)</li>
-                            <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at 95% confidence)</li>
-                        </ul>
-                        <p>The confidence interval is:</p>
-                        <p>\[
-                            \bar{x}_{male} \pm t^* \frac{s_{male}}{\sqrt{n_{male}}} = 74.5 \pm 2.045 \cdot \frac{2.1}{\sqrt{30}} = 74.5 \pm 0.785
-                        \]</p>
-                        <p>Confidence interval for males: \([73.715, 75.285]\).</p>
-                        <p>2. For females:</p>
-                        <ul>
-                            <li>\( \bar{x}_{female} = 81.5 \)</li>
-                            <li>\( s_{female} = 1.8 \)</li>
-                            <li>\( n_{female} = 30 \)</li>
-                            <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at 95% confidence)</li>
-                        </ul>
-                        <p>The confidence interval is:</p>
-                        <p>\[
-                            \bar{x}_{female} \pm t^* \frac{s_{female}}{\sqrt{n_{female}}} = 81.5 \pm 2.045 \cdot \frac{1.8}{\sqrt{30}} = 81.5 \pm 0.673
-                        \]</p>
-                        <p>Confidence interval for females: \([80.827, 82.173]\).</p>
-                        <p>The male and female intervals do not overlap, indicating a statistically significant difference in the mean pulse rates between the two groups. This suggests that males and females may have different resting pulse rates on average.</p>
-                    </div>
 
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <p>1. For males:</p>
+                            <ul>
+                                <li>\( \bar{x}_{male} = 74.5 \)</li>
+                                <li>\( s_{male} = 2.1 \)</li>
+                                <li>\( n_{male} = 30 \)</li>
+                                <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at
+                                    95% confidence)</li>
+                            </ul>
+                            <p>The confidence interval is:</p>
+                            <p>\[
+                                \bar{x}_{male} \pm t^* \frac{s_{male}}{\sqrt{n_{male}}} = 74.5 \pm 2.045 \cdot
+                                \frac{2.1}{\sqrt{30}} = 74.5 \pm 0.785
+                                \]</p>
+                            <p>Confidence interval for males: \([73.715, 75.285]\).</p>
+                            <p>2. For females:</p>
+                            <ul>
+                                <li>\( \bar{x}_{female} = 81.5 \)</li>
+                                <li>\( s_{female} = 1.8 \)</li>
+                                <li>\( n_{female} = 30 \)</li>
+                                <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at
+                                    95% confidence)</li>
+                            </ul>
+                            <p>The confidence interval is:</p>
+                            <p>\[
+                                \bar{x}_{female} \pm t^* \frac{s_{female}}{\sqrt{n_{female}}} = 81.5 \pm 2.045 \cdot
+                                \frac{1.8}{\sqrt{30}} = 81.5 \pm 0.673
+                                \]</p>
+                            <p>Confidence interval for females: \([80.827, 82.173]\).</p>
+                            <p>The male and female intervals do not overlap, indicating a statistically significant
+                                difference in the mean pulse rates between the two groups. This suggests that males and
+                                females may have different resting pulse rates on average.</p>
+                        </div>
+                        <div>
+                            <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
+                            <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
         </main>
     </div>
 </body>

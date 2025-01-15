@@ -31,7 +31,8 @@
                         examples.
                     </p>
                     <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Probability of Correct Answers</h2>
+                        <h2 class="example-header">Example <span class="example-number"></span>: Probability of Correct
+                            Answers</h2>
                         <p>
                             There are two problems on a quiz. The first problem is a True or False question, and the
                             second question is a multiple-choice question with five possible answers (\(a, b, c, d,
@@ -75,15 +76,16 @@
                             \[ P(\text{T/F correct AND multiple-choice correct}) = P(\text{T/F correct}) \cdot
                             P(\text{multiple-choice correct}) \]
 
-                            Now we just need the probability of each event first then we can perform the multiplication. For each event we see that
+                            Now we just need the probability of each event first then we can perform the multiplication.
+                            For each event we see that
 
                             \[P(\text{T/F correct}) = \frac{1}{2} \]
-                            </p>
-                            <p>(since there are 2 options: True or False, and 1 is correct) and </p>
+                        </p>
+                        <p>(since there are 2 options: True or False, and 1 is correct) and </p>
 
-                            <p>\[ P(\text{multiple-choice correct}) = \frac{1}{5}\]
-                                (since there are 5 choices, and 1 is correct).</p>
-                            <p>Once we do the multiplication we see we get the same result as when we listed out the entire
+                        <p>\[ P(\text{multiple-choice correct}) = \frac{1}{5}\]
+                            (since there are 5 choices, and 1 is correct).</p>
+                        <p>Once we do the multiplication we see we get the same result as when we listed out the entire
                             sample space.
                             \[ P(\text{both questions correct}) = \frac{1}{2} \cdot \frac{1}{5} = \frac{1}{10} \]
                             While the sample space for this particular problem wasn't difficult to list (there were only
@@ -99,7 +101,8 @@
                         \[
                         P(A \text{ and } B) = P(A) \cdot P(B).
                         \]
-                        However, before accepting this as our final formula, we need to observe another type of problem...
+                        However, before accepting this as our final formula, we need to observe another type of
+                        problem...
                     </p>
 
                     <div class="example">
@@ -203,7 +206,8 @@
                             Here, \(P(B | A)\) represents the probability of event \(B\) occurring after event \(A\) has
                             already occurred. This is called <b>conditional probability</b>.
                         </p>
-                        <p>In the case that \(A\) and \(B\) are independent events, the formula breaks down to be simpler: 
+                        <p>In the case that \(A\) and \(B\) are independent events, the formula breaks down to be
+                            simpler:
                             \[
                             P(A \text{ and } B) = P(A) \cdot P(B)
                             \]
@@ -226,7 +230,8 @@
                         </ul>
                     </div>
 
-                    <p>The formula is good to acknowledge, but it is far better to focus on the intuitive idea behind the multiplication rule which is summed up below: </p>
+                    <p>The formula is good to acknowledge, but it is far better to focus on the intuitive idea behind
+                        the multiplication rule which is summed up below: </p>
 
                     <div class="definition">
                         <h2 class="definition-header">Intuitive Multiplication Rule</h2>
@@ -246,11 +251,13 @@
                         <ul>
                             <li>
                                 Events \(A\) and \(B\) are <strong>independent</strong> if the occurrence of one does
-                                not affect the probability of the other. This would be similar to making selections <b>with replacement</b> when sampling.
+                                not affect the probability of the other. This would be similar to making selections
+                                <b>with replacement</b> when sampling.
                             </li>
                             <li>
                                 Events \(A\) and \(B\) are <strong>dependent</strong> if the occurrence of one affects
-                                the probability of the other. This would be equivalent to making selections <b>without replacement</b> when sampling.
+                                the probability of the other. This would be equivalent to making selections <b>without
+                                    replacement</b> when sampling.
                             </li>
                         </ul>
                     </div>
@@ -265,7 +272,8 @@
                         <h2 class="solution-header">Solution</h2>
                         <p>
                             The events are independent because the functionality of one flashlight does not affect the
-                            other. This means when we multiply our probabilities we will not have to adjust the second probability to reflect the outcome of the first event. This gives us the following:
+                            other. This means when we multiply our probabilities we will not have to adjust the second
+                            probability to reflect the outcome of the first event. This gives us the following:
                         </p>
                         <p>
                             \[
@@ -277,7 +285,10 @@
                         </p>
                     </div>
 
-                    <p><b>Note:</b> In this problem, we saw that the \(P(\text{none work}) = 1\%\). This means that there is a 99% chance she will have <b>at least one</b> working light should there be a power outage. We will explore the idea of finding the probability of <b>at least one</b> in a following section, but definitely note the connection for the time being.</p>
+                    <p><b>Note:</b> In this problem, we saw that the \(P(\text{none work}) = 1\%\). This means that
+                        there is a 99% chance she will have <b>at least one</b> working light should there be a power
+                        outage. We will explore the idea of finding the probability of <b>at least one</b> in a
+                        following section, but definitely note the connection for the time being.</p>
 
                     <div class="example">
                         <h2 class="example-header">Example <span class="example-number"></span>: Without Replacement
@@ -290,11 +301,19 @@
                     <div class="solution">
                         <h2 class="solution-header">Solution</h2>
                         <p>
-                            Since there are 400 units with 8 being bad, we know that there are 392 units that are good to choose from. Then, for the first unit, the probability of being good is \(\dfrac{392}{400}\). If the first unit
-                            is good, the probability the second is good is \(\dfrac{391}{399}\). Notice we subtracted 1 from both the numerator and denominator.</p> <ul>
-                                <li>We subtracted 1 from the numerator since there is one less good one to choose from because of the first selection of a good one in the first trial.</li>
-                                <li>We subtracted 1 from the denominator since there is one less total to choose since we selected a unit in the first trial.</li>
-                            </ul> <p> Thus we calculate the probability of getting two good ones by multiplying the two probabilities:
+                            Since there are 400 units with 8 being bad, we know that there are 392 units that are good
+                            to choose from. Then, for the first unit, the probability of being good is
+                            \(\dfrac{392}{400}\). If the first unit
+                            is good, the probability the second is good is \(\dfrac{391}{399}\). Notice we subtracted 1
+                            from both the numerator and denominator.</p>
+                        <ul>
+                            <li>We subtracted 1 from the numerator since there is one less good one to choose from
+                                because of the first selection of a good one in the first trial.</li>
+                            <li>We subtracted 1 from the denominator since there is one less total to choose since we
+                                selected a unit in the first trial.</li>
+                        </ul>
+                        <p> Thus we calculate the probability of getting two good ones by multiplying the two
+                            probabilities:
                         </p>
                         <p>
                             \[
@@ -306,7 +325,14 @@
 
                     <h2>Application of the 5% Guideline</h2>
                     <p>
-                        Some calculations are cumbersome (imagine doing the previous problem selecting <strong>10 units</strong>), but they can be made manageable by using the common practice of treating events as <strong>independent</strong> when <strong>small samples</strong> are drawn from large populations. In such cases, it is rare to select the same item twice. To verify if you can do this method, check if the sample size is no more than <strong>5%</strong> of the size of the population. If you find the sample size is less than 5%, you can treat the selections as being <strong>independent</strong> (i.e., with replacement). Why do we do this? It makes calculations much simpler when events are independent. See the next example:
+                        Some calculations are cumbersome (imagine doing the previous problem selecting <strong>10
+                            units</strong>), but they can be made manageable by using the common practice of treating
+                        events as <strong>independent</strong> when <strong>small samples</strong> are drawn from large
+                        populations. In such cases, it is rare to select the same item twice. To verify if you can do
+                        this method, check if the sample size is no more than <strong>5%</strong> of the size of the
+                        population. If you find the sample size is less than 5%, you can treat the selections as being
+                        <strong>independent</strong> (i.e., with replacement). Why do we do this? It makes calculations
+                        much simpler when events are independent. See the next example:
                     </p>
 
                     <div class="example">
@@ -323,19 +349,29 @@
                             The probability of selecting a good bulb on the first draw is \(P(\text{1st good}) =
                             \dfrac{9500}{10000}\). If we continued in this manner, we would get \(P(\text{2nd good}) =
                             \dfrac{9499}{9999}\) and \(P(\text{3rd good}) =
-                            \dfrac{9498}{9998}\) and so on. This would be a very messy calculation so is there a better way? Let's examine if the sample size meets the "less than 5% the size of the population" so we can use the guideline above. We see that 
-                            \[ \dfrac{20}{10000}=0.002=0.2\% \] 
+                            \dfrac{9498}{9998}\) and so on. This would be a very messy calculation so is there a better
+                            way? Let's examine if the sample size meets the "less than 5% the size of the population" so
+                            we can use the guideline above. We see that
+                            \[ \dfrac{20}{10000}=0.002=0.2\% \]
                             Since we see that the sample size is small (20) relative to the population size
-                            (10,000), the 5% guideline allows us to treat these draws as independent. That means that when we make a selection, we will be treating this as <b>"with replacement"</b> so that we do not have to adjust the probabilities. Thus:
+                            (10,000), the 5% guideline allows us to treat these draws as independent. That means that
+                            when we make a selection, we will be treating this as <b>"with replacement"</b> so that we
+                            do not have to adjust the probabilities. Thus:
                         </p>
                         <p>
                             \[
-                            P(\text{all 20 good}) = \dfrac{9500}{10000}\cdot\dfrac{9500}{10000}\cdot\dfrac{9500}{10000}\cdots\]
+                            P(\text{all 20 good}) =
+                            \dfrac{9500}{10000}\cdot\dfrac{9500}{10000}\cdot\dfrac{9500}{10000}\cdots\]
                             \[ \quad \quad =\left(\dfrac{9500}{10000}\right)^{20}.
                             \]
                         </p>
                         <p>Using technology, this probability is approximately 0.3585.</p>
                     </div>
+                    <div>
+                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
+                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
+                    </div>
+
                 </div>
             </div>
         </main>

@@ -120,10 +120,12 @@
                     </div>
 
                     <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Writing Confidence Intervals in Multiple Formats</h2>
-                        <p>Rewrite the interval \( 0.256 \leq p \leq 0.324 \) in interval notation and margin of error format.</p>
+                        <h2 class="example-header">Example <span class="example-number"></span>: Writing Confidence
+                            Intervals in Multiple Formats</h2>
+                        <p>Rewrite the interval \( 0.256 \leq p \leq 0.324 \) in interval notation and margin of error
+                            format.</p>
                     </div>
-        
+
                     <div class="solution">
                         <h2 class="solution-header">Solution</h2>
                         <p>In interval notation, the confidence interval is written as:</p>
@@ -131,58 +133,73 @@
                         <p>To express this as a margin of error, calculate the midpoint and margin of error:</p>
                         <p>\[
                             \text{Point Estimate: } \hat{p} = \frac{0.256 + 0.324}{2} = 0.29
-                        \]</p>
+                            \]</p>
                         <p>\[
                             \text{Margin of Error: } E = \frac{0.324 - 0.256}{2} = 0.034
-                        \]</p>
+                            \]</p>
                         <p>Thus, the confidence interval can also be written as:</p>
                         <p>\[
                             \hat{p} \pm E = 0.29 \pm 0.034
-                        \]</p>
+                            \]</p>
                     </div>
-        
+
                     <h2>Interpreting Confidence Intervals</h2>
-                    <p>The correct interpretation of a confidence interval requires precise language. For example, if a 95% confidence interval for a population proportion is \([0.256, 0.324]\), the correct interpretation is:</p>
-                    <p>"We are 95% confident that the interval from 0.256 to 0.324 contains the true population proportion."</p>
+                    <p>The correct interpretation of a confidence interval requires precise language. For example, if a
+                        95% confidence interval for a population proportion is \([0.256, 0.324]\), the correct
+                        interpretation is:</p>
+                    <p>"We are 95% confident that the interval from 0.256 to 0.324 contains the true population
+                        proportion."</p>
                     <p>Incorrect interpretations include:</p>
                     <ul>
                         <li>"There is a 95% chance that the true proportion lies between 0.256 and 0.324."</li>
                         <li>"95% of sample proportions will fall within this interval."</li>
                     </ul>
-        
+
                     <h2>Margin of Error</h2>
                     <div class="definition">
                         <h2 class="definition-header">Definition: Margin of Error</h2>
-                        <p>The margin of error (\(E\)) represents the maximum expected difference between the true population parameter and the sample estimate. It quantifies the uncertainty of an estimate.</p>
+                        <p>The margin of error (\(E\)) represents the maximum expected difference between the true
+                            population parameter and the sample estimate. It quantifies the uncertainty of an estimate.
+                        </p>
                     </div>
-        
+
                     <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Calculating Margin of Error</h2>
-                        <p>Given the confidence interval \([0.637, 0.767]\), find the margin of error and the point estimate.</p>
+                        <h2 class="example-header">Example <span class="example-number"></span>: Calculating Margin of
+                            Error</h2>
+                        <p>Given the confidence interval \([0.637, 0.767]\), find the margin of error and the point
+                            estimate.</p>
                     </div>
-        
+
                     <div class="solution">
                         <h2 class="solution-header">Solution</h2>
                         <p>The point estimate is the midpoint of the interval:</p>
                         <p>\[
                             \hat{p} = \frac{0.637 + 0.767}{2} = 0.702
-                        \]</p>
+                            \]</p>
                         <p>The margin of error is half the width of the interval:</p>
                         <p>\[
                             E = \frac{0.767 - 0.637}{2} = 0.065
-                        \]</p>
+                            \]</p>
                         <p>Therefore, the interval can also be expressed as:</p>
                         <p>\[
                             0.702 \pm 0.065
-                        \]</p>
+                            \]</p>
                     </div>
-        
+
                     <div class="example">
                         <h2 class="example-header">Example <span class="example-number"></span>: Titanic Data</h2>
-                        <p>Use the Titanic dataset linked below to estimate the proportion of passengers who survived. Construct a 90% confidence interval for the proportion of people who survived the Titanic crash using the data below. Analyze whether the survival rate appears significantly different for certain groups based on the data.</p>
-                        <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed visually in a scrollable table by clicking the button below or by downloading the data here: <a href="../datasets/titanic_data.csv" download>Download Titanic Data</a>.</p>
-                        <button aria-describedby="titanicTableDescription" onclick="generateTable('../datasets/titanic_data.csv', 'Table: Titanic Passenger Data')">View Table of Titanic Data</button>
-                        <p id="titanicTableDescription" class="visually-hidden">This button loads and displays data from a CSV file with Titanic passenger information on this page.</p>
+                        <p>Use the Titanic dataset linked below to estimate the proportion of passengers who survived.
+                            Construct a 90% confidence interval for the proportion of people who survived the Titanic
+                            crash using the data below. Analyze whether the survival rate appears significantly
+                            different for certain groups based on the data.</p>
+                        <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed
+                            visually in a scrollable table by clicking the button below or by downloading the data here:
+                            <a href="../datasets/titanic_data.csv" download>Download Titanic Data</a>.</p>
+                        <button aria-describedby="titanicTableDescription"
+                            onclick="generateTable('../datasets/titanic_data.csv', 'Table: Titanic Passenger Data')">View
+                            Table of Titanic Data</button>
+                        <p id="titanicTableDescription" class="visually-hidden">This button loads and displays data from
+                            a CSV file with Titanic passenger information on this page.</p>
                         <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
                     </div>
                     <pre id="titanicData" style="display:none;">Survived,Sex
@@ -221,12 +238,19 @@
         Yes,male
         No,female</pre>
                     <button onclick="copyToClipboard('titanicData')">Copy Data to Clipboard</button>
-        
+
                     <div class="solution">
                         <h2 class="solution-header">Solution</h2>
-                        <p>Using the dataset, count the number of survivors (\(x\)) and the total number of passengers (\(n\)). Let \( \hat{p} = x/n \). Use technology to compute the confidence interval, ensuring assumptions are met for inference.</p>
+                        <p>Using the dataset, count the number of survivors (\(x\)) and the total number of passengers
+                            (\(n\)). Let \( \hat{p} = x/n \). Use technology to compute the confidence interval,
+                            ensuring assumptions are met for inference.</p>
                     </div>
-                
+
+                    <div>
+                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
+                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
+                    </div>
+
                 </div>
             </div>
         </main>

@@ -2,63 +2,78 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hypothesis Testing on Population Means and Proportions</title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="../js/loadmathjax.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypothesis Testing on Population Means and Proportions</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
 
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-<link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/main.min.css">
 
-<link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-<div class="container-fluid">
-<main>
-<div class="row bottom-md">
-<div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-    <h1>Conducting Hypothesis Testing on Population Means and Proportions</h1>
-    <p>In this section, we will bring together all the components introduced earlier to conduct hypothesis testing. Using sample data, we will determine whether there is sufficient evidence to support or refute a claim about a population mean or proportion.</p>
-    
-    <h2>Using GeoGebra for Hypothesis Testing</h2>
-    <p>As a reminder, we will use the GeoGebra applet for conducting hypothesis tests. This tool allows us to input sample data, specify null and alternative hypotheses, and calculate p-values.</p>
-    
-    <div class="iframe-container">
-        <iframe id="hypothesisTestCalculator" scrolling="no" title="Confidence Interval and Hypothesis Test Calculator"
-            src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-            width="1100px" height="651px" style="border:0px;">
-        </iframe>
-        <p class="visually-hidden" id="iframeDescription">Interactive calculator for confidence intervals and hypothesis tests.</p>
-        <button onclick="window.open('https://www.geogebra.org/material/iframe/id/sqbsgdkk', '_blank')"
-            aria-describedby="iframeButtonDescription">Open in a New Tab</button>
-        <p id="iframeButtonDescription" class="visually-hidden">Opens the hypothesis testing calculator in a new tab.</p>
-    </div>
-    
-    <h2>Testing Claims about Population Proportions</h2>
-    
-    <div class="example">
-        <h2 class="example-header">Example <span class="example-number"></span>: Smoking Cessation with Nicotine Patch</h2>
-        <p>A study examines whether nicotine patch therapy helps smokers quit. Among 71 smokers, 39 were still smoking one year after treatment, and 32 were not. Use a significance level of \( \alpha = 0.05 \) to test the claim that the majority (\( p > 0.5 \)) of smokers continue smoking after one year.</p>
-    </div>
-    
-    <div class="solution">
-        <h2 class="solution-header">Solution</h2>
-        <p>Using GeoGebra, input the sample information (\( x = 39, n = 71, p_0 = 0.5 \), and alternative hypothesis \( p > 0.5 \)). The p-value is calculated to be \( 0.0403 \).</p>
-        <p>Since \( p = 0.0403 < \alpha = 0.05 \), we reject the null hypothesis and conclude that there is sufficient evidence to support the claim that the majority of smokers continue smoking after one year.</p>
-    </div>
-    
-    <div class="example">
-        <h2 class="example-header">Example <span class="example-number"></span>: M&M Colors</h2>
-        <p>Use the dataset below to test the claim of Mars, Inc., that exactly 16% of M&Ms are green. Conduct the hypothesis test at a significance level of \( \alpha = 0.05 \).</p>
-        <p>The dataset is omitted here for brevity but can be generated dynamically. Download the dataset or use the button below to view it:</p>
-        <button onclick="copyToClipboard('mmData')">Copy M&M Data to Clipboard</button>
-        <pre id="mmData" style="display:none;">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>Conducting Hypothesis Testing on Population Means and Proportions</h1>
+                    <p>In this section, we will bring together all the components introduced earlier to conduct
+                        hypothesis testing. Using sample data, we will determine whether there is sufficient evidence to
+                        support or refute a claim about a population mean or proportion.</p>
+
+                    <h2>Using GeoGebra for Hypothesis Testing</h2>
+                    <p>As a reminder, we will use the GeoGebra applet for conducting hypothesis tests. This tool allows
+                        us to input sample data, specify null and alternative hypotheses, and calculate p-values.</p>
+
+                    <div class="iframe-container">
+                        <iframe id="hypothesisTestCalculator" scrolling="no"
+                            title="Confidence Interval and Hypothesis Test Calculator"
+                            src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                            width="1100px" height="651px" style="border:0px;">
+                        </iframe>
+                        <p class="visually-hidden" id="iframeDescription">Interactive calculator for confidence
+                            intervals and hypothesis tests.</p>
+                        <button onclick="window.open('https://www.geogebra.org/material/iframe/id/sqbsgdkk', '_blank')"
+                            aria-describedby="iframeButtonDescription">Open in a New Tab</button>
+                        <p id="iframeButtonDescription" class="visually-hidden">Opens the hypothesis testing calculator
+                            in a new tab.</p>
+                    </div>
+
+                    <h2>Testing Claims about Population Proportions</h2>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Smoking Cessation with
+                            Nicotine Patch</h2>
+                        <p>A study examines whether nicotine patch therapy helps smokers quit. Among 71 smokers, 39 were
+                            still smoking one year after treatment, and 32 were not. Use a significance level of \(
+                            \alpha = 0.05 \) to test the claim that the majority (\( p > 0.5 \)) of smokers continue
+                            smoking after one year.</p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Using GeoGebra, input the sample information (\( x = 39, n = 71, p_0 = 0.5 \), and
+                            alternative hypothesis \( p > 0.5 \)). The p-value is calculated to be \( 0.0403 \).</p>
+                        <p>Since \( p = 0.0403 < \alpha=0.05 \), we reject the null hypothesis and conclude that there
+                                is sufficient evidence to support the claim that the majority of smokers continue
+                                smoking after one year.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: M&M Colors</h2>
+                        <p>Use the dataset below to test the claim of Mars, Inc., that exactly 16% of M&Ms are green.
+                            Conduct the hypothesis test at a significance level of \( \alpha = 0.05 \).</p>
+                        <p>The dataset is omitted here for brevity but can be generated dynamically. Download the
+                            dataset or use the button below to view it:</p>
+                        <button onclick="copyToClipboard('mmData')">Copy M&M Data to Clipboard</button>
+                        <pre id="mmData" style="display:none;">
             Red,Orange,Yellow,Brown,Blue,Green
             0.751,0.735,0.883,0.696,0.881,0.925
             0.841,0.895,0.769,0.876,0.863,0.914
@@ -88,29 +103,39 @@
             ,,,,0.887,
             ,,,,0.886,
         </pre>
-<div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
-<button aria-describedby="mmTableDescription" onclick="generateTableFromPre('mmData', 'Table: M&M Data')">View M&M Data</button>
-        <p id="mmTableDescription" class="visually-hidden">This button loads the M&M color dataset in a scrollable table on this page.</p>
-        <a href="../datasets/mm_data.csv" download>Download M&M Data</a>
-    </div>
-    
-    <h2>Testing Claims about Population Means</h2>
-    
-    <div class="example">
-        <h2 class="example-header">Example <span class="example-number"></span>: Smartphone Data Speeds</h2>
-        <p>A sample of data speeds from a smartphone carrier at airports results in a mean of 3.8 Mbps. Test the claim that the population mean is less than 4.0 Mbps using a significance level of \( \alpha = 0.05 \).</p>
-    </div>
-    
-    <div class="solution">
-        <h2 class="solution-header">Solution</h2>
-        <p>Input the sample mean (\( \bar{x} = 3.8 \)), standard deviation (\( s = 0.5 \)), and sample size (\( n = 25 \)) into GeoGebra. The p-value is calculated to be \( 0.0231 \).</p>
-        <p>Since \( p = 0.0231 < \alpha = 0.05 \), we reject the null hypothesis and conclude that there is evidence to support the claim that the mean data speed is less than 4.0 Mbps.</p>
-    </div>
-    
-    <div class="example">
-        <h2 class="example-header">Example <span class="example-number"></span>: Years to Earn a Bachelor's Degree</h2>
-        <p>Listed below are the years it took a random sample of students to earn a bachelor's degree. Use a significance level of \( \alpha = 0.01 \) to test the claim that the mean time to earn a bachelor's degree is greater than 4.0 years.</p>
-        <pre id="bachelorYearsData" style="display:none;">
+                        <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
+                        <button aria-describedby="mmTableDescription"
+                            onclick="generateTableFromPre('mmData', 'Table: M&M Data')">View M&M Data</button>
+                        <p id="mmTableDescription" class="visually-hidden">This button loads the M&M color dataset in a
+                            scrollable table on this page.</p>
+                        <a href="../datasets/mm_data.csv" download>Download M&M Data</a>
+                    </div>
+
+                    <h2>Testing Claims about Population Means</h2>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Smartphone Data Speeds
+                        </h2>
+                        <p>A sample of data speeds from a smartphone carrier at airports results in a mean of 3.8 Mbps.
+                            Test the claim that the population mean is less than 4.0 Mbps using a significance level of
+                            \( \alpha = 0.05 \).</p>
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Input the sample mean (\( \bar{x} = 3.8 \)), standard deviation (\( s = 0.5 \)), and sample
+                            size (\( n = 25 \)) into GeoGebra. The p-value is calculated to be \( 0.0231 \).</p>
+                        <p>Since \( p = 0.0231 < \alpha=0.05 \), we reject the null hypothesis and conclude that there
+                                is evidence to support the claim that the mean data speed is less than 4.0 Mbps.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Years to Earn a
+                            Bachelor's Degree</h2>
+                        <p>Listed below are the years it took a random sample of students to earn a bachelor's degree.
+                            Use a significance level of \( \alpha = 0.01 \) to test the claim that the mean time to earn
+                            a bachelor's degree is greater than 4.0 years.</p>
+                        <pre id="bachelorYearsData" style="display:none;">
             Years
             4
             4
@@ -131,50 +156,96 @@
             13
             15
             </pre>
-            <button onclick="copyToClipboard('bachelorYearsData')">Copy Bachelor's Degree Data to Clipboard</button>
-            
-            <table>
-                <caption>Years to Earn a Bachelor's Degree</caption>
-                <thead>
-                    <tr>
-                        <th>Years</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>4</td></tr>
-                    <tr><td>4</td></tr>
-                    <tr><td>4</td></tr>
-                    <tr><td>4</td></tr>
-                    <tr><td>4</td></tr>
-                    <tr><td>4.5</td></tr>
-                    <tr><td>4.5</td></tr>
-                    <tr><td>4.5</td></tr>
-                    <tr><td>4.5</td></tr>
-                    <tr><td>4.5</td></tr>
-                    <tr><td>6</td></tr>
-                    <tr><td>6</td></tr>
-                    <tr><td>8</td></tr>
-                    <tr><td>9</td></tr>
-                    <tr><td>9</td></tr>
-                    <tr><td>13</td></tr>
-                    <tr><td>13</td></tr>
-                    <tr><td>15</td></tr>
-                </tbody>
-            </table>
-            
-    </div>
+                        <button onclick="copyToClipboard('bachelorYearsData')">Copy Bachelor's Degree Data to
+                            Clipboard</button>
 
-    <div class="solution">
-        <h2 class="solution-header">Solution</h2>
-        <p>Input the sample data into GeoGebra and test the claim using \( \bar{x} = 6.28 \) (sample mean), \( s = 3.21 \) (sample standard deviation), and \( n = 18 \) (sample size). The null hypothesis is \( H_0: \mu = 4.0 \), and the alternative hypothesis is \( H_a: \mu > 4.0 \).</p>
-        <p>The p-value is calculated to be \( 0.0054 \).</p>
-        <p>Since \( p = 0.0054 < \alpha = 0.01 \), we reject the null hypothesis and conclude that there is sufficient evidence to support the claim that the mean time to earn a bachelor's degree is greater than 4.0 years.</p>
-    </div>
-    
-    <div class="example">
-        <h2 class="example-header">Example <span class="example-number"></span>: Speed of Traffic on I-280</h2>
-        <p>A random sample of southbound traffic speeds on I-280 near Cupertino, California, was recorded at 3:30 PM on a weekday. Use the data provided to test the claim that the mean speed of travelers is less than the speed limit of 65 mph. Conduct the test using a significance level of \( \alpha = 0.05 \).</p>
-        <pre id="trafficSpeedData" style="display:none;">
+                        <table>
+                            <caption>Years to Earn a Bachelor's Degree</caption>
+                            <thead>
+                                <tr>
+                                    <th>Years</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>4.5</td>
+                                </tr>
+                                <tr>
+                                    <td>4.5</td>
+                                </tr>
+                                <tr>
+                                    <td>4.5</td>
+                                </tr>
+                                <tr>
+                                    <td>4.5</td>
+                                </tr>
+                                <tr>
+                                    <td>4.5</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Input the sample data into GeoGebra and test the claim using \( \bar{x} = 6.28 \) (sample
+                            mean), \( s = 3.21 \) (sample standard deviation), and \( n = 18 \) (sample size). The null
+                            hypothesis is \( H_0: \mu = 4.0 \), and the alternative hypothesis is \( H_a: \mu > 4.0 \).
+                        </p>
+                        <p>The p-value is calculated to be \( 0.0054 \).</p>
+                        <p>Since \( p = 0.0054 < \alpha=0.01 \), we reject the null hypothesis and conclude that there
+                                is sufficient evidence to support the claim that the mean time to earn a bachelor's
+                                degree is greater than 4.0 years.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Speed of Traffic on
+                            I-280</h2>
+                        <p>A random sample of southbound traffic speeds on I-280 near Cupertino, California, was
+                            recorded at 3:30 PM on a weekday. Use the data provided to test the claim that the mean
+                            speed of travelers is less than the speed limit of 65 mph. Conduct the test using a
+                            significance level of \( \alpha = 0.05 \).</p>
+                        <pre id="trafficSpeedData" style="display:none;">
             Speed (mph)
             62
             61
@@ -189,46 +260,79 @@
             60
             67
             </pre>
-            
-            <button onclick="copyToClipboard('trafficSpeedData')">Copy Traffic Speed Data to Clipboard</button>
-            
-            <table>
-                <caption>Traffic Speeds on I-280</caption>
-                <thead>
-                    <tr>
-                        <th>Speed (mph)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>62</td></tr>
-                    <tr><td>61</td></tr>
-                    <tr><td>61</td></tr>
-                    <tr><td>57</td></tr>
-                    <tr><td>61</td></tr>
-                    <tr><td>54</td></tr>
-                    <tr><td>59</td></tr>
-                    <tr><td>58</td></tr>
-                    <tr><td>59</td></tr>
-                    <tr><td>69</td></tr>
-                    <tr><td>60</td></tr>
-                    <tr><td>67</td></tr>
-                </tbody>
-            </table>
-            
-    </div>
-    
-    <div class="solution">
-        <h2 class="solution-header">Solution</h2>
-        <p>Using GeoGebra, input the sample mean (\( \bar{x} = 60.17 \)), standard deviation (\( s = 4.32 \)), and sample size (\( n = 12 \)). The null hypothesis is \( H_0: \mu = 65 \), and the alternative hypothesis is \( H_a: \mu < 65 \).</p>
-        <p>The p-value is calculated to be \( 0.0008 \).</p>
-        <p>Since \( p = 0.0008 < \alpha = 0.05 \), we reject the null hypothesis and conclude that there is sufficient evidence to support the claim that the mean speed of traffic is less than the speed limit of 65 mph.</p>
-    </div>
-    
 
-</div>
-</div>
-</main>
-</div>
+                        <button onclick="copyToClipboard('trafficSpeedData')">Copy Traffic Speed Data to
+                            Clipboard</button>
+
+                        <table>
+                            <caption>Traffic Speeds on I-280</caption>
+                            <thead>
+                                <tr>
+                                    <th>Speed (mph)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>62</td>
+                                </tr>
+                                <tr>
+                                    <td>61</td>
+                                </tr>
+                                <tr>
+                                    <td>61</td>
+                                </tr>
+                                <tr>
+                                    <td>57</td>
+                                </tr>
+                                <tr>
+                                    <td>61</td>
+                                </tr>
+                                <tr>
+                                    <td>54</td>
+                                </tr>
+                                <tr>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>58</td>
+                                </tr>
+                                <tr>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>69</td>
+                                </tr>
+                                <tr>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>67</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="solution">
+                        <h2 class="solution-header">Solution</h2>
+                        <p>Using GeoGebra, input the sample mean (\( \bar{x} = 60.17 \)), standard deviation (\( s =
+                            4.32 \)), and sample size (\( n = 12 \)). The null hypothesis is \( H_0: \mu = 65 \), and
+                            the alternative hypothesis is \( H_a: \mu < 65 \).</p>
+                                <p>The p-value is calculated to be \( 0.0008 \).</p>
+                                <p>Since \( p = 0.0008 < \alpha=0.05 \), we reject the null hypothesis and conclude that
+                                        there is sufficient evidence to support the claim that the mean speed of traffic
+                                        is less than the speed limit of 65 mph.</p>
+                    </div>
+
+                    <div>
+                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
+                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>
