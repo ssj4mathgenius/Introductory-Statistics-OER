@@ -352,3 +352,54 @@ td {
     text-decoration: underline;
     color: darkblue;
 }
+
+/* Styling for the <nav> container */
+nav {
+    background-color: #001A72; /* Accessible navy blue color */
+    color: #ffffff; /* White text for contrast */
+    padding: 10px 20px; /* Padding inside the navigation bar */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for the unordered list within the <nav> */
+nav ul {
+    list-style: none; /* Remove bullets */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Align items side by side */
+    justify-content: space-around; /* Even spacing between items */
+    align-items: center; /* Center items vertically */
+}
+
+/* Styling for individual <li> items */
+nav ul li {
+    margin: 0 10px; /* Horizontal spacing between items */
+}
+
+/* Styling for links inside <li> elements */
+nav ul li a {
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Add padding inside links */
+    border-radius: 4px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for links */
+nav ul li a:hover {
+    background-color: #047BC1; /* Lighter blue for hover */
+    color: #ffffff; /* Ensure text remains white */
+}
+
+/* Ensure the design is responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start; /* Align to the left */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Vertical spacing between items */
+    }
+}
