@@ -1,10 +1,36 @@
 console.log("entered load mathjax javascript file");
 
+function replaceBlanksForPrint() {
+    const blankedElements = document.querySelectorAll('.blanked');
 
-window.onload = function()
-{
-    setTimeout(function()
-    {
+    blankedElements.forEach(element => {
+        const originalText = element.textContent.trim();
+        const underscores = '_'.repeat(originalText.length); // Generate underscores
+        element.setAttribute('data-original', originalText); // Store original text
+        element.textContent = underscores; // Replace text with underscores
+    });
+};
+
+function restoreOriginalText() {
+    const blankedElements = document.querySelectorAll('.blanked');
+
+    blankedElements.forEach(element => {
+        const originalText = element.getAttribute('data-original'); // Retrieve original text
+        if (originalText) {
+            element.textContent = originalText; // Restore original text
+        }
+    });
+};
+
+// Attach handlers for print and post-print
+window.addEventListener('beforeprint', replaceBlanksForPrint);
+window.addEventListener('afterprint', restoreOriginalText);
+
+
+window.onload = function () {
+
+    // Add MathJax configuration after a delay
+    setTimeout(function () {
         var head = document.getElementsByTagName("head")[0],
             script;
         script = document.createElement("script");
@@ -16,10 +42,10 @@ window.onload = function()
         head.appendChild(script);
         script = document.createElement("script");
         script.type = "text/javascript";
-        script.src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML";
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...";
         head.appendChild(script);
-    }, 2000)
-}
+    }, 2000);
+};
 
 window.MathJax = {
     tex: {
@@ -34,6 +60,11 @@ window.MathJax = {
                     .mjx-container * {
                         color: var(--mjx-color, inherit) !important;
                     }
+                    @media print {
+                        .mjx-container * {
+                            color: var(--mjx-color, inherit) !important;
+                        }
+                    }
                 `;
                 document.head.appendChild(style);
             }, '', false]
@@ -44,7 +75,7 @@ window.MathJax = {
 function setMathJaxColorScheme() {
     const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.style.setProperty('--mjx-color', isDarkMode ? '#ffffff' : '#000000');
-}
+};
 
 // Initial color scheme setup
 setMathJaxColorScheme();
@@ -59,7 +90,7 @@ function updateExampleNumbers() {
         const numberSpan = example.querySelector('.example-number');
         numberSpan.textContent = index + 1;
     });
-}
+};
 
 // Example of adding a new example dynamically
 const newExample = document.createElement('div');
@@ -81,7 +112,7 @@ function copyToClipboard(preID) {
     }).catch(err => {
         console.error('Error copying text: ', err);
     });
-}
+};
 
 //Toggles Display of Larger Tables of Data based on id
 //<button onclick="toggleTable()">Toggle Table Visibility</button>
@@ -92,7 +123,7 @@ function toggleTable() {
     } else {
         tableDiv.classList.add('hidden'); // Hide the table
     }
-}
+};
 
 function generateTableFromPre(preId, captionText) {
     const tableContainer = document.getElementById('tableContainer');
@@ -143,7 +174,7 @@ function generateTableFromPre(preId, captionText) {
         tableContainer.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
         tableContainer.style.display = 'block';
     }
-}
+};
 
 
 async function generateTable(csvUrl, captionText) {
@@ -271,7 +302,7 @@ async function generateTable(csvUrl, captionText) {
         tableContainer.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
         tableContainer.style.display = 'block';
     }
-}
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     // Dynamic numbering for tables
@@ -309,6 +340,6 @@ document.addEventListener("DOMContentLoaded", () => {
     MathJax.typesetPromise();
 });
 
-    previousLink.classList.add('navigation-link', 'previous');
+previousLink.classList.add('navigation-link', 'previous');
 nextLink.classList.add('navigation-link', 'next');
 

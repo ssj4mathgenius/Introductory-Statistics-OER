@@ -9,20 +9,30 @@ body {
     padding: 0;
 }
 
-div, p {
-    max-width: 100%; /* Ensure container adapts to smaller screens */
-    overflow-wrap: break-word; /* Enable wrapping for text */
-    white-space: normal; /* Prevent inline elements from not wrapping */
-    overflow-x: auto; /* Add horizontal scrolling if absolutely necessary */
-    box-sizing: border-box; /* Include padding and border in width calculation */
- 
+div,
+p {
+    max-width: 100%;
+    /* Ensure container adapts to smaller screens */
+    overflow-wrap: break-word;
+    /* Enable wrapping for text */
+    white-space: normal;
+    /* Prevent inline elements from not wrapping */
+    overflow-x: auto;
+    /* Add horizontal scrolling if absolutely necessary */
+    box-sizing: border-box;
+    /* Include padding and border in width calculation */
+
 }
 
 .MathJax_Display {
-    transform: scale(0.9); /* Scale to 90% of original size */
-    transform-origin: left; /* Ensure scaling aligns to the left side */
-    max-width: 100%; /* Ensure it stays within the parent container */
-    overflow-x: auto; /* Allow scrolling for very wide equations */
+    transform: scale(0.9);
+    /* Scale to 90% of original size */
+    transform-origin: left;
+    /* Ensure scaling aligns to the left side */
+    max-width: 100%;
+    /* Ensure it stays within the parent container */
+    overflow-x: auto;
+    /* Allow scrolling for very wide equations */
 }
 
 h1 {
@@ -37,7 +47,7 @@ h1 {
 h2 {
     color: #9D2235;
     font-size: 1.75em;
-    font-weight:bold;
+    font-weight: bold;
     margin-bottom: 15px;
 }
 
@@ -46,7 +56,7 @@ h3 {
     font-size: 1.75em;
     margin-bottom: 10px;
     text-transform: none;
-    font-weight:normal;
+    font-weight: normal;
 }
 
 h4 {
@@ -58,15 +68,15 @@ h4 {
 h5 {
     color: #000000;
     font-size: 1.25em;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
     border-bottom: 2px solid #001A72;
-    width:fit-content;
+    width: fit-content;
 }
 
 figure {
     margin: 0 auto 15px;
-    padding: 10px;  
-  }
+    padding: 10px;
+}
 
 .img-centered {
     display: block;
@@ -83,8 +93,8 @@ figure {
     padding-left: 10px;
     margin-bottom: 15px;
     font-weight: bold;
-    width:fit-content;
-    text-decoration:none; 
+    width: fit-content;
+    text-decoration: none;
     border-bottom: none;
 }
 
@@ -95,8 +105,8 @@ figure {
     padding-left: 10px;
     margin-bottom: 15px;
     font-weight: bold;
-    width:fit-content;
-    text-decoration:none; 
+    width: fit-content;
+    text-decoration: none;
     border-bottom: none;
 }
 
@@ -107,8 +117,8 @@ figure {
     padding: 0px 0px 0px 15px;
     margin-bottom: 10px;
     font-weight: bold;
-    width:fit-content;
-    border-radius: 0px; 
+    width: fit-content;
+    border-radius: 0px;
     text-decoration: none;
     border-bottom: none;
 }
@@ -118,9 +128,9 @@ h6 {
     font-size: 1em;
     margin-bottom: 5px;
     border-bottom: 2px solid #9D2235;
-    width:fit-content;
-text-decoration:none;
-text-transform: none;
+    width: fit-content;
+    text-decoration: none;
+    text-transform: none;
 }
 
 .container {
@@ -142,14 +152,20 @@ text-transform: none;
 }
 
 .caution {
-    background-color: #ffe6e6; /* Light red for a cautionary feel */
-    border-left: 5px solid #ff0000; /* Bold red border for emphasis */
+    background-color: #ffe6e6;
+    /* Light red for a cautionary feel */
+    border-left: 5px solid #ff0000;
+    /* Bold red border for emphasis */
     padding: 15px;
     margin: 20px 0;
-    color: #4d0000; /* Dark red text for contrast */
-    font-weight: bold; /* Makes the text stand out */
-    border-radius: 5px; /* Slightly rounded corners for visual appeal */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
+    color: #4d0000;
+    /* Dark red text for contrast */
+    font-weight: bold;
+    /* Makes the text stand out */
+    border-radius: 5px;
+    /* Slightly rounded corners for visual appeal */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Adds subtle depth */
 }
 
 .solution {
@@ -166,7 +182,7 @@ text-transform: none;
 }
 
 a {
-    color:#001A72;
+    color: #001A72;
     text-decoration: none;
 }
 
@@ -189,7 +205,8 @@ caption {
     margin-bottom: 10px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #CCCCCC;
     padding: 5px;
     text-align: left;
@@ -213,28 +230,39 @@ td {
 
 .table-container {
     display: flex;
-    gap: 20px; /* Adjust spacing between tables */
+    gap: 20px;
+    /* Adjust spacing between tables */
 }
 
 .wrapped-table {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns of equal width */
-    gap: 20px; /* Space between the two wrapped sections */
+    grid-template-columns: 1fr 1fr;
+    /* Two columns of equal width */
+    gap: 20px;
+    /* Space between the two wrapped sections */
 }
+
 .wrapped-table table {
     border-collapse: collapse;
 }
 
 .scrollable-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns for the wrapped layout */
-    gap: 20px; /* Space between the two sections */
-    max-height: 500px; /* Limit height to make it scrollable */
-    overflow-y: auto; /* Enable vertical scrolling */
-    border: 1px solid #ddd; /* Add a border around the wrapper */
-    padding: 10px; /* Add some padding inside the wrapper */
+    grid-template-columns: 1fr 1fr;
+    /* Two columns for the wrapped layout */
+    gap: 20px;
+    /* Space between the two sections */
+    max-height: 500px;
+    /* Limit height to make it scrollable */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    border: 1px solid #ddd;
+    /* Add a border around the wrapper */
+    padding: 10px;
+    /* Add some padding inside the wrapper */
     margin-top: 20px;
 }
+
 .scrollable-wrapper table {
     border-collapse: collapse;
     width: 100%;
@@ -259,12 +287,53 @@ td {
 
 /* Print styling */
 @media print {
+
     iframe, .dontprint {
         display: none;
     }
-    .hideprint{
+
+    .hideprint {
         visibility: hidden;
     }
+
+    :root {
+        --background-color: white;
+        --text-color: black;
+        --link-color: blue;
+        --table-border-color: black;
+    }
+
+    a {
+        color: var(--link-color) !important;
+    }
+
+    table {
+        border-color: var(--table-border-color) !important;
+    }
+
+    body {
+        /* font-size: 80%; */
+        background-color: var(--background-color) !important;
+        color: var(--text-color) !important;
+    }
+
+    /* Use with <div class="page-break"></div> in HTML */
+    .page-break {
+            page-break-before: always;
+        }
+
+        .blanked {
+            visibility: hidden; /* Hide the original text */
+            position: relative; /* Enable pseudo-element positioning */
+        }
+    
+        .blanked {
+            visibility: visible; 
+            color: black; 
+            font-family: monospace; /* Ensure underscores align properly */
+            letter-spacing: 0.05em; /* Optional: Adjust spacing between underscores */
+        }
+
 }
 
 .two-columns {
@@ -273,20 +342,23 @@ td {
 }
 
 .two-columns div {
-    flex: 1; /* Equal width columns */
-    margin: 0 10px; /* Add space between columns */
+    flex: 1;
+    /* Equal width columns */
+    margin: 0 10px;
+    /* Add space between columns */
 }
 
 .two-columns div:first-child {
-    margin-left: 0; /* Remove left margin from first column */
+    margin-left: 0;
+    /* Remove left margin from first column */
 }
 
 .two-columns div:last-child {
-    margin-right: 0; /* Remove right margin from last column */
+    margin-right: 0;
+    /* Remove right margin from last column */
 }
 
-.p-centered
-{
+.p-centered {
     text-align: center;
 }
 
@@ -295,14 +367,41 @@ td {
     list-style-type: lower-alpha;
 }
 
+.half-inch {
+    margin-bottom: 0.5in;
+}
+
+.one-inch {
+    margin-bottom: 1in;
+}
+
+.two-inch {
+    margin-bottom: 2in;
+}
+
+.three-inch {
+    margin-bottom: 3in;
+}
+
+.four-inch {
+    margin-bottom: 4in;
+}
+
+.five-inch {
+    margin-bottom: 5in;
+}
+
+
 /* Define custom properties for light and dark modes */
 :root {
-    --mjx-color: #000000; /* Default MathJax text color */
+    --mjx-color: #000000;
+    /* Default MathJax text color */
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --mjx-color: #ffffff; /* Adjust for dark mode */
+        --mjx-color: #ffffff;
+        /* Adjust for dark mode */
     }
 }
 
@@ -314,9 +413,11 @@ td {
 
 /* iframe settings for GeoGebra embedded apps*/
 .iframe-container {
-    position: relative; /* Set the container to relative for positioning context */
+    position: relative;
+    /* Set the container to relative for positioning context */
     width: 100%;
-    padding-top: 42%; /* Adjust aspect ratio if needed */
+    padding-top: 42%;
+    /* Adjust aspect ratio if needed */
 }
 
 .iframe-container iframe {
@@ -329,9 +430,12 @@ td {
 }
 
 .iframe-container button {
-    position: relative; /* Ensure the button is above the iframe */
-    margin-top: 10px; /* Add some spacing for visual clarity */
-    z-index: 1; /* Make sure the button is above the iframe */
+    position: relative;
+    /* Ensure the button is above the iframe */
+    margin-top: 10px;
+    /* Add some spacing for visual clarity */
+    z-index: 1;
+    /* Make sure the button is above the iframe */
 }
 
 .navigation-link {
@@ -355,51 +459,71 @@ td {
 
 /* Styling for the <nav> container */
 nav {
-    background-color: #001A72; /* Accessible navy blue color */
-    color: #ffffff; /* White text for contrast */
-    padding: 10px 20px; /* Padding inside the navigation bar */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #001A72;
+    /* Accessible navy blue color */
+    color: #ffffff;
+    /* White text for contrast */
+    padding: 10px 20px;
+    /* Padding inside the navigation bar */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
 }
 
 /* Styling for the unordered list within the <nav> */
 nav ul {
-    list-style: none; /* Remove bullets */
+    list-style: none;
+    /* Remove bullets */
     margin: 0;
     padding: 0;
-    display: flex; /* Align items side by side */
-    justify-content: space-around; /* Even spacing between items */
-    align-items: center; /* Center items vertically */
+    display: flex;
+    /* Align items side by side */
+    justify-content: space-around;
+    /* Even spacing between items */
+    align-items: center;
+    /* Center items vertically */
 }
 
 /* Styling for individual <li> items */
 nav ul li {
-    margin: 0 10px; /* Horizontal spacing between items */
+    margin: 0 10px;
+    /* Horizontal spacing between items */
 }
 
 /* Styling for links inside <li> elements */
 nav ul li a {
-    color: #ffffff; /* White text */
-    text-decoration: none; /* Remove underline */
-    padding: 8px 15px; /* Add padding inside links */
-    border-radius: 4px; /* Rounded corners for links */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    color: #ffffff;
+    /* White text */
+    text-decoration: none;
+    /* Remove underline */
+    padding: 8px 15px;
+    /* Add padding inside links */
+    border-radius: 4px;
+    /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth hover effect */
 }
 
 /* Hover effect for links */
 nav ul li a:hover {
-    background-color: #047BC1; /* Lighter blue for hover */
-    color: #ffffff; /* Ensure text remains white */
+    background-color: #047BC1;
+    /* Lighter blue for hover */
+    color: #ffffff;
+    /* Ensure text remains white */
 }
 
 /* Ensure the design is responsive */
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: flex-start; /* Align to the left */
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+        align-items: flex-start;
+        /* Align to the left */
     }
 
     nav ul li {
-        margin: 5px 0; /* Vertical spacing between items */
+        margin: 5px 0;
+        /* Vertical spacing between items */
     }
 }

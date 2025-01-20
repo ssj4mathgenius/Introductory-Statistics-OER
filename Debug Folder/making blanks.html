@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Underscores for Print</title>
+    <style>
+        @media print {
+            .blanked {
+                visibility: hidden;
+                position: relative;
+            }
+
+            .blanked::after {
+                content: var(--blanks);
+                text-indent: 0;
+                /* Reset for underscores */
+                overflow: visible;
+                /* Ensure underscores are visible */
+                position: absolute;
+                left: 0;
+                top: 0;
+                white-space: nowrap; /* Keep underscores on one line */
+        font-size: 1.5em; /* Increase the font size of the underscores */
+        font-weight: bold; /* Make the underscores thicker */
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        The <span class="blanked">missing</span> word is here.
+    </p>
+    <p>
+        Fill in the <span class="blanked">blanks</span>.
+    </p>
+    <p>
+        This is another <span class="blanked">example</span>.
+    </p>
+
+    <script>
+        // Function to dynamically replace text with underscores in "blanked" spans
+        function calculateBlanks() {
+            const blankedElements = document.querySelectorAll('.blanked');
+
+            blankedElements.forEach(element => {
+                const text = element.textContent.trim(); // Get the original text
+                const underscores = '_'.repeat(text.length); // Generate underscores
+
+                // Use a CSS variable to define the underscores for printing
+                element.style.setProperty('--blanks', `"${underscores}"`);
+            });
+        }
+
+        window.onload = calculateBlanks;
+    </script>
+</body>
+
+</html>
