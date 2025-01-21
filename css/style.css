@@ -297,9 +297,9 @@ td {
     }
 
     :root {
-        --background-color: white;
-        --text-color: black;
-        --link-color: blue;
+        --background-color: white !important;
+        --text-color: var(--text-color) !important;
+        --link-color: var(--link-color);
         --table-border-color: black;
     }
 
