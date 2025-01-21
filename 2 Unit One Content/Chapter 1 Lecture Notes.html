@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Introduction to the Study of Statistics</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/loadmathjax.js"></script>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/main.min.css">
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>Introduction to Data and Statistics</h1>
+                    <p>Statistics are widely used in everyday life, from crime and sports to education and real estate.
+                        Whether reading a newspaper, watching TV, or browsing the internet, we often encounter
+                        statistical information based on samples. This data helps assess the accuracy of claims to help
+                        us all make better and informed decisions. Understanding statistical methods is essential for
+                        analyzing information thoughtfully, whether buying a house, managing a budget, or working in
+                        fields like economics, business, psychology, biology, or law. This beginning module introduces
+                        the fundamentals of statistics including the mindset for being a statistics student, learning
+                        the relevant definitions, explaining how data is collected, and how to identify reliable data.
+                    </p>
+                    <h2>Terminology for Statistics</h2>
+                    <p>Before learning about what all is involved in statistics, it is important to introduce a few key
+                        words that will be used all throughout our study of statics.</p>
+                    <div class="definition">
+                        <h2 class="definition-header">What is Data?</h2>
+                        <p><span class="blanked"><strong>Data</strong></span> is any collections of observations (such
+                            as measurements, genders, survey responses,
+                            etc.).</p>
+                    </div>
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Data</h2>
+                        <ol>
+                            <li>An instructor asks their class how many hours they studied last week and the class
+                                responded with various times ranging from 30 mins to 4 hours. All of these "times" given
+                                by the students would be considered Data.</li>
+                            <li>A survey online asks users to identify their favorite fast food restaurant. Two of the
+                                selections made are Zaxbys and McDonald's. These two selections are considered data.
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="definition">
+                        <h2 class="definition-header">What is Statistics?</h2>
+                        <p><span class="blanked"><strong>Statistics</strong></span> is the science of planning studies
+                            and experiments, obtaining data, and then
+                            organizing, summarizing, presenting, analyzing, interpreting, and drawing conclusions based
+                            on the data.</p>
+                    </div>
+                    <p>Statistics operates by using studies, surveys, polls, and other data collection tools to gather
+                        information from a subset of a larger group, allowing insights about the entire group. This
+                        principle reflects the core purpose of statistics and the objective of this course:
+                        understanding some larger group by analyzing data from a representative subset.</p>
+                    <p>To further understand this core principle, let's cover a few more key terms that will be used
+                        during this course as we progress towards our objective.</p>
+                    <div class="definition">
+                        <h2 class="definition-header">The Larger Group</h2>
+                        <p>A <span class="blanked"><strong>population</strong></span> is the complete collection of all
+                            individuals (scores, people, measurements, and
+                            so on) to be studied. The collection is complete in the sense that it includes all of the
+                            individuals to be studied.</p>
+
+                        <p>Individuals often refer to people, but not always. For example, individuals can also refer to
+                            animals in a wildlife study, products in a quality control inspection, plants in a botanical
+                            experiment, or even stars in an astronomical survey.</p>
+
+                        <p>If you do collect data from every individual, you have collected a <strong>census</strong>
+                            which is a collection of data from every member of the population.</p>
+                    </div>
+
+                    <p>Consider the example of products in a quality control inspection. As the manufacturer, you want
+                        all your products to be free of defects. You have two options: test every product or test a
+                        small selection and use the results to evaluate the entire product line. Most manufacturers
+                        choose the latter because testing every product is more expensive and may damage or destroy the
+                        items being tested.</p>
+
+                    <p>This example highlights the difference between a <strong>census</strong>, which involves testing
+                        every product, and a <strong>sample</strong>, which involves testing only a subset. </p>
+
+                    <div class="definition">
+                        <h2 class="definition-header">The Smaller Group</h2>
+                        <p>A <span class="blanked"><strong>sample</strong></span> is a subset (or smaller group) of
+                            members selected from a population.</p>
+                        <p>Some examples include:
+                        <ul>
+                            <li>Political polls study a randomly selected group of households across various states to
+                                estimate trends for the entire U.S. population. This approach is more efficient and
+                                cost-effective than conducting a full census, as political organizations and journalists
+                                lack the resources or time for a true census.</li>
+                            <li>The professor surveys only 5 of their 30 students about their sleep habits, rather than
+                                collecting data from every student.</li>
+                            <li>The top 8 scores from a competition are sampled to assess whether the overall skill
+                                level of the athletes is improving.</li>
+                        </ul>
+                        </p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Collecting a Sample
+                        </h2>
+                        <p>If a statistics professor is studying the amount of sleep his students get each night and is
+                            only able to collect data from <strong>ten</strong> of his thirty students then he has
+                            collected a <span class="blanked"><strong>sample</strong></span>.
+                        </p>
+                    </div>
+                    <p>It is important in this course to distinguish between a sample and the population that the sample
+                        comes from. If a Gallup poll is given to all eligible voters and there are 2.3 million
+                        responses, then the sample in this scenario is the 2.3 million respondents/responses and the
+                        population is all adults eligible to vote. We like to think about the population as "what is the
+                        biggest set of individuals we could get data from?"</p>
+
+                    <!-- <p>It is not always possible to collect
+                        a census either. While it is ideal to get data from every single member of a population, there
+                        are usually roadblocks that prevent this such as the following (to name a few):</p>
+                    <ul>
+                        <li>People unwilling to participate</li>
+                        <li>Insufficient time to collect data</li>
+                        <li>Limited financing to conduct the study</li>
+                        <li>Ethical issues involved with collecting certain pieces of data</li>
+                    </ul> -->
+
+                    <div class="page-break"></div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Sample vs Population
+                        </h2>
+                        <p>We want to study the heights of students at Columbia State Community College so we set up a
+                            table in the student resources building to collect data from our fellow students as they come into the building.
+                            This college has an enrollment of 2000 students. We obtain the heights of 281 students over
+                            a course of three days. For this scenario, identify both the population and the sample as
+                            well as some factors preventing us from obtaining a census.</p>
+                    </div>
+                    <div class="solution">
+                        <h2 class="solution-header">Solution: Sample vs Population</h2>
+                        <div class="two-inch"></div>
+                        <!-- <p>The population would be all 2000 students that are enrolled in the college as that would be
+                            the ideal amount of individuals to collect height data from.<br><br>The sample is just the
+                            281 student heights we got over the course of the three days.<br><br>With us collecting data
+                            in this manner, this limits us from getting data from students that do not visit the student
+                            recourses building. Because of this, we probably do not have a representative sample meaning
+                            this sample would not be the best for trying to study the heights of ALL students at ABC
+                            College: this data could be used instead to just make inferences about students that use the
+                            student resources building.</p> -->
+                    </div>
+                    <h2>Conclusion</h2>
+                    <p>Understanding the distinction between populations and samples is fundamental to statistical analysis. Populations represent the entire group under study, while samples are subsets used to make inferences about the population. Although a census provides comprehensive data, it is often impractical for large populations, making sampling a more efficient and feasible approach. Recognizing these differences and correctly identifying populations and samples in various contexts ensures accurate interpretations and better decision-making in studies.</p>
+
+                    <div class="page-break"></div>
+
+                    <h1>Parameters and Statistics</h1>
+                    <p>In statistics, understanding the distinction between key concepts is essential for analyzing data
+                        effectively. Two foundational terms, parameter and statistic, play a crucial role in summarizing
+                        and interpreting information.</p>
+                    <div class="definition">
+                        <h2 class="definition-header">What is a Parameter?</h2>
+                        <p>A <span class="blanked"><strong>parameter</strong></span> is a numerical measurement describing some characteristic of a population.</p>
+                    </div>
+
+                    <p>An example of a parameter is the average height of all people living in Nashville, TN, and its surrounding suburbs. While it’s theoretically possible to measure the height of every individual in the area to determine this parameter, doing so would require a complete census, which is impractical. Many people might refuse to participate, and certain groups, such as homeless individuals or undocumented immigrants, can be difficult to locate and include. As a result, although this exact number exists, the inability to conduct a full census means it will likely remain unknown.</p>
+
+                        <p>This is why we take samples. While we can’t calculate this number for the entire population, we can measure the heights of a subset of individuals who are willing to participate. The average height calculated from this subset is called a statistic, which is used to estimate the unknown parameter.</p>
+                    <div class="definition">
+                        <h2 class="definition-header">What is a Statistic?</h2>
+                        <p>A <span class="blanked"><strong>statistic</strong></span> is a numerical measurement describing some characteristic of a sample. It is
+                            calculated from a sample drawn from some population that is intended to be studied.</p>
+                    </div>
+                    <p>Returning to our Nashville example, we could take a random sample of 500 individuals and calculate their average height. If we get an average height of <strong>5 feet 7 inches</strong>, then this value is a <strong>statistic</strong> since it is a value derived from a sample.</p>
+                    <p> <strong>Note:</strong> To ensure accuracy, the sample should be randomly selected from different neighborhoods and include a diverse mix of ages, genders, ethnicities, and socio-economic backgrounds. This approach can provide a reasonably accurate estimate of the average height of people living in the Nashville area, provided it is free from bias or sampling errors, which we will discuss shortly.</p>
+                    <div class="definition">
+                        <h2 class="definition-header">Telling the Difference Between a Parameter and a Statistic</h2>
+                        <p>These two terms can be confusing so here is a helpful memory device for sorting out which term
+                            goes with what value:
+                            <ul>
+                                <li><strong>Parameter</strong> refers to a <strong>Population</strong> (both start with a P)</li>
+                                <li><strong>Statistic</strong> refers to a <strong>Sample</strong> (both start with a S).</li>
+                            </ul>
+                            Try the example below to determine if you can identify
+                            numerical values as parameters or statistics.</p>
+                    </div>
+                    <div class="page-break"></div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Statistic vs Parameter</h2>
+                        <p>For each scenario below, tell if each of the <strong>bolded</strong> values are a parameter
+                            or a statistic. If the value is a statistic, tell what could be changed about the scenario
+                            to make the bolded word become a parameter.</p>
+                        <ol>
+                            <li>A study of all 2223 passengers aboard the Titanic found that <strong>706</strong>
+                                survived when it sank.</li>
+                            <li>In a large sample of households, the median annual income per household for high school
+                                graduates is <strong>$19,856</strong> (based on data from the U.S. Census Bureau).</li>
+                            <li>Among the Senators in the current Congress, <strong>45%</strong> are Democrats.</li>
+                            <li>The author measured the voltage supplied to his home on 40 different days, and the
+                                average (mean) value is <strong>123.7</strong> volts.</li>
+                        </ol>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution: Statistic vs Parameter</h2>
+                            <p>Here are the solutions to the above example problem:</p>
+                            <div class="two-inch"></div>
+                            <!-- <ol>
+                                <li>The number 706 is a <strong>parameter</strong></li>
+                                <li>The value $19,856 is a <strong>statistic</strong>. It would be a parameter by removing
+                                    "sample of households" and adding "all the households in Tennessee" or "every households
+                                    in the county": putting in wording that indicates it is a complete collection of
+                                    households.</li>
+                                <li>The percentage 45% is a <strong>parameter</strong></li>
+                                <li>The value 123.7 is a <strong>statistic</strong>. This would be a parameter if the "40
+                                    different days" was change to "all 365 days of the year" or "all 30 days of this month"
+                                    to indicate that the voltage measurements are a complete collection.</li>
+                            </ol> -->
+                        </div>
+                    </div>
+
+                    <h2>Conclusion</h2>
+
+                <p>Understanding the distinction between parameters and statistics is fundamental in statistical analysis. While parameters describe entire populations, they are often theoretical and difficult to calculate due to practical constraints. Statistics, on the other hand, are calculated from samples and provide a way to estimate these unknown parameters. By carefully designing samples to be representative and minimizing bias, we can make reliable conclusions about populations from data we collect from samples. Using statistics to estimate parameters forms the foundation for much of the work in statistics, allowing us to draw meaningful conclusions from data and apply them to real-world contexts.</p>
+                    
+                    <p>Now that we have introduced several of the key terms used in this course, we can explain a little more in-depth what a statistics course entails. This course will cover how to organize and summarize data, a
+                        process known as <strong>descriptive statistics</strong>. Data can be summarized through graphs
+                        or by numerical measures which will be discussed in future readings. After some time in the
+                        course we will introduce formal methods for drawing conclusions about a population from reliable
+                        sample data. This process is known as <strong>inferential statistics</strong>. Effective data
+                        interpretation relies on sound data collection methods and careful analysis. While the course
+                        includes numerous mathematical formulas, the focus is primarily on understanding the data rather
+                        than performing extensive calculations, which can be handled by calculators or computers. A
+                        solid grasp of statistical fundamentals fosters confidence in decision-making.</p>
+
+                        <div class="page-break"></div>
+
+                    <h1>Types of Data and Ways of Sampling</h1>
+                    <p>Understanding data begins with recognizing its classification and the processes used to collect
+                        it. Data can broadly be categorized into two classifications with each providing a unique
+                        insight into a population or sample allowing for a more targeted analysis of particular aspects.
+                        When collecting data it is important to implement an appropriate sampling method so that the
+                        data can be used to learn something about the population that it originated. This section will
+                        detail data types as well as the common sampling methods used to collect that data.</p>
+                    <h2>Data Classification</h2>
+                    <p>Data originates from either a population or a sample and can be classified into two main
+                        categories: <strong>Qualitative Data</strong> and <strong>Quantitative Data</strong>.</p>
+                    <div class="definition">
+                        <h2 class="definition-header">What is Qualitative Data?</h2>
+                        <p>Qualitative data (or categorical data) categorizes or describes attributes of a population,
+                            often using words or letters. Examples include hair color (e.g., black, brown), blood type
+                            (e.g., AB+, O-), Zip Codes (e.g., 38401, 49715, 26537), or car types(e.g., Toyota, Explorer, Jeep). This type of data is not
+                            generally suited for mathematical analysis meaning that averages or standard deviations are
+                            not meaningful (e.g. you wouldn't be able to average hair colors).</p>
+                    </div>
+                    <div class="definition">
+                        <h2 class="definition-header">What is Quantitative Data?</h2>
+                        <p>Quantitative data represents numerical values obtained by counting or measuring attributes.
+                            Examples include weight, pulse rate, the number of people/objects, etc. Quantitative data is
+                            further divided into two subcategories:</p>
+                        <ul>
+                            <li><span class="blanked"><b>Discrete data</b></span> results when the number of possible
+                                values is either a finite
+                                number or a “countable” number (i.e. the number of possible values is 0, 1, 2, 3, . . .
+                                ). Examples might include number of phone calls: 0 calls, 1 call, 2 calls, etc.</li>
+                            <li><span class="blanked"><b>Continuous data</b></span> results from infinitely many
+                                possible values that correspond to
+                                some continuous scale that covers a range of values without gaps, interruptions, or
+                                jumps. This includes almost measurements of distance, time, volume, temperature,
+                                mass, or combinations of any of these. For example, weights like 2.4 grams and 7.5 pounds
+                                would be continuous data since the scale they originate from has infinite divisions
+                                (i.e. you could get the measurement as precise as possible).</li>
+                        </ul>
+                    </div>
+
+                    <div class="page-break"></div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example <span class="example-number"></span>: Discrete vs Continuous Data</h2>
+                        <p>Determine the correct data type (quantitative or qualitative). For data that is quantitative,
+                            indicate whether it is continuous or discrete. Hint: Data that are discrete often start with
+                            the words "the number of."</p>
+                        <ol type="a">
+                            <li>The number of pairs of shoes you own</li>
+                            <li>The type of car you drive</li>
+                            <li>The distance from your home to the nearest grocery store</li>
+                            <li>The number of classes you take per school year</li>
+                            <li>The type of calculator you use</li>
+                            <li>Weights of dogs at an animal shelter</li>
+                            <li>Number of correct answers on a quiz</li>
+                            <li>Amount of money you spend at the local Quickmart</li>
+                        </ol>
+                         <div class="solution">  
+                            <h2 class="solution-header">Solution: Discrete vs Continuous Data</h2>
+                              <div class="three-inch"></div>
+                            <!--<ol type="a">
+                                <ul>
+<li><strong>Part A:</strong> Discrete Quantitative
+<p>The number of pairs of shoes you own is countable (e.g., 1 pair, 2 pairs, 3 pairs, etc.), which makes it quantitative and discrete.</p>
+</li>
+<li><strong>Part B:</strong> Qualitative
+<p>The type of car you drive (e.g., SUV, sedan, truck) is categorical and cannot be measured or counted, making it qualitative data.</p>
+</li>
+<li><strong>Part C:</strong> Continuous Quantitative
+<p>The distance to the nearest grocery store can be measured along a continuous scale (e.g., 1.5 miles, 3.2 miles), allowing for infinite precision, so it is quantitative and continuous.</p>
+</li>
+<li><strong>Part D:</strong> Discrete Quantitative
+<p>The number of classes you take per school year is countable (e.g., 4 classes, 5 classes, etc.), so it is quantitative and discrete.</p>
+</li>
+<li><strong>Part E:</strong> Qualitative
+<p>The type of calculator you use (e.g., graphing calculator, scientific calculator) is descriptive and categorical, making it qualitative data.</p>
+</li>
+<li><strong>Part F:</strong> Continuous Quantitative
+<p>The weights of dogs at an animal shelter can be measured along a continuous scale (e.g., 12.7 pounds, 23.4 pounds) with infinite precision, making this data quantitative and continuous.</p>
+</li>
+<li><strong>Part G:</strong> Discrete Quantitative
+<p>The number of correct answers on a quiz is countable (e.g., 1 correct answer, 2 correct answers), so it is quantitative and discrete.</p>
+</li>
+<li><strong>Part H:</strong> Discrete Quantitative
+<p>Although the amount of money spent at a store can include decimals (e.g., $5.75), money is not measured on a continuous scale because it is typically limited to two decimal places (cents). Thus, it is quantitative and discrete.</p>
+</li>
+</ul>
+                            </ol>
+                        </div> -->
+                    </div>
+
+                    <div class="page-break"></div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>Consider the following information and table, then answer the questions below.</p>
+        <ul>
+        <li><strong>Part A:</strong> Which information is categorical data?</li>
+        <li><strong>Part B:</strong> Which information is quantitative data?</li>
+        </ul>
+        <table style="width: 100%;"><caption style="width: max-content;">Selected Vehicle Data</caption>
+        <thead>
+        <tr>
+        <th scope="col">Make/Model</th>
+        <th scope="col">Class</th>
+        <th scope="col">Transmission</th>
+        <th scope="col">Cylinders</th>
+        <th scope="col">City MPG</th>
+        <th scope="col">Highway MPG</th>
+        <th scope="col">Annual Fuel Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Chevrolet Corvette</td>
+        <td>Two-Seater</td>
+        <td>Manual</td>
+        <td>8</td>
+        <td>17</td>
+        <td>29</td>
+        <td>$2,650</td>
+        </tr>
+        <tr>
+        <td>Nissan Cube</td>
+        <td>Station Wagon</td>
+        <td>Manual</td>
+        <td>4</td>
+        <td>25</td>
+        <td>30</td>
+        <td>$1,850</td>
+        </tr>
+        <tr>
+        <td>Ford Fusion</td>
+        <td>Midsize</td>
+        <td>Automatic</td>
+        <td>4</td>
+        <td>23</td>
+        <td>36</td>
+        <td>$1,800</td>
+        </tr>
+        <tr>
+        <td>Chevrolet Impala</td>
+        <td>Large</td>
+        <td>Automatic</td>
+        <td>6</td>
+        <td>18</td>
+        <td>28</td>
+        <td>$2,400</td>
+        </tr>
+        </tbody>
+        </table>
+        <!-- Part A --><!-- Solution -->
+        <div class="solution">
+        <h2 class="example-header">Solution</h2>
+        <div class="three-inch"></div>
+        <!-- <ul>
+        <li><strong>Part A:</strong> Categorical data describes attributes or categories and cannot be measured numerically. From the table, the categorical data includes:
+        <ul>
+        <li><strong>Make/Model:</strong> The names of vehicles, such as "Chevrolet Corvette" or "Nissan Cube."</li>
+        <li><strong>Class:</strong> The vehicle category, such as "Two-Seater" or "Midsize."</li>
+        <li><strong>Transmission:</strong> The type of transmission, either "Manual" or "Automatic."</li>
+        <li><strong>Cylinders:</strong> The number of engine cylinders (e.g., 4, 6, 8) is categorical because it classifies the engine type rather than measuring it.&nbsp;&nbsp;</li>
+        </ul>
+        </li>
+        <li><strong>Part B:</strong> Quantitative data includes numerical values obtained by counting or measuring. From the table, the quantitative data includes:
+        <ul>
+        <li><strong>City MPG:</strong> The number of miles per gallon in city driving (e.g., 17, 25, 23, etc.).</li>
+        <li><strong>Highway MPG:</strong> The number of miles per gallon in highway driving (e.g., 29, 30, 36, etc.).</li>
+        <li><strong>Annual Fuel Cost:</strong> The cost of fuel for one year, measured in dollars (e.g., $2,650, $1,850).</li>
+        </ul>
+        </li>
+        </ul> -->
+        </div>
+    </div>
+                    <div class="page-break"></div>
+
+                    <div class="example">
+                        <h2 class="example-header">Example 2: Type of Data from an Image</h2>
+                        <p>The registrar at State University keeps records of the number of credit hours students
+                            complete each semester. The data collected are summarized in the histogram. The class
+                            boundaries are 10 to less than 13, 13 to less than 16, 16 to less than 19, 19 to less than
+                            22, and 22 to less than 25. What type of data is depicted in the graph below?</p>
+                        <img src="../images/StudentCreditHours.jpg"
+                            alt="Histogram showing 5 classes arranged in a pattern that looks like a normal distribution. The vertical axis is Number of Students. The height of the 5 bars from left to right are approximately 250, 580, 740, 625, and 240 students. The horizontal axis is credit hours completed matching the problem description.">
+                            <div class="solution">
+                                <h2 class="solution-header">Solution: Type of Data from an Image</h2>
+                                <div class="one-inch"></div>
+                                <!-- <p>
+                                    Since students would be countable (i.e. 0 students, 1 student, 2 students, etc.) this graph
+                                    depicts data that is <b>Discrete Quantitative</b>.
+                                </p> -->
+                            </div>
+                    </div>
+
+                    <div class="page-break"></div>
+                    
+                    <h2>Levels of Measurement</h2>
+                    <p>Statistics involves understanding, analyzing, and interpreting data, and a key component is
+                        determining the "level of measurement" of data. Levels of measurement are important because they
+                        determine the types of statistical analyses that can be performed and ensure proper
+                        interpretation of data. There are four levels of measurement: nominal, ordinal, interval, and
+                        ratio. Each builds upon the previous level, providing more information about the data.</p>
+                    <div class="definition">
+                        <h2 class="definition-header">Different Levels of Measurement</h2>
+                        <p><b>Nominal Level:</b> Data at this level are categorized without any order. For example,
+                            trying to classify people according to their favorite food does not make any sense: putting
+                            pizza first and sushi second is not meaningful. Examples might include anything that is
+                            qualitative data where there is no inherent order that can be prescribed: gender, eye color,
+                            types of fruits, etc.</p>
+                        <p><b>Ordinal Level:</b> Data are categorized with a meaningful order, but differences between
+                            categories are not measurable. Examples include rankings in a competition or survey
+                            responses such as "satisfied," "neutral," or "dissatisfied."</p>
+                        <p><b>Interval Level:</b> Data have meaningful order, measurable differences, but no true zero
+                            point. Examples include temperature in Celsius or years on a calendar. Interval level data
+                            can be used in calculations, but since there is no true zero point it isn't meaningful to
+                            make a ratio. For example: 6 PM isn't twice as big as 3 PM despite there being three hours
+                            between the two times of day.</p>
+                        <p><b>Ratio Level:</b> Data have a meaningful order, measurable differences, and a true zero
+                            point, allowing for meaningful ratios. Examples include weight, height, or age.</p>
+                    </div>
+                    <div class="example">
+                        <h2 class="example-header">Example Problem</h2>
+                        <p>Classify the following scenarios by their level of measurement:</p>
+                        <ol type="a">
+                            <li>Types of cars (e.g., SUV, sedan, truck).</li>
+                            <li>The ranking of runners in a race.</li>
+                            <li>Temperature readings in Fahrenheit.</li>
+                            <li>The time it takes for participants to complete a task, measured in seconds.</li>
+                        </ol>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <ol type="a">
+                                <li><b>Nominal:</b> Types of cars are categorized without order.</li>
+                                <li><b>Ordinal:</b> Rankings in a race indicate an order but do not provide measurable
+                                    differences between positions.</li>
+                                <li><b>Interval:</b> Fahrenheit temperatures provide measurable differences but lack a true
+                                    zero.</li>
+                                <li><b>Ratio:</b> Time in seconds includes meaningful differences and a true zero, allowing
+                                    for ratios.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <h2>Sampling Techniques</h2>
+                    <p>Sampling is used when gathering data from an entire population is impractical or too expensive. A
+                        sample should represent the population's characteristics, and random sampling methods help
+                        achieve this. Common random sampling techniques include:</p>
+                    <div class="definition">
+                        <h2 class="definition-header">Common Sampling Techniques</h2>
+                        <p><b>Simple Random Sampling:</b> Every individual in the population has an equal chance of
+                            being selected, ensuring that all samples of the same size are equally likely.</p>
+                        <p><b>Stratified Sampling:</b> Divide the population into groups (strata) and take a
+                            proportionate random sample from each group. For instance, sample students from various
+                            departments to represent a college population.</p>
+                        <p><b>Cluster Sampling:</b> Divide the population into clusters, then randomly select some
+                            clusters and include all members from those clusters in the sample. For example, randomly
+                            select departments in a college and survey all their students.</p>
+                        <p><b>Systematic Sampling:</b> Randomly select a starting point and pick every nth member from a
+                            population list. For example, choose every 50th name in a phone book for a survey.</p>
+                    </div>
+                    <p>Non-random sampling, such as convenience sampling, selects readily available participants, which
+                        can lead to biased results. An example of convenience sampling might be selecting the first 20
+                        customers entering a coffee shop: this sample is not random and will likely be biased in some
+                        way. Sampling errors (e.g., small sample sizes) and nonsampling errors (e.g., data entry
+                        mistakes) can also affect results. Larger samples tend to reduce sampling error, but sampling
+                        bias occurs if some members have unequal chances of selection.</p>
+                    <p>Critical evaluation of studies is essential. Issues to consider include representativeness,
+                        sample size, undue influence, causality, and potential confounding factors.</p>
+                    <div class="example">
+                        <h2 class="example-header">Example 3: Identify Sampling Techniques</h2>
+                        <p>A study intends to determine the average tuition paid by Tennessee Technological University
+                            undergraduate students per semester. Identify the sampling method used in each scenario:</p>
+                        <ol type="a">
+                            <li>Organize students by year (e.g., first-year, sophomore), then select 25 from each.</li>
+                            <li>Use a random number generator to select one student, then pick every 50th student until
+                                75 students are included.</li>
+                            <li>Select 75 students completely at random, with equal probability for all.</li>
+                            <li>Randomly pick two years (e.g., first-year and senior), and survey all students in those
+                                years.</li>
+                            <li>Survey the first 100 students encountered in front of the library on a specific day.
+                            </li>
+                        </ol>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution: Identify Sampling Techniques</h2>
+                            <ol type="a">
+                                <li><b>Stratified Sampling:</b> Students are grouped by year and sampled proportionally.
+                                </li>
+                                <li><b>Systematic Sampling:</b> A starting point is randomly selected, and every 50th
+                                    student is chosen.</li>
+                                <li><b>Simple Random Sampling:</b> All students have an equal probability of selection.</li>
+                                <li><b>Cluster Sampling:</b> Entire years are selected, and all students in those years are
+                                    included.</li>
+                                <li><b>Convenience Sampling:</b> Students are chosen based on availability, leading to
+                                    potential bias.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

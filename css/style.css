@@ -24,6 +24,10 @@ p {
 
 }
 
+ol li, ul li {
+    padding-bottom: 0.4rem;
+}
+
 .MathJax_Display {
     transform: scale(0.9);
     /* Scale to 90% of original size */
@@ -41,20 +45,20 @@ h1 {
     font-weight: bold;
     border-bottom: 2px solid #047BC1;
     padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin: 0.3rem 0rem 0.2rem 0rem;
 }
 
 h2 {
     color: #9D2235;
     font-size: 1.75em;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin: 0.3rem 0rem 0.2rem 0rem;
 }
 
 h3 {
     color: #047BC1;
-    font-size: 1.75em;
-    margin-bottom: 10px;
+    font-size: 1.5em;
+    margin: 0.3rem 0rem 0.2rem 0rem;
     text-transform: none;
     font-weight: normal;
 }
@@ -62,15 +66,25 @@ h3 {
 h4 {
     color: #001A72;
     font-size: 1.5em;
-    margin-bottom: 10px;
+    margin: 0.3rem 0rem 0.2rem 0rem;
 }
 
 h5 {
     color: #000000;
     font-size: 1.25em;
-    margin-bottom: 5px;
+    margin: 0.3rem 0rem 0.2rem 0rem;
     border-bottom: 2px solid #001A72;
     width: fit-content;
+}
+
+h6 {
+    color: #000000;
+    font-size: 1em;
+    margin: 0.3rem 0rem 0.2rem 0rem;
+    border-bottom: 2px solid #9D2235;
+    width: fit-content;
+    text-decoration: none;
+    text-transform: none;
 }
 
 figure {
@@ -91,7 +105,8 @@ figure {
     font-size: 1.5em;
     border-left: 8px solid #9D2235;
     padding-left: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 0.5rem;
+    margin-top:0.3rem;
     font-weight: bold;
     width: fit-content;
     text-decoration: none;
@@ -99,11 +114,10 @@ figure {
 }
 
 .definition-header {
-    color: #000000;
+    color: #047BC1;
     font-size: 1.5em;
-    border-left: 8px solid #9D2235;
-    padding-left: 10px;
-    margin-bottom: 15px;
+    margin: 0.3rem 0rem 0.2rem 0rem;
+    text-transform: none;
     font-weight: bold;
     width: fit-content;
     text-decoration: none;
@@ -114,8 +128,9 @@ figure {
     color: #000000;
     font-size: 1.5em;
     border-left: 8px solid #9D2235;
-    padding: 0px 0px 0px 15px;
-    margin-bottom: 10px;
+    padding: 0px 0px 0px 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top:0.3rem;
     font-weight: bold;
     width: fit-content;
     border-radius: 0px;
@@ -123,32 +138,29 @@ figure {
     border-bottom: none;
 }
 
-h6 {
-    color: #000000;
-    font-size: 1em;
-    margin-bottom: 5px;
-    border-bottom: 2px solid #9D2235;
-    width: fit-content;
-    text-decoration: none;
-    text-transform: none;
-}
-
 .container {
-    padding: 20px;
+    padding: 1rem;
 }
 
 .definition {
     background-color: #f4f4f4;
     color: #000000;
-    padding: 5px 10px 10px 10px;
-    margin: 20px 0;
+    padding: 0rem 0.5rem 0rem 0rem;
+    margin: 0.4rem 0;
 }
 
 .example {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 0rem 0.5rem 0rem 0rem;
+    margin: 0.2rem 0;
+}
+
+.solution {
     background-color: #eff1f6;
     color: #000000;
-    padding: 5px 10px 10px 10px;
-    margin: 20px 0;
+    padding: 0rem 0.5rem 0rem 0rem;
+    margin: 0.2rem 0;
 }
 
 .caution {
@@ -166,13 +178,6 @@ h6 {
     /* Slightly rounded corners for visual appeal */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Adds subtle depth */
-}
-
-.solution {
-    background-color: #eff1f6;
-    color: #000000;
-    padding: 5px 10px 10px 10px;
-    margin: 20px 0;
 }
 
 .h4paragraph {
@@ -312,7 +317,7 @@ td {
     }
 
     body {
-        /* font-size: 80%; */
+        font-size: 80%;
         background-color: var(--background-color) !important;
         color: var(--text-color) !important;
     }

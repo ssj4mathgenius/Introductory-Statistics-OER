@@ -84,23 +84,27 @@ setMathJaxColorScheme();
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setMathJaxColorScheme);
 
 
-function updateExampleNumbers() {
-    const examples = document.querySelectorAll('.example');
-    examples.forEach((example, index) => {
-        const numberSpan = example.querySelector('.example-number');
-        numberSpan.textContent = index + 1;
-    });
-};
+document.addEventListener("DOMContentLoaded", () => {
+    function updateExampleNumbers() {
+        const examples = document.querySelectorAll('.example');
+        examples.forEach((example, index) => {
+            const numberSpan = example.querySelector('.example-number');
+            if (numberSpan) {
+                numberSpan.textContent = index + 1;
+            }
+        });
+    }
 
-// Example of adding a new example dynamically
-const newExample = document.createElement('div');
-newExample.className = 'example';
-newExample.innerHTML = `
-    <h2>Example <span class="example-number"></span></h2>
-`;
+    // Example of adding a new example dynamically
+    const newExample = document.createElement('div');
+    newExample.className = 'example';
+    newExample.innerHTML = `
+        <h2>Example <span class="example-number"></span></h2>
+    `;
 
-document.body.appendChild(newExample);
-updateExampleNumbers();
+    // document.body.appendChild(newExample);
+    updateExampleNumbers();
+});
 
 //Copy to Clipboard 
 //<button onclick="copyToClipboard('data id')">Copy Data to Clipboard</button>
