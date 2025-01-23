@@ -83,6 +83,27 @@ setMathJaxColorScheme();
 // Update color scheme dynamically when the user changes modes
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setMathJaxColorScheme);
 
+//Function to dynamically set the height of inches div container
+function setDivHeightFromData() {
+    // Select all divs with the class "inches"
+    const divs = document.querySelectorAll('.inches');
+
+    // Loop through each div and set its height dynamically
+    divs.forEach(div => {
+        const height = div.getAttribute('data-height'); // Get the height from the data-height attribute
+        if (height) {
+            div.style.height = height; // Set the height style
+        } else {
+            console.warn('No data-height attribute found for:', div);
+        }
+    });
+}
+
+// Call the function on page load
+window.onload = () => {
+    setDivHeightFromData();
+};
+
 
 document.addEventListener("DOMContentLoaded", () => {
     function updateExampleNumbers() {

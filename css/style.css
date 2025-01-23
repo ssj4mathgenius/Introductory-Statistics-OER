@@ -290,6 +290,44 @@ td {
     border: 0;
 }
 
+.half-inch {
+    margin-bottom: 0.5in;
+    display:none;
+}
+
+.one-inch {
+    margin-bottom: 1in;
+    display:none;
+}
+
+.two-inch {
+    margin-bottom: 2in;
+    display:none;
+}
+
+.three-inch {
+    margin-bottom: 3in;
+    display:none;
+}
+
+.four-inch {
+    margin-bottom: 4in;
+    display:none;
+}
+
+.five-inch {
+    margin-bottom: 5in;
+    display:none;
+}
+
+.inches{
+    width:100%;
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+    display:none;
+}
+
 /* Print styling */
 @media print {
 
@@ -299,6 +337,10 @@ td {
 
     .hideprint {
         visibility: hidden;
+    }
+
+    .half-inch, .one-inch, .two-inch, .three-inch, .four-inch, .five-inch, .inches {
+        display:block;
     }
 
     :root {
@@ -370,30 +412,6 @@ td {
 /* Class for ordered list to make them lettered a, b, c, etc. */
 .list-a {
     list-style-type: lower-alpha;
-}
-
-.half-inch {
-    margin-bottom: 0.5in;
-}
-
-.one-inch {
-    margin-bottom: 1in;
-}
-
-.two-inch {
-    margin-bottom: 2in;
-}
-
-.three-inch {
-    margin-bottom: 3in;
-}
-
-.four-inch {
-    margin-bottom: 4in;
-}
-
-.five-inch {
-    margin-bottom: 5in;
 }
 
 
