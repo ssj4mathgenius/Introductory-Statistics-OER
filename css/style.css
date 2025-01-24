@@ -339,6 +339,16 @@ td {
         visibility: hidden;
     }
 
+    .container-fluid {
+        border: none; 
+        border-radius: 0px; 
+        padding: 0px; 
+        background-color: #fff; 
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        max-width: 1200px;
+      }
+
     .half-inch, .one-inch, .two-inch, .three-inch, .four-inch, .five-inch, .inches {
         display:block;
     }
