@@ -395,6 +395,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // Replace blanked text with underscores
             replaceBlanksForPrint();
 
+             // Add 'notes-visible' class to <body> to enable .notes-page-break
+        document.body.classList.add("notes-visible");
+
+        console.log("✅ .notes-page-break are now visible for printing notes.");
+
             // Show all .inches divs before printing
             const inchesDivs = document.querySelectorAll(".inches");
             inchesDivs.forEach(div => {
@@ -442,12 +447,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log("✅ Print media query overrides removed.");
                 }
 
+                // Hide .notes-page-break again after printing
+                document.body.classList.remove("notes-visible");
+
                 // Restore .blanked text and hide .inches again
                 restoreOriginalText();
                 inchesDivs.forEach(div => {
                     div.classList.remove("print-visible");
                 });
 
+                console.log("❌ .notes-page-break elements hidden again.");
                 console.log("❌ .blanked elements restored to original text.");
                 console.log("❌ .inches elements are now hidden again.");
             }, 1000);

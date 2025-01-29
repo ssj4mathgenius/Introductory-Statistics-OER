@@ -357,10 +357,26 @@ mark.highlight {
     color: black;
 }
 
+/* Default page break for normal printing (Ctrl + P) */
+.page-break {
+    page-break-before: always;
+}
+
+/* Page break that only appears when 'Print Notes' is clicked */
+.notes-page-break {
+    display: none; /* Hidden by default */
+}
+
 /* Print styling */
 @media print {
     iframe {
         display: none;
+    }
+
+    /* Show notes-page-break ONLY when printing after clicking 'Print Notes' */
+    .notes-visible .notes-page-break {
+        display: block !important;
+        page-break-before: always;
     }
 
     .container-fluid {
