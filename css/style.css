@@ -24,7 +24,8 @@ p {
 
 }
 
-ol li, ul li {
+ol li,
+ul li {
     padding-bottom: 0.4rem;
 }
 
@@ -106,7 +107,7 @@ figure {
     border-left: 8px solid #9D2235;
     padding-left: 10px;
     margin-bottom: 0.5rem;
-    margin-top:0.3rem;
+    margin-top: 0.3rem;
     font-weight: bold;
     width: fit-content;
     text-decoration: none;
@@ -130,7 +131,7 @@ figure {
     border-left: 8px solid #9D2235;
     padding: 0px 0px 0px 0.5rem;
     margin-bottom: 0.5rem;
-    margin-top:0.3rem;
+    margin-top: 0.3rem;
     font-weight: bold;
     width: fit-content;
     border-radius: 0px;
@@ -292,65 +293,94 @@ td {
 
 .half-inch {
     margin-bottom: 0.5in;
-    display:none;
+    display: none;
 }
 
 .one-inch {
     margin-bottom: 1in;
-    display:none;
+    display: none;
 }
 
 .two-inch {
     margin-bottom: 2in;
-    display:none;
+    display: none;
 }
 
 .three-inch {
     margin-bottom: 3in;
-    display:none;
+    display: none;
 }
 
 .four-inch {
     margin-bottom: 4in;
-    display:none;
+    display: none;
 }
 
 .five-inch {
     margin-bottom: 5in;
-    display:none;
+    display: none;
+}
+
+/* search bar page highlighting color */
+mark.highlight {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
 }
 
 .inches {
-    width:100%;
+    width: 100%;
     background-color: transparent;
     border: none;
     box-sizing: border-box;
-    display:none;
+    display: none !important;
+    /* Always hidden unless overridden */
+}
+
+/* This class will be dynamically added when "Print Notes" is clicked */
+.inches.print-visible {
+    display: block !important;
+}
+
+/* Default: Show normal text */
+.blanked {
+    visibility: visible;
+    position: relative;
+    color: black;
+    font-family: inherit; /* Matches surrounding text */
+}
+
+/* For "Print Notes" only (applied dynamically via JavaScript) */
+.blanked.print-underscore {
+    font-family: monospace; /* Ensures proper spacing */
+    letter-spacing: 0.05em;
+    color: black;
 }
 
 /* Print styling */
 @media print {
-
-    iframe, .dontprint {
+    iframe {
         display: none;
     }
 
-    .hideprint {
-        visibility: hidden;
-    }
-
     .container-fluid {
-        border: none; 
-        border-radius: 0px; 
-        padding: 0px; 
-        background-color: #fff; 
+        border: none;
+        border-radius: 0px;
+        padding: 0px;
+        background-color: #fff;
         box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
         margin: 0 auto;
         max-width: 1200px;
-      }
+    }
 
-    .half-inch, .one-inch, .two-inch, .three-inch, .four-inch, .five-inch, .inches {
-        display:block;
+    .half-inch,
+    .one-inch,
+    .two-inch,
+    .three-inch,
+    .four-inch,
+    .five-inch,
+    .inches {
+        display: block;
     }
 
     :root {
@@ -373,24 +403,6 @@ td {
         background-color: var(--background-color) !important;
         color: var(--text-color) !important;
     }
-
-    /* Use with <div class="page-break"></div> in HTML */
-    .page-break {
-            page-break-before: always;
-        }
-
-        .blanked {
-            visibility: hidden; /* Hide the original text */
-            position: relative; /* Enable pseudo-element positioning */
-        }
-    
-        .blanked {
-            visibility: visible; 
-            color: black; 
-            font-family: monospace; /* Ensure underscores align properly */
-            letter-spacing: 0.05em; /* Optional: Adjust spacing between underscores */
-        }
-
 }
 
 .two-columns {
@@ -490,73 +502,13 @@ td {
     color: darkblue;
 }
 
-/* Styling for the <nav> container */
-nav {
-    background-color: #001A72;
-    /* Accessible navy blue color */
-    color: #ffffff;
-    /* White text for contrast */
-    padding: 10px 20px;
-    /* Padding inside the navigation bar */
-    border-radius: 8px;
-    /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
+.navbar {
+    position: relative;
+    z-index: 1050;
+    /* Ensures dropdown appears above other content */
 }
 
-/* Styling for the unordered list within the <nav> */
-nav ul {
-    list-style: none;
-    /* Remove bullets */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    /* Align items side by side */
-    justify-content: space-around;
-    /* Even spacing between items */
-    align-items: center;
-    /* Center items vertically */
-}
-
-/* Styling for individual <li> items */
-nav ul li {
-    margin: 0 10px;
-    /* Horizontal spacing between items */
-}
-
-/* Styling for links inside <li> elements */
-nav ul li a {
-    color: #ffffff;
-    /* White text */
-    text-decoration: none;
-    /* Remove underline */
-    padding: 8px 15px;
-    /* Add padding inside links */
-    border-radius: 4px;
-    /* Rounded corners for links */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Smooth hover effect */
-}
-
-/* Hover effect for links */
-nav ul li a:hover {
-    background-color: #047BC1;
-    /* Lighter blue for hover */
-    color: #ffffff;
-    /* Ensure text remains white */
-}
-
-/* Ensure the design is responsive */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        /* Stack items vertically on smaller screens */
-        align-items: flex-start;
-        /* Align to the left */
-    }
-
-    nav ul li {
-        margin: 5px 0;
-        /* Vertical spacing between items */
-    }
+.dropdown {
+    position: static !important;
+    /* Ensures the dropdown is free to overlay */
 }

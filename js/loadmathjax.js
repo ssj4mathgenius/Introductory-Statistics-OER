@@ -1,87 +1,13 @@
-console.log("entered load mathjax javascript file");
-
-function replaceBlanksForPrint() {
-    const blankedElements = document.querySelectorAll('.blanked');
-
-    blankedElements.forEach(element => {
-        const originalText = element.textContent.trim();
-        const underscores = '_'.repeat(originalText.length); // Generate underscores
-        element.setAttribute('data-original', originalText); // Store original text
-        element.textContent = underscores; // Replace text with underscores
-    });
-};
-
-function restoreOriginalText() {
-    const blankedElements = document.querySelectorAll('.blanked');
-
-    blankedElements.forEach(element => {
-        const originalText = element.getAttribute('data-original'); // Retrieve original text
-        if (originalText) {
-            element.textContent = originalText; // Restore original text
-        }
-    });
-};
-
-// Attach handlers for print and post-print
-window.addEventListener('beforeprint', replaceBlanksForPrint);
-window.addEventListener('afterprint', restoreOriginalText);
-
-
-window.onload = function () {
-
-    // Add MathJax configuration after a delay
-    setTimeout(function () {
-        var head = document.getElementsByTagName("head")[0],
-            script;
-        script = document.createElement("script");
-        script.type = "text/x-mathjax-config";
-        script[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({\n" +
-            "  extensions: [\"tex2jax.js\"], jax: [\"input/TeX\", \"output/HTML-CSS\"], tex2jax: { inlineMath: [ ['$','$'] ], displayMath: [ ['$$','$$']], processEscapes: true }, \"HTML-CSS\": { availableFonts: [\"TeX\"] } \n" +
-            "});"
-        head.appendChild(script);
-        script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...";
-        head.appendChild(script);
-    }, 2000);
-};
-
-window.MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    },
-    options: {
-        renderActions: {
-            addDarkMode: [200, function (doc) {
-                const style = document.createElement('style');
-                style.innerHTML = `
-                    .mjx-container * {
-                        color: var(--mjx-color, inherit) !important;
-                    }
-                    @media print {
-                        .mjx-container * {
-                            color: var(--mjx-color, inherit) !important;
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
-            }, '', false]
-        }
-    }
-};
-
+// Function to set color scheme for MathJax
 function setMathJaxColorScheme() {
     const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.style.setProperty('--mjx-color', isDarkMode ? '#ffffff' : '#000000');
-};
+}
 
-// Initial color scheme setup
-setMathJaxColorScheme();
-
-// Update color scheme dynamically when the user changes modes
+// Update color scheme dynamically when user switches modes
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setMathJaxColorScheme);
+
+console.log("entered load mathjax javascript file and ensured color schemes are visible for any browser mode");
 
 //Function to dynamically set the height of inches div container
 function setDivHeightFromData() {
@@ -97,35 +23,9 @@ function setDivHeightFromData() {
             console.warn('No data-height attribute found for:', div);
         }
     });
-}
-
-// Call the function on page load
-window.onload = () => {
-    setDivHeightFromData();
 };
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    function updateExampleNumbers() {
-        const examples = document.querySelectorAll('.example');
-        examples.forEach((example, index) => {
-            const numberSpan = example.querySelector('.example-number');
-            if (numberSpan) {
-                numberSpan.textContent = index + 1;
-            }
-        });
-    }
-
-    // Example of adding a new example dynamically
-    const newExample = document.createElement('div');
-    newExample.className = 'example';
-    newExample.innerHTML = `
-        <h2>Example <span class="example-number"></span></h2>
-    `;
-
-    // document.body.appendChild(newExample);
-    updateExampleNumbers();
-});
+console.log("Heights set for .inches class to provide spacing when printed with 'print' button click.");
 
 //Copy to Clipboard 
 //<button onclick="copyToClipboard('data id')">Copy Data to Clipboard</button>
@@ -329,42 +229,347 @@ async function generateTable(csvUrl, captionText) {
     }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Dynamic numbering for tables
-    const tables = document.querySelectorAll('table'); // Select all table elements
-    tables.forEach((table, index) => {
-        const caption = table.querySelector('caption'); // Find the caption within the table
-        if (caption) {
-            caption.textContent = `Table ${index + 1}: ${caption.textContent}`; // Add dynamic numbering to the caption
+//Interacts with the pages.json page to flatten structure tree for directory to create "next page" and "previous page" buttons
+function flattenPages(json, parentPath = '') {
+    const pages = [];
+
+    for (const folder in json) {
+        if (Array.isArray(json[folder])) {
+            json[folder].forEach(page => pages.push(`${parentPath}${folder}/${page}`));
+        }
+    }
+
+    return pages;
+};
+
+fetch('/json/pages.json')
+    .then(response => response.json())
+    .then(data => {
+        // Flatten JSON structure
+        const flattenPages = (json) => {
+            const pages = [];
+            for (const folder in json) {
+                if (Array.isArray(json[folder])) {
+                    json[folder].forEach(page => pages.push(page));
+                }
+            }
+            return pages;
+        };
+
+        const pages = flattenPages(data);
+
+        // Current path (including folders)
+        const currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
+
+        // Determine indices
+        const currentIndex = pages.indexOf(currentPath);
+
+        // Navigation buttons
+        const prevButton = document.getElementById('prevPage');
+        const nextButton = document.getElementById('nextPage');
+
+        if (currentIndex > 0) {
+            prevButton.onclick = () => (window.location.href = `/${pages[currentIndex - 1]}`);
+            prevButton.disabled = false;
         } else {
-            // If no caption exists, create one
-            const newCaption = document.createElement('caption');
-            newCaption.textContent = `Table ${index + 1}`;
-            table.insertBefore(newCaption, table.firstChild);
+            prevButton.disabled = true;
         }
-    });
 
-    // Dynamic numbering for examples
-    const examples = document.querySelectorAll('.example'); // Select all elements with the "example" class
-    examples.forEach((example, index) => {
-        const numberSpan = example.querySelector('.example-number'); // Find the span with class "example-number"
-        if (numberSpan) {
-            numberSpan.textContent = index + 1; // Index starts at 0, so add 1
+        if (currentIndex >= 0 && currentIndex < pages.length - 1) {
+            nextButton.onclick = () => (window.location.href = `/${pages[currentIndex + 1]}`);
+            nextButton.disabled = false;
+        } else {
+            nextButton.disabled = true;
         }
-    });
+    })
+    .catch(err => console.error('Error fetching or parsing JSON:', err));
 
-    // Adjust MathJax for dark mode
-    const setMathJaxColorScheme = () => {
-        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.style.setProperty('--mjx-color', isDarkMode ? '#ffffff' : '#000000');
+// Script to handle theme toggling
+document.getElementById("theme-toggle").addEventListener("click", function () {
+    const nav = document.querySelector("nav");
+    const currentTheme = nav.getAttribute("data-bs-theme");
+
+    // Cycle through themes: light -> dark -> auto
+    const nextTheme = currentTheme === "light" ? "dark" : currentTheme === "dark" ? "auto" : "light";
+    nav.setAttribute("data-bs-theme", nextTheme);
+
+    // Update button appearance based on theme
+    const themeIcon = this.querySelector("svg");
+    if (nextTheme === "light") {
+        themeIcon.innerHTML = '<path d="M8 15A7 7 0 1 0 8 1v14z"/>'; // Half-circle icon for light theme
+    } else if (nextTheme === "dark") {
+        themeIcon.innerHTML = '<path d="M4.5 0a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-.5.5H4a4 4 0 1 1 0-16h.5z"/>'; // Icon for dark theme
+    } else {
+        themeIcon.innerHTML = '<path d="M8 4a4 4 0 1 1 0 8A4 4 0 0 1 8 4z"/>'; // Icon for auto theme
+    }
+});
+
+
+//Javascript function to operate navbar "search" feature. 
+function searchPage(event) {
+    event.preventDefault(); // Prevent form submission
+
+    let searchQuery = document.getElementById("searchInput").value.trim();
+    if (searchQuery === "") return;
+
+    // Reset previous highlights
+    removeHighlights();
+
+    let regex = new RegExp(searchQuery, "gi");
+    highlightText(document.body, regex);
+}
+
+function highlightText(element, regex) {
+    if (element.nodeType === 3) { // If it's a text node
+        let text = element.nodeValue;
+        if (regex.test(text)) {
+            let span = document.createElement("span");
+            span.innerHTML = text.replace(regex, match => `<mark class="highlight">${match}</mark>`);
+            element.replaceWith(span);
+        }
+    } else if (element.nodeType === 1 && element.tagName !== "SCRIPT" && element.tagName !== "STYLE") {
+        // Process <a> tags differently to avoid breaking them
+        if (element.tagName === "A") {
+            Array.from(element.childNodes).forEach(child => highlightText(child, regex));
+        } else {
+            Array.from(element.childNodes).forEach(child => highlightText(child, regex));
+        }
+    }
+}
+
+function removeHighlights() {
+    document.querySelectorAll("mark.highlight").forEach(mark => {
+        mark.replaceWith(document.createTextNode(mark.textContent)); // Restore original text
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ DOM fully loaded!");
+
+    // Dynamically number examples
+    function updateExampleNumbers() {
+        const examples = document.querySelectorAll('.example');
+        examples.forEach((example, index) => {
+            const numberSpan = example.querySelector('.example-number');
+            if (numberSpan) {
+                numberSpan.textContent = index + 1;
+            }
+        });
+    }
+    updateExampleNumbers();
+
+    // Handle Theme Toggle Dropdown
+    const themeToggle = document.getElementById("theme-toggle");
+    const dropdownItems = document.querySelectorAll(".dropdown-menu .dropdown-item");
+    if (themeToggle) {
+        const icon = themeToggle.querySelector("svg");
+
+        dropdownItems.forEach(item => {
+            item.addEventListener("click", function () {
+                let selectedTheme = this.getAttribute("data-theme");
+                document.documentElement.setAttribute("data-bs-theme", selectedTheme);
+                updateIcon(selectedTheme);
+            });
+        });
+
+        function updateIcon(theme) {
+            if (theme === "light") {
+                icon.innerHTML = '<path d="M3.646 6.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L6.5 5.207V9.5a.5.5 0 0 1-1 0V5.207L4.354 6.354a.5.5 0 0 1-.708 0z"/>';
+            } else if (theme === "dark") {
+                icon.innerHTML = '<path d="M6 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"/>';
+            } else {
+                icon.innerHTML = '<path d="M8 15A7 7 0 1 0 8 1v14z"/>';
+            }
+        }
+    } else {
+        console.warn("⚠️ Warning: theme-toggle button not found!");
+    }
+
+    //Javascript code to operate the "print notes" button at bottom of page to print notes with blanks/spacing for in-class notes
+    const printButton = document.getElementById("printNotes");
+    if (printButton) {
+        printButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            console.log("🖨 Print button clicked!");
+
+            // Replace blanked text with underscores
+            replaceBlanksForPrint();
+
+            // Show all .inches divs before printing
+            const inchesDivs = document.querySelectorAll(".inches");
+            inchesDivs.forEach(div => {
+                div.classList.add("print-visible");
+            });
+
+
+            console.log("✅ .blanked elements replaced with underscores.");
+            console.log("✅ .inches elements are now visible for printing.");
+
+            // Create a new <style> element for print overrides
+            let printStyle = document.createElement("style");
+            printStyle.id = "printOverrides";
+            printStyle.innerHTML = `
+            @media print {
+                .dontprint {
+                    display: none !important;
+                }
+                .page-break {
+                    page-break-before: always !important;
+                }
+                .blanked {
+                    font-family: monospace;
+                    letter-spacing: 0.05em;
+                    color: black;
+                }
+            }
+        `;
+
+            // Append to the document head
+            document.head.appendChild(printStyle);
+            console.log("✅ Print media query overrides added.");
+
+            // Trigger print dialog
+            setTimeout(() => {
+                window.print();
+                console.log("🖨 Print dialog triggered.");
+            }, 500);
+
+            // Wait for print dialog to close, then restore original text
+            setTimeout(() => {
+                let existingPrintStyle = document.getElementById("printOverrides");
+                if (existingPrintStyle) {
+                    existingPrintStyle.remove();
+                    console.log("✅ Print media query overrides removed.");
+                }
+
+                // Restore .blanked text and hide .inches again
+                restoreOriginalText();
+                inchesDivs.forEach(div => {
+                    div.classList.remove("print-visible");
+                });
+
+                console.log("❌ .blanked elements restored to original text.");
+                console.log("❌ .inches elements are now hidden again.");
+            }, 1000);
+        });
+
+        console.log("✅ Print button event listener attached!");
+    } else {
+        console.warn("⚠️ Warning: printNotes button not found!");
+    }
+
+    // Function to replace blanked text with underscores
+    function replaceBlanksForPrint() {
+        const blankedElements = document.querySelectorAll('.blanked');
+
+        blankedElements.forEach(element => {
+            const originalText = element.textContent.trim();
+            const underscores = '_'.repeat(originalText.length); // Generate underscores
+            element.setAttribute('data-original', originalText); // Store original text
+            element.textContent = underscores; // Replace text with underscores
+            element.classList.add("print-underscore"); // Apply special formatting
+        });
     };
-    setMathJaxColorScheme();
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setMathJaxColorScheme);
 
-    // Trigger MathJax typesetting
-    MathJax.typesetPromise();
+    // Function to restore original text after printing
+    function restoreOriginalText() {
+        const blankedElements = document.querySelectorAll('.blanked');
+
+        blankedElements.forEach(element => {
+            const originalText = element.getAttribute('data-original'); // Retrieve original text
+            if (originalText) {
+                element.textContent = originalText; // Restore original text
+                element.classList.remove("print-underscore"); // Remove special formatting
+            }
+        });
+    };
+
+    // Previous & Next Page Buttons
+    const previousLink = document.getElementById('prevPage');
+    const nextLink = document.getElementById('nextPage');
+
+    if (previousLink) {
+        previousLink.classList.add('navigation-link', 'previous');
+    } else {
+        console.warn("⚠️ Warning: previousLink (prevPage) not found!");
+    }
+
+    if (nextLink) {
+        nextLink.classList.add('navigation-link', 'next');
+    } else {
+        console.warn("⚠️ Warning: nextLink (nextPage) not found!");
+    }
+
+    // Set height for spacing divs
+    setDivHeightFromData();
+
+    // Dynamically add MathJax script
+    var head = document.getElementsByTagName("head")[0];
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+    script.async = true;
+
+    script.onload = function () {
+        console.log("✅ MathJax script loaded!");
+
+        if (window.MathJax) {
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                },
+                options: {
+                    renderActions: {
+                        addDarkMode: [200, function (doc) {
+                            const style = document.createElement('style');
+                            style.innerHTML = `
+                                .mjx-container * {
+                                    color: var(--mjx-color, inherit) !important;
+                                }
+                                @media print {
+                                    .mjx-container * {
+                                        color: var(--mjx-color, inherit) !important;
+                                    }
+                                }
+                            `;
+                            document.head.appendChild(style);
+                        }, '', false]
+                    }
+                }
+            };
+
+            // Apply color scheme for dark mode
+            setMathJaxColorScheme();
+
+            setTimeout(() => {
+                if (MathJax.startup && MathJax.startup.promise) {
+                    MathJax.startup.promise.then(() => {
+                        return MathJax.typesetPromise();
+                    }).then(() => {
+                        console.log("✅ MathJax rendering complete");
+                    }).catch((err) => {
+                        console.error("🚨 MathJax error during typesetting:", err);
+                    });
+                } else {
+                    console.warn("⚠️ Warning: MathJax.startup.promise is not available. Falling back to direct typesetting.");
+
+                    MathJax.typesetPromise().then(() => {
+                        console.log("✅ MathJax fallback rendering complete.");
+                    }).catch((err) => {
+                        console.error("🚨 MathJax error during fallback typesetting:", err);
+                    });
+                }
+            }, 500);
+        } else {
+            console.error("🚨 MathJax is not defined!");
+        }
+    };
+
+    head.appendChild(script);
 });
 
 previousLink.classList.add('navigation-link', 'previous');
 nextLink.classList.add('navigation-link', 'next');
 
+console.log("JS loaded!");
