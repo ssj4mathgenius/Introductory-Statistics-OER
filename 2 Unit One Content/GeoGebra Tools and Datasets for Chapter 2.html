@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<!-- Bootstrap CDN CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Optional Bootstrap theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-<!-- Optional Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-<!-- Custom Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- CSS Stylesheets Used in Course Content Pages -->
-<link rel="stylesheet" href="../css/main.min.css">
-<link rel="stylesheet" href="../css/style.css" />
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
-<body class="content" role="document"><div class="container-fluid"><main>
-<div class="row bottom-md">
-<div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-<h1>GeoGebra Tools and Datasets for Chapter 2</h1>
-<h2 class="example-header">Tools Required</h2>
-<ul>
-<li><a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency Distribution Tool</a></li>
-<li><a href="https://www.geogebra.org/m/betpufbt" target="_blank" rel="noopener">Histogram Generator</a></li>
-<li><a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf Plot Generator</a></li>
-<li><a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dot Plot Generator</a></li>
-<li><a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener">Time Series Plot Generator</a></li>
-<li><a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Graph Generator</a></li>
-</ul>
-<h2 class="example-header">Datasets</h2>
-<p>Clicking on the button will copy the Dataset to your Clipboard.</p>
-<ul>
-<li><button onclick="copyToClipboard('deathdata')">Number of Tornadoes in TN (1950-2023)</button>
-<pre style="display: none;" id="deathdata">year, deaths  
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row bottom-md">
+                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+                    <h1>GeoGebra Tools and Datasets for Chapter 2</h1>
+                    <h2 class="example-header">Tools Required</h2>
+                    <ul>
+                        <li><a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency
+                                Distribution Tool</a></li>
+                        <li><a href="https://www.geogebra.org/m/betpufbt" target="_blank" rel="noopener">Histogram
+                                Generator</a></li>
+                        <li><a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf
+                                Plot Generator</a></li>
+                        <li><a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dot Plot
+                                Generator</a></li>
+                        <li><a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener">Time Series
+                                Plot Generator</a></li>
+                        <li><a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie
+                                Graph Generator</a></li>
+                    </ul>
+                    <h2 class="example-header">Datasets</h2>
+                    <p>Clicking on the button will copy the Dataset to your Clipboard.</p>
+                    <ul>
+                        <li><button onclick="copyToClipboard('deathdata')">Number of Tornadoes in TN
+                                (1950-2023)</button>
+                            <pre style="display: none;" id="deathdata">year, deaths  
 2023, 17
 2022, 0
 2021, 4
@@ -120,9 +130,10 @@
 1951, 0
 1950, 9
 </pre>
-</li>
-<li><button onclick="copyToClipboard('cancer')">Rates of Colon-Rectal Cancer in Men (2000-2021)</button>
-<pre style="display: none;" id="cancer">Year of Diagnosis,Rate per 100000
+                        </li>
+                        <li><button onclick="copyToClipboard('cancer')">Rates of Colon-Rectal Cancer in Men
+                                (2000-2021)</button>
+                            <pre style="display: none;" id="cancer">Year of Diagnosis,Rate per 100000
 2000,70.8
 2001,69.6
 2002,68.3
@@ -146,9 +157,9 @@
 2020,37.2
 2021,40.8
 </pre>
-</li>
-<li><button onclick="copyToClipboard('raindata')">Rainfall (in millimeters)</button>
-<pre style="display: none;" id="raindata">Rainfall (mm)
+                        </li>
+                        <li><button onclick="copyToClipboard('raindata')">Rainfall (in millimeters)</button>
+                            <pre style="display: none;" id="raindata">Rainfall (mm)
 32
 46
 53
@@ -210,9 +221,9 @@
 46
 74
 </pre>
-</li>
-<li><button onclick="copyToClipboard('weightdata')">Shipping Weights (in kilograms)</button>
-<pre style="display: none;" id="weightdata">Weight (kg)
+                        </li>
+                        <li><button onclick="copyToClipboard('weightdata')">Shipping Weights (in kilograms)</button>
+                            <pre style="display: none;" id="weightdata">Weight (kg)
 2.34
 2.48
 3.57
@@ -262,9 +273,9 @@
 6.90
 7.03
 </pre>
-</li>
-<li><button onclick="copyToClipboard('programdata')">Age in Training Program</button>
-<pre style="display: none;" id="programdata">Age (Program A), Age (Program B)
+                        </li>
+                        <li><button onclick="copyToClipboard('programdata')">Age in Training Program</button>
+                            <pre style="display: none;" id="programdata">Age (Program A), Age (Program B)
 20.5, 22.4
 23.6, 27.3
 25.4, 29.8
@@ -286,9 +297,9 @@
 32.7, 36.9
 33.5, 42.1
 </pre>
-</li>
-<li><button onclick="copyToClipboard('supporttimes')">Service Times (in Minutes)</button>
-<pre style="display: none;" id="supporttimes">Times (minutes)
+                        </li>
+                        <li><button onclick="copyToClipboard('supporttimes')">Service Times (in Minutes)</button>
+                            <pre style="display: none;" id="supporttimes">Times (minutes)
 5.9
 4.9
 7.6
@@ -300,9 +311,9 @@
 6.2
 5.7
 </pre>
-</li>
-<li><button onclick="copyToClipboard('usGDP')">United State GDP (2010-2023)</button>
-<pre style="display: none;" id="usGDP">Year,GDP (in US$)
+                        </li>
+                        <li><button onclick="copyToClipboard('usGDP')">United State GDP (2010-2023)</button>
+                            <pre style="display: none;" id="usGDP">Year,GDP (in US$)
 2010,15.05
 2011,15.60
 2012,16.25
@@ -318,9 +329,9 @@
 2022,26.01
 2023,27.72
 </pre>
-</li>
-<li><button onclick="copyToClipboard('favfastfood')">Favorite Fast Food Locations</button>
-<pre style="display: none;" id="favfastfood">FavoriteRestaurant
+                        </li>
+                        <li><button onclick="copyToClipboard('favfastfood')">Favorite Fast Food Locations</button>
+                            <pre style="display: none;" id="favfastfood">FavoriteRestaurant
 Chick-fil-A
 McDonald's
 Domino's
@@ -422,9 +433,9 @@ Taco Bell
 Domino's
 McDonald's
 </pre>
-</li>
-<li><button onclick="copyToClipboard('satisfaction')">Satisfaction Levels on Survey</button>
-<pre style="display: none;" id="satisfaction">Satisfaction Level
+                        </li>
+                        <li><button onclick="copyToClipboard('satisfaction')">Satisfaction Levels on Survey</button>
+                            <pre style="display: none;" id="satisfaction">Satisfaction Level
 Neutral
 Neutral
 Very Dissatisfied
@@ -476,20 +487,27 @@ Satisfied
 Neutral
 Neutral
 </pre>
-</li>
-</ul>
-</div>
-</div>
-</main></div>
-<!-- jQuery local fallback (Bootstrap Dependency) -->
-<p>
-<script src="/shared/Content Templates/For Use/VolState_Template/VolState_Template/Template_Generic/VSTemplates/../../assets/thirdpartylib/jquery/jquery-1.11.3.min.js"></script>
-</p>
-<!-- Bootstrap CDN JS -->
-<p>
-<script src="/shared/Content Templates/For Use/VolState_Template/VolState_Template/Template_Generic/VSTemplates/../../assets/thirdpartylib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-</p>
-<!-- Course Scripts -->
-<p>
-<script src="/shared/Content Templates/For Use/VolState_Template/VolState_Template/Template_Generic/VSTemplates/../assets/js/main.min.js"></script>
-</p></body></html>
+                        </li>
+                    </ul>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

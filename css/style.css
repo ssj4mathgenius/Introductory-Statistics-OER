@@ -499,6 +499,16 @@ mark.highlight {
     /* Make sure the button is above the iframe */
 }
 
+.iframe-copy{
+    background-color: #A9D6E5; 
+    border: 3px solid #034078; 
+    padding: 10px; margin-bottom:5px; 
+    border-radius: 5px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
 .navigation-link {
     margin: 10px;
     text-decoration: none;

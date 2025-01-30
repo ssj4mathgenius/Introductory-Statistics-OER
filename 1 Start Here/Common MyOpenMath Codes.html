@@ -81,18 +81,18 @@
                     <p>Below are copy/pasteable codes that can be used in MyOpenMath for different widgets inside this
                         project.</p>
 
-                    <div
-                        style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; margin-bottom:5px; border-radius: 5px; display: flex; flex-direction: column; align-items: center;">
+                    <div class="iframe-copy">
                         <p
                             style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
                             Contains a responsive iframe element for embedding the GeoGebra tool into MyOpenMath
                             problems.
                         </p>
-                        <button onclick="copyIframeCode()"
+                        <button onclick="copyToClipboard(frequencyDistributionGeoGebraTool)"
                             style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
                             Copy Frequency Distribution GeoGebra Tool
                         </button>
-                        <textarea id="iframeCode" style="position: absolute; left: -9999px;">
+                        <textarea id="frequencyDistributionGeoGebraTool" style="position: absolute; left: -9999px;">
+                            <p>Below is the GeoGebra Frequency Distribution Tool. If this app is too small to view, you can open the <a href="https://www.geogebra.org/material/iframe/id/vhvywg89/width/1390/height/681/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" target="_blank">application here in a new window</a>. If the spreadsheet isn't showing, you can click the "hamburger" menu in the top right corner, click "view", and toggle the "spreadsheet" on to paste in your data.</p>
                             <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
                                 <div style="position: relative; width: 100%; max-width: 800px; padding-top: 49%;">
                                     <iframe scrolling="no" title="Frequency Distribution Tool" 
@@ -104,25 +104,18 @@
                         </textarea>
                     </div>
 
-                    <div
-                        style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; flex-direction: column; align-items: center;">
+                    <div class="iframe-copy">
                         <p
                             style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
                             Contains a responsive iframe element for embedding the Histogram Generator GeoGebra tool
                             into MyOpenMath problems.
                         </p>
-                        <button onclick="copyHistogramCode()"
+                        <button onclick="copyToClipboard(histogramGeoGebraTool)"
                             style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
                             Copy Histogram Generator GeoGebra Tool
                         </button>
-                        <div
-                            style="position: relative; width: 100%; max-width: 800px; padding-top: 89.8%; /* Aspect ratio (874 / 973 ≈ 89.8%) */">
-                            <iframe scrolling="no" title="Histogram Generator Tool"
-                                src="https://www.geogebra.org/material/iframe/id/p8ubdwrm/width/973/height/874/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                            </iframe>
-                        </div>
-                        <textarea id="histogramIframeCode" style="position: absolute; left: -9999px;">
+                        <textarea id="histogramGeoGebraTool" style="position: absolute; left: -9999px;">
+                            <p>Below is the GeoGebra Histogram Generator Tool. If this app is too small to view, you can open the <a href="https://www.geogebra.org/material/iframe/id/p8ubdwrm/width/973/height/874/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" target="_blank">application here in a new window</a>. If the spreadsheet isn't showing, you can click the "hamburger" menu in the top right corner, click "view", and toggle the "spreadsheet" on to paste in your data.</p>
                             <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
                                 <div style="position: relative; width: 100%; max-width: 800px; padding-top: 89.8%;">
                                     <iframe scrolling="no" title="Histogram Generator Tool" 
@@ -134,25 +127,18 @@
                         </textarea>
                     </div>
 
-                    <div
-                        style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; flex-direction: column; align-items: center;">
+                    <div class="iframe-copy">
                         <p
                             style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
                             Contains a responsive iframe element for embedding the Scientific Calculator GeoGebra tool
                             into MyOpenMath or webpages.
                         </p>
-                        <button onclick="copyScientificCalculatorCode()"
+                        <button onclick="copyToClipboard(scientificCalculatorGeoGebra)"
                             style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
                             Copy Scientific Calculator GeoGebra Tool
                         </button>
-                        <div
-                            style="position: relative; width: 100%; max-width: 800px; padding-top: 75%; /* Aspect Ratio (600 / 800 = 75%) */">
-                            <iframe title="GeoGebra Scientific Calculator"
-                                src="https://www.geogebra.org/scientific?lang=en"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                            </iframe>
-                        </div>
-                        <textarea id="scientificCalculatorCode" style="position: absolute; left: -9999px;">
+                        <textarea id="scientificCalculatorGeoGebra" style="position: absolute; left: -9999px;">
+                            <p>Below is the GeoGebra Scientific calculator. If this app is too small to view, you can open the <a href="https://www.geogebra.org/scientific?lang=en" target="_blank">application here in a new window</a>.</p>
                             <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
                                 <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
                                     <iframe title="GeoGebra Scientific Calculator"
