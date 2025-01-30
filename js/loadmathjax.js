@@ -39,6 +39,17 @@ function copyToClipboard(preID) {
     });
 };
 
+function copyCodeToClipboard(elementId, message = "Code copied to clipboard ready to be pasted into MyOpenMath!") {
+    var copyText = document.getElementById(elementId);
+    if (copyText) {
+        copyText.select();
+        document.execCommand("copy");
+        alert(message);
+    } else {
+        alert("Error: Element not found!");
+    }
+};
+
 //Toggles Display of Larger Tables of Data based on id
 //<button onclick="toggleTable()">Toggle Table Visibility</button>
 function toggleTable() {
