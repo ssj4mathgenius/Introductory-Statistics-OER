@@ -1,0 +1,3187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Summarizing and Organizing Data</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="1 Start Here/About This Course MCT.html"
+                                    class="btn btn-outline-secondary">About</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <h1>Datasets for Chapter 2</h1>
+                    <div class="example">
+                        <h2 class="example-header">Tools Required</h2>
+                        <ul>
+                            <li><a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency
+                                    Distribution Tool</a></li>
+                            <li><a href="https://www.geogebra.org/m/betpufbt" target="_blank" rel="noopener">Histogram
+                                    Generator</a></li>
+                            <li><a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf
+                                    Plot Generator</a></li>
+                            <li><a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dot Plot
+                                    Generator</a></li>
+                            <li><a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener">Time Series
+                                    Plot Generator</a></li>
+                            <li><a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie
+                                    Graph Generator</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header">Datasets</h2>
+                        <p>Clicking on the button will copy the Dataset to your Clipboard.</p>
+                        <ul>
+                            <li><button onclick="copyToClipboard('deathdata')">Number of Tornadoes in TN
+                                    (1950-2023)</button>
+                                <pre style="display: none;" id="deathdata">year, deaths  
+                        2023, 17
+                        2022, 0
+                        2021, 4
+                        2020, 27
+                        2019, 0
+                        2018, 1
+                        2017, 0
+                        2016, 2
+                        2015, 2
+                        2014, 2
+                        2013, 0
+                        2012, 3
+                        2011, 32
+                        2010, 1
+                        2009, 2
+                        2008, 31
+                        2007, 0
+                        2006, 34
+                        2005, 0
+                        2004, 0
+                        2003, 12
+                        2002, 17
+                        2001, 3
+                        2000, 1
+                        1999, 12
+                        1998, 7
+                        1997, 1
+                        1996, 0
+                        1995, 3
+                        1994, 5
+                        1993, 1
+                        1992, 1
+                        1991, 5
+                        1990, 0
+                        1989, 1
+                        1988, 6
+                        1987, 0
+                        1986, 0
+                        1985, 0
+                        1984, 1
+                        1983, 0
+                        1982, 0
+                        1981, 0
+                        1980, 0
+                        1979, 2
+                        1978, 0
+                        1977, 0
+                        1976, 0
+                        1975, 3
+                        1974, 47
+                        1973, 1
+                        1972, 0
+                        1971, 3
+                        1970, 3
+                        1969, 0
+                        1968, 4
+                        1967, 2
+                        1966, 0
+                        1965, 1
+                        1964, 0
+                        1963, 4
+                        1962, 0
+                        1961, 0
+                        1960, 0
+                        1959, 0
+                        1958, 0
+                        1957, 0
+                        1956, 3
+                        1955, 0
+                        1954, 0
+                        1953, 4
+                        1952, 75
+                        1951, 0
+                        1950, 9
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('cancer')">Rates of Colon-Rectal Cancer in Men
+                                    (2000-2021)</button>
+                                <pre style="display: none;" id="cancer">Year of Diagnosis,Rate per 100000
+                        2000,70.8
+                        2001,69.6
+                        2002,68.3
+                        2003,66.3
+                        2004,64.0
+                        2005,61.9
+                        2006,59.1
+                        2007,58.1
+                        2008,56.2
+                        2009,53.1
+                        2010,51.0
+                        2011,49.5
+                        2012,48.0
+                        2013,46.9
+                        2014,46.7
+                        2015,45.5
+                        2016,44.5
+                        2017,43.5
+                        2018,42.9
+                        2019,42.7
+                        2020,37.2
+                        2021,40.8
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('raindata')">Rainfall (in millimeters)</button>
+                                <pre style="display: none;" id="raindata">Rainfall (mm)
+                        32
+                        46
+                        53
+                        67
+                        41
+                        78
+                        35
+                        64
+                        52
+                        90
+                        48
+                        73
+                        36
+                        44
+                        50
+                        69
+                        45
+                        80
+                        38
+                        63
+                        55
+                        87
+                        50
+                        76
+                        31
+                        47
+                        54
+                        65
+                        43
+                        74
+                        37
+                        66
+                        50
+                        88
+                        49
+                        72
+                        34
+                        48
+                        52
+                        68
+                        42
+                        79
+                        36
+                        62
+                        53
+                        89
+                        47
+                        75
+                        33
+                        45
+                        51
+                        70
+                        40
+                        77
+                        34
+                        65
+                        54
+                        91
+                        46
+                        74
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('weightdata')">Shipping Weights (in kilograms)</button>
+                                <pre style="display: none;" id="weightdata">Weight (kg)
+                        2.34
+                        2.48
+                        3.57
+                        3.62
+                        3.94
+                        4.02
+                        4.37
+                        4.89
+                        5.01
+                        5.26
+                        5.74
+                        5.93
+                        6.14
+                        6.68
+                        6.91
+                        7.02
+                        2.42
+                        2.56
+                        3.63
+                        3.75
+                        3.98
+                        4.18
+                        4.51
+                        4.93
+                        5.08
+                        5.31
+                        5.81
+                        6.02
+                        6.24
+                        6.72
+                        6.95
+                        7.13
+                        2.30
+                        2.44
+                        3.50
+                        3.60
+                        3.92
+                        4.05
+                        4.40
+                        4.85
+                        5.02
+                        5.25
+                        5.71
+                        5.90
+                        6.11
+                        6.65
+                        6.90
+                        7.03
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('programdata')">Age in Training Program</button>
+                                <pre style="display: none;" id="programdata">Age (Program A), Age (Program B)
+                        20.5, 22.4
+                        23.6, 27.3
+                        25.4, 29.8
+                        26.9, 31.6
+                        28.1, 33.5
+                        29.2, 35.2
+                        30.5, 36.8
+                        31.1, 38.6
+                        31.9, 40.7
+                        32.7, 35.6
+                        40.1, 43.7
+                        43.5, 45.2
+                        46.9, 47.8
+                        51.4, 50.3
+                        57.3, 54.9
+                        62.8, 59.2
+                        31.1, 63.4
+                        31.9, 34.6
+                        32.7, 36.9
+                        33.5, 42.1
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('supporttimes')">Service Times (in Minutes)</button>
+                                <pre style="display: none;" id="supporttimes">Times (minutes)
+                        5.9
+                        4.9
+                        7.6
+                        6.4
+                        5.4
+                        5.7
+                        5.9
+                        5.8
+                        6.2
+                        5.7
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('usGDP')">United State GDP (2010-2023)</button>
+                                <pre style="display: none;" id="usGDP">Year,GDP (in US$)
+                        2010,15.05
+                        2011,15.60
+                        2012,16.25
+                        2013,16.88
+                        2014,17.61
+                        2015,18.30
+                        2016,18.80
+                        2017,19.61
+                        2018,20.66
+                        2019,21.54
+                        2020,21.35
+                        2021,23.68
+                        2022,26.01
+                        2023,27.72
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('favfastfood')">Favorite Fast Food Locations</button>
+                                <pre style="display: none;" id="favfastfood">FavoriteRestaurant
+                        Chick-fil-A
+                        McDonald's
+                        Domino's
+                        Taco Bell
+                        McDonald's
+                        McDonald's
+                        McDonald's
+                        Chick-fil-A
+                        Wendy's
+                        Burger King
+                        Burger King
+                        Domino's
+                        McDonald's
+                        Subway
+                        Subway
+                        KFC
+                        KFC
+                        Domino's
+                        Chipotle
+                        Domino's
+                        Chipotle
+                        Domino's
+                        Taco Bell
+                        Wendy's
+                        Chipotle
+                        Burger King
+                        Pizza Hut
+                        Wendy's
+                        Taco Bell
+                        Domino's
+                        KFC
+                        Domino's
+                        Chipotle
+                        Burger King
+                        Chipotle
+                        Wendy's
+                        Domino's
+                        KFC
+                        Domino's
+                        KFC
+                        Subway
+                        Chipotle
+                        Burger King
+                        Subway
+                        Wendy's
+                        Burger King
+                        KFC
+                        Wendy's
+                        McDonald's
+                        Chick-fil-A
+                        McDonald's
+                        Chick-fil-A
+                        Subway
+                        Domino's
+                        Wendy's
+                        Subway
+                        Burger King
+                        McDonald's
+                        Burger King
+                        McDonald's
+                        Burger King
+                        Burger King
+                        Subway
+                        Wendy's
+                        Pizza Hut
+                        Taco Bell
+                        Burger King
+                        Taco Bell
+                        Chipotle
+                        Pizza Hut
+                        Wendy's
+                        KFC
+                        Subway
+                        Subway
+                        KFC
+                        Taco Bell
+                        Chick-fil-A
+                        Subway
+                        Subway
+                        Chipotle
+                        Taco Bell
+                        Domino's
+                        Chipotle
+                        Chipotle
+                        Burger King
+                        Wendy's
+                        Wendy's
+                        Taco Bell
+                        Wendy's
+                        McDonald's
+                        Pizza Hut
+                        Wendy's
+                        McDonald's
+                        Taco Bell
+                        Burger King
+                        Subway
+                        Domino's
+                        Taco Bell
+                        Domino's
+                        McDonald's
+                        </pre>
+                            </li>
+                            <li><button onclick="copyToClipboard('satisfaction')">Satisfaction Levels on Survey</button>
+                                <pre style="display: none;" id="satisfaction">Satisfaction Level
+                        Neutral
+                        Neutral
+                        Very Dissatisfied
+                        Satisfied
+                        Satisfied
+                        Dissatisfied
+                        Satisfied
+                        Neutral
+                        Very Dissatisfied
+                        Very Dissatisfied
+                        Dissatisfied
+                        Neutral
+                        Dissatisfied
+                        Neutral
+                        Satisfied
+                        Satisfied
+                        Neutral
+                        Dissatisfied
+                        Very Satisfied
+                        Satisfied
+                        Dissatisfied
+                        Satisfied
+                        Neutral
+                        Neutral
+                        Neutral
+                        Dissatisfied
+                        Neutral
+                        Neutral
+                        Neutral
+                        Neutral
+                        Satisfied
+                        Neutral
+                        Satisfied
+                        Very Satisfied
+                        Dissatisfied
+                        Very Dissatisfied
+                        Neutral
+                        Dissatisfied
+                        Neutral
+                        Dissatisfied
+                        Very Dissatisfied
+                        Dissatisfied
+                        Neutral
+                        Satisfied
+                        Dissatisfied
+                        Satisfied
+                        Neutral
+                        Satisfied
+                        Neutral
+                        Neutral
+                        </pre>
+                            </li>
+                        </ul>
+                        <div class="notes-page-break"></div>
+                        <div class="page-break"></div>
+                        <h1>How to Create Frequency Distributions</h1>
+                        <p>Distributions hold significant theoretical importance in this course. In this section, we will
+                            learn about frequency distributions, which is the basis for many of the concepts in this course.
+                        </p>
+                        <h2>Basics of Frequency Distributions</h2>
+                        <!-- Definition Wrapper -->
+                        <div class="definition">
+                            <h3>What is Frequency?</h3>
+                            <p>The <strong>frequency</strong> of a data point is how many times it shows up in the data set.
+                            </p>
+                        </div>
+                        <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+                        <div class="definition">
+                            <h3>What is a Frequency Distribution?</h3>
+                            <p>A <strong>frequency distribution</strong> is a table that lists either the raw data or
+                                classes (defined below) in the first column and corresponding frequency in the second
+                                column.</p>
+                        </div>
+                        <!-- End Definition Wrapper -->
+                        <p>Before the advent of computers, frequency distributions were created manually. This involved
+                            arranging the data in ascending order and marking a tally for each occurrence of a data point.
+                            This process was prone to human errors such as miscounting or duplicating data.</p>
+                        <p>With computers, creating frequency distributions is much faster and more accurate than manual
+                            methods. Tools like SPSS, MATLAB, and Excel offer advanced statistical capabilities. GeoGebra,
+                            however, is particularly useful in educational settings because of its simplicity and
+                            visualization tools, making it ideal for students learning this process.</p>
+                        <h3 class="example-header"> Example <span class="example-number"></span></h3>
+                        <p>The data on the number of deaths directly caused by tornadoes in Tennessee is given in the table
+                            below. Create a Frequency Distribution for the number of deaths per year.<br><button
+                                onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+                        <pre style="display: none;" id="deathdata">year, deaths  
+                        2023, 17
+                        2022, 0
+                        2021, 4
+                        2020, 27
+                        2019, 0
+                        2018, 1
+                        2017, 0
+                        2016, 2
+                        2015, 2
+                        2014, 2
+                        2013, 0
+                        2012, 3
+                        2011, 32
+                        2010, 1
+                        2009, 2
+                        2008, 31
+                        2007, 0
+                        2006, 34
+                        2005, 0
+                        2004, 0
+                        2003, 12
+                        2002, 17
+                        2001, 3
+                        2000, 1
+                        1999, 12
+                        1998, 7
+                        1997, 1
+                        1996, 0
+                        1995, 3
+                        1994, 5
+                        1993, 1
+                        1992, 1
+                        1991, 5
+                        1990, 0
+                        1989, 1
+                        1988, 6
+                        1987, 0
+                        1986, 0
+                        1985, 0
+                        1984, 1
+                        1983, 0
+                        1982, 0
+                        1981, 0
+                        1980, 0
+                        1979, 2
+                        1978, 0
+                        1977, 0
+                        1976, 0
+                        1975, 3
+                        1974, 47
+                        1973, 1
+                        1972, 0
+                        1971, 3
+                        1970, 3
+                        1969, 0
+                        1968, 4
+                        1967, 2
+                        1966, 0
+                        1965, 1
+                        1964, 0
+                        1963, 4
+                        1962, 0
+                        1961, 0
+                        1960, 0
+                        1959, 0
+                        1958, 0
+                        1957, 0
+                        1956, 3
+                        1955, 0
+                        1954, 0
+                        1953, 4
+                        1952, 75
+                        1951, 0
+                        1950, 9
+                        </pre>
+                        <table style="width: 100.029%; height: 741.528px;">
+                            <caption>Direct Fatalities Caused by Tornadoes in Tennessee (1950-2023)</caption>
+                            <thead>
+                                <tr style="height: 39.0278px;">
+                                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                                    <th scope="col" style="width: 18.233%; height: 39.0278px;">Direct Fatalities</th>
+                                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                                    <th scope="col" style="width: 18.233%; height: 39.0278px;">Direct Fatalities</th>
+                                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                                    <th scope="col" style="width: 18.233%; height: 39.0278px;">Direct Fatalities</th>
+                                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                                    <th scope="col" style="width: 18.2374%; height: 39.0278px;">Direct Fatalities</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2023</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">17</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">2004</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1985</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1966</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2022</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">2003</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">12</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1984</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1965</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">1</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2021</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">4</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">2002</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">17</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1983</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1964</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2020</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">27</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">2001</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1982</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1963</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">4</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2019</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">2000</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1981</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1962</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2018</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1999</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">12</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1980</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1961</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2017</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1998</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">7</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1979</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1960</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2016</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1997</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1978</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1959</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2015</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1996</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1977</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1958</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2014</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1995</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1976</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1957</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2013</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1994</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">5</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1975</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1956</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">3</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2012</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1993</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1974</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">47</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1955</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2011</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">32</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1992</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1973</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1954</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2010</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1991</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">5</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1972</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1953</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">4</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2009</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1990</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1971</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1952</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">75</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2008</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">31</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1989</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1970</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1951</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2007</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1988</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">6</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1969</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1950</td>
+                                    <td style="width: 18.2374%; height: 39.0278px;">9</td>
+                                </tr>
+                                <tr style="height: 39.0278px;">
+                                    <td style="width: 6.74155%; height: 39.0278px;">2006</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">34</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1987</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;">1968</td>
+                                    <td style="width: 18.233%; height: 39.0278px;">4</td>
+                                    <td style="width: 6.74155%; height: 39.0278px;"></td>
+                                    <td style="width: 18.2374%; height: 39.0278px;"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Solution Wrapper -->
+                    <div class="solution">
+                        <h4 class="solution-header">Solution</h4>
+                        <div class="dontprint">
+                            <p>First, click on the <strong>Copy Data to Clipboard</strong> button and a popup should appear
+                                that indicates the copy was successful.<br><img
+                                    src="../images/frequencydistribution_example1_a.png"
+                                    alt="Copy Data to Clipboard button highlighted with a confirmation popup saying 'Dataset copied to clipboard' at the top."
+                                    title="Copy Data to Clipboard button highlighted with a confirmation popup saying 'Dataset copied to clipboard' at the top."
+                                    width="501" height="216"></p>
+                            <p>Next, open the Frequency Distribution Tool by clicking on <a
+                                    href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">this link</a>
+                                or by going to the GeoGebra Tools module and clicking the link provided there.&nbsp; Once
+                                Frequency Distribution Tool is opened, click on the Spreadsheet tab.<br><img
+                                    src="../images/frequencydistribution_example1_b.png"
+                                    alt="GeoGebra interface showing the Spreadsheet tab highlighted with 'Click Here' annotation."
+                                    title="GeoGebra interface showing the Spreadsheet tab highlighted with 'Click Here' annotation."
+                                    width="500" height="360"><br>Click on the A1 Cell, and right click to open up the
+                                Context Menu.<br><img src="../images/frequencydistribution_example1_c.png"
+                                    alt="Spreadsheet context menu with 'Paste' highlighted "
+                                    title="Spreadsheet context menu with 'Paste' highlighted " width="500"
+                                    height="445"><br>Select Paste from the Menu, and the data will copy into the
+                                spreadsheet.&nbsp; (This may take a moment to load.&nbsp; Please be patient.)<br><img
+                                    src="../images/frequencydistribution_example1_d.png"
+                                    alt="Spreadsheet view showing 'Year' and 'Direct Fatality' columns populated with data in GeoGebra Calculator Suite."
+                                    title="Spreadsheet view showing 'Year' and 'Direct Fatality' columns populated with data in GeoGebra Calculator Suite."
+                                    width="500" height="356"><br>Notice that the data in which we are interested is in
+                                column B. Remember this! Click on the Spreadsheet tab to hide the data.<br><img
+                                    src="../images/frequencydistribution_example1_e~.png"
+                                    alt="Arrow pointing to the Spreadsheet icon with text Click Here Again indicating where to click."
+                                    title="Arrow pointing to the Spreadsheet icon with text Click Here Again indicating where to click."
+                                    width="500" height="335"></p>
+                            <p>Notice that the tool is set by default to column A.&nbsp; If we click on the dropdown box and
+                                select column B, we will get the correct frequency distribution.</p>
+                            <p><img src="../images/frequencydistribution_example1_f~.png"
+                                    alt="Frequency distribution table with columns Data and Frequency."
+                                    title="Frequency distribution table with columns Data and Frequency." width="501"
+                                    height="336"></p>
+                            <h5>Interpretation</h5>
+                            <p>The numbers in the Data column represents the number of deaths reported.&nbsp; The numbers in
+                                the Frequency column represent the number of years from 1950 to 2023 that reported that many
+                                deaths.&nbsp; For example, 10 years between 1950 and 2023 reported 1 death caused by
+                                Tornadoes in Tennessee.</p>
+                            <h5>Note</h5>
+                            <p>The Title and Column headers as customizable.&nbsp; Just click on the corresponding TextBox
+                                in the lower right corner, delete the existing text, and enter what you want to appear
+                                there.&nbsp; There is also a slider above the title so you can adjust the horizontal
+                                positioning of the title.</p>
+                            <p><img src="../images/frequencydistribution_example1_g.png"
+                                    alt="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                                    title="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                                    width="500" height="295"></p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <p>While the above example works well for small data sets, many frequency distributions group data into
+                        ranges instead of listing each unique data point individually. For example, we could group the
+                        number of years with 0 to 4 deaths, 5 to 9 deaths, 10 to 14 deaths, and so on, creating a row in
+                        the table for each of these ranges. These ranges are called&nbsp;<strong>classes</strong> or
+                        <strong>bins</strong> in statistics.</p>
+                    <p>If we created a new class for every 5 deaths, we would need 16 classes to cover all the data,
+                        from the class with 0 to 4 deaths up to the class with 75 to 79 deaths. However, this approach
+                        would lead to many classes with a frequency of 0, which makes the table less meaningful. To
+                        avoid this, we want the ranges to be large enough to capture meaningful data but not so small
+                        that most classes are empty.</p>
+                    <p>So how many classes should we have? As the researcher, you get to decide, but a good rule of
+                        thumb is to aim for 5 to 20 classes. Once the number of classes is chosen, the formula below
+                        will help determine the range for each class, known as the <strong>class width</strong>.</p>
+                    <!-- Definition Wrapper -->
+                    
+                    <div class="definition">
+                        <h2 class="definition-header">How do you calculate class width?</h2>
+                        <p>The<strong> class width</strong> is the size of each class and determines how data is
+                            grouped. It is calculated using the formula&nbsp; \[ \text{class width } =
+                            \dfrac{\text{largest value } - \text{smallest value }}{\text{number of classes}}.\]</p>
+                        <p>If the result is a decimal, always round up to the next whole number to ensure all data
+                            points fit into the intervals. For example, if the calculated width is 9.38, round it up to
+                            10. This ensures every data point fits into one of the classes without gaps.</p>
+                        <h4>What does this number mean?</h4>
+                        <p>The class width measures the difference between the smallest numbers in successive
+                            classes.&nbsp; For example, if our first class is from 0 to 4 deaths and our second class is
+                            from 5 to 9 deaths, then the class width is 5 since \(5-0=5\).</p>
+                        <h4>Can I choose my own class width?</h4>
+                        <p>Yes!&nbsp; This formula isn't perfect, and occasionally excludes the maximal data
+                            point.&nbsp; Sometimes, you have a preferred width you would like to use.&nbsp; It is up to
+                            you!&nbsp; For academic purposes though, we will always use the formula unless a problem
+                            requires otherwise.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+                        <p>Our data from Example 1 range from 0 deaths to 75 deaths.&nbsp; Find the class width that you
+                            will need if you want 6 classes.</p>
+                        <!-- Solution Wrapper -->
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="dontprint">
+                                <p>Using the formula above, we have that \[\begin{align*}\text{class width }&amp;=
+                                    \dfrac{\text{largest value } - \text{smallest value }}{\text{number of
+                                    classes}}\&amp;=\dfrac{75-0}{{6}}\&amp;\approx 12.5\end{align*}\]</p>
+                                <p>Since our output gave use a decimal, we round it up to the next integer.&nbsp; Therefore, we
+                                    will need 13 classes.</p>
+                                <p>$$\tag*{\(\blacksquare\)}$$</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p>Class widths, along with the minimum value of the data set, define what is known as the
+                        <strong>boundary points</strong> of the classes. Boundary points define where one class ends and
+                        another class begins.</p>
+
+
+                    <div class="definition">
+                        <h2 class="definition-header">How do I compute the Boundary Points?</h2>
+                        <p>The minimum value is typically the first boundary point.&nbsp; &nbsp;To find the other
+                            boundary points, keep adding the class width until you get a value that is larger than (but
+                            not equal to) the maximal value in our data set.</p>
+                        <p>For example, if we wanted a class width of 5 for the classes of tornado deaths, the boundary
+                            points are 0, 5, 10, 15, 20, \(\ldots\), 70, 75, 80.</p>
+                        <h4>Can I use a number other than the minimum value for the first Boundary Point?</h4>
+                        <p>Yes!&nbsp; If you choose your own class size, typically you also choose the first boundary
+                            points as well.&nbsp; Just remember to keep adding the class width until you get a number
+                            larger than the largest value in the data set.</p>
+                    </div>
+
+                    <div class="example">
+                        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+                        <p>Our data from Example 1 range from 0 deaths to 75 deaths.&nbsp; Suppose you want your boundary
+                            points to start at 7 and have class width 10.&nbsp; Find all the boundary points.</p>
+
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="dontprint">
+                                <p>We just start at 7 and keep adding 10 and until we get a number larger than 75.&nbsp; So, the
+                                    boundary points starting with 5 are \[7,\qquad 17,\qquad 27,\qquad 37,\qquad 47,\qquad
+                                    57,\qquad 67,\qquad 77\]</p>
+                                <p>$$\tag*{\(\blacksquare\)}$$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Calculating boundary points and determining the number of classes is straightforward. However,
+                        tallying data points in each class can be tedious and error-prone. Instead, we’ll use our
+                        GeoGeobra tool to automate the tallying and format it into a table. The next example
+                        demonstrates this process.</p>
+
+                    <div class="example">
+                        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+                        <p>Using our data from Example 1, create a frequency distribution with 8 different classes.</p>
+                        <!-- Solution Wrapper -->
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="dontprint">
+                                <p>The data from Example 1 should already be loaded into GeoGebra.&nbsp; If it is not, follow
+                                    the steps at the beginning of Example 1 to load the data in and selected option B from the
+                                    dropbox.&nbsp; Your tool should like this:</p>
+                                <p><img src="../images/frequencydistribution_example1_g.png"
+                                        alt="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                                        title="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                                        width="502" height="296"></p>
+                                <p>The first thing we are going to do is check the&nbsp;<strong>Organize Data into
+                                        Classes</strong> checkbox.&nbsp; Multiple new options appear:&nbsp;<strong>Lower Class
+                                        Boundary</strong>,&nbsp;<strong>Class Width</strong>,&nbsp;<strong>Number of
+                                        Classes</strong><strong>.</strong> (There are other new options; we can ignore them for
+                                    now.)&nbsp; Notice that the Lower Class Boundary will automatically become the value of the
+                                    smallest data point; the class width and number of classes will default to preassigned
+                                    values.</p>
+                                <p>First, we want to calculate the class width.&nbsp; Since we want 8 classes, we will enter
+                                    that value info class width.&nbsp; Notice that the number of classes will update to 10 since
+                                    \[\begin{align*}\text{class width }&amp;= \dfrac{\text{largest value } - \text{smallest
+                                    value }}{\text{number of classes}}\&amp;=\dfrac{75-0}{{8}}\&amp;\approx
+                                    9.375\&amp;=10 (\text{rounding up})\end{align*}\]&nbsp;</p>
+                                <p><img src="../images/frequencydistribution_example4~.png"
+                                        alt="Frequency distribution with 8 classes, a class width of 10, showing frequencies for tornado deaths in Tennessee."
+                                        title="Frequency distribution with 8 classes, a class width of 10, showing frequencies for tornado deaths in Tennessee."
+                                        width="502" height="296"></p>
+                                <p>Now, if you count up the number of classes in the table, notice there is 11 different
+                                    classes.&nbsp; Why is there 11 when Number of Classes is set to 10?&nbsp; Sometimes, the
+                                    largest value of the data set gets counted in the last classes when it should not be.&nbsp;
+                                    It is a quirk of how GeoGebra defined class frequencies. (And there is nothing wrong with
+                                    that the method GeoGebra uses; it is just uses a slightly different definition of boundary
+                                    points than was given above.)&nbsp; To correct for this difference, the Frequency
+                                    Distribution Tool automatically adds an extra class by default.&nbsp; But, notice that the
+                                    last class has a frequency of 0. That means the extra class wasn't needed, and we can click
+                                    on the click on the&nbsp;<strong>Deselect if Last Row Equals 0&nbsp;</strong>checkbox to
+                                    remove it. Therefore, we get the following frequency distribution.</p>
+                                <p><img src="../images/frequencydistribution_example4a.png"
+                                        alt="Frequency Distribution with the extra class removed."
+                                        title="Frequency Distribution with the extra class removed." width="501" height="321">
+                                </p>
+                                <h5>Interpretation</h5>
+                                <p>The&nbsp;<strong>classes/bins</strong> column gives the range of values for each class,
+                                    always including the first number in the range and excluding the last number in the
+                                    range.&nbsp; For example, the interval <strong>0 to 9</strong> means the range of values
+                                    starting at 0 and include all the numbers up to but not including 10.&nbsp; The Frequency,
+                                    as before, tells us the number of years whose number of deaths fell into that range of
+                                    values.&nbsp; For example, there were 64 years that had 0 up to 10 deaths.</p>
+                                <h5>What is the Use Interval Notation Checkbox?</h5>
+                                <p>Some instructors/websites prefer to use interval notation to describe the classes/bins.&nbsp;
+                                    For example,&nbsp;<strong>0 to 9</strong> would be written as $[0,10)$ since $[0$ indicates
+                                    to start and include 0 and $10)$ means to include all the number up to but not including
+                                    10.&nbsp; When the check box is clicked, the frequency distribution looks like this.</p>
+                                <p><img src="../images/frequencydistribution_example4c.png"
+                                        alt="The classes/bins column is now expressed in interval notation."
+                                        title="The classes/bins column is now expressed in interval notation." width="501"
+                                        height="320"></p>
+                                <p>For future examples, we will not use interval notation.</p>
+                                <p>$$\tag*{\(\blacksquare\)}$$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Before we close this section out, we will give a demonstration of creating a frequency
+                        distribution that starts at a value other than the minimum value of the data set.</p>
+
+                    <div class="example">
+                        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+                        <p>Use our data set from Example 1 to create a frequency distribution that starts at 7 and has a
+                            class width of 6.</p>
+                        <!-- Solution Wrapper -->
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="dontprint">
+                                <p>The data from Example 1 should already be loaded into GeoGebra.&nbsp; If it is not, follow
+                                    the steps at the beginning of Example 1 to load the data in and selected option B from the
+                                    dropbox.&nbsp; Your tool should like this if you've been doing all the examples in order on
+                                    this page:</p>
+                                <p><img src="../images/frequencydistribution_example4c.png"
+                                        alt="The classes/bins column is now expressed in interval notation."
+                                        title="The classes/bins column is now expressed in interval notation." width="501"
+                                        height="320"></p>
+                                <p>All we need to do enter 7 for the Lower Class Boundary and 8 for the Class Width.&nbsp;
+                                    Notice the Number of Classes will update to 10 since&nbsp; &nbsp;Since we want 8 classes, we
+                                    will enter that value info class width.&nbsp; Notice that the number of classes will update
+                                    to 10 since \[\begin{align*}\text{number of classes}&amp;= \dfrac{\text{largest value } -
+                                    \text{smallest value }}{\text{class width}}\&amp;=\dfrac{75-0}{{6}}\&amp;\approx
+                                    12.5\&amp;=13 (\text{rounding up})\end{align*}\]&nbsp;</p>
+                                <p><img src="../images/frequencydistribution_example5.png"
+                                        alt="Frequency distribution with lower boundary 7 and class width 6."
+                                        title="Frequency distribution with lower boundary 7 and class width 6." width="502"
+                                        height="296"></p>
+                                <h4 class="warning">⚠️ Warning ⚠️</h4>
+                                <p>Notice there are 13 classes, and each has a class width of 6.&nbsp; But, notice that the last
+                                    class has a 0 in it.&nbsp; The best Frequency Distributions always have a non-zero frequency
+                                    for the first and last class.&nbsp; Also, notice we missed all the years that had fewer than
+                                    7 deaths.&nbsp; So, while this is a correctly constructed Frequency Distribution, it is also
+                                    a bit misleading.&nbsp;</p>
+                                <p>That is why it is better to let the Lower Boundary be the minimum value.&nbsp; We get all the
+                                    data, and our first and last classes will be a non-zero frequency ensuring that our table is
+                                    just the right size for the number of classes or class width we desire.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Solution Wrapper -->
+
+                    <div class="note-page-break"></div>
+                    <div class="page-break"></div>
+
+                    <h1>How to Create Relative Frequency Distributions</h1>
+                    <p>An important concept related to frequency is <strong>relative frequency</strong>, and it is a
+                        foundational concept for several key topics in this course.&nbsp; We will use relative
+                        frequencies when discussing cumulative frequencies (discussed below), creating histograms,
+                        studying probability and probability distributions, and using statistical inference to discuss
+                        population proportions. &nbsp;By connecting data analysis to probability theory and statistical
+                        inference, relative frequency serves as a bridge between descriptive and inferential methods in
+                        a statistics course.&nbsp;</p>
+                    <h2>Relative Frequency Distributions</h2>
+                    <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>What is Relative Frequency?</h3>
+                        <p><b>Relative Frequency&nbsp;</b>has two interpretations.</p>
+                        <ul>
+                            <li>For&nbsp;<strong>raw data</strong>, relative frequency is the percentage of times that a
+                                particular value appears in a data set.</li>
+                            <li>For <strong>data sorted into classes</strong>, relative frequency is the percentage of
+                                data that appear in a given class.</li>
+                        </ul>
+                        <p>In both cases, the formula for relative frequency is identical: \[\text{relative frequency
+                            }=\dfrac{\text{{frequency}}}{{n}},\] where \(n\) is the number of data points in the
+                            sample.&nbsp;</p>
+                        <p>Notice that this will always give a percentage as a decimal, so we will always write
+                            \(0.3947\) instead of \(39.47\)% in this course. &nbsp;Using percentages instead of decimals
+                            can cause errors in many of the formulas because most statistical formulas use relative
+                            frequencies rather than percentages to ensure accurate calculations. &nbsp;</p>
+                        <h4 class="warning">⚠️ Warning ⚠️</h4>
+                        <p>Relative frequencies will always yield a number between 0 and 1. If you get a number larger
+                            than 1 or a negative number, double check your work because you made a calculation error!
+                        </p>
+                    </div>
+                    <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>What is a Relative Frequency Distribution?</h3>
+                        <p>A <strong>relative</strong> <strong>frequency distribution</strong> is a table that lists
+                            either the raw data or classes in the first column and the corresponding relative
+                            frequencies in the second column.</p>
+                    </div>
+                    <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>How Do I Compute a Relative Frequency?</h3>
+                        <p>Let's consider our Frequency Distribution from Example 4 in <a
+                                href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=9945978&amp;type=content&amp;rcode=TBR-63654859"
+                                target="_blank" rel="noopener">How to Create Frequency Distributions</a>:<br><img
+                                src="../images/frequencydistribution_example4a.png"
+                                alt="Frequency Distribution with the extra class removed."
+                                title="Frequency Distribution with the extra class removed." width="501"
+                                height="321"><br>To determine the number of data points, we first choose a class, such
+                            as the interval 0 to 9, and note its frequency, which is 64. The relative frequency is found
+                            by dividing the class frequency by the total number of year, 74, as follows:
+                            \[\dfrac{{64}}{{74}}\approx 0.8649.\] Thus, \(0.8649\) is the relative frequency for 0 to
+                            10, meaning \(86.49\%\) of the years from 1950 to 2023 had 0 to 10 deaths (excluding
+                            10).&nbsp; Note we will always round relative frequency to four decimal places, which is a
+                            standard practice in statistics.</p>
+                    </div>
+                    <!--End Definition Wrapper-->
+                    <p>While it is essential to know how to compute a relative frequency, performing multiple manual
+                        calculations to create a relative frequency distribution increases the risk of calculation
+                        errors. In our next example, we will see how to use our Frequency Distribution Tool to create a
+                        relative frequency distribution.</p>
+                    <h3 class="example-header"> Example <span class="example-number"></span></h3>
+                    <p>According to <a href="https://seer.cancer.gov/statistics-network/" target="_blank"
+                            rel="noopener">National Institutes of Health Cancer Statistics</a>, the rate at which men
+                        get Colon-Rectal cancer each year (per 100,000 men, rounded to one decimal place) from 2000 to
+                        2021 is given in the table below.&nbsp; Find the relative frequency distribution for this data
+                        if we use a lower class boundary of 35 and a class width of 5.<br><button
+                            onclick="copyToClipboard('cancer')">Copy Data to Clipboard</button></p>
+                    <pre style="display: none;" id="cancer">Year of Diagnosis,Rate per 100000
+2000,70.8
+2001,69.6
+2002,68.3
+2003,66.3
+2004,64.0
+2005,61.9
+2006,59.1
+2007,58.1
+2008,56.2
+2009,53.1
+2010,51.0
+2011,49.5
+2012,48.0
+2013,46.9
+2014,46.7
+2015,45.5
+2016,44.5
+2017,43.5
+2018,42.9
+2019,42.7
+2020,37.2
+2021,40.8
+</pre>
+                    <table style="width: 100.051%;">
+                        <caption>Colon-Rectal Cancer Diagnosis Rates (Per 100,000 Men)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 25.1863%;">Year</th>
+                                <th scope="col" style="width: 24.7425%;">Rate</th>
+                                <th scope="col" style="width: 25.1863%;">Year</th>
+                                <th scope="col" style="width: 24.7425%;">Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 25.1863%;">2000</td>
+                                <td style="width: 24.7425%;">70.8</td>
+                                <td style="width: 25.1863%;">2011</td>
+                                <td style="width: 24.7425%;">49.5</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2001</td>
+                                <td style="width: 24.7425%;">69.6</td>
+                                <td style="width: 25.1863%;">2012</td>
+                                <td style="width: 24.7425%;">48.0</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2002</td>
+                                <td style="width: 24.7425%;">68.3</td>
+                                <td style="width: 25.1863%;">2013</td>
+                                <td style="width: 24.7425%;">46.9</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2003</td>
+                                <td style="width: 24.7425%;">66.3</td>
+                                <td style="width: 25.1863%;">2014</td>
+                                <td style="width: 24.7425%;">46.7</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2004</td>
+                                <td style="width: 24.7425%;">64.0</td>
+                                <td style="width: 25.1863%;">2015</td>
+                                <td style="width: 24.7425%;">45.5</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2005</td>
+                                <td style="width: 24.7425%;">61.9</td>
+                                <td style="width: 25.1863%;">2016</td>
+                                <td style="width: 24.7425%;">44.5</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2006</td>
+                                <td style="width: 24.7425%;">59.1</td>
+                                <td style="width: 25.1863%;">2017</td>
+                                <td style="width: 24.7425%;">43.5</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2007</td>
+                                <td style="width: 24.7425%;">58.1</td>
+                                <td style="width: 25.1863%;">2018</td>
+                                <td style="width: 24.7425%;">42.9</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2008</td>
+                                <td style="width: 24.7425%;">56.2</td>
+                                <td style="width: 25.1863%;">2019</td>
+                                <td style="width: 24.7425%;">42.7</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2009</td>
+                                <td style="width: 24.7425%;">53.1</td>
+                                <td style="width: 25.1863%;">2020</td>
+                                <td style="width: 24.7425%;">37.2</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25.1863%;">2010</td>
+                                <td style="width: 24.7425%;">51.0</td>
+                                <td style="width: 25.1863%;">2021</td>
+                                <td style="width: 24.7425%;">40.8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Solution Wrapper -->
+                    <div class="solution">
+                        <h4 class="solution-header">Solution</h4>
+                        <p>Load your data into GeoGeobra (see Example 1 of <a
+                                href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=9945978&amp;type=content&amp;rcode=TBR-63654859"
+                                target="_blank" rel="noopener">How to Create Frequency Distributions</a> if you need a
+                            refresher).&nbsp; Make sure to <strong>select column&nbsp;</strong><strong>B</strong> since
+                            the rates are in that column. Since our data is in decimals, this is a good time to choose
+                            our lower boundary manually, which is why I gave it to you in the problem.&nbsp; Enter 35
+                            for the <strong>lower class boundary</strong> and 5 for the&nbsp;<strong>class
+                                width</strong>.&nbsp; Also, make sure the&nbsp;<strong>Deselect if Last Row Equals
+                                0</strong> checkbox is checked since our classes only go from 35 up to 70 and our larges
+                            data point is 70.8.&nbsp; If you have everything set correctly, your Frequency Distribution
+                            Tool should look like this.</p>
+                        <p><img src="../images/relativefrequencydistribution_example1.png"
+                                alt="The Frequency Distribution Tool with column B selected, lower boundary of 35, and a class width of 5."
+                                title="The Frequency Distribution Tool with column B selected, lower boundary of 35, and a class width of 5."
+                                width="499" height="324"></p>
+                        <p>Now that we have this set up correctly, all we have to do is check the&nbsp;<strong>Relative
+                                Frequencies</strong> checkbox to convert all the frequencies to relative
+                            frequencies.&nbsp; The Frequency Distribution Tool will automatically update the table.</p>
+                        <p><img src="../images/relativefrequencydistribution_example1b.png"
+                                alt="The relative frequencies checkbox has been marked, converting the last column to relative frequencies."
+                                title="The relative frequencies checkbox has been marked, converting the last column to relative frequencies."
+                                width="500" height="316"></p>
+                        <h5>Interpretation</h5>
+                        <p>The class bin 45–49 has a relative frequency of 0.2773, meaning 27.73% of the years from 2000
+                            to 2021 had 45–49 men per 100,000 diagnosed with Colon-Rectal Cancer.</p>
+                        <p>$$\tag*{\(\blacksquare\)}$$</p>
+                    </div>
+                    <!-- End Solution Wrapper -->
+                    <p>There are two important options for Relative Frequency Distributions you should be aware of.</p>
+                    <!--Definition Block-->
+                    <div class="definition">
+                        <h3>Relative Frequency Distribution Options</h3>
+                        <h4>Convert To Percentage</h4>
+                        <p>If you click on the&nbsp;<strong>Display as Percentages Checkbox, </strong>it will convert
+                            the relative frequencies to percentages.</p>
+                        <p><img src="../images/relativefrequencydistribution_options1.png"
+                                alt="The relative frequency distribution from Example 1 with percentages instead of relative frequencies."
+                                title="The relative frequency distribution from Example 1 with percentages instead of relative frequencies."
+                                width="500" height="303"></p>
+                        <h4>Compare Frequency to Relative Frequency</h4>
+                        <p>If you click on the&nbsp;<strong>Show Relative and Non-Relative Checkbox</strong>, a third
+                            column will be added showing the original frequencies so you can have the frequency and
+                            relative frequency data side-by-side.</p>
+                        <p><img src="../images/relativefrequencydistribution_options2.png"
+                                alt="A third column containing the raw frequencies was added to the relative frequency distribution."
+                                title="A third column containing the raw frequencies was added to the relative frequency distribution."
+                                width="500" height="301"></p>
+                        <h4>Both Options</h4>
+                        <p>You can also select both options at once to compare percentages to frequencies.</p>
+                        <p><img src="../images/relativefrequencydistribution_options3.png"
+                                alt="Both options are checked, allowed comparisons of percentages and raw frequencies."
+                                title="Both options are checked, allowed comparisons of percentages and raw frequencies."
+                                width="500" height="297"></p>
+                    </div>
+                    <!--End Definition Wrapper-->Even though the computer does most of the heavy lifting for us, it is
+                    still important to know how to perform the calculations by hand to make sure there are no errors in
+                    the data or output.
+                    <h3 class="example-header"> Example <span class="example-number"></span></h3>
+                    <p>Consider the following frequency distribution for average August temperatures in Nashville,
+                        TN.&nbsp; (Source: <a href="https://www.wunderground.com" target="_blank" rel="noopener">Weather
+                            UnderGround</a>)&nbsp; Find the relative frequency for the class&nbsp;<strong>86 to
+                            88.</strong></p>
+                    <table>
+                        <caption>Average August Temperature in Nashville, TN (1948-2024)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Degrees Fahrenheit</th>
+                                <th scope="col">Number of Years</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">80 to 82</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">83 to 85</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">86 to 88</td>
+                                <td>33</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">89 to 91</td>
+                                <td>22</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">92 to 94</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">95 to 97</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Total</td>
+                                <td>77</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="solution">
+                        <h4 class="solution-header">Solution</h4>
+                        <p>Since 33 of the 77 years had an average temperature of \(86^\circ\)F to \(88^\circ\)F, the
+                            relative frequency is \[\dfrac{{33}}{{77}}\approx 0.4286\]</p>
+                        <h5>Interpretation</h5>
+                        <p>In Nashville, TN, 42.86% of the years between 1948 and 2024 experienced an average August
+                            temperature ranging from \(86^\circ\)F up to but not including \(89^\circ\)F.</p>
+                        <p>$$\tag*{\(\blacksquare\)}$$</p>
+                    </div>
+
+
+                    <div class="notes-page-break"></div>
+                    <div class="page-break"></div>
+
+                    <h1>How to Compute Cumulative Frequency Distributions</h1>
+                    <p>Another important concept related to frequency is cumulative frequency, which keeps a running
+                        total of frequencies up to a specific value or class.&nbsp; This provides insight into how data
+                        accumulates over a specific range of values, and is fundamental in understanding ideas such as
+                        median, quartiles, interquartile ranges, computing area under the uniform, normal, and student T
+                        curves. By synthesizing raw data into meaningful patterns, cumulative frequency serves as a
+                        stepping stone to deeper statistical concepts, emphasizing the relationship between individual
+                        data points and their overall context within a dataset.&nbsp;</p>
+                    <h2>Cumulative Frequency</h2>
+                    <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>What is Cumulative Frequency?</h3>
+                        <p><b>Cumulative Frequency&nbsp;</b>is the number of data points that are less than or equal to
+                            some given number (not necessarily in the data set).</p>
+                    </div>
+                    <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>What is a Cumulative Frequency Distribution?</h3>
+                        <p>A <strong>cumulative</strong> <strong>frequency distribution</strong> is a table that lists
+                            either the raw data or classes in the first column and the corresponding cumulative
+                            frequencies in the second column.&nbsp;</p>
+                    </div>
+                    <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>How do I compute Cumulative Frequency?</h3>
+                        <p>Let's turn to our Frequency Distribution about tornado deaths in Tennessee from Example 1 in
+                            <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=9945978&amp;type=content&amp;rcode=TBR-63654859"
+                                target="_blank" rel="noopener">How to Create Frequency Distributions</a>:<br><img
+                                src="../images/frequencydistribution_example1_f~.png"
+                                alt="Frequency distribution table with columns Data and Frequency; Data is Qualitative checkbox selected and column B chosen."
+                                title="Frequency distribution table with columns Data and Frequency; Data is Qualitative checkbox selected and column B chosen."
+                                width="402" height="237"><br>Suppose we are interested in the number of years with 3 or
+                            fewer deaths. From the frequency distribution, 32 years had 0 deaths, 10 years had 1 death,
+                            6 years had 2 deaths, and 7 years had 3 deaths. Adding up the number of years gives
+                            \[32+10+6+7=55,\] so the cumulative frequency for \(3\) is 55. Therefore, 55 years between
+                            1950 and 2023 had 3 or fewer tornado-related deaths in Tennessee.&nbsp;</p>
+                    </div>
+                    <!-- End Definition Wrapper -->
+                    <p>While it is good to have an idea of how to compute a cumulative frequency, the multiple manual
+                        calculations needed for a cumulative frequency distribution increases the likelihood of a
+                        calculation error. In our next example, we will see how to use our GeoGebra tool to create a
+                        cumulative frequency distribution.</p>
+                    <h3 class="example-header"> Example <span class="example-number"></span></h3>
+                    <p>For the data from Example 1 in <a
+                            href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=9945978&amp;type=content&amp;rcode=TBR-63654859"
+                            target="_blank" rel="noopener">How to Create Frequency Distributions</a>, create a
+                        cumulative frequency distribution for the raw data.<br><button
+                            onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+                    <pre style="display: none;" id="deathdata">year, deaths  
+2023, 17
+2022, 0
+2021, 4
+2020, 27
+2019, 0
+2018, 1
+2017, 0
+2016, 2
+2015, 2
+2014, 2
+2013, 0
+2012, 3
+2011, 32
+2010, 1
+2009, 2
+2008, 31
+2007, 0
+2006, 34
+2005, 0
+2004, 0
+2003, 12
+2002, 17
+2001, 3
+2000, 1
+1999, 12
+1998, 7
+1997, 1
+1996, 0
+1995, 3
+1994, 5
+1993, 1
+1992, 1
+1991, 5
+1990, 0
+1989, 1
+1988, 6
+1987, 0
+1986, 0
+1985, 0
+1984, 1
+1983, 0
+1982, 0
+1981, 0
+1980, 0
+1979, 2
+1978, 0
+1977, 0
+1976, 0
+1975, 3
+1974, 47
+1973, 1
+1972, 0
+1971, 3
+1970, 3
+1969, 0
+1968, 4
+1967, 2
+1966, 0
+1965, 1
+1964, 0
+1963, 4
+1962, 0
+1961, 0
+1960, 0
+1959, 0
+1958, 0
+1957, 0
+1956, 3
+1955, 0
+1954, 0
+1953, 4
+1952, 75
+1951, 0
+1950, 9
+</pre>
+                    <!-- Solution Wrapper -->
+                    <div class="solution">
+                        <h4 class="solution-header">Solution</h4>
+                        <p>Load your data into GeoGeobra (see Example 1 of <a
+                                href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=9945978&amp;type=content&amp;rcode=TBR-63654859"
+                                target="_blank" rel="noopener">How to Create Frequency Distributions</a> if you need a
+                            refresher).</p>
+                        <p><img src="../images/frequencydistribution_example1_f~.png"
+                                alt="Frequency distribution table with columns Data and Frequency."
+                                title="Frequency distribution table with columns Data and Frequency." width="501"
+                                height="336"></p>
+                        <p>While we can create a relative frequency distribution for the classes, as a first example, it
+                            is easier to work with and interpret the rate data.&nbsp; So, we are just going to click on
+                            the&nbsp;<strong>Cumulative Frequency Checkbox</strong> to change the second column from
+                            frequencies to cumulative frequencies.</p>
+                        <p><img src="../images/cumulative_frequency_example1.png"
+                                alt="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                                title="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                                width="500" height="303"></p>
+                        <h5>Interpretation</h5>
+                        <p>The <strong>Raw</strong> <strong>Data</strong> column gives all the unique values of the raw
+                            data, listed from smallest to largest.&nbsp; The <strong>Cumulative Frequency</strong>
+                            column tells us the number of years where the death total for the year is less than or equal
+                            to the value in the Data column.&nbsp; For example, for \(x=17\) deaths, the cumulative
+                            frequency of 68 indicates that, between 1950 and 2023, there were 68 years in which the
+                            number of deaths caused by tornadoes in Tennessee was 17 or fewer.</p>
+                        <p>$$\tag*{\(\blacksquare\)}$$</p>
+                    </div>
+                    <!-- End Solution Wrapper -->
+                    <h2>Relative Cumulative Frequency</h2>
+                    <p>Relative cumulative frequency, which integrates the concepts of relative frequency and cumulative
+                        frequency, offers a powerful tool for understanding data distributions in a statistical context.
+                        It represents the percentage of data points at or below a specific value.&nbsp; When we study
+                        area under the normal curve later in this course, we will use both cumulative frequencies and
+                        relative cumulative frequencies.</p>
+                    <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>What is Relative Cumulative Frequency?</h3>
+                        <p><b>Relative Cumulative Frequency&nbsp;</b>is the percentage of data points that are less than
+                            or equal to some given number (not necessarily in the data set).&nbsp; As with relative
+                            frequency, we will always express the percentage as a decimal, such as \(0.2934\) instead of
+                            \(29.34\)%. Using percentages instead of decimals can cause errors in many of the formulas
+                            we will use in this course, as they require values to be expressed as decimals for accurate
+                            computation.&nbsp; &nbsp;As a formula, we can express this as \[\text{relative cumulative
+                            frequency}=\dfrac{\text{cumulative frequency}}{{n}},\] where \(n\) is the number of data
+                            points.</p>
+                    </div>
+                    <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>What is a Relative Cumulative Frequency Distribution?</h3>
+                        <p>A&nbsp;<strong>relative </strong><strong>cumulative</strong> <strong>frequency
+                                distribution</strong> is a table that lists either the raw data or classes in the first
+                            column and the corresponding relative cumulative frequencies in the second column.&nbsp;</p>
+                    </div>
+                    <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+                    <div class="definition">
+                        <h3>How do I Compute a Relative Cumulative Frequency?</h3>
+                        <p>Let's consider our Cumulative Frequency Distribution from Example 1:<br><img
+                                src="../images/cumulative_frequency_example1.png"
+                                alt="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                                title="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                                width="500" height="303"><br>One useful feature of a cumulative frequency distribution
+                            is that the last row provides the total number of data points, which in this case is 74.
+                            Now, let’s pick a data point, such as 5. To calculate the relative cumulative frequency,
+                            divide its cumulative frequency by the total number of data points:
+                            \[\dfrac{{61}}{{74}}\approx 0.8243.\] This means that \(82.43\%\) of the years had 5 or
+                            fewer deaths. As with relative frequency, we always round to four decimal places.&nbsp;</p>
+                    </div>
+                    <!--End Definition Wrapper-->
+                    <p>While it is good to have an idea of how to compute a relative cumulative frequency, the multiple
+                        manual calculations needed for a cumulative frequency distribution increases the likelihood of a
+                        calculation error. In our next example, we will see how to use our GeoGebra tool to create a
+                        cumulative frequency distribution.</p>
+                    <h3 class="example-header"> Example <span class="example-number"></span></h3>
+                    <p>For the data from Example 1, create a cumulative relative frequency distribution for the raw
+                        data.</p>
+                    <!-- Solution Wrapper -->
+                    <div class="solution">
+                        <h4 class="solution-header">Solution</h4>
+                        <p>For the data from Example 1 in <a
+                                href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=9945978&amp;type=content&amp;rcode=TBR-63654859"
+                                target="_blank" rel="noopener">How to Create Frequency Distributions</a>,</p>
+                        <p>If you are continuing from Example 1, the Frequency Distribution Tool should like this:</p>
+                        <p><img src="../images/cumulative_frequency_example1.png"
+                                alt="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                                title="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                                width="500" height="303"></p>
+                        <p>We just need to make sure the&nbsp;<strong>Relative Frequencies</strong> checkbox is also
+                            checked, and it will change the cumulative frequencies column to relative cumulative
+                            frequencies.&nbsp; If you have done this correctly, your tool should look like this:</p>
+                        <p><img src="../images/cumulative_frequency_example2.png"
+                                alt="The relative cumulative frequency distribution of the tornado deaths in Tennessee."
+                                title="The relative cumulative frequency distribution of the tornado deaths in Tennessee."
+                                width="500" height="303"></p>
+                        <h5>Interpretation</h5>
+                        <p>The <strong>Raw Data</strong> column gives all the unique values of the raw data, listed from
+                            smallest to largest.&nbsp; The <strong>Relative</strong> <strong>Cumulative
+                                Frequency</strong> column tells us the percentage of years where the death total for the
+                            year is less than or equal to the value in the Data column.&nbsp; For example, for \(x=17\)
+                            deaths, the relative cumulative frequency of \(0.9189\) indicates that \(91.89%\) of the
+                            years between 1950 and 2023 had 17 or fewer deaths.</p>
+                        <p>$$\tag*{\(\blacksquare\)}$$</p>
+                    </div>
+                    <!-- End Solution Wrapper -->
+                    <p>Just like relative frequencies, cumulative relative frequencies can be displayed as percentages
+                        or side-by-side with cumulative frequencies.</p>
+                    <!--Definition Block-->
+                    <div class="definition">
+                        <h3>Relative Frequency Distribution Options</h3>
+                        <h4>Convert To Percentage</h4>
+                        <p>If you click on the&nbsp;<strong>Display as Percentages Checkbox, </strong>it will convert
+                            the relative cumulative frequencies to cumulative percentages.</p>
+                        <p><img src="../images/cumulative_frequency_options1.png"
+                                alt="The relative cumulative frequency distribution with cumulative percentages instead of relative cumulative frequencies."
+                                title="The cumulative relative frequency distribution with percentages instead of relative frequencies."
+                                width="500" height="303"></p>
+                        <h4>Compare Frequency to Relative Frequency</h4>
+                        <p>If you click on the&nbsp;<strong>Show Relative and Non-Relative Checkbox</strong>, a third
+                            column will be added showing the original cumulative frequencies so you can have the
+                            cumulative frequency and relative cumulative frequency data side-by-side.</p>
+                        <p><img src="../images/cumulative_frequency_options2.png"
+                                alt="A third column containing the raw cumulative frequencies was added to the cumulative relative frequency distribution."
+                                title="A third column containing the raw cumulative frequencies was added to the cumulative relative frequency distribution."
+                                width="500" height="301"></p>
+                        <h4>Both Options</h4>
+                        <p>You can also select both options at once to compare cumulative percentages to cumulative
+                            frequencies.</p>
+                        <p><img src="../images/cumulative_frequency_options3.png"
+                                alt="Both options are checked, allowed comparisons of cumulative percentages and raw cumuluative frequencies."
+                                title="Both options are checked, allowed comparisons of percentages and raw frequencies."
+                                width="500" height="297"></p>
+                    </div>
+                </div>
+                <!--End Definition Wrapper-->
+
+
+                <div class="notes-page-break"></div>
+                <div class="page-break"></div>
+
+                <h1>Shapes of Frequency Distributions</h1>
+                <p>The shape of a frequency distribution is an important geometric property that we can determine from
+                    its histogram. While there is one shape that is the most important, we will discuss other shapes at
+                    various points during the course. Before diving into the different shapes, it is helpful to
+                    understand some important concepts related to distributions: the <strong>peak</strong> and
+                    <strong>tails</strong> of a distribution.</p>
+                <h2>The Peak and Tails</h2>
+                <!-- Div Definition-->
+                <div class="definition">
+                    <h3>What is the peak of a distribution?</h3>
+                    <p>The <strong>peak of a distribution</strong> refers to the tallest part of the histogram, which
+                        represents the class(es) with the most data. Distributions can have one peak
+                        (<strong>unimodal</strong>), <br><img src="../images/normal1.png"
+                            alt="Example of a unimodal distribution with a peak at class the 70 to 79."
+                            title="Example of a unimodal distribution with a peak at class the 70 to 79." width="401"
+                            height="226"><br><br>multiple peaks (<strong>multimodal</strong>),&nbsp;<br><img
+                            src="../images/bimodal1.png" alt="Example of multimodal distribution with two peaks."
+                            title="Example of multimodal distribution with two peaks." width="399"
+                            height="249"><br><br>or no distinct peak (<strong>uniform</strong>).<br><img
+                            src="../images/uniform1.png" alt="Example of a Uniform Distribution."
+                            title="Example of a Uniform Distribution." width="399" height="260"></p>
+                </div>
+                <!-- End Div Definition--> <!-- Div Definition-->
+                <div class="definition">
+                    <h3>What are the tails of a distribution?</h3>
+                    <p>The <strong>tails of a distribution</strong> refer to the far ends of the distribution, which
+                        represent the extreme values of the dataset. For example, in a histogram, the left tail
+                        corresponds to the smallest values, while the right tail corresponds to the largest values. The
+                        shape and behavior of the tails can provide insights into the skewness and outliers of the
+                        distribution.</p>
+                    <p><img src="../images/normal2.png"
+                            alt="Example of a unimodal distribution. Areas corresponding to its peak and tails are labeled."
+                            title="Example of a unimodal distribution. Areas corresponding to its peak and tails are labeled."
+                            width="400" height="242"></p>
+                </div>
+                <!-- End Div Definition-->
+                <p>Now that we understand the tails and peaks of frequency distributions, let’s examine the different
+                    shapes these distributions can take.</p>
+                <h2>Shapes of Distributions</h2>
+                <!--Definition-->
+                <div class="definition">
+                    <h3>What are the different shapes of frequency distributions?</h3>
+                    <p>There are three main shapes: <strong>unimodal</strong>, <strong>multimodal</strong>, and
+                        <strong>uniform</strong>.</p>
+                    <h4>Unimodal Distributions (single-peak)</h4>
+                    <p>Unimodal distributions have a single peak in their histogram. These distributions begin with
+                        small bars that gradually increase in height from left to right, reach a peak at one class, and
+                        then decrease from left to right. There are three subtypes of unimodal
+                        distributions:&nbsp;<strong>normal</strong>, <strong>skew-left</strong>, and
+                        <strong>skew-right</strong>.</p>
+                    <p></p>
+                    <h5>Normal Distributions (aka bell-shaped distribution)</h5>
+                    <p>This is the most important distribution in the course. A normal distribution is symmetric, with
+                        its peak located at the center. Its tails extend in both directions but gradually get closer and
+                        closer to the horizontal axis as they extend outward. The shape of the histogram for a normal
+                        distribution resembles a bell, hence the name "bell-shaped distribution."</p>
+                    <p><img src="../images/normal2.png" alt="The red curve drawn over the histogram looks like a bell."
+                            title="The red curve drawn over the histogram looks like a bell." width="400" height="242">
+                    </p>
+                    <h5>Skew-Left Distributions</h5>
+                    <p>A skew-left distribution (also called negatively skewed) is a distribution where the left tail is
+                        longer than the right tail. In these distributions, the majority of the data values are
+                        concentrated toward the right side of the histogram, with fewer values on the left. This creates
+                        a tail that extends toward smaller values.</p>
+                    <p><img src="../images/leftskew.png"
+                            alt="Distribution is left-skewed since the left tail is longer than the right tail."
+                            title="Distribution is left-skewed since the left tail is longer than the right tail."
+                            width="399" height="238"></p>
+                    <h5>Skew-Right Distributions</h5>
+                    <p>A skew-right distribution (also called positively skewed) is a distribution where the right tail
+                        is longer than the left tail. In these distributions, the majority of the data values are
+                        concentrated toward the left side of the histogram, with fewer values on the right. This creates
+                        a tail that extends toward larger values.</p>
+                    <p><img src="../images/rightskew.png"
+                            alt="Distribution is right-skewed because its right tail is longer than its left tail."
+                            title="Distribution is right-skewed because its right tail is longer than its left tail."
+                            width="401" height="232"></p>
+                    <h4>Multimodal Distributions (multiple peaks)</h4>
+                    <p>Multimodal distributions have multiple peaks in their histogram. A <strong>bimodal
+                            distribution</strong> has two peaks, a <strong>trimodal distribution</strong> has three, and
+                        anything with four or more peaks is just called a <strong>multimodal distribution</strong>.
+                        While we won’t cover multimodal distributions in this course, you may encounter them in advanced
+                        statistics courses.&nbsp;</p>
+                    <p><img src="../images/bimodal2.png" alt="A bimodal distribution with its two peaks labeled."
+                            title="A bimodal distribution with its two peaks labeled." width="400" height="249"></p>
+                    <h4>Uniform Distributions</h4>
+                    <p>Uniform distributions have bars that area all approximately the same height (give or take a small
+                        margin of error).</p>
+                    <p><img src="../images/uniform2.png"
+                            alt="Uniform distribution have bars that are all approximately the same height."
+                            title="Uniform distribution have bars that are all approximately the same height."
+                            width="399" height="260"></p>
+                    <h5>Homework Note</h5>
+                    <p>Homework problems will ask you to identify the shape of a distribution. The easiest way to
+                        determine the shape is by drawing or visualizing a curve through the tops of the bars, as shown
+                        in the examples above for unimodal and multimodal distributions.&nbsp; If the distribution is
+                        uniform, all the bars should be approximately the same height.</p>
+                </div>
+                <!-- End Div Definition-->
+
+                <div class="notes-page-break"></div>
+                <div class="page-break"></div>
+
+                <h1>How to Construct Stem-and-Leaf Plots</h1>
+                <p>Stem-and-leaf plots are a simple, effective way to organize and visualize numerical data. They reveal patterns, clusters, and unusually small or large data, making them valuable for understanding distributions. This page covers how to create these plots, handle repeated values, decide on rounding, split stems for clarity, and compare datasets using back-to-back plots. Through examples and explanations, you’ll learn to master stem-and-leaf plots for various data types.&nbsp;</p>
+                <h2>Stem-and-Leaf Plots</h2>
+                <!--Definition -->
+                <div class="definition">
+                <h3>What is a Stem-and-Leaf Plot?</h3>
+                <p>A <strong>stem-and-leaf plot</strong> is a way to organize rounded numerical data by splitting each value into a <strong>stem</strong> (the leading digit(s), such as tens) and a <strong>leaf </strong>(the trailing digit(s), based on the chosen rounding level). For example, if the dataset includes \(32\), \(35\), and \(41\), rounded to the nearest one, the plot would look like: \[ \begin{align*} 3 &amp;\mid 2 \ 5 \\ 4 &amp;\mid 1 \end{align*} \] Here, the stem represents the tens, and the leaf represents the ones. The leaf represents the level of rounding, allowing the plot to effectively display and organize data&nbsp;</p>
+                <h4>What if I have two or more data point with the same value?</h4>
+                <p>If the same value shows up more than once in a dataset, it will get a leaf for each time it appears.&nbsp; If we change our example to \(32\), \(35\), \(35\), \(41\), the plot would look like \[ \begin{align*} 3 &amp;\mid 2 \ 5 \ 5 \\ 4 &amp;\mid 1 \end{align*} \] and the two 5's represent the fact that 35 showed up twice in the data.</p>
+                </div>
+                <!--End Definition--> <!--Definition -->
+                <div class="definition">
+                <h3>Where should I round my data?</h3>
+                <p>There is a bit of an art to deciding how to create a stem-and-leaf plot. The best stems are those that appear frequently in your data and group it meaningfully.</p>
+                <p>For example, if most of your data falls between 300 and 340, you are likely to have many numbers in the ranges 300–309, 310–319, 320–329, and 330–339. In this case, 30, 31, 32, and 33 would be good choices for stems, and the one’s digit would make a good leaf.</p>
+                <p>On the other hand, if most of your data ranges from 500 to 900, you will likely see many numbers in the broader ranges 500–599, 600–699, 700–799, and 800–899. In this case, 5, 6, 7, and 8 would be better choices for stems. By rounding to the nearest 10, the tens digit becomes your leaf.</p>
+                <p>The goal is to create a plot that organizes the data clearly and effectively, without being cluttered or too sparse.</p>
+                <div class="two-columns">
+                <div>
+                <p style="text-align: center;"><strong>Too Clustered</strong></p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/clumpedstems.png" alt="The stems are all in a single row." title="The stems are all in a single row." data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                </div>
+                <div>
+                <p style="text-align: center;"><strong>Good Balance of Leaves</strong></p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/goodstems.png" alt="There are five stems and there are no lines without any leaves." title="There are five stems and there are no lines without any leaves." width="153" height="163" style="display: block; margin-left: auto; margin-right: auto;"></p>
+                </div>
+                <div>
+                <p style="text-align: center;"><strong>Too Spread Out</strong></p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/spreadstems.png" alt="Many stems have no leaves. While some gaps are okay, if most stems are empty, your data is too spread out." title="Many stems have no leaves. While some gaps are okay, if most stems are empty, your data is too spread out." width="164" height="320" style="display: block; margin-left: auto; margin-right: auto;"></p>
+                </div>
+                </div>
+                </div>
+                <!--End Definition-->
+                <h3 class="example-header">Example 1</h3>
+                <p>The following dataset represents the monthly average rainfall (in mm) for a Midwestern town from 2018 to 2022. Construct a stem-and-leaf plot for the data, and describe the shape of the distribution.<br><button onclick="copyToClipboard('raindata')">Copy Data to Clipboard</button></p>
+                <pre style="display: none;" id="raindata">Rainfall (mm)
+                32
+                46
+                53
+                67
+                41
+                78
+                35
+                64
+                52
+                90
+                48
+                73
+                36
+                44
+                50
+                69
+                45
+                80
+                38
+                63
+                55
+                87
+                50
+                76
+                31
+                47
+                54
+                65
+                43
+                74
+                37
+                66
+                50
+                88
+                49
+                72
+                34
+                48
+                52
+                68
+                42
+                79
+                36
+                62
+                53
+                89
+                47
+                75
+                33
+                45
+                51
+                70
+                40
+                77
+                34
+                65
+                54
+                91
+                46
+                74
+                </pre>
+                <table><caption>Monthly Rainfall (2018–2022)</caption>
+                <thead>
+                <tr>
+                <th scope="col">Month (2018)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2019)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2020)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2021)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2022)</th>
+                <th scope="col">Rainfall (mm)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>January</td>
+                <td>32</td>
+                <td>January</td>
+                <td>36</td>
+                <td>January</td>
+                <td>31</td>
+                <td>January</td>
+                <td>34</td>
+                <td>January</td>
+                <td>33</td>
+                </tr>
+                <tr>
+                <td>February</td>
+                <td>46</td>
+                <td>February</td>
+                <td>44</td>
+                <td>February</td>
+                <td>47</td>
+                <td>February</td>
+                <td>48</td>
+                <td>February</td>
+                <td>45</td>
+                </tr>
+                <tr>
+                <td>March</td>
+                <td>53</td>
+                <td>March</td>
+                <td>50</td>
+                <td>March</td>
+                <td>54</td>
+                <td>March</td>
+                <td>52</td>
+                <td>March</td>
+                <td>51</td>
+                </tr>
+                <tr>
+                <td>April</td>
+                <td>67</td>
+                <td>April</td>
+                <td>69</td>
+                <td>April</td>
+                <td>65</td>
+                <td>April</td>
+                <td>68</td>
+                <td>April</td>
+                <td>70</td>
+                </tr>
+                <tr>
+                <td>May</td>
+                <td>41</td>
+                <td>May</td>
+                <td>45</td>
+                <td>May</td>
+                <td>43</td>
+                <td>May</td>
+                <td>42</td>
+                <td>May</td>
+                <td>40</td>
+                </tr>
+                <tr>
+                <td>June</td>
+                <td>78</td>
+                <td>June</td>
+                <td>80</td>
+                <td>June</td>
+                <td>74</td>
+                <td>June</td>
+                <td>79</td>
+                <td>June</td>
+                <td>77</td>
+                </tr>
+                <tr>
+                <td>July</td>
+                <td>35</td>
+                <td>July</td>
+                <td>38</td>
+                <td>July</td>
+                <td>37</td>
+                <td>July</td>
+                <td>36</td>
+                <td>July</td>
+                <td>34</td>
+                </tr>
+                <tr>
+                <td>August</td>
+                <td>64</td>
+                <td>August</td>
+                <td>63</td>
+                <td>August</td>
+                <td>66</td>
+                <td>August</td>
+                <td>62</td>
+                <td>August</td>
+                <td>65</td>
+                </tr>
+                <tr>
+                <td>September</td>
+                <td>52</td>
+                <td>September</td>
+                <td>55</td>
+                <td>September</td>
+                <td>50</td>
+                <td>September</td>
+                <td>53</td>
+                <td>September</td>
+                <td>54</td>
+                </tr>
+                <tr>
+                <td>October</td>
+                <td>90</td>
+                <td>October</td>
+                <td>87</td>
+                <td>October</td>
+                <td>88</td>
+                <td>October</td>
+                <td>89</td>
+                <td>October</td>
+                <td>91</td>
+                </tr>
+                <tr>
+                <td>November</td>
+                <td>48</td>
+                <td>November</td>
+                <td>50</td>
+                <td>November</td>
+                <td>49</td>
+                <td>November</td>
+                <td>47</td>
+                <td>November</td>
+                <td>46</td>
+                </tr>
+                <tr>
+                <td>December</td>
+                <td>73</td>
+                <td>December</td>
+                <td>76</td>
+                <td>December</td>
+                <td>72</td>
+                <td>December</td>
+                <td>75</td>
+                <td>December</td>
+                <td>74</td>
+                </tr>
+                </tbody>
+                </table>
+                <!--Solution -->
+                <div class="solution">
+                <h3 class="solution-header">Solution</h3>
+                <p>To keep the <a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf Plot Generator</a> running smoothly, it is important to determine the stems and leaves before starting. Since our data ranges from 31 to 91, the most logical choice is to use the tens digit as the stem and the ones digit as the leaf. Set the tool’s rounding to 1, <br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example1_a.png" alt="The rounding is set to the ones digit." title="The rounding is set to the ones digit." width="400" height="299"><br>copy the dataset to your clipboard, and load it into the&nbsp;<a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf Plot Generator</a>, which will automatically create the plot for you.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example1_b.png" alt="The stem and leaf plot is automatically created in the tool." title="The stem and leaf plot is automatically created in the tool." width="397" height="298"></p>
+                <p>The stem-and-leaf plot reveals the shape of the data distribution. Like a histogram, the lengths of the stems show the data’s shape. By rotating the plot \(90^\circ\) counterclockwise, you can visualize the distribution over the tops of the bars. In this case, the plot shows a normal distribution.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example1_c.png" alt="The stem-and-leaf plot has a normal distribution." title="The stem-and-leaf plot has a normal distribution." width="251" height="239"></p>
+                </div>
+                <!-- End of Solution-->
+                <h2>Split Stems</h2>
+                <!--Definition -->
+                <div class="definition">
+                <h3>What does it mean to split a stem?</h3>
+                <p>To <strong>split stems</strong> in a stem-and-leaf plot means dividing each stem into smaller groups to spread out the data and make the plot easier to interpret. This is useful when a single stem contains too many leaves, resulting in a cluttered display. Splitting the stem divides it into two rows. The first row contains numbers where the rounded digit is between \(0\) and \(4\), and the second row includes numbers where the rounded digit is between \(5\) and \(9\).</p>
+                <p>For example, if the dataset includes \(32, 34, 35, 36, 37, 38, 39\), a traditional plot would use \(3\) as the stem with all leaves grouped together: \[ 3 \mid 2 \ 4 \ 5 \ 6 \ 7 \ 8 \ 9 \] The split plot would look like this: \[ \begin{align*} 3 &amp;\mid 2 \ 4 \\\\ 3 &amp;\mid 5 \ 6 \ 7 \ 8 \ 9 \end{align*} \] In this example, \(32\) and \(34\) are placed in the first row because their ones digits are \(2\) and \(4\). Numbers \(35, 36, 37, 38, 39\) are placed in the second row because their ones digits are \(5, 6, 7, 8, 9\). This method provides a clearer view of the data’s distribution by reducing overcrowding.</p>
+                </div>
+                <!--End Definition--> <!--Definition -->
+                <div class="definition">
+                <h3>When should I split my stems?</h3>
+                <p>You should split stems in a stem-and-leaf plot when...</p>
+                <ul>
+                <li>a single stem has too many leaves, making the plot crowded and difficult to read.</li>
+                <li>precision matters, such as with decimal data or closely spaced values.</li>
+                <li>one stem has significantly more leaves than others.</li>
+                </ul>
+                <p>Whenever the plot feels cluttered or unbalanced, splitting stems is an effective way to make it clearer and more meaningful.</p>
+                </div>
+                <!--End Definition-->
+                <h3 class="example-header">Example 2</h3>
+                <p>The following dataset represents the weights (in kilograms) of items in a shipment. Explain why you should split the stems, and then construct a stem-and-leaf plot with split stems. Describe the shape of the distribution.<br><button onclick="copyToClipboard('weightdata')">Copy Data to Clipboard</button></p>
+                <pre style="display: none;" id="weightdata">Weight (kg)
+                2.34
+                2.48
+                3.57
+                3.62
+                3.94
+                4.02
+                4.37
+                4.89
+                5.01
+                5.26
+                5.74
+                5.93
+                6.14
+                6.68
+                6.91
+                7.02
+                2.42
+                2.56
+                3.63
+                3.75
+                3.98
+                4.18
+                4.51
+                4.93
+                5.08
+                5.31
+                5.81
+                6.02
+                6.24
+                6.72
+                6.95
+                7.13
+                2.30
+                2.44
+                3.50
+                3.60
+                3.92
+                4.05
+                4.40
+                4.85
+                5.02
+                5.25
+                5.71
+                5.90
+                6.11
+                6.65
+                6.90
+                7.03
+                </pre>
+                <table><caption>Weights of Items in Shipment</caption>
+                <thead>
+                <tr>
+                <th scope="col" colspan="3">Weight (kg)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>2.34</td>
+                <td>2.42</td>
+                <td>2.30</td>
+                </tr>
+                <tr>
+                <td>2.48</td>
+                <td>2.56</td>
+                <td>2.44</td>
+                </tr>
+                <tr>
+                <td>3.57</td>
+                <td>3.63</td>
+                <td>3.50</td>
+                </tr>
+                <tr>
+                <td>3.62</td>
+                <td>3.75</td>
+                <td>3.60</td>
+                </tr>
+                <tr>
+                <td>3.94</td>
+                <td>3.98</td>
+                <td>3.92</td>
+                </tr>
+                <tr>
+                <td>4.02</td>
+                <td>4.18</td>
+                <td>4.05</td>
+                </tr>
+                <tr>
+                <td>4.37</td>
+                <td>4.51</td>
+                <td>4.40</td>
+                </tr>
+                <tr>
+                <td>4.89</td>
+                <td>4.93</td>
+                <td>4.85</td>
+                </tr>
+                <tr>
+                <td>5.01</td>
+                <td>5.08</td>
+                <td>5.02</td>
+                </tr>
+                <tr>
+                <td>5.26</td>
+                <td>5.31</td>
+                <td>5.25</td>
+                </tr>
+                <tr>
+                <td>5.74</td>
+                <td>5.81</td>
+                <td>5.71</td>
+                </tr>
+                <tr>
+                <td>5.93</td>
+                <td>6.02</td>
+                <td>5.90</td>
+                </tr>
+                <tr>
+                <td>6.14</td>
+                <td>6.24</td>
+                <td>6.11</td>
+                </tr>
+                <tr>
+                <td>6.68</td>
+                <td>6.72</td>
+                <td>6.65</td>
+                </tr>
+                <tr>
+                <td>6.91</td>
+                <td>6.95</td>
+                <td>6.90</td>
+                </tr>
+                <tr>
+                <td>7.02</td>
+                <td>7.13</td>
+                <td>7.03</td>
+                </tr>
+                </tbody>
+                </table>
+                <!--Solution-->
+                <div class="solution">
+                <h4 class="solution-header">Solution</h4>
+                <p>To keep the <a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf Plot Generator</a> running smoothly, it is important to determine the stems and leaves before starting. Since our data ranges from about 2.3 to 7.1, the most logical choice is to use the ones digit as the stem and the first decimal place as the leaf. Set the tool’s rounding to 0.01,<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example2_a.png" alt="The rounding set to 0.1." title="The rounding set to 0.1." width="398" height="296"></p>
+                <p>copy the dataset to your clipboard, and load it into the&nbsp;<a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf Plot Generator</a>, which will automatically create the basic plot for you.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example2_b.png" alt="The tool automatically generates a basic stem plot rounded to the nearest 0.1." title="The tool automatically generates a basic stem plot rounded to the nearest 0.1." width="400" height="299"></p>
+                <p>Click on the Split Stems checkbox to expand the stem-and-leaf plot.</p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example2_c.png" alt="The stems are now split." title="The stems are now split." width="402" height="300"></p>
+                <p>By rotating the plot \(90^\circ\) counterclockwise, you can visualize the distribution over the tops of the bars. In this case, the plot shows a skew-right distribution.</p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example2_d.png" alt="The distribution of the weights is skewed right." title="The distribution of the weights is skewed right." width="300" height="201"></p>
+                </div>
+                <!--End Solution-->
+                <h2>Back-to-Back Plots</h2>
+                <p>If we want to compare two sets of data, we can make a&nbsp;<strong>back-to-back</strong>&nbsp;<strong>stem-and-leaf plot</strong>.&nbsp; In this setup, the stems will be up the middle.&nbsp; The leaves of the first dataset are to the right of the stems. &nbsp;The leaves of the second dataset appear to the left of the stems, written in reverse order for comparison. Back-to-back stem-and-leaf plots may have split stems.</p>
+                <p>In the example below, notice how the stems are shared between the datasets, with leaves for one dataset on the right and leaves for the other on the left.</p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/btbexample.png" alt="Example of a Back-to-Back Stem Plot" title="Example of a Back-to-Back Stem Plot" width="259" height="273" style="display: block; margin-left: auto; margin-right: auto;"></p>
+                <h3 class="example-header">Example 3</h3>
+                <p>The following datasets represent the ages of participants in two different training programs.&nbsp;</p>
+                <ul>
+                <li><strong>Part A</strong>: Create a Stem-and-Leaf Plot and compare the shapes of the two distributions.</li>
+                <li><strong>Part B</strong>: Split the stems and compare the shapes again.&nbsp; Then compare this stem-and-leaf plot to the original one and explain how splitting the stems gives you a more detailed view of the distribution of both datasets.</li>
+                </ul>
+                <p><button onclick="copyToClipboard('programdata')">Copy Data to Clipboard</button></p>
+                <pre style="display: none;" id="programdata">Age (Program A), Age (Program B)
+                20.5, 22.4
+                23.6, 27.3
+                25.4, 29.8
+                26.9, 31.6
+                28.1, 33.5
+                29.2, 35.2
+                30.5, 36.8
+                31.1, 38.6
+                31.9, 40.7
+                32.7, 35.6
+                40.1, 43.7
+                43.5, 45.2
+                46.9, 47.8
+                51.4, 50.3
+                57.3, 54.9
+                62.8, 59.2
+                31.1, 63.4
+                31.9, 34.6
+                32.7, 36.9
+                33.5, 42.1
+                </pre>
+                <table style="width: auto;"><caption style="width: max-content;">Ages of Participants in Programs A and B</caption>
+                <thead>
+                <tr>
+                <th scope="col" colspan="2">Age (Program A)</th>
+                <th scope="col" colspan="2">Age (Program B)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>20.5</td>
+                <td>40.1</td>
+                <td>22.4</td>
+                <td>43.7</td>
+                </tr>
+                <tr>
+                <td>23.6</td>
+                <td>43.5</td>
+                <td>27.3</td>
+                <td>45.2</td>
+                </tr>
+                <tr>
+                <td>25.4</td>
+                <td>46.9</td>
+                <td>29.8</td>
+                <td>47.8</td>
+                </tr>
+                <tr>
+                <td>26.9</td>
+                <td>51.4</td>
+                <td>31.6</td>
+                <td>50.3</td>
+                </tr>
+                <tr>
+                <td>28.1</td>
+                <td>57.3</td>
+                <td>33.5</td>
+                <td>54.9</td>
+                </tr>
+                <tr>
+                <td>29.2</td>
+                <td>62.8</td>
+                <td>35.2</td>
+                <td>59.2</td>
+                </tr>
+                <tr>
+                <td>30.5</td>
+                <td>31.1</td>
+                <td>36.8</td>
+                <td>63.4</td>
+                </tr>
+                <tr>
+                <td>31.1</td>
+                <td>31.9</td>
+                <td>38.6</td>
+                <td>34.6</td>
+                </tr>
+                <tr>
+                <td>31.9</td>
+                <td>32.7</td>
+                <td>40.7</td>
+                <td>36.9</td>
+                </tr>
+                <tr>
+                <td>32.7</td>
+                <td>33.5</td>
+                <td>35.6</td>
+                <td>42.1</td>
+                </tr>
+                </tbody>
+                </table>
+                <!--Solution-->
+                <div class="solution">
+                <h4 class="solution-header">Solution</h4>
+                <h5>Part A</h5>
+                <p>To keep the <a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf Plot Generator</a> running smoothly, it is important to determine the stems and leaves before starting. Since our data ranges from about 20.5 to 63.4, there would be too much variation in the stems used the data rounded to the first decimal place.&nbsp; The most logical choice is to use the tens digit as the stem and the ones digit as the leaf since this will only give us leaves from 2 to 6. Set the tool’s rounding to 1,</p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example1_a.png" alt="The rounding is set to the ones digit." title="The rounding is set to the ones digit." width="400" height="299"></p>
+                <p>copy the dataset to your clipboard, and load it into the&nbsp;<a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf Plot Generator</a>, which will automatically create the basic plot for you.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example3_a.png" alt="The stem-and-leaf plot for the first data set." title="The stem-and-leaf plot for the first data set." width="400" height="296"></p>
+                <p>Clicking the&nbsp;<strong>Back-to-Back checkbox</strong> creates the desired stem-and-leaf plot.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example3_c.png" alt="The back-to-back stem-and-leaf plot comparing Program A to Program B." title="The back-to-back stem-and-leaf plot comparing Program A to Program B." width="398" height="298"></p>
+                <p>If we look at the distribution of both programs, they appear to be roughly normal with a few higher values.</p>
+                <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example3_d.png" alt="Both distributions appear to be normal when the stems are not split." title="Both distributions appear to be normal when the stems are not split." width="299" height="214"></p>
+                <h5>Part B</h5>
+                <p>Clicking on the&nbsp;<strong>Split Stems</strong>&nbsp;<strong>checkbox</strong> will update the stem-and-leaf plot.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example3_e.png" alt="The back-to-back stem-and-leaf plot using split stems." title="The back-to-back stem-and-leaf plot using split stems." width="402" height="298"></p>
+                <p>Program A looks roughly normal with a few unusually high values, but Program B starts to show a skew to the right.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/stem_example3_f.png" alt="When the stems are split, Program B starts to show a skew to the right." title="When the stems are split, Program B starts to show a skew to the right." width="300" height="345"></p>
+                <p>While it was clear from the original back-to-back plot that we had values clusters in the thirties, what wasn't clear was how much more extra data we had on the high end in Program B until we split the stems.</p>
+                </div>
+                <!--End Solution-->
+                <h2>Conclusion</h2>
+                <p>Stem-and-leaf plots are a powerful tool for organizing data and identifying patterns. By learning to construct, interpret, and refine these plots using techniques like splitting stems and back-to-back comparisons, you can effectively analyze and communicate data insights.</p>
+
+                <div class="notes-page-break"></div>
+                <div class="page-break"></div>
+
+                <h1>How to Construct Dot Plots</h1>
+<p>A <strong>dot plot</strong> is a simple visual tool for representing data, where each dot corresponds to a specific data point.. It effectively displays frequency distributions, highlighting patterns, peaks, and left/right-skew.&nbsp; Dot plots are ideal for small to moderately sized datasets in various fields such as education, biology, and economics.&nbsp;</p>
+<h2>Dot Plots</h2>
+<!--Definition-->
+<div class="definition">
+<h3>How do I make a Dot Plot?</h3>
+<p>To create a dot plot by hand, follow these steps</p>
+<ol>
+<li>Draw a horizontal axis to represent the range of values, labeling it appropriately.</li>
+<li>Divide the axis into evenly spaced intervals to cover all data points.</li>
+<li>For each value in the dataset, place a dot above its corresponding position on the axis, stacking dots vertically for repeated values.</li>
+<li>Add a title and labels to clarify the data being represented.</li>
+</ol>
+</div>
+<h3 class="example-header">Example 1</h3>
+<p>The following data represents the length in centimeters of a sample of 10 white oak leaves. Make a dotplot of this data.</p>
+<table style="width: auto;"><caption style="width: max-content; display: table-caption;">Leaf Length Data (in cm)</caption>
+<thead>
+<tr>
+<th scope="col" ,="" colspan="2">Length (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17</td>
+<td>18</td>
+</tr>
+<tr>
+<td>18</td>
+<td>15</td>
+</tr>
+<tr>
+<td>13</td>
+<td>19</td>
+</tr>
+<tr>
+<td>16</td>
+<td>17</td>
+</tr>
+<tr>
+<td>17</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<!--Solution Starts Here-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>First, we note that the range of values are from 13 to 19, so we label the \(x\)-from 13 to 19.&nbsp; Since 13 only appears once, we will put one dot above 13.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_1.png" alt="x-axis labeled from 13 to 19.  There is one dot above 13." title="x-axis labeled from 13 to 19.  There is one dot above 13." width="400" height="233"><br><br>Next, since 15 only appears once, we will put one dot above 15.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_2.png" alt="One dot was added above 15 on the dotplot in addition to the previous dot." title="One dot was added above 15 on the dotplot in addition to the previous dot." width="399" height="243"><br><br>Next, since 16 appears twice, we will put two dots above 16.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_3.png" alt="Two dots are added above 16 in addition to the previous dots." title="Two dots are added above 16 in addition to the previous dots." width="401" height="244"><br><br>Next, since 17 appears 3 times, we will put three dots above 17.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_3.png" alt="Three dots are put above 17 in addition to the previous dots." title="Three dots are put above 17 in addition to the previous dots." width="399" height="243"><br><br>Next, since 18 appears 2 times, we will put two dots above 18.<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_5.png" alt="Two dots are drawn above 18  in addition to the previous dots." title="Two dots are drawn above 18  in addition to the previous dots." width="399" height="243"><br><br>Finally, since 19 appears once and is the largest data point, we will add a dot above 19, and that completes the dotplot.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_6.png" alt="A single dot is placed above 19 in addition to the previous dots, and that completes the graph." title="A single dot is placed above 19 in addition to the previous dots, and that completes the graph." width="399" height="243"><span style="font-family: inherit; font-size: 1.25em; font-weight: bold; letter-spacing: 0.025rem;"></span></p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--Solution Ends Here-->
+<p>Of course, when doing anything by hand, this introduces human error.&nbsp; Like with our other displays, we will use GeoGebra to construct our Dot Plots.&nbsp; In this case, we will use the <a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dot Plot Generator Tool</a>.&nbsp; Let's use the tool on our next example.</p>
+<h3 class="example-header">Example 2</h3>
+<p>A customer service manager wants to evaluate the team's efficiency in responding to support tickets during peak hours. The response times (in minutes) for 10 randomly selected tickets are given in the table below. Make a dot plot of this data.<br><button onclick="copyToClipboard('supporttimes')">Copy Data to Clipboard</button></p>
+<pre style="display: none;" id="supporttimes">Times (minutes)
+5.9
+4.9
+7.6
+6.4
+5.4
+5.7
+5.9
+5.8
+6.2
+5.7
+</pre>
+<table style="width: auto;"><caption style="display: table-caption; width: max-content;">Response Time to Support Tickets (in Minutes)</caption>
+<thead>
+<tr>
+<th scope="col" ,="" colspan="2">Response Time (minutes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.9</td>
+<td>5.7</td>
+</tr>
+<tr>
+<td>4.9</td>
+<td>5.8</td>
+</tr>
+<tr>
+<td>7.6</td>
+<td>6.2</td>
+</tr>
+<tr>
+<td>6.4</td>
+<td>5.7</td>
+</tr>
+<tr>
+<td>5.4</td>
+<td>5.9</td>
+</tr>
+</tbody>
+</table>
+<!--Solution Starts Here-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>Download the data and enter it into the <a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dot Plot Generator Tool</a>.&nbsp; Close the Spreadsheet Tab, and notice that the tool has already put the dots on the graph for you.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_1.png" alt="The data from Example 2 is loaded into GeoGebra. The dots are correct, but the x-axis scale is incorrect." title="The data from Example 2 is loaded into GeoGebra. The dots are correct, but the x-axis scale is incorrect." width="400" height="389"></p>
+<p>The dots are correctly placed, but the \(x\)-axis labels start at 4.9 and increase by 1. This happens because the Dot Plot Generator defaults to integers. Since the data is rounded to one decimal place, select \(0.1\) from the dropdown menu. (Note: Due to an unresolved bug, \(0.1\) appears as \(1/10\).) Adjusting this fixes the \(x\)-scale, making all ticks and labels display correctly.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_2.png" alt="Rounding option changed to 0.1. Arrow points to option reads &quot;Adjust this.&quot;" title="Rounding option changed to 0.1. Arrow points to option reads &quot;Adjust this.&quot;" width="401" height="382"></p>
+<p>Title your Dot Plot and \(x\)-axis, and your graph is done.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_3.png" alt="Title is Times for 10 Support Tickets. The x-axis label is Time (minutes)." title="Title is Times for 10 Support Tickets. The x-axis label is Time (minutes)." width="400" height="383"></p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--Solution Ends Here-->
+<h2>Interpreting Dot Plots</h2>
+<p>Dot plots give us another way to see the shape of the distribution.&nbsp; But unlike histograms, it gives us a way to identity the exact data points that are either unusually small or unusually large compared to the other data points.</p>
+<p>If we look at the dot plot for Example 1 and draw a curve over it<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_6_with_curve.png" alt="The dot plot from Example 1. A curve is drawn over it, showing a skew-left distribution." title="The dot plot from Example 1. A curve is drawn over it, showing a skew-left distribution." width="399" height="243">&nbsp;<br>we see that since 13 is smaller than the rest of the data clustered around the peak at 17, and this unusually small data point skews the distribution to the left by elongating the left tail.</p>
+<p>Similarly, if we draw a curve over the dot plot for example 2<br><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_3_with_curve.png" alt="The dot plot from Example 1. A curve is drawn over it, showing a skew-right distribution." title="The dot plot from Example 1. A curve is drawn over it, showing a skew-right distribution." width="398" height="244"><br><br>we see that since 7.8 is larger than the rest of the data clustered around the peak approximately 5.6-5.9, and this unusually large data point skews the distribution to the right by elongating the left right.</p>
+<h3>Note</h3>
+<p>We will formally introduce the criteria for when a data point is significantly small or significantly large later in this course.</p>
+
+<div class="notes-page-break"></div>
+<div class="page-break"></div>
+
+<h1>How to Construct Time Series Plots</h1>
+<p><strong>Time series plots</strong> are essential tools in statistics for visualizing data points collected over time. By highlighting patterns and variations, these plots provide valuable insights for decision-making in fields like economics, finance, weather prediction, and performance monitoring.&nbsp;</p>
+<h2>Time Series Plots</h2>
+<!-- What is starts here-->
+<div class="definition">
+<h3>How do I make a Time Series Plot?</h3>
+<ol>
+<li>Label the \(x\)-axis with the range of days, months, or years, and label the \(y\)-axis with the units of the data. Make sure to title your graph as well.</li>
+<li>Plot each data point as \((x,y)=(\text{{time}}, \text{{data}})\).</li>
+<li>Draw straight line segments between consecutive points to connect them.</li>
+</ol>
+</div>
+<!--What is ends here-->In this course, we will exclusively build the time series plots in our <a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener">Time Series Generator Tool</a> and focus on interpreting the data.
+<h3 class="example-header">Example 1</h3>
+<p>According to the <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Beginners:GDP_-_What_is_gross_domestic_product_(GDP)?#:~:text=Gross%20domestic%20product%20(GDP)%20is,a%20certain%20period%20of%20time." target="_blank" rel="noopener">European Commission</a>, "Gross domestic product (GDP) is the most common measure for the size of an economy, and it measures the value of total final output of goods and services produced by that economy in a certain period of time."<strong> </strong>The following data from the <a href="https://data.worldbank.org/" target="_blank" rel="noopener">World Bank Group</a> describes the U.S. GDP (in trillions of dollars) for each year from 2010 to 2023.&nbsp; Use this data to construct a time series plot. <br><button onclick="copyToClipboard('usGDP')">Copy Data to Clipboard</button></p>
+<pre style="display: none;" id="usGDP">Year,GDP (in US$)
+2010,15.05
+2011,15.60
+2012,16.25
+2013,16.88
+2014,17.61
+2015,18.30
+2016,18.80
+2017,19.61
+2018,20.66
+2019,21.54
+2020,21.35
+2021,23.68
+2022,26.01
+2023,27.72
+</pre>
+<table style="width: auto;"><caption style="display: table-caption; width: max-content;">GDP Data by Year (in US$ Trillions)</caption>
+<thead>
+<tr>
+<th scope="col">Year</th>
+<th scope="col">GDP</th>
+<th scope="col">Year</th>
+<th scope="col">GDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2010</td>
+<td>15.05</td>
+<td>2017</td>
+<td>19.61</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>15.60</td>
+<td>2018</td>
+<td>20.66</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>16.25</td>
+<td>2019</td>
+<td>21.54</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>16.88</td>
+<td>2020</td>
+<td>21.35</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>17.61</td>
+<td>2021</td>
+<td>23.68</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>18.30</td>
+<td>2022</td>
+<td>26.01</td>
+</tr>
+<tr>
+<td>2016</td>
+<td>18.80</td>
+<td>2023</td>
+<td>27.72</td>
+</tr>
+</tbody>
+</table>
+<!--Start Solution-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>First, copy and paste the data into the <a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener">Time Series Generator Tool</a>.&nbsp; The data you copied should already be defaulted so that the years are in column A and the GDP is in column B, and the tool should look like this after you load the data.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/time_series_example1_a.png" alt="The time series plot for the US GDP (2010-2023)." title="The time series plot for the US GDP (2010-2023)." width="401" height="314"></p>
+<p>All we have to do is update the title and axes labels, and we are done.&nbsp; Remember you can adjust the sliders to reposition the title and labels, if you so desire.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/time_series_example1_b.png" alt="The title and axes labels have been updated." title="The title and axes labels have been updated." width="400" height="314"></p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--End Solution-->
+<p>The most important part of time series plots are being able to interpret them.&nbsp; The next example asks questions about the plot we just created.</p>
+<h3 class="example-header">Example 2</h3>
+Use the time series plot we created in Example 1 to answer the following questions.</div>
+<div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+<ol>
+<li>In what year did the GPD grow the slowest?</li>
+<li>In what year did the GPD grow the fastest?</li>
+<li>The only year we had a decrease in GPD was from 2019 to 2020.&nbsp; What historical event explains the drop in GDP?</li>
+</ol>
+<!--Solution Starts Here-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<ol>
+<li>We are looking for the line segment that has the most horizontal since its slope (which measure the yearly change) will be closest to zero.&nbsp; In this case, it is the line segment from 2015 to 2016 is the most horizontal, and it was not easy to see at all.&nbsp; (I had to enlarge the graph to figure it out.)&nbsp;&nbsp;<br><br><strong>Note</strong>: We don't want 2019-2020 since the GDP didn't grow that year, we actually lost some GDP that year.</li>
+<li>We are looking for the line that is most vertical since this line segment will have the largest slope, which is from 2020 to 2021.</li>
+<li>The COVID pandemic hit in 2020 since the pandemic disrupted many of the systems we relied on to keep the economy running.</li>
+</ol>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--End Solution-->
+
+<div class="notes-page-break"></div>
+<div class="page-break"></div>
+
+<h1>How to Construct Bar Graphs</h1>
+<p>A&nbsp;<strong>bar graph&nbsp;</strong>uses proportional vertical or horizontal bars to represent the frequency of categorical data.&nbsp; This allows for the quick comparison of different categories of data.&nbsp; A common variation of a bar graph is the&nbsp;<strong>Pareto graph</strong>, which sorts the bars from tallest to shortest.</p>
+<h2>Bar Graphs</h2>
+<p>Bar graphs are a powerful tool to visually compare categories of data. To understand how they work, let us explore an example that demonstrates the process of creating a bar graph using our <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart Generator Tool</a>.</p>
+<h3>Example 1</h3>
+<p>A survey of 100 people was conducted to determine their favorite fast food restaurant among various national brands. The results are summarized in the table below. Using the data, create a bar graph to represent the distribution of responses.<br><button onclick="copyToClipboard('favfastfood')">Copy Data to Clipboard</button></p>
+<pre style="display: none;" id="favfastfood">FavoriteRestaurant
+Chick-fil-A
+McDonald's
+Domino's
+Taco Bell
+McDonald's
+McDonald's
+McDonald's
+Chick-fil-A
+Wendy's
+Burger King
+Burger King
+Domino's
+McDonald's
+Subway
+Subway
+KFC
+KFC
+Domino's
+Chipotle
+Domino's
+Chipotle
+Domino's
+Taco Bell
+Wendy's
+Chipotle
+Burger King
+Pizza Hut
+Wendy's
+Taco Bell
+Domino's
+KFC
+Domino's
+Chipotle
+Burger King
+Chipotle
+Wendy's
+Domino's
+KFC
+Domino's
+KFC
+Subway
+Chipotle
+Burger King
+Subway
+Wendy's
+Burger King
+KFC
+Wendy's
+McDonald's
+Chick-fil-A
+McDonald's
+Chick-fil-A
+Subway
+Domino's
+Wendy's
+Subway
+Burger King
+McDonald's
+Burger King
+McDonald's
+Burger King
+Burger King
+Subway
+Wendy's
+Pizza Hut
+Taco Bell
+Burger King
+Taco Bell
+Chipotle
+Pizza Hut
+Wendy's
+KFC
+Subway
+Subway
+KFC
+Taco Bell
+Chick-fil-A
+Subway
+Subway
+Chipotle
+Taco Bell
+Domino's
+Chipotle
+Chipotle
+Burger King
+Wendy's
+Wendy's
+Taco Bell
+Wendy's
+McDonald's
+Pizza Hut
+Wendy's
+McDonald's
+Taco Bell
+Burger King
+Subway
+Domino's
+Taco Bell
+Domino's
+McDonald's
+</pre>
+<table style="width: auto;"><caption style="display: table-caption; width: max-content;">Favorite Restaurants</caption>
+<thead>
+<tr>
+<th scope="col" colspan="8">Response from Survey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chick-fil-A</td>
+<td>McDonald's</td>
+<td>Domino's</td>
+<td>Taco Bell</td>
+<td>McDonald's</td>
+<td>McDonald's</td>
+<td>McDonald's</td>
+<td>Chick-fil-A</td>
+</tr>
+<tr>
+<td>Wendy's</td>
+<td>Burger King</td>
+<td>Burger King</td>
+<td>Domino's</td>
+<td>McDonald's</td>
+<td>Subway</td>
+<td>Subway</td>
+<td>KFC</td>
+</tr>
+<tr>
+<td>KFC</td>
+<td>Domino's</td>
+<td>Chipotle</td>
+<td>Domino's</td>
+<td>Chipotle</td>
+<td>Domino's</td>
+<td>Taco Bell</td>
+<td>Wendy's</td>
+</tr>
+<tr>
+<td>Chipotle</td>
+<td>Burger King</td>
+<td>Pizza Hut</td>
+<td>Wendy's</td>
+<td>Taco Bell</td>
+<td>Domino's</td>
+<td>KFC</td>
+<td>Domino's</td>
+</tr>
+<tr>
+<td>Chipotle</td>
+<td>Burger King</td>
+<td>Chipotle</td>
+<td>Wendy's</td>
+<td>Domino's</td>
+<td>KFC</td>
+<td>Domino's</td>
+<td>KFC</td>
+</tr>
+<tr>
+<td>Subway</td>
+<td>Chipotle</td>
+<td>Burger King</td>
+<td>Subway</td>
+<td>Wendy's</td>
+<td>Burger King</td>
+<td>KFC</td>
+<td>Wendy's</td>
+</tr>
+<tr>
+<td>McDonald's</td>
+<td>Chick-fil-A</td>
+<td>McDonald's</td>
+<td>Chick-fil-A</td>
+<td>Subway</td>
+<td>Domino's</td>
+<td>Wendy's</td>
+<td>Subway</td>
+</tr>
+<tr>
+<td>Burger King</td>
+<td>McDonald's</td>
+<td>Burger King</td>
+<td>McDonald's</td>
+<td>Burger King</td>
+<td>Burger King</td>
+<td>Subway</td>
+<td>Wendy's</td>
+</tr>
+<tr>
+<td>Pizza Hut</td>
+<td>Taco Bell</td>
+<td>Burger King</td>
+<td>Taco Bell</td>
+<td>Chipotle</td>
+<td>Pizza Hut</td>
+<td>Wendy's</td>
+<td>KFC</td>
+</tr>
+<tr>
+<td>Subway</td>
+<td>Subway</td>
+<td>KFC</td>
+<td>Taco Bell</td>
+<td>Chick-fil-A</td>
+<td>Subway</td>
+<td>Subway</td>
+<td>Chipotle</td>
+</tr>
+<tr>
+<td>Taco Bell</td>
+<td>Domino's</td>
+<td>Chipotle</td>
+<td>Chipotle</td>
+<td>Burger King</td>
+<td>Wendy's</td>
+<td>Wendy's</td>
+<td>Taco Bell</td>
+</tr>
+<tr>
+<td>Wendy's</td>
+<td>McDonald's</td>
+<td>Pizza Hut</td>
+<td>Wendy's</td>
+<td>McDonald's</td>
+<td>Taco Bell</td>
+<td>Burger King</td>
+<td>Subway</td>
+</tr>
+<tr>
+<td>Domino's</td>
+<td>Taco Bell</td>
+<td>Domino's</td>
+<td>McDonald's</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!--Solution Starts Here-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>Copy the data to the clipboard, and load it into the <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart Generator Tool</a>. The tool should automatically generate the bar graph by default since the data is located in column A. If you load a data set where your information is not in A, you will have to change the drop box to the appropriate column.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/bargraph_example1a.png" alt="A bar graph of the survey data on favorite fast food restaurant." title="A bar graph of the survey data on favorite fast food restaurant." width="401" height="360"></p>
+<p>Just add in your title and labels, and you are done.&nbsp; I left the \(x-axis\) label blank in my example since it is clear all the bars are food food restaurants.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/bargraph_example1b.png" alt="The title and y-axis have been labeled.  The x-axis label was removed." title="The title and y-axis have been labeled.  The x-axis label was removed." width="398" height="353"></p>
+<h5>Note</h5>
+<p>For this tool, I have enabled pan and zoom since labels on the \(x\)-axis can be bunched together and hard to read.&nbsp; This is something I plan to fix in the future.&nbsp; For now, you can use your mouse, touch pad, or fingers to change the size of the graph.</p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--Solution Ends Here-->
+<h2>Pareto Graphs</h2>
+<p>While standard bar graphs are effective at showcasing categorical data, there are scenarios where sorting the bars in descending order provides greater clarity. This leads us to a specialized variation of the bar graph known as the <strong>Pareto graph</strong>.&nbsp; Let's modify Example 1 so that all the bars are sorted from largest to smallest..</p>
+<h3 class="example-header">Example 2</h3>
+<p>Create a Pareto graph of the preferred fast food restaurants from Example 1.</p>
+<!--Solution Starts Here-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>Here is our result from Example 1.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/bargraph_example1b.png" alt="The title and y-axis have been labeled.  The x-axis label was removed." title="The title and y-axis have been labeled.  The x-axis label was removed." width="398" height="353"></p>
+<p>Notice there is a checkbox next to <strong>Bar Graph Checkbox</strong>&nbsp;that says <strong>Pareto</strong>. Click on this box, and it will sort the bars for you.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/bargraph_example1c.png" alt="The Pareto box has been check, and the bars are now sorted from longest to shortest." title="The Pareto box has been check, and the bars are now sorted from longest to shortest." width="400" height="366"></p>
+<p>Notice that is is now easier to see that, in this sample, the most popular restaurants are Wendy's, Domino's,a nd Burger King, and the least popular are KFC, Chick-fil-A, and Pizza Hunt.</p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--Solution Ends Here-->
+
+<div class="notes-page-break"></div>
+<div class="page-break"></div>
+
+<h1>How to Create Pie Graphs</h1>
+A&nbsp;<strong>pie chart</strong> is statistical graph that divides a circle up into slices whose area is proportional to the quantity of the category that it represents.&nbsp; Pie charts are useful when there are a small selection of categories, and the categories represent every possible option under consideration.<br>
+<h2>Conditions for Using a Pie Graph</h2>
+<!--Begin Explaination Block-->
+<div class="definition">
+<h3>When can I use a Pie Graph?</h3>
+<p>A pie graph should only be used under two specific conditions.</p>
+<ol>
+<li>Data can belong to exactly one of the categories.</li>
+<li>Categories must be parts of a whole.</li>
+</ol>
+<p>For example, the following table summarizes the numbers of stars a particular store was rated during a 30-day period.</p>
+<table style="width: auto; height: 234.643px;"><caption style="display: table-caption; width: max-content;">Store Ratings Over a 30-Day Period</caption>
+<thead>
+<tr style="height: 39.1071px;">
+<th scope="col">Star Rating</th>
+<th scope="col">Percentage of Ratings</th>
+<th scope="col">Number of Transactions</th>
+</tr>
+</thead>
+<tbody>
+<tr style="height: 39.1071px;">
+<td>1 Star</td>
+<td>5%</td>
+<td>16,468</td>
+</tr>
+<tr style="height: 39.1071px;">
+<td>2 Stars</td>
+<td>12%</td>
+<td>39,522</td>
+</tr>
+<tr style="height: 39.1071px;">
+<td>3 Stars</td>
+<td>8%</td>
+<td>26,348</td>
+</tr>
+<tr style="height: 39.1071px;">
+<td>4 Stars</td>
+<td>20%</td>
+<td>65,871</td>
+</tr>
+<tr style="height: 39.1071px;">
+<td>5 Stars</td>
+<td>55%</td>
+<td>181,144</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that every category is included, and since each transaction can only be associated to exact one rating, the first condition is satisfied as well.&nbsp; This data could be made into a Pie Chart.</p>
+</div>
+<!--End Explaination Block-->At times, categorical data may be provided that violates one or both of these conditions. In some cases, it might still be possible to use a pie graph, but not always. In our first example, the data cannot be used to create a pie graph.&nbsp;
+<h3 class="example-header">Example 1</h3>
+<p>Suppose a survey asked which department(s) a customer purchased from during their last visit to a particular department store. Explain why a pie graph cannot be used with the following set of data.</p>
+<table style="width: auto;"><caption style="display: table-caption; width: max-content;">Percentage of People Shopping in Each Department</caption>
+<thead>
+<tr>
+<th scope="col">Department</th>
+<th scope="col">Percentage of Shoppers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electronics</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>Clothing</td>
+<td>55%</td>
+</tr>
+<tr>
+<td>Groceries</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>Home &amp; Furniture</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>Sports &amp; Outdoors</td>
+<td>25%</td>
+</tr>
+</tbody>
+</table>
+<!--Solution Block Start-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>Although this data is helpful for stores to understand which departments are shopped the most, it is not suitable for creating a pie chart because customers may shop in multiple departments during a single visit. Unless the question is reframed to something like, "Which department was your primary reason for visiting the store today?" customers will fall into more than one category, violating the first condition.</p>
+<p>Moreover, this categorical overlap causes the percentages to exceed 100%, which goes against the pie chart's requirement that all parts must represent a complete whole.</p>
+<p>Additionally, the list of departments may not be exhaustive (e.g., common departments like "Health &amp; Beauty" are missing), further disqualifying this data for use in a pie chart.</p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!-- End Solution Block-->Many examples can be resolved by simply adding an "Other" category to the results. This is commonly done because some responses may not fit within the predefined categories in a survey question. Furthermore, when several categories have relatively small percentages compared to the main categories, they are often grouped into an "Other" option. This approach highlights the primary categories and makes the overall results easier to interpret, avoiding an overload of less significant choices for the reader. Our next example demonstrates an appropriate use of adding an "Other" category.&nbsp;</div>
+<div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
+<h3 class="example-header">Example 2</h3>
+<p>A survey was conducted to determine the types of activities people prefer on weekends. A survey of 1,303 people were asked, "Which of the follow activities do you most prefer to do on weekends? Please select only one option." The percentages were tabulated and reported in the table below. Explain why a pie chart cannot be created from this table and suggest how it could be corrected.</p>
+<table style="width: auto;"><caption style="display: table-caption; width: max-content;">Weekend Activity Preferences</caption>
+<thead>
+<tr>
+<th scope="col">Activity</th>
+<th scope="col">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Watching Movies</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Outdoor Sports</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>Reading Books</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Cooking</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Playing Video Games</td>
+<td>8%</td>
+</tr>
+</tbody>
+</table>
+<!--Solution Block Start-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>Since the survey question required respondents to select only one activity, we know that each person belongs to exactly one category. However, the given percentages only add up to 98%, which indicates that 2% of the data is missing. To fix this, we can create an "Other" category to account for the remaining 2%. This ensures that all respondents are included, and the categories represent parts of a whole. Once the missing data is accounted for, the conditions for creating a pie chart are satisfied.</p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!-- End Solution Block-->
+<p>As a final example, it is important to recognize that some reported data may have percentages that add up to 100%, but the categories are not truly parts of a whole. This often confuses students who focus too heavily on the idea that the parts must sum to 100%, without recognizing that the data does not represent components of a single whole. The next example provides a demonstration of this type of situation.</p>
+<h3 class="example-header">Example 3</h3>
+<p>A survey asked 1,373 respondents, "What is your favorite activity while on vacation?" The responses are summarized in the following table. Explain why this data cannot be used to make a Pie Chart.</p>
+<table style="width: auto;"><caption style="display: table-caption; width: max-content;">Vacation Activity Preferences</caption>
+<thead>
+<tr>
+<th scope="col">Activity</th>
+<th scope="col">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sightseeing</td>
+<td>35%</td>
+</tr>
+<tr>
+<td>Relaxing on the beach</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Trying local cuisine</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Outdoor adventures (e.g., hiking or kayaking)</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Shopping</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<!--Solution Starts Here-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>In this case, the percentages add up to 100%, but the responses do not represent parts of a whole. Each response reflects a preference for a single activity while on vacation, rather than components of a unified whole. For example, another type of response could have been attending cultural events such as festivals, concerts, or other local performances.</p>
+<p>This illustrates how data that sums to 100% can still fail to meet the criteria of representing parts of a single whole.</p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--Solution Ends Here-->
+<h2>Constructing Pie Graphs</h2>
+<p>Pie Graphs are difficult to draw well by hand and are exclusively made with technology nowadays. The following example will show you how to build Pie Charts with the <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart Generator Tool</a>.</p>
+<h3 class="example-header">Example 4</h3>
+<p>A survey of 50 patients who were recently discharged from a hospital were asked to rate their overall stay at the hospital as Very Satisfied, Satisfied, Neutral, Dissatisfied, or Very Dissatisfied. The results are complied in the table below.&nbsp; Use the <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart Generator Tool</a> to make a Pie Graph of the data.<br><button onclick="copyToClipboard('satisfaction')">Copy Data to Clipboard</button></p>
+<pre style="display: none;" id="satisfaction">Satisfaction Level
+Neutral
+Neutral
+Very Dissatisfied
+Satisfied
+Satisfied
+Dissatisfied
+Satisfied
+Neutral
+Very Dissatisfied
+Very Dissatisfied
+Dissatisfied
+Neutral
+Dissatisfied
+Neutral
+Satisfied
+Satisfied
+Neutral
+Dissatisfied
+Very Satisfied
+Satisfied
+Dissatisfied
+Satisfied
+Neutral
+Neutral
+Neutral
+Dissatisfied
+Neutral
+Neutral
+Neutral
+Neutral
+Satisfied
+Neutral
+Satisfied
+Very Satisfied
+Dissatisfied
+Very Dissatisfied
+Neutral
+Dissatisfied
+Neutral
+Dissatisfied
+Very Dissatisfied
+Dissatisfied
+Neutral
+Satisfied
+Dissatisfied
+Satisfied
+Neutral
+Satisfied
+Neutral
+Neutral
+</pre>
+<table style="width: auto;"><caption style="display: table-caption; width: max-content;">Satisfaction Levels from Survey</caption>
+<thead>
+<tr>
+<th scope="col" colspan="5">Satisfaction Levels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Neutral</td>
+<td>Neutral</td>
+<td>Very Dissatisfied</td>
+<td>Satisfied</td>
+<td>Satisfied</td>
+</tr>
+<tr>
+<td>Dissatisfied</td>
+<td>Satisfied</td>
+<td>Neutral</td>
+<td>Very Dissatisfied</td>
+<td>Very Dissatisfied</td>
+</tr>
+<tr>
+<td>Dissatisfied</td>
+<td>Neutral</td>
+<td>Dissatisfied</td>
+<td>Neutral</td>
+<td>Satisfied</td>
+</tr>
+<tr>
+<td>Satisfied</td>
+<td>Neutral</td>
+<td>Dissatisfied</td>
+<td>Very Satisfied</td>
+<td>Satisfied</td>
+</tr>
+<tr>
+<td>Dissatisfied</td>
+<td>Satisfied</td>
+<td>Neutral</td>
+<td>Neutral</td>
+<td>Neutral</td>
+</tr>
+<tr>
+<td>Dissatisfied</td>
+<td>Neutral</td>
+<td>Neutral</td>
+<td>Neutral</td>
+<td>Neutral</td>
+</tr>
+<tr>
+<td>Satisfied</td>
+<td>Neutral</td>
+<td>Satisfied</td>
+<td>Very Satisfied</td>
+<td>Dissatisfied</td>
+</tr>
+<tr>
+<td>Very Dissatisfied</td>
+<td>Neutral</td>
+<td>Dissatisfied</td>
+<td>Neutral</td>
+<td>Dissatisfied</td>
+</tr>
+<tr>
+<td>Very Dissatisfied</td>
+<td>Dissatisfied</td>
+<td>Neutral</td>
+<td>Satisfied</td>
+<td>Dissatisfied</td>
+</tr>
+<tr>
+<td>Satisfied</td>
+<td>Neutral</td>
+<td>Satisfied</td>
+<td>Neutral</td>
+<td>Neutral</td>
+</tr>
+</tbody>
+</table>
+<!--Solution Starts Here-->
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>First, load the data into the <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart Generator Tool</a> and note that the tool automatically generates a bar graph by default.&nbsp; Click on the&nbsp;<strong>Pie Graph Checkbox</strong>, and it switches the graph to a Pie Graph.&nbsp;</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/piegraph_example1a.png" alt="A pie graph of the satisfaction rates for a recent hospital visit." title="A pie graph of the satisfaction rates for a recent hospital visit." width="400" height="311"></p>
+<p>Since there are no units attached to our data, we can delete the text from the units textbox.&nbsp; We also give the pie chart a title, and our pie chart is complete.</p>
+<p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/2 Frequency Distributions and Their Displays/piegraph_example1b.png" alt="A title have been added to the pie graph." title="A title have been added to the pie graph." width="400" height="322"></p>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!--Solution Ends Here-->
+
+<div class="notes-page-break"></div>
+<div class="page-break"></div>
+
+<h1> Misleading Graphs </h1>
+
+<p>Read over the following content and become familiar with knowing what graphs can be misleading. </p>
+<a href="https://mathspace.co/textbooks/syllabuses/Syllabus-1027/topics/Topic-20271/subtopics/Subtopic-266536/?activeTab=theory">Link to Article on Misleading Graphs</a>
+
+
+                <div class="d-flex justify-content-between mt-4">
+                    <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                        role="button">Previous Page</button>
+                    <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                        Page</button>
+                </div>
+                <button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+            </div>
+    </div>
+    </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>
