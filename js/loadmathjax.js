@@ -360,23 +360,21 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("📂 Flattened Pages Array:", pages);
 
             // Get current page path (removing leading slash & ensuring format matches JSON)
-            // Get current page path (removing leading slash & ensuring format matches JSON)
             let currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
 
-            // Remove the repository name prefix for GitHub Pages
+            // Handle GitHub Pages special cases
             if (isGitHubPages) {
-                currentPath = currentPath.replace(`${repoName}/`, '');
+                // Convert root URL to "index.html"
+                if (currentPath === "" || currentPath === repoName || currentPath === `${repoName}/`) {
+                    currentPath = "index.html";
+                } else {
+                    // Remove repository name prefix for subpages
+                    currentPath = currentPath.replace(`${repoName}/`, '');
+                }
             }
 
             // Normalize spaces and special characters
             currentPath = currentPath.replace(/%20/g, " "); // Convert "%20" to spaces
-
-            console.log("📄 Current Path (Fixed):", currentPath);
-
-            // Special case for GitHub Pages: Convert root URL to "index.html"
-            if (currentPath === "Introductory-Statistics-OER/") {
-                currentPath = "index.html";
-            }
 
             console.log("📄 Current Path (Fixed):", currentPath);
 
@@ -598,6 +596,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // Set height for spacing divs
     setDivHeightFromData();
 
+    // Define MathJax configuration BEFORE loading the script
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        },
+        options: {
+            renderActions: {
+                addDarkMode: [200, function (doc) {
+                    const style = document.createElement('style');
+                    style.innerHTML = `
+                    .mjx-container * {
+                        color: var(--mjx-color, inherit) !important;
+                    }
+                    @media print {
+                        .mjx-container * {
+                            color: var(--mjx-color, inherit) !important;
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+                }, '', false]
+            }
+        }
+    };
+
+    // Dynamically add MathJax script
     // Dynamically add MathJax script
     var head = document.getElementsByTagName("head")[0];
     var script = document.createElement("script");
@@ -619,49 +644,39 @@ document.addEventListener("DOMContentLoaded", function () {
                         addDarkMode: [200, function (doc) {
                             const style = document.createElement('style');
                             style.innerHTML = `
+                            .mjx-container * {
+                                color: var(--mjx-color, inherit) !important;
+                            }
+                            @media print {
                                 .mjx-container * {
                                     color: var(--mjx-color, inherit) !important;
                                 }
-                                @media print {
-                                    .mjx-container * {
-                                        color: var(--mjx-color, inherit) !important;
-                                    }
-                                }
-                            `;
+                            }
+                        `;
                             document.head.appendChild(style);
                         }, '', false]
                     }
                 }
             };
 
-            // Apply color scheme for dark mode
-            setMathJaxColorScheme();
+            console.log("🔢 Running MathJax Typesetting...");
 
-            setTimeout(() => {
-                if (MathJax.startup && MathJax.startup.promise) {
-                    MathJax.startup.promise.then(() => {
-                        return MathJax.typesetPromise();
-                    }).then(() => {
-                        console.log("✅ MathJax rendering complete");
-                    }).catch((err) => {
-                        console.error("🚨 MathJax error during typesetting:", err);
-                    });
-                } else {
-                    console.warn("⚠️ Warning: MathJax.startup.promise is not available. Falling back to direct typesetting.");
-
-                    MathJax.typesetPromise().then(() => {
-                        console.log("✅ MathJax fallback rendering complete.");
-                    }).catch((err) => {
-                        console.error("🚨 MathJax error during fallback typesetting:", err);
-                    });
-                }
-            }, 500);
+            // Check if `typesetPromise()` exists before calling it
+            if (typeof MathJax.typesetPromise === "function") {
+                MathJax.typesetPromise().then(() => {
+                    console.log("✅ MathJax rendering complete.");
+                }).catch((err) => {
+                    console.error("🚨 MathJax error during typesetting:", err);
+                });
+            } else {
+                console.warn("⚠️ Warning: MathJax.typesetPromise is not available. Skipping typesetting.");
+            }
         } else {
             console.error("🚨 MathJax is not defined!");
         }
     };
 
-    head.appendChild(script);
+    document.head.appendChild(script);
 });
 
 //Make Bootstrap tooltips appear instantly
