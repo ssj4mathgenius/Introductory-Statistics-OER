@@ -302,103 +302,110 @@ function removeHighlights() {
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM fully loaded!");
 
-// Get navigation buttons
-const prevButton = document.getElementById('prevPage');
-const nextButton = document.getElementById('nextPage');
+    // Get navigation buttons
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
 
-if (prevButton) {
-    prevButton.classList.add('navigation-link', 'previous');
-    prevButton.setAttribute("role", "button");
-    prevButton.setAttribute("tabindex", "0");
-} else {
-    console.warn("⚠️ Warning: prevButton (prevPage) not found!");
-}
+    if (prevButton) {
+        prevButton.classList.add('navigation-link', 'previous');
+        prevButton.setAttribute("role", "button");
+        prevButton.setAttribute("tabindex", "0");
+    } else {
+        console.warn("⚠️ Warning: prevButton (prevPage) not found!");
+    }
 
-if (nextButton) {
-    nextButton.classList.add('navigation-link', 'next');
-    nextButton.setAttribute("role", "button");
-    nextButton.setAttribute("tabindex", "0");
-} else {
-    console.warn("⚠️ Warning: nextButton (nextPage) not found!");
-}
+    if (nextButton) {
+        nextButton.classList.add('navigation-link', 'next');
+        nextButton.setAttribute("role", "button");
+        nextButton.setAttribute("tabindex", "0");
+    } else {
+        console.warn("⚠️ Warning: nextButton (nextPage) not found!");
+    }
 
-// Dynamically determine the base URL
-const isGitHubPages = window.location.hostname.includes("github.io");
-const repoName = "Introductory-Statistics-OER"; // Change this if your repo name is different
+    // Dynamically determine the base URL
+    const isGitHubPages = window.location.hostname.includes("github.io");
+    const repoName = "Introductory-Statistics-OER"; // Change this if your repo name is different
 
-const baseURL = isGitHubPages
-    ? `${window.location.origin}/${repoName}`
-    : window.location.origin;
+    const baseURL = isGitHubPages
+        ? `${window.location.origin}/${repoName}`
+        : window.location.origin;
 
-console.log("🌎 Base URL Detected:", baseURL);
-console.log("📄 Fetching JSON from:", `${baseURL}/json/pages.json`);
+    console.log("🌎 Base URL Detected:", baseURL);
+    console.log("📄 Fetching JSON from:", `${baseURL}/json/pages.json`);
 
-fetch(`${baseURL}/json/pages.json`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("✅ Successfully loaded pages.json", data);
+    fetch(`${baseURL}/json/pages.json`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("✅ Successfully loaded pages.json", data);
 
-        function flattenPages(json) {
-            const pages = [];
-            for (const folder in json) {
-                if (Array.isArray(json[folder])) {
-                    json[folder].forEach(page => {
-                        const fullPath = `${page}`; // Ensure correct full path
-                        pages.push(fullPath);
-                    });
+            function flattenPages(json) {
+                const pages = [];
+                for (const folder in json) {
+                    if (Array.isArray(json[folder])) {
+                        json[folder].forEach(page => {
+                            const fullPath = `${page}`; // Ensure correct full path
+                            pages.push(fullPath);
+                        });
+                    }
+                }
+                return pages;
+            }
+
+            const pages = flattenPages(data);
+            console.log("📂 Flattened Pages Array:", pages);
+
+            // Get current page path (removing leading slash & ensuring format matches JSON)
+            let currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
+            console.log("📄 Current Path:", currentPath);
+
+            // Special case for GitHub Pages: Convert root URL to "index.html"
+            if (currentPath === "Introductory-Statistics-OER/") {
+                currentPath = "index.html";
+            }
+
+            console.log("📄 Current Path (Fixed):", currentPath);
+
+            // Normalize paths (Fixes VS Code "Go Live" Issues)
+            currentPath = currentPath.replace(/\/$/, ""); // Remove trailing slash
+            pages.forEach((page, i) => pages[i] = page.replace(/\/$/, "")); // Normalize all paths
+
+            // Determine current index
+            const currentIndex = pages.indexOf(currentPath);
+            console.log("🔢 Current Index:", currentIndex);
+
+            // Ensure buttons exist before modifying
+            if (prevButton) {
+                if (currentIndex > 0) {
+                    prevButton.onclick = () => {
+                        console.log("⬅️ Navigating to previous page:", `/${pages[currentIndex - 1]}`);
+                        window.location.href = `/${pages[currentIndex - 1]}`;
+                    };
+                    prevButton.disabled = false;
+                } else {
+                    console.log("🚫 prevButton disabled - No previous page.");
+                    prevButton.disabled = true;
                 }
             }
-            return pages;
-        }
 
-        const pages = flattenPages(data);
-        console.log("📂 Flattened Pages Array:", pages);
-
-        // Get current page path (removing leading slash and ensuring format matches JSON)
-        let currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
-        console.log("📄 Current Path:", currentPath);
-
-        // Normalize paths (Fixes VS Code "Go Live" Issues)
-        currentPath = currentPath.replace(/\/$/, ""); // Remove trailing slash
-        pages.forEach((page, i) => pages[i] = page.replace(/\/$/, "")); // Normalize all paths
-
-        // Determine current index
-        const currentIndex = pages.indexOf(currentPath);
-        console.log("🔢 Current Index:", currentIndex);
-
-        // Ensure buttons exist before modifying
-        if (prevButton) {
-            if (currentIndex > 0) {
-                prevButton.onclick = () => {
-                    console.log("⬅️ Navigating to previous page:", `/${pages[currentIndex - 1]}`);
-                    window.location.href = `/${pages[currentIndex - 1]}`;
-                };
-                prevButton.disabled = false;
-            } else {
-                console.log("🚫 prevButton disabled - No previous page.");
-                prevButton.disabled = true;
+            if (nextButton) {
+                if (currentIndex >= 0 && currentIndex < pages.length - 1) {
+                    nextButton.onclick = () => {
+                        console.log("➡️ Navigating to next page:", `/${pages[currentIndex + 1]}`);
+                        window.location.href = `/${pages[currentIndex + 1]}`;
+                    };
+                    nextButton.disabled = false;
+                } else {
+                    console.log("🚫 nextButton disabled - No next page.");
+                    nextButton.disabled = true;
+                }
             }
-        }
-
-        if (nextButton) {
-            if (currentIndex >= 0 && currentIndex < pages.length - 1) {
-                nextButton.onclick = () => {
-                    console.log("➡️ Navigating to next page:", `/${pages[currentIndex + 1]}`);
-                    window.location.href = `/${pages[currentIndex + 1]}`;
-                };
-                nextButton.disabled = false;
-            } else {
-                console.log("🚫 nextButton disabled - No next page.");
-                nextButton.disabled = true;
-            }
-        }
-    })
-    .catch(err => console.error('🚨 Error fetching or parsing JSON:', err));
+        })
+        .catch(err => console.error('🚨 Error fetching or parsing JSON:', err));
 
 
     // Dynamically number examples
@@ -462,10 +469,10 @@ fetch(`${baseURL}/json/pages.json`)
             // Replace blanked text with underscores
             replaceBlanksForPrint();
 
-             // Add 'notes-visible' class to <body> to enable .notes-page-break
-        document.body.classList.add("notes-visible");
+            // Add 'notes-visible' class to <body> to enable .notes-page-break
+            document.body.classList.add("notes-visible");
 
-        console.log("✅ .notes-page-break are now visible for printing notes.");
+            console.log("✅ .notes-page-break are now visible for printing notes.");
 
             // Show all .inches divs before printing
             const inchesDivs = document.querySelectorAll(".inches");
@@ -630,7 +637,7 @@ fetch(`${baseURL}/json/pages.json`)
 });
 
 //Make Bootstrap tooltips appear instantly
-$(document).ready(function(){
+$(document).ready(function () {
     $('[data-bs-toggle="tooltip"]').tooltip({
         delay: { show: 0, hide: 100 }, /* Instant show */
         html: true /* Enables HTML inside tooltip */
