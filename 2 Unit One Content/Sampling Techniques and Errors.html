@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sampling Techniques and Errors</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="1 Start Here/About This Course MCT.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Sampling Techniques and Errors</h1>
+    <p>
+        Sampling techniques are essential for collecting data efficiently when surveying an entire
+        population is impractical or too costly. Random sampling methods aim to ensure that samples
+        represent the population by reducing bias and allowing for accurate generalizations. Nonrandom
+        sampling methods, while simpler, often introduce bias and limit the reliability of conclusions.
+        This
+        section explores common sampling techniques, errors that can arise during sampling, and methods
+        to
+        mitigate these issues.
+    </p>
+    <h2>Sampling Techniques</h2>
+    <p>Sampling is used when gathering data from an entire population is impractical or too expensive. A
+        sample should represent the population's characteristics, and random sampling methods help
+        achieve this.</p>
+    <div class="definition">
+        <h2 class="definition-header">What are the Common Sampling Techniques?</h2>
+        <p>These are not an exhaustive list, just the most common types you are likely to encounter.</p>
+        <h4>Random Sampling Techniques</h4>
+        <ul>
+            <li><strong>Simple Random Sampling:</strong> Every individual in the population has an equal
+                chance of being selected, ensuring that all samples of the same size are equally likely.
+            </li>
+            <li><strong>Stratified Sampling:</strong> Divide the population into groups (strata) and
+                take a proportionate random sample from each group. For instance, sample students from
+                various departments to represent a college population.</li>
+            <li><strong>Cluster Sampling:</strong> Divide the population into clusters, then randomly
+                select some clusters and include all members from those clusters in the sample. For
+                example, randomly select departments in a college and survey all their students.</li>
+            <li><strong>Systematic Sampling:</strong> Randomly select a starting point and pick every
+                nth member from a population list. For example, choose every 50th name in a phone book
+                for a survey</li>
+        </ul>
+        <h4>Non-Random Sampling Techniques</h4>
+        <ul>
+            <li><strong>Convenience Sampling:</strong> Individuals are chosen based on accessibility and
+                ease rather than randomness. For example, Surveying the first 20 people entering a
+                grocery store about their shopping habits.</li>
+        </ul>
+    </div>
+    <p>Nonrandom sampling methods, such as <strong>convenience sampling</strong>, should generally be
+        avoided as they can lead to biased results. For example, surveying the first 20 customers
+        entering a coffee shop might overrepresent certain groups, such as early risers or individuals
+        with flexible schedules, while excluding others, like night-shift workers.</p>
+    <p>Random sampling methods aim to reduce bias and ensure representativeness by giving all
+        individuals an equal chance of selection. However, even random sampling is subject to
+        <strong>random sampling error</strong>, where chance variations may cause the sample to differ
+        from the population. Larger sample sizes reduce this error, improving the reliability of the
+        results. Researchers must also address <strong>nonrandom sampling errors</strong> like
+        undercoverage, nonresponse, and volunteer response bias, as these can further skew
+        results.&nbsp; Well will discussing these sampling errors shortly.
+    </p>
+    <p>For now, we want to focus on identifying the common types of sampling techniques.</p>
+    
+    <div class="page-break"></div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>A study intends to determine the average tuition paid by Tennessee Technological University
+            undergraduate students per semester. Identify the sampling method used in each scenario:</p>
+        <ul>
+            <li><strong>Part A:</strong> Organize students by year (e.g., first-year, sophomore), then
+                select 25 from each.</li>
+            <li><strong>Part B:</strong> Use a random number generator to select one student, then pick
+                every 50th student until 75 students are included.</li>
+            <li><strong>Part C:</strong> Select 75 students completely at random, with equal probability
+                for
+                all.</li>
+            <li><strong>Part D:</strong> Randomly pick two years (e.g., first-year and senior), and
+                survey
+                all students in those years.</li>
+            <li><strong>Part E:</strong> Survey the first 100 students encountered in front of the
+                library
+                on a specific day.</li>
+        </ul>
+        <div class="solution">
+            <h2 class="solution-header">Solution: Identify Sampling Techniques</h2>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <ul>
+                    <li><strong>Part A:</strong> <strong>Stratified Sampling:</strong> Students are
+                        grouped by
+                        year and sampled proportionally.</li>
+                    <li><strong>Part B:</strong> <strong>Systematic Sampling:</strong> A starting point
+                        is
+                        randomly selected, and every 50th student is chosen.</li>
+                    <li><strong>Part C:</strong> <strong>Simple Random Sampling:</strong> All students
+                        have an
+                        equal probability of selection.</li>
+                    <li><strong>Part D:</strong> <strong>Cluster Sampling:</strong> Entire years are
+                        selected,
+                        and all students in those years are included.</li>
+                    <li><strong>Part E:</strong> <strong>Convenience Sampling:</strong> Students are
+                        chosen
+                        based on availability, leading to potential bias.</li>
+                </ul>
+                <p class="dontprint blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <h2>Sampling Errors</h2>
+    <!-- Definition: Random Sampling Error -->
+    <div class="definition">
+        <h2 class="definition-header">What is a Random Sampling Error?</h2>
+        <p>A <strong>random sampling error</strong> occurs when there is a discrepancy between a sample
+            result and the true population result. This type of error arises purely due to chance, as a
+            sample is only a subset of the population and may not perfectly represent it. For example,
+            if a random sample of 50 students is drawn from a school of 1,000, the sample mean test
+            score might differ slightly from the population mean simply by chance.</p>
+        <p><strong>Key Point:</strong> Random sampling error is unavoidable in any sampling process but
+            can be minimized by increasing the sample size.</p>
+    </div>
+    <div class="page-break"></div>
+    <div class="definition">
+        <h2 class="definition-header">What is a Nonrandom Sampling Error?</h2>
+        <p>There are three important types of nonrandom sampling errors: <strong>undercoverage</strong>,
+            <strong>nonresponse</strong>, and <strong>volunteer response</strong>.
+        </p>
+        <ul>
+            <li><strong>What is Undercoverage?</strong>Undercoverage occurs when some groups in the
+                population are systematically excluded from the sampling process, making the sample
+                unrepresentative of the entire population.
+                <p><strong>Example</strong>A survey conducted by randomly calling landline phone
+                    numbers will exclude people who only use cell phones, such as younger adults,
+                    leading to biased results.</p>
+            </li>
+            <li><strong>What is Nonresponse?</strong>Nonresponse occurs when a portion of the
+                selected sample does not participate in the study, and their responses may differ
+                systematically from those who do respond.
+                <p><strong>Example</strong>In a mail survey asking about personal finances, people
+                    who feel uncomfortable sharing financial information may choose not to respond,
+                    skewing the results toward those who are more open about their finances.</p>
+            </li>
+            <li><strong>What is a Volunteer Response?</strong>&nbsp;Volunteer response occurs when
+                participants self-select into the sample rather than being randomly chosen, often
+                leading to an overrepresentation of individuals with strong opinions.
+                <p><strong>Example</strong>An online poll about a controversial policy is likely to
+                    attract participants who feel strongly for or against the policy, while those who
+                    are neutral or indifferent are less likely to respond.</p>
+            </li>
+        </ul>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>A university is conducting a study to understand student preferences for campus dining
+            options.
+            The following scenarios describe how data was collected. Identify the type of nonrandom
+            sampling
+            error for each part and explain your reasoning.</p>
+        <ul>
+            <li><strong>Part A:</strong> The university posts a survey link on its social media pages
+                and
+                encourages students to share their opinions. Most responses come from students who are
+                either very satisfied or very dissatisfied with campus dining options.</li>
+            <li><strong>Part B:</strong> The university randomly emails 1,000 students asking them to
+                complete the survey. Only 250 students respond, and many of the responses are from
+                students
+                who frequently use campus dining services.</li>
+            <li><strong>Part C:</strong> The university conducts the survey at a single campus dining
+                hall
+                during lunchtime. Students who do not use the dining hall or eat lunch on campus are
+                excluded from the sample.</li>
+        </ul>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <ul>
+                    <li><strong>Part A: Volunteer Response</strong>
+                        <p>The survey link was shared publicly, allowing students to self-select into
+                            the
+                            sample. This leads to volunteer response bias, as students with strong
+                            opinions are
+                            more likely to participate, while those with neutral opinions are
+                            underrepresented.
+                        </p>
+                    </li>
+                <div class="page-break"></div>
+                    <li><strong>Part B: Nonresponse</strong>
+                        <p>Out of the 1,000 students contacted, only 250 responded, creating nonresponse
+                            bias.
+                            The opinions of nonrespondents may differ systematically from those of
+                            respondents,
+                            particularly since frequent diners are overrepresented in the responses.</p>
+                    </li>
+                    <li><strong>Part C: Undercoverage</strong>
+                        <p>The survey was conducted at a single dining hall during lunchtime, excluding
+                            students
+                            who do not use the dining hall or eat lunch on campus. This undercoverage
+                            results in
+                            a sample that is not representative of the entire student population.</p>
+                    </li>
+                </ul>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <!-- Definition: Non-sampling Error -->
+    <div class="definition">
+        <h2 class="definition-header">What is a Non-sampling Error?</h2>
+        <p>A <strong>non-sampling error</strong> is caused by human error or flaws in the data
+            collection process. These errors can occur regardless of how the sample is chosen. Examples
+            include mistyping data into a computer, misinterpreting survey questions, or using faulty
+            measuring instruments.</p>
+        <p><strong>Key Point:</strong> Non-sampling errors can often be reduced by careful planning,
+            training, and implementing quality control measures during data collection and entry.</p>
+    </div>
+    <h2>Conclusion</h2>
+    <p>Effective sampling is key to obtaining reliable and meaningful data. Random sampling methods,
+        like stratified and systematic sampling, reduce bias and provide representative samples, while
+        nonrandom methods, such as convenience sampling, often produce unreliable results. Identifying
+        and addressing common sampling errors, including undercoverage and nonresponse, further improves
+        the quality of data collection. By carefully selecting sampling techniques and minimizing
+        errors, researchers can ensure their findings are accurate and applicable.</p>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parameters and Statistics</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="1 Start Here/About This Course MCT.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Parameters and Statistics</h1>
+    <p>In statistics, understanding the distinction between key concepts is essential for analyzing data
+        effectively. Two foundational terms, parameter and statistic, play a crucial role in summarizing
+        and interpreting information.</p>
+    <div class="definition">
+        <h2 class="definition-header">What is a Parameter?</h2>
+        <p>A <span class="blanked"><strong>parameter</strong></span> is a numerical measurement
+            describing
+            some characteristic of a population.</p>
+    </div>
+    <p>An example of a parameter is the average height of all people living in Nashville, TN, and its
+        surrounding suburbs. While it’s theoretically possible to measure the height of every individual
+        in
+        the area to determine this parameter, doing so would require a complete census, which is
+        impractical. Many people might refuse to participate, and certain groups, such as homeless
+        individuals or undocumented immigrants, can be difficult to locate and include. As a result,
+        although this exact number exists, the inability to conduct a full census means it will likely
+        remain unknown.</p>
+    <p>This is why we take samples. While we can’t calculate this number for the entire population, we
+        can
+        measure the heights of a subset of individuals who are willing to participate. The average
+        height
+        calculated from this subset is called a statistic, which is used to estimate the unknown
+        parameter.
+    </p>
+    <div class="definition">
+        <h2 class="definition-header">What is a Statistic?</h2>
+        <p>A <span class="blanked"><strong>statistic</strong></span> is a numerical measurement
+            describing
+            some characteristic of a sample. It is
+            calculated from a sample drawn from some population that is intended to be studied.</p>
+    </div>
+    <p>Returning to our Nashville example, we could take a random sample of 500 individuals and
+        calculate
+        their average height. If we get an average height of <strong>5 feet 7 inches</strong>, then this
+        value is a <strong>statistic</strong> since it is a value derived from a sample.</p>
+    <p> <strong>Note:</strong> To ensure accuracy, the sample should be randomly selected from different
+        neighborhoods and include a diverse mix of ages, genders, ethnicities, and socio-economic
+        backgrounds. This approach can provide a reasonably accurate estimate of the average height of
+        people living in the Nashville area, provided it is free from bias or sampling errors, which we
+        will
+        discuss shortly.</p>
+    <div class="definition">
+        <h2 class="definition-header">Telling the Difference Between a Parameter and a Statistic</h2>
+        <p>These two terms can be confusing so here is a helpful memory device for sorting out which
+            term
+            goes with what value:
+        <ul>
+            <li><strong>Parameter</strong> refers to a <strong>Population</strong> (both start with a P)
+            </li>
+            <li><strong>Statistic</strong> refers to a <strong>Sample</strong> (both start with a S).
+            </li>
+        </ul>
+        Try the example below to determine if you can identify
+        numerical values as parameters or statistics.</p>
+    </div>
+    <div class="page-break"></div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Statistic vs Parameter
+        </h2>
+        <p>For each scenario below, tell if each of the <strong>bolded</strong> values are a parameter
+            or a statistic. If the value is a statistic, tell what could be changed about the scenario
+            to make the bolded word become a parameter.</p>
+        <ol>
+            <li>A study of all 2223 passengers aboard the Titanic found that <strong>706</strong>
+                survived when it sank.</li>
+            <li>In a large sample of households, the median annual income per household for high school
+                graduates is <strong>$19,856</strong> (based on data from the U.S. Census Bureau).</li>
+            <li>Among the Senators in the current Congress, <strong>45%</strong> are Democrats.</li>
+            <li>The author measured the voltage supplied to his home on 40 different days, and the
+                average (mean) value is <strong>123.7</strong> volts.</li>
+        </ol>
+        <div class="solution">
+            <h2 class="solution-header">Solution: Statistic vs Parameter</h2>
+            <p>Here are the solutions to the above example problem:</p>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <ol>
+                    <li>The number 706 is a <strong>parameter</strong></li>
+                    <li>The value $19,856 is a <strong>statistic</strong>. It would be a parameter by
+                        removing
+                        "sample of households" and adding "all the households in Tennessee" or "every
+                        households
+                        in the county": putting in wording that indicates it is a complete collection of
+                        households.</li>
+                    <li>The percentage 45% is a <strong>parameter</strong></li>
+                    <li>The value 123.7 is a <strong>statistic</strong>. This would be a parameter if
+                        the
+                        "40
+                        different days" was change to "all 365 days of the year" or "all 30 days of this
+                        month"
+                        to indicate that the voltage measurements are a complete collection.</li>
+                </ol>
+            </div>
+            <p class="dontprint blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+        </div>
+    </div>
+    <h2>Conclusion</h2>
+    <p>Understanding the distinction between parameters and statistics is fundamental in statistical
+        analysis. While parameters describe entire populations, they are often theoretical and difficult
+        to
+        calculate due to practical constraints. Statistics, on the other hand, are calculated from
+        samples
+        and provide a way to estimate these unknown parameters. By carefully designing samples to be
+        representative and minimizing bias, we can make reliable conclusions about populations from data
+        we
+        collect from samples. Using statistics to estimate parameters forms the foundation for much of
+        the
+        work in statistics, allowing us to draw meaningful conclusions from data and apply them to
+        real-world contexts.</p>
+    <p>Now that we have introduced several of the key terms used in this course, we can explain a little
+        more in-depth what a statistics course entails. This course will cover how to organize and
+        summarize
+        data, a
+        process known as <strong>descriptive statistics</strong>. Data can be summarized through graphs
+        or by numerical measures which will be discussed in future readings. After some time in the
+        course we will introduce formal methods for drawing conclusions about a population from reliable
+        sample data. This process is known as <strong>inferential statistics</strong>. Effective data
+        interpretation relies on sound data collection methods and careful analysis. While the course
+        includes numerous mathematical formulas, the focus is primarily on understanding the data rather
+        than performing extensive calculations, which can be handled by calculators or computers. A
+        solid grasp of statistical fundamentals fosters confidence in decision-making.</p>
+    <div class="page-break"></div>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

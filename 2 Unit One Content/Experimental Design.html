@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experimental Design</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="1 Start Here/About This Course MCT.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Experimental Design</h1>
+    <p>
+        Experimental design ensures reliable and unbiased results by structuring studies to isolate
+        treatment effects and control variability. This section covers three key designs—completely
+        randomized, randomized block, and matched pairs.
+    </p>
+    <h2>Types of Designs</h2>
+    <!-- Definition: Completely Randomized Design -->
+    <div class="definition">
+        <h2 class="definition-header">What is a Completely Randomized Design?</h2>
+        <p>A <strong>completely randomized design</strong> assigns treatments to subjects entirely at
+            random, without grouping or blocking. This design works well when the subjects are similar
+            and there are no additional variables that need to be controlled.</p>
+        <p><strong>Example:</strong> A clinical trial randomly assigns participants to receive one of
+            three medications to treat high blood pressure. Results are compared across all
+            participants.</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>Many utility companies have introduced programs to encourage energy conservation among their
+            customers. A particular company has three options:</p>
+        <ul>
+            <li>Place a small digital display in households to show current electricity usage.</li>
+            <li>Give customers a chart and information about monitoring their use from the outside
+                meter.
+            </li>
+            <li>Use a control group that receives general information about conserving energy but no
+                tools
+                to monitor their use.</li>
+        </ul>
+        <p>Design a flowchart that models this experiment.</p>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <p>The experiment can be modeled using a completely randomized design as follows.</p>
+                <p>First, we have a block to represent all the individuals in the sample.<img
+                        src="../images/Completely%20Randomized%20Design%201.png"
+                        alt="The initial block in the flowchart."
+                        title="The initial block in the flowchart." width="111" height="62">Next, we
+                    randomly sort the individuals into three groups:
+                    one group for each treatment and one placebo group. We label the groups 1, 2, and 3.
+                    We draw
+                    an arrow from our initial block to each of the three groups, as follows.<img
+                        src="../images/Completely%20Randomized%20Design%202.png"
+                        alt="Groups 1, 2, and 3 are added to the flowchart."
+                        title="Groups 1, 2, and 3 are added to the flowchart." width="262"
+                        height="380">Next, we add a block for each treatment and one for the
+                    placebo.&nbsp;
+                    We assign the treatments to the groups at random.&nbsp; In the diagram, we then draw
+                    an
+                    arrow from the group to the treatment it receives.&nbsp; Typically, the treatment
+                    block is
+                    draw to the right of the group block it is assigned to, as demonstrated in the
+                    following
+                    image.<img src="../images/Completely%20Randomized%20Design%203.png"
+                        alt="Added the three treatment types to the flowchart."
+                        title="Added the three treatment types to the flowchart." width="673"
+                        height="380"></p>
+                <p>Finally, we add a single block at the end indicating that the data is collected, and
+                    the
+                    results from all the treatment and placebo groups should be compared.&nbsp; In the
+                    flow
+                    chart, we indicate this by drawing an arrow from each treatment to the Compare
+                    Results box,
+                    and our flowchart is complete.<img
+                        src="../images/Completely%20Randomized%20Design%204(1).png"
+                        alt="Added a block for comparing all the results."
+                        title="Added a block for comparing all the results."
+                        data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <!-- Definition: Randomized Block Design -->
+    <div class="definition">
+        <h2 class="definition-header">What is a Randomized Block Design?</h2>
+        <p>A <strong>randomized block design</strong> groups subjects into blocks based on shared
+            characteristics or variables that may influence the results. Treatments are then randomly
+            assigned within each block, and comparisons are made within the blocks.</p>
+        <p><strong>Example:</strong> In a weight loss study, participants are grouped into blocks by
+            gender (e.g., male and female). Within each block, participants are randomly assigned to
+            different diet plans, and results are compared separately for males and females.</p>
+    </div>
+    
+    <div class="page-break"></div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>A cosmetics company wants to compare the effectiveness of two facial creams: Cream A, which
+            claims to reduce wrinkles, and Cream B, which claims to improve skin hydration. The company
+            recruits 40 participants and divides them into blocks based on skin type: oily, dry,
+            combination, and sensitive. Each block contains 10 participants. Within each block,
+            participants
+            are randomly assigned to use either Cream A or Cream B for four weeks, and their skin
+            condition
+            is evaluated at the end of the study.</p>
+        <p>Design a diagram that models this experiment.</p>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="3in"></div>
+            <div class="dontprint">
+                <p>This experiment uses a randomized block design, and the flowchart can be designed as
+                    follows.
+                </p>
+                <p>As before, we start with a block to represent all the individuals in the sample.</p>
+                <p><img src="../images/Block%20Design%201.png"
+                        alt="Start with a block for the random sample."
+                        title="Start with a block for the random sample." max-width="20%" height="auto">Next,
+                    we add in blocks for the different skin types since the creams may affect different
+                    skin
+                    types differently. We draw an arrow from the sample to each of the different skin
+                    types.<img class="img-weird" src="../images/Block%20Design%202.png"
+                        alt="Next, separate the groups by skin type."
+                        title="Next, separate the groups by skin type.">Now, we
+                    treat each block as its own SRS, and assign members in each block into one of two
+                    groups, as
+                    shown below.<img class="img-weird" src="../images/Block%20Design%203.png"
+                        alt="Next, sort the blocks into groups."
+                        title="Next, sort the blocks into groups.">Since we are treating each block as its own SRS, we'll
+                    assign each group within a block one of the two creams.<img class="responsive-image"
+                        src="../images/Block%20Design%204.png"
+                        alt="Within each block, assign the treatments to the groups.  Treat each group as its on SRS."
+                        title="Within each block, assign the treatments to the groups.  Treat each group as its on SRS.">The whole point of the block design is to
+                    account for
+                    the different types of skin. So, when we get to the compare results step, we only
+                    compare
+                    results within each block. &nbsp;This ensures that any differences observed are due
+                    to the
+                    treatment and not the characteristics defining the blocks.&nbsp;</p>
+                <p>The final flowchart shown below.</p>
+                <p><img class="responsive-image" src="../images/Block%20Design%205.png"
+                        alt="The final part is to compare results among the individual blocks only, not between blocks."
+                        title="The final part is to compare results among the individual blocks only, not between blocks."></p>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <!-- Definition: Matched Pairs Design -->
+    <div class="definition">
+        <h2 class="definition-header">What is a Matched Pairs Design?</h2>
+        <p>A <strong>matched pairs design</strong> is a special case of the randomized block design
+            where subjects are paired or matched in some way. This design is used to compare two
+            treatments.</p>
+        <ul>
+            <li><strong>Version 1:</strong> Pair two individuals based on shared characteristics.
+                Randomly assign one individual in each pair to receive the first treatment, and the
+                other to receive the second treatment. Compare results within each pair.
+                <p><strong>Example:</strong> Two participants of similar age and fitness level are
+                    paired. One is assigned to a new exercise routine, and the other follows a standard
+                    routine. Their progress is compared after four weeks.</p>
+            </li>
+            <li><strong>Version 2:</strong> Use the same individual for both treatments. Assign one of
+                the treatments to the individual at random, and once the experiment is concluded, apply
+                the other treatment at a later time under similar conditions. Compare the results for
+                that individual.
+                <p><strong>Example:</strong> A participant tests two different types of running shoes by
+                    running a set distance with each pair on different days. Their times are compared to
+                    determine which shoe performs better.</p>
+            </li>
+        </ul>
+    </div>
+    <div class="notes-page-break"></div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>Researchers are studying the effect of two different dashboard layouts on driver reaction
+            times
+            during sudden stops. The two layouts are:</p>
+        <ul>
+            <li><strong>Layout A:</strong> A traditional dashboard with analog gauges.</li>
+            <li><strong>Layout B:</strong> A modern digital dashboard with heads-up display features.
+            </li>
+        </ul>
+        <p>Each participant is randomly assigned to use one dashboard layout while completing a driving
+            simulation. After a break, the same participants repeat the simulation with the other
+            dashboard
+            layout under similar conditions. Reaction times are measured during each simulation.</p>
+        <p>Describe and diagram a matched pairs experiment to determine if the modern dashboard
+            increases
+            safety.</p>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="3in"></div>
+            <div class="dontprint">
+                <p>This is a <strong>matched-pairs design (Version 2)</strong> because each participant
+                    serves
+                    as their own control by testing both dashboard layouts.&nbsp; As before, we start
+                    off with
+                    the random sample.</p>
+                <p><img src="../images/Matched%20Pairs%201.png"
+                        alt="The first block is always the random sample."
+                        title="The first block is always the random sample." width="177"
+                        height="82">Next, assign the participants into one of two
+                    groups.<img src="../images/Matched%20Pairs%202.png"
+                        alt="The participants are split evenly into two groups."
+                        title="The participants are split evenly into two groups." width="343"
+                        height="326">Next, randomly assign one of the two treatments to each
+                    group.<img src="../images/Matched%20Pairs%203.png"
+                        alt="The group is randomly assigned one of the two treatments."
+                        title="The group is randomly assigned one of the two treatments." width="515"
+                        height="326">After a period of time has passed and under similar
+                    conditions, the
+                    groups are given the other treatment.<img
+                        src="../images/Matched%20Pairs%204.png"
+                        alt="At a different time and under similar conditions, the groups do the other treatment."
+                        title="At a different time and under similar conditions, the groups do the other treatment."
+                        width="691" height="326">Finally, you compute the difference in results
+                    between
+                    the two treatments, and compare all the differences among the participants.<img
+                        src="../images/Matched%20Pairs%205.png"
+                        alt="Finally, you compare the differences between the two treatments among all participants."
+                        title="Finally, you compare the differences between the two treatments among all participants."
+                        data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                <ul></ul>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <h2>Conclusion</h2>
+    <p>Good experimental design minimizes bias, controls variability, and ensures valid comparisons.
+        Completely randomized designs work for homogeneous groups, randomized block designs account for
+        shared characteristics, and matched pairs designs allow detailed within-subject or paired
+        comparisons. Proper design leads to meaningful and reliable results.</p>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

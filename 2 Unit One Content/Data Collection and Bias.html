@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Collection and Bias</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="1 Start Here/About This Course MCT.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Data Collection and Bias</h1>
+    Effective data collection is essential for reliable statistical studies. Observational studies
+    measure characteristics without intervention, while experiments impose treatments to observe their
+    effects. Key techniques like randomization, replication, and blinding reduce bias and improve
+    accuracy. Understanding and addressing sources of bias, such as response bias and nonresponse,
+    ensures valid and meaningful results.&nbsp;Data Collection
+    Methods<!-- Definition: Observational Study -->
+    <div class="definition">
+        <h2>What is an Observational Study?</h2>
+        <p>In an <strong>observational study</strong>, a researcher observes and measures
+            characteristics but does not change any existing conditions.</p>
+    </div>
+    <!-- Definition: Experiment and Treatment -->
+    <div class="definition">
+        <h2>What is an Experiment and a Treatment?</h2>
+        <p>In an <strong>experiment</strong>, a researcher imposes a change in some preexisting
+            condition, called a <strong>treatment</strong>, onto a sample of a population and measures
+            their response to that change.</p>
+    </div>
+    <!-- Definition: Control Group -->
+    <div class="definition">
+        <h2>What is a Control Group?</h2>
+        <p>A <strong>control group</strong> is a sample that receives no treatment and is used as a
+            baseline to compare other samples to.</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>Determine whether the study is observational or an experiment. Explain your reasoning.</p>
+        <ul>
+            <li><strong>Part A:</strong> In a survey of 1033 US adults, 51% of respondents said that US
+                presidents should release all medical information that might affect their ability to
+                serve.
+            </li>
+            <li><strong>Part B:</strong> Researchers demonstrated that adults using an intensive program
+                to
+                lower systolic blood pressure to less than 120 millimeters of mercury reduce the risk of
+                death from all causes by 27%.</li>
+        </ul>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1.5in"></div>
+            <div class="dontprint">
+                <ul>
+                    <li><strong>Part A:</strong> <strong>Observational Study:</strong> The researchers
+                        surveyed
+                        respondents and recorded their opinions without imposing any changes or
+                        treatments. No
+                        variables were manipulated.</li>
+                    <li><strong>Part B:</strong> <strong>Experiment:</strong> The researchers imposed a
+                        treatment by implementing an intensive program to lower systolic blood pressure.
+                        They
+                        then measured the participants' responses (reduction in the risk of death).</li>
+                </ul>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-break"></div>
+    <h2>Elements of a Well-Designed Study</h2>
+    <div class="definition">
+        <h2 class="definition-header">What is Replication?</h2>
+        <p><strong>Replication:</strong> Assign enough individuals to each treatment to reduce the
+            variation in the results. This ensures that similar experiments conducted under the same
+            conditions will yield similar results.</p>
+        <p>For example, a medical researcher is testing the effectiveness of a new drug to lower blood
+            pressure. To ensure reliable results, the researcher assigns 500 participants to the
+            treatment group (receiving the drug) and 500 participants to the control group (receiving a
+            placebo). By assigning a large number of participants to each group, the researcher reduces
+            the variability in results that might occur due to chance or individual differences.
+            Replication ensures that the outcomes are consistent and reproducible if the experiment is
+            repeated under the same conditions.</p>
+        <p>We will learn in Chapter 6 why larger sample sizes lead to less variation.</p>
+    </div>
+    <div class="definition">
+        <h2 class=definition-header> What is Randomization?</h2>
+        <p><strong>Randomization:</strong> Select subjects randomly so that variations in results occur
+            purely by chance, not external factors.</p>
+        <p>For example, in a clinical trial testing a pain medication, 200 participants are randomly
+            assigned to two groups: 100 receive the medication, and 100 receive a placebo. Randomization
+            ensures that differences between the groups are due to the treatment and not factors like
+            age or health.</p>
+        <p>As the study is replicated, probability theory, the subject of Chapter 4, predicts that the
+            effects of random variation diminish. Consistently similar results across replications
+            increase confidence that the findings reflect the true population characteristics</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>In statistics, it is often said that a single data study doesn't prove a result. Explain why
+            this
+            is true.</p>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1.5in"></div>
+            <div class="dontprint">
+                <p>A single study does not prove a result because of the following issues.</p>
+                <ul>
+                    <li>Any single study is subject to random variation due to chance, as a sample may
+                        not
+                        perfectly represent the population. This error can cause the results to differ
+                        from the
+                        true population characteristics purely by chance.</li>
+                    <li>Without replication, it is difficult to determine whether the observed result is
+                        reliable or simply due to random variation. A single study cannot confirm the
+                        consistency of findings across repeated experiments.</li>
+                </ul>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-break"></div>
+    <div class="definition">
+        <h2 class="example-header">What is Blinding?</h2>
+        <p><strong>Blinding</strong> ensures that subjects do not know whether they are receiving a
+            placebo or an actual treatment. This reduces the risk of bias caused by participants'
+            expectations influencing the results.</p>
+        <h4>What is a Single-Blind Experiment?&nbsp;</h4>
+        <p>In a&nbsp;<strong>single-blind experiment</strong>, the participants do not know whether they
+            are receiving the treatment or a placebo, but the researchers administering the treatment do
+            know.</p>
+        <p>For example, in a clinical trial testing a new allergy medication, participants are randomly
+            divided into two groups. One group receives the allergy medication, and the other group
+            receives a placebo. The participants do not know which group they are in, but the
+            researchers administering the medication do. This prevents participants' expectations from
+            influencing the results, though it still leaves room for potential researcher bias.</p>
+        <h4>What is a Double-Blind Experiment?&nbsp;</h4>
+        <p>In a <strong>double-blind experiment</strong>, neither the participants nor the researchers
+            administering the treatment know who is receiving the treatment or the placebo.</p>
+        <p>For example, in the same allergy medication trial, participants are randomly divided into two
+            groups. One group receives the allergy medication, and the other group receives a placebo.
+            Neither the participants nor the researchers administering the treatment know who is in
+            which group. This eliminates both participant and researcher bias, ensuring that the results
+            are as unbiased as possible.</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h3>
+            <p>An experiment that claimed to show that meditation reduces anxiety proceeded as follows:
+            </p>
+            <p>The experimenter interviewed the subjects and rated their level of anxiety. Then the
+                subjects
+                were randomly assigned to two groups. The experimenter taught one group how to meditate,
+                and
+                they meditated daily for a month. The other group was simply told to relax more. At the
+                end of
+                the month, the experimenter interviewed all the subjects again and rated their anxiety
+                levels.
+                The meditation group now had less anxiety.</p>
+            <p>Psychologists said that the results were suspect because the ratings were not blind.
+                Explain what
+                this means and show how the lack of blindness could introduce bias into the reported
+                results.
+            </p>
+            <!-- Solution -->
+            <div class="solution">
+                <h2 class="example-header">Solution</h2>
+                <div class="inches" data-height="1in"></div>
+                <div class="dontprint">
+                    <p>The psychologists’ concern about the lack of blindness refers to the fact that
+                        the
+                        experimenter, who rated the subjects’ anxiety levels both before and after the
+                        experiment,
+                        knew which group each subject belonged to (meditation or relaxation). This lack
+                        of blindness
+                        could introduce bias in the following ways:</p>
+                    <ul>
+                        <li>The experimenter might have unconsciously expected the meditation group to
+                            show greater
+                            improvement, leading them to rate that group’s anxiety levels more
+                            favorably.</li>
+                        <li>Since the experimenter knew the treatment assignments, their personal
+                            beliefs about
+                            meditation's effectiveness could have influenced their ratings, even if
+                            unintentionally.
+                        </li>
+                    </ul>
+                    <p>To reduce bias, the experimenter could have implemented a double-blind procedure.
+                        In a
+                        double-blind experiment,&nbsp; the experimenter conducting the interviews would
+                        not know
+                        which group each subject was in. This would ensure that the ratings are based
+                        solely on the
+                        subjects’ behavior and responses, without being influenced by the experimenter’s
+                        expectations.</p>
+                    <p>By using proper blinding, the anxiety ratings would be less likely to reflect the
+                        experimenter’s or subjects’ biases, leading to more reliable and unbiased
+                        results.</p>
+                </div>
+            </div>
+    </div>
+    <div class="page-break"></div>
+    <h2>Common Sources of Bias in Statistical Study</h2>
+    <p>Accurate data collection is the foundation of any statistical analysis, providing the raw
+        information needed to draw meaningful conclusions about populations. However, the process of
+        collecting data is not without its challenges. This section explores key aspects of data
+        collection and common sources of bias, including response bias, wording effects, and
+        nonresponse. By understanding these challenges, we can design better methods for collecting
+        high-quality data and minimize the impact of bias on our results.</p>
+    <!-- Definition: Response Bias -->
+    <div class="definition">
+        <h2 class="example-header">What is Response Bias?</h2>
+        <p>Response bias occurs when the behavior of the respondent or the interviewer influences the
+            response that the respondent gives. This can result in inaccurate or misleading data that
+            does not accurately represent the population being studied.</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>When asked a question such as, "Did you vote in the last presidential election?", many people
+            will indicate they voted when in reality they did not. Why do you think people lied, and why
+            is
+            this an example of response bias?</p>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1in"></div>
+            <div class="dontprint">
+                <p>Many people lie in response to this question because voting is socially desirable.
+                    People may
+                    feel pressure to give an answer that aligns with societal expectations, even if it
+                    is not
+                    truthful. This is an example of response bias because the respondent’s behavior
+                    (lying to
+                    conform to expectations) influences the data, making it inaccurate.</p>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Solution --><!-- Definition: Wording Effects -->
+    <div class="definition">
+        <h2 class="definition-header">What are Wording Effects?</h2>
+        <p>Wording effects occur when the phrasing, choice of words, or order in which questions are
+            asked affects the responses collected. Even slight changes in how a question is framed can
+            result in significantly different answers, which can introduce bias into the data.</p>
+    </div>
+    <!-- Example 2 -->
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>Which question do you think people agreed more with?</p>
+        <ul>
+            <li><strong>Question A:</strong> Is the government spending too much on assistance to the
+                poor?
+            </li>
+            <li><strong>Question B:</strong> Is the government spending too much on welfare?</li>
+        </ul>
+        <p>Discuss how the choice of words could affect how people respond to these questions.</p>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1in"></div>
+            <div class="dontprint">
+                <p>People are more likely to agree with <strong>Question A</strong> because the phrase
+                    "assistance to the poor" evokes a sense of helping those in need. In contrast, the
+                    term
+                    "welfare" may carry negative connotations for some people, as it is often associated
+                    with
+                    misuse or dependency. This demonstrates how subtle changes in wording can influence
+                    how
+                    respondents perceive and answer questions, a key example of wording effects.</p>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Solution -->
+    <div class="page-break"></div>
+    <!-- Definition: Nonresponse -->
+    <div class="definition">
+        <h2 class="definition-header">What is Nonresponse?</h2>
+        <p>Nonresponse occurs when a respondent refuses to participate or cannot be reached. This
+            results in missing data and can skew the results if the nonrespondents differ systematically
+            from those who do respond.</p>
+    </div>
+    <!-- Example 3 -->
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>An opinion poll calls 2000 randomly chosen households and asks an adult member of the
+            household,
+            "How many movies have you watched in a movie theater in the last 12 months?" Only 831 people
+            responded.</p>
+        <ul>
+            <li>What is the rate of nonresponse?</li>
+            <li>Why do you think the nonresponse rate was so high?</li>
+        </ul>
+        <!-- Solution -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <p>The total number of households contacted was 2000, and the number of responses was
+                    831. To
+                    calculate the rate of nonresponse:</p>
+                <p>\[ \text{Nonresponse Rate} = \dfrac{\text{{Nonresponses}}}{\text{Total Households}} =
+                    \dfrac{2000 - 831}{{2000}} = \dfrac{{1169}}{{2000}} = 0.5845 \text{ (or 58.45%)}. \]
+                </p>
+                <p>The nonresponse rate is 58.45%, which is quite high. The likely reasons include:</p>
+                <ul>
+                    <li>People may not answer calls from unknown numbers or may be busy when called.
+                    </li>
+                    <li>Some people may not feel comfortable sharing personal information, such as how
+                        often
+                        they go to the movies.</li>
+                    <li>The question may not seem relevant to everyone, leading to disengagement.</li>
+                </ul>
+                <p class="blacksquare">\[ \tag*{\(\blacksquare\)} \]</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Solution -->
+    <h2 class="example-header">Conclusion</h2>
+    <p>Accurate statistical results rely on well-designed studies that minimize bias and random
+        variation. Incorporating replication, randomization, and blinding enhances reliability, while
+        addressing issues like response bias, wording effects, and nonresponse improves data quality.
+        Proactively identifying and mitigating these challenges during study design ensures results are
+        both valid and reproducible, forming a strong basis for meaningful analysis and decision-making.
+    </p>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>
