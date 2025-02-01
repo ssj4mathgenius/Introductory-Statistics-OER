@@ -1,5 +1,9 @@
 /* Accessible color scheme with primary and secondary colors */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -24,9 +28,30 @@ p {
 
 }
 
+p{
+    margin-bottom: 0.2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.blacksquare {
+    font-size: 0.8em; 
+    line-height: 1; 
+    padding: 0; 
+    margin: 0; 
+    height: auto; 
+    width: auto; 
+    vertical-align: middle; 
+    float: right; /* Moves the black square to the right */
+}
+
+ol, ul{
+    margin-bottom: 0;
+}
+
 ol li,
 ul li {
-    padding-bottom: 0.4rem;
+    margin-bottom: 0;
 }
 
 .MathJax_Display {
@@ -53,13 +78,13 @@ h2 {
     color: #9D2235;
     font-size: 1.75em;
     font-weight: bold;
-    margin: 0.3rem 0rem 0.2rem 0rem;
+    margin: 0rem 0rem 0.2rem 0rem;
 }
 
 h3 {
     color: #047BC1;
     font-size: 1.5em;
-    margin: 0.3rem 0rem 0.2rem 0rem;
+    margin: 0rem 0rem 0.2rem 0rem;
     text-transform: none;
     font-weight: normal;
 }
@@ -93,6 +118,13 @@ figure {
     padding: 10px;
 }
 
+img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
 .img-centered {
     display: block;
     margin-left: auto;
@@ -101,13 +133,29 @@ figure {
     height: auto;
 }
 
+.img-weird{
+    display: block;
+    max-width: 800px;
+    width:auto;
+    max-height: 800px;
+    height: auto;
+}
+
+.responsive-img {
+    max-width: 100%;
+    max-height: 5.5in;
+    height: auto;
+    display: block;
+}
+
 .example-header {
     color: #000000;
     font-size: 1.5em;
     border-left: 8px solid #9D2235;
     padding-left: 10px;
-    margin-bottom: 0.5rem;
-    margin-top: 0.3rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0rem 0rem 0.2rem 0.1rem;
     font-weight: bold;
     width: fit-content;
     text-decoration: none;
@@ -117,7 +165,8 @@ figure {
 .definition-header {
     color: #047BC1;
     font-size: 1.5em;
-    margin: 0.3rem 0rem 0.2rem 0rem;
+    padding: 0;
+    margin: 0rem 0rem 0.2rem 0.1rem;
     text-transform: none;
     font-weight: bold;
     width: fit-content;
@@ -129,8 +178,8 @@ figure {
     color: #000000;
     font-size: 1.5em;
     border-left: 8px solid #9D2235;
-    padding: 0px 0px 0px 0.5rem;
-    margin-bottom: 0.5rem;
+    padding: 0rem 0rem 0rem 0.625rem;
+    margin: 0rem 0rem 0.2rem 0.1rem;
     margin-top: 0.3rem;
     font-weight: bold;
     width: fit-content;
@@ -143,25 +192,35 @@ figure {
     padding: 1rem;
 }
 
+.definition,
+.example,
+.solution {
+    overflow: visible !important; /* Ensures no scrollbars appear */
+    max-width: 100%; /* Prevents content from exceeding the container */
+    height: auto !important; /* Adjust height dynamically */
+}
+
 .definition {
-    background-color: #f4f4f4;
-    color: #000000;
-    padding: 0rem 0.5rem 0rem 0rem;
-    margin: 0.4rem 0;
+    background-color: #FFF9C4;
+    color: #5E4C00;
+    padding: 0.5rem;
+    margin: 0rem 0rem 0.5rem 0rem;
+    border-radius: 0.625rem;
 }
 
 .example {
-    background-color: #FFFFFF;
-    color: #000000;
-    padding: 0rem 0.5rem 0rem 0rem;
-    margin: 0.2rem 0;
+    background-color: #E3F2FD;
+    color: #0D47A1; 
+    padding: 0rem 0rem 0rem 0.625rem;
+    margin: 0rem 0rem 0.5rem 0rem;
 }
 
 .solution {
-    background-color: #eff1f6;
-    color: #000000;
-    padding: 0rem 0.5rem 0rem 0rem;
-    margin: 0.2rem 0;
+    background-color: #FFE0B2; /* Soft peach (light mode) */
+    color: #5D4037; 
+    padding: 0rem 0.625rem;
+    margin: 0rem 0rem 0.5rem 0rem;
+    width: 100% !important;
 }
 
 .caution {
@@ -194,6 +253,13 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+
+/* make bootstrap tooltips appear a little larger */
+.tooltip-inner {
+    font-size: 1.5rem; /* Adjust size as needed */
+    padding: 10px 15px; /* Makes tooltip easier to read */
 }
 
 /* Table styling */
@@ -353,7 +419,7 @@ mark.highlight {
 /* For "Print Notes" only (applied dynamically via JavaScript) */
 .blanked.print-underscore {
     font-family: monospace; /* Ensures proper spacing */
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     color: black;
 }
 
@@ -371,6 +437,10 @@ mark.highlight {
 @media print {
     iframe {
         display: none;
+    }
+
+    .tooltip {
+        display: none !important;
     }
 
     /* Show notes-page-break ONLY when printing after clicking 'Print Notes' */
@@ -418,6 +488,23 @@ mark.highlight {
         font-size: 80%;
         background-color: var(--background-color) !important;
         color: var(--text-color) !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .definition {
+        background-color: #FFB300; 
+        color: #000000;
+    }
+
+    .solution {
+        background-color: #FF7043; /* Deep orange (dark mode) */
+        color: #FFFFFF;
+    }
+
+    .example {
+        background-color: #1565C0;
+        color: #FFFFFF;
     }
 }
 

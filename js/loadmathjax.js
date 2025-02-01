@@ -369,6 +369,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     updateExampleNumbers();
 
+    // Find all example numbers that have an ID and sync them
+    const examples = document.querySelectorAll(".example-number[id]");
+
+    examples.forEach(example => {
+        const exampleId = example.id; // Get the ID assigned to the example
+        const referenceLinks = document.querySelectorAll(`a[href="#${exampleId}"]`); // Find all links referencing this example
+
+        referenceLinks.forEach(link => {
+            link.textContent = "Example " + example.textContent; // Update link text with the corresponding example number
+        });
+    });
+
     // Handle Theme Toggle Dropdown
     const themeToggle = document.getElementById("theme-toggle");
     const dropdownItems = document.querySelectorAll(".dropdown-menu .dropdown-item");
@@ -484,7 +496,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         blankedElements.forEach(element => {
             const originalText = element.textContent.trim();
-            const underscores = '_'.repeat(originalText.length); // Generate underscores
+            const underscores = '__'.repeat(originalText.length); // Generate underscores
             element.setAttribute('data-original', originalText); // Store original text
             element.textContent = underscores; // Replace text with underscores
             element.classList.add("print-underscore"); // Apply special formatting
@@ -587,6 +599,14 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     head.appendChild(script);
+});
+
+//Make Bootstrap tooltips appear instantly
+$(document).ready(function(){
+    $('[data-bs-toggle="tooltip"]').tooltip({
+        delay: { show: 0, hide: 100 }, /* Instant show */
+        html: true /* Enables HTML inside tooltip */
+    });
 });
 
 previousLink.classList.add('navigation-link', 'previous');
