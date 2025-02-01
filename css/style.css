@@ -600,6 +600,7 @@ mark.highlight {
     margin: 10px;
     text-decoration: none;
     color: blue;
+    cursor: pointer;  /* ✅ Ensure button shows a pointer cursor */
 }
 
 .navigation-link.previous {

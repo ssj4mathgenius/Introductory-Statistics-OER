@@ -240,61 +240,6 @@ async function generateTable(csvUrl, captionText) {
     }
 };
 
-//Interacts with the pages.json page to flatten structure tree for directory to create "next page" and "previous page" buttons
-function flattenPages(json, parentPath = '') {
-    const pages = [];
-
-    for (const folder in json) {
-        if (Array.isArray(json[folder])) {
-            json[folder].forEach(page => pages.push(`${parentPath}${folder}/${page}`));
-        }
-    }
-
-    return pages;
-};
-
-fetch('/json/pages.json')
-    .then(response => response.json())
-    .then(data => {
-        // Flatten JSON structure
-        const flattenPages = (json) => {
-            const pages = [];
-            for (const folder in json) {
-                if (Array.isArray(json[folder])) {
-                    json[folder].forEach(page => pages.push(page));
-                }
-            }
-            return pages;
-        };
-
-        const pages = flattenPages(data);
-
-        // Current path (including folders)
-        const currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
-
-        // Determine indices
-        const currentIndex = pages.indexOf(currentPath);
-
-        // Navigation buttons
-        const prevButton = document.getElementById('prevPage');
-        const nextButton = document.getElementById('nextPage');
-
-        if (currentIndex > 0) {
-            prevButton.onclick = () => (window.location.href = `/${pages[currentIndex - 1]}`);
-            prevButton.disabled = false;
-        } else {
-            prevButton.disabled = true;
-        }
-
-        if (currentIndex >= 0 && currentIndex < pages.length - 1) {
-            nextButton.onclick = () => (window.location.href = `/${pages[currentIndex + 1]}`);
-            nextButton.disabled = false;
-        } else {
-            nextButton.disabled = true;
-        }
-    })
-    .catch(err => console.error('Error fetching or parsing JSON:', err));
-
 // Script to handle theme toggling
 document.getElementById("theme-toggle").addEventListener("click", function () {
     const nav = document.querySelector("nav");
@@ -356,6 +301,92 @@ function removeHighlights() {
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ DOM fully loaded!");
+
+// Get navigation buttons
+const prevButton = document.getElementById('prevPage');
+const nextButton = document.getElementById('nextPage');
+
+if (prevButton) {
+    prevButton.classList.add('navigation-link', 'previous');
+    prevButton.setAttribute("role", "button");
+    prevButton.setAttribute("tabindex", "0");
+} else {
+    console.warn("⚠️ Warning: prevButton (prevPage) not found!");
+}
+
+if (nextButton) {
+    nextButton.classList.add('navigation-link', 'next');
+    nextButton.setAttribute("role", "button");
+    nextButton.setAttribute("tabindex", "0");
+} else {
+    console.warn("⚠️ Warning: nextButton (nextPage) not found!");
+}
+
+// Fetch and process pages.json
+fetch('/json/pages.json')
+    .then(response => response.json())
+    .then(data => {
+        function flattenPages(json, parentPath = '') {
+            const pages = [];
+        
+            for (const folder in json) {
+                if (Array.isArray(json[folder])) {
+                    json[folder].forEach(page => {
+                        const fullPath = `${page}`; // Ensure correct full path
+                        pages.push(fullPath);
+                    });
+                } else if (typeof json[folder] === 'object') {
+                    pages.push(...flattenPages(json[folder], `${parentPath}${folder}/`));
+                }
+            }
+        
+            return pages;
+        }
+
+        const pages = flattenPages(data);
+
+        // Get current page path (removing leading slash for consistency)
+        const currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
+
+        // Determine current index
+        const currentIndex = pages.indexOf(currentPath);
+
+        // Ensure buttons exist before modifying
+        if (prevButton) {
+            if (currentIndex > 0) {
+                prevButton.onclick = () => {
+                    console.log("⬅️ Navigating to previous page:", `/${pages[currentIndex - 1]}`);
+                    window.location.href = `/${pages[currentIndex - 1]}`;
+                };
+                prevButton.disabled = false;
+            } else {
+                console.log("🚫 prevButton disabled - No previous page.");
+                prevButton.disabled = true;
+            }
+        }
+        
+        if (nextButton) {
+            if (currentIndex >= 0 && currentIndex < pages.length - 1) {
+                nextButton.onclick = () => {
+                    console.log("➡️ Navigating to next page:", `/${pages[currentIndex + 1]}`);
+                    window.location.href = `/${pages[currentIndex + 1]}`;
+                };
+                nextButton.disabled = false;
+            } else {
+                console.log("🚫 nextButton disabled - No next page.");
+                nextButton.disabled = true;
+            }
+
+            // Keyboard navigation support
+            nextButton.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    window.location.href = `/${pages[currentIndex + 1]}`;
+                }
+            });
+        }
+    })
+    .catch(err => console.error('🚨 Error fetching or parsing JSON:', err));
+
 
     // Dynamically number examples
     function updateExampleNumbers() {
@@ -516,22 +547,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
-    // Previous & Next Page Buttons
-    const previousLink = document.getElementById('prevPage');
-    const nextLink = document.getElementById('nextPage');
-
-    if (previousLink) {
-        previousLink.classList.add('navigation-link', 'previous');
-    } else {
-        console.warn("⚠️ Warning: previousLink (prevPage) not found!");
-    }
-
-    if (nextLink) {
-        nextLink.classList.add('navigation-link', 'next');
-    } else {
-        console.warn("⚠️ Warning: nextLink (nextPage) not found!");
-    }
-
     // Set height for spacing divs
     setDivHeightFromData();
 
@@ -608,8 +623,5 @@ $(document).ready(function(){
         html: true /* Enables HTML inside tooltip */
     });
 });
-
-previousLink.classList.add('navigation-link', 'previous');
-nextLink.classList.add('navigation-link', 'next');
 
 console.log("JS loaded!");
