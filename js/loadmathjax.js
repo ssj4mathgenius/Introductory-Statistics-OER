@@ -322,34 +322,54 @@ if (nextButton) {
     console.warn("⚠️ Warning: nextButton (nextPage) not found!");
 }
 
-// Fetch and process pages.json
-fetch('/json/pages.json')
-    .then(response => response.json())
+// Dynamically determine the base URL
+const isGitHubPages = window.location.hostname.includes("github.io");
+const repoName = "Introductory-Statistics-OER"; // Change this if your repo name is different
+
+const baseURL = isGitHubPages
+    ? `${window.location.origin}/${repoName}`
+    : window.location.origin;
+
+console.log("🌎 Base URL Detected:", baseURL);
+console.log("📄 Fetching JSON from:", `${baseURL}/json/pages.json`);
+
+fetch(`${baseURL}/json/pages.json`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
-        function flattenPages(json, parentPath = '') {
+        console.log("✅ Successfully loaded pages.json", data);
+
+        function flattenPages(json) {
             const pages = [];
-        
             for (const folder in json) {
                 if (Array.isArray(json[folder])) {
                     json[folder].forEach(page => {
                         const fullPath = `${page}`; // Ensure correct full path
                         pages.push(fullPath);
                     });
-                } else if (typeof json[folder] === 'object') {
-                    pages.push(...flattenPages(json[folder], `${parentPath}${folder}/`));
                 }
             }
-        
             return pages;
         }
 
         const pages = flattenPages(data);
+        console.log("📂 Flattened Pages Array:", pages);
 
-        // Get current page path (removing leading slash for consistency)
-        const currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
+        // Get current page path (removing leading slash and ensuring format matches JSON)
+        let currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
+        console.log("📄 Current Path:", currentPath);
+
+        // Normalize paths (Fixes VS Code "Go Live" Issues)
+        currentPath = currentPath.replace(/\/$/, ""); // Remove trailing slash
+        pages.forEach((page, i) => pages[i] = page.replace(/\/$/, "")); // Normalize all paths
 
         // Determine current index
         const currentIndex = pages.indexOf(currentPath);
+        console.log("🔢 Current Index:", currentIndex);
 
         // Ensure buttons exist before modifying
         if (prevButton) {
@@ -364,7 +384,7 @@ fetch('/json/pages.json')
                 prevButton.disabled = true;
             }
         }
-        
+
         if (nextButton) {
             if (currentIndex >= 0 && currentIndex < pages.length - 1) {
                 nextButton.onclick = () => {
@@ -376,13 +396,6 @@ fetch('/json/pages.json')
                 console.log("🚫 nextButton disabled - No next page.");
                 nextButton.disabled = true;
             }
-
-            // Keyboard navigation support
-            nextButton.addEventListener("keydown", function (event) {
-                if (event.key === "Enter" || event.key === " ") {
-                    window.location.href = `/${pages[currentIndex + 1]}`;
-                }
-            });
         }
     })
     .catch(err => console.error('🚨 Error fetching or parsing JSON:', err));
