@@ -360,8 +360,18 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("📂 Flattened Pages Array:", pages);
 
             // Get current page path (removing leading slash & ensuring format matches JSON)
+            // Get current page path (removing leading slash & ensuring format matches JSON)
             let currentPath = decodeURIComponent(window.location.pathname.replace(/^\//, ''));
-            console.log("📄 Current Path:", currentPath);
+
+            // Remove the repository name prefix for GitHub Pages
+            if (isGitHubPages) {
+                currentPath = currentPath.replace(`${repoName}/`, '');
+            }
+
+            // Normalize spaces and special characters
+            currentPath = currentPath.replace(/%20/g, " "); // Convert "%20" to spaces
+
+            console.log("📄 Current Path (Fixed):", currentPath);
 
             // Special case for GitHub Pages: Convert root URL to "index.html"
             if (currentPath === "Introductory-Statistics-OER/") {
@@ -383,14 +393,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (currentIndex > 0) {
                     prevButton.onclick = () => {
                         let prevPage = pages[currentIndex - 1];
-                    
+
                         // Ensure correct formatting for GitHub Pages
                         if (isGitHubPages) {
                             prevPage = `/${repoName}/${prevPage}`;
                         } else {
                             prevPage = `/${prevPage}`;
                         }
-                    
+
                         console.log("⬅️ Navigating to:", prevPage);
                         window.location.href = prevPage;
                     };
@@ -405,14 +415,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (currentIndex >= 0 && currentIndex < pages.length - 1) {
                     nextButton.onclick = () => {
                         let nextPage = pages[currentIndex + 1];
-                    
+
                         // Ensure correct formatting for GitHub Pages
                         if (isGitHubPages) {
                             nextPage = `/${repoName}/${nextPage}`;
                         } else {
                             nextPage = `/${nextPage}`;
                         }
-                    
+
                         console.log("➡️ Navigating to:", nextPage);
                         window.location.href = nextPage;
                     };
