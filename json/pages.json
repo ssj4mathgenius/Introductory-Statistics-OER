@@ -3,38 +3,18 @@
       "index.html"
   ],
   "1 Start Here": [
-      "1 Start Here/About This Course MCT.html",
-      "1 Start Here/Course Expectations MCT.html",
-      "1 Start Here/Course Schedule MCT.html",
-      "1 Start Here/GeoGebra Embed Codes.html",
-      "1 Start Here/How Can I Get Help MCT.html",
-      "1 Start Here/Instructor Information MCT.html",
-      "1 Start Here/Objectives.html",
-      "1 Start Here/Technology Requirements & Skills MCT.html",
-      "1 Start Here/Testing GeoGebra Embedding.html",
-      "1 Start Here/Using Honorlock for Proctoring.html",
-      "1 Start Here/Video Conference Tips and Guidelines.html"
+      "1 Start Here/About This Course.html",
+      "1 Start Here/GeoGebra Embed Codes.html"
   ],
-  "1 Start Here/Instructor Only Module": [
-      "1 Start Here/Instructor Only Module/Course Accessibility MCT.html",
-      "1 Start Here/Instructor Only Module/Course Developer - How to Use This Template MCT.html",
-      "1 Start Here/Instructor Only Module/How to Contact the Course Developer MCT.html",
-      "1 Start Here/Instructor Only Module/Instructor -How to Use This Template MCT.html",
-      "1 Start Here/Instructor Only Module/Instructor How to Set Up this Course for the New Semester.html",
-      "1 Start Here/Instructor Only Module/Overview of the Process MCT.html",
-      "1 Start Here/Instructor Only Module/Required Documents MCT.html"
-  ],
+
   "2 Unit One Content": [
-      "2 Unit One Content/1 How to Create a Frequency Distributions.html",
-      "2 Unit One Content/1 How to Create Frequency Distributions Lecture Notes.html",
-      "2 Unit One Content/2 How to Create Frequency Histograms.html",
-      "2 Unit One Content/Chapter 2 Lecture Notes.html",
+    "2 Unit One Content/Chapter 1 Lecture Notes.html",  
+    "2 Unit One Content/Chapter 2 Lecture Notes.html",
       "2 Unit One Content/Data Levels of Measurement and Sampling.html",
       "2 Unit One Content/Introductory Terms and Concepts for Statistics.html",
       "2 Unit One Content/Measures of Center.html",
       "2 Unit One Content/Measures of Location.html",
-      "2 Unit One Content/Measures of Variation.html",
-      "2 Unit One Content/Chapter 1 Lecture Notes.html"
+      "2 Unit One Content/Measures of Variation.html"
   ],
   "3 Unit Two Content": [
       "3 Unit Two Content/Addition Rule for Probability.html",
