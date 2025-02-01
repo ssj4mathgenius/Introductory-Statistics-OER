@@ -382,8 +382,17 @@ document.addEventListener("DOMContentLoaded", function () {
             if (prevButton) {
                 if (currentIndex > 0) {
                     prevButton.onclick = () => {
-                        console.log("⬅️ Navigating to previous page:", `/${pages[currentIndex - 1]}`);
-                        window.location.href = `/${pages[currentIndex - 1]}`;
+                        let prevPage = pages[currentIndex - 1];
+                    
+                        // Ensure correct formatting for GitHub Pages
+                        if (isGitHubPages) {
+                            prevPage = `/${repoName}/${prevPage}`;
+                        } else {
+                            prevPage = `/${prevPage}`;
+                        }
+                    
+                        console.log("⬅️ Navigating to:", prevPage);
+                        window.location.href = prevPage;
                     };
                     prevButton.disabled = false;
                 } else {
@@ -395,8 +404,17 @@ document.addEventListener("DOMContentLoaded", function () {
             if (nextButton) {
                 if (currentIndex >= 0 && currentIndex < pages.length - 1) {
                     nextButton.onclick = () => {
-                        console.log("➡️ Navigating to next page:", `/${pages[currentIndex + 1]}`);
-                        window.location.href = `/${pages[currentIndex + 1]}`;
+                        let nextPage = pages[currentIndex + 1];
+                    
+                        // Ensure correct formatting for GitHub Pages
+                        if (isGitHubPages) {
+                            nextPage = `/${repoName}/${nextPage}`;
+                        } else {
+                            nextPage = `/${nextPage}`;
+                        }
+                    
+                        console.log("➡️ Navigating to:", nextPage);
+                        window.location.href = nextPage;
                     };
                     nextButton.disabled = false;
                 } else {
