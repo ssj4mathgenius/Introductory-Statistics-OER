@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructing Dot Plots</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="1 Start Here/About This Course MCT.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>Constructing Dot Plots</h1>
+                        <p>A <strong>dot plot</strong> is a simple visual tool for representing data, where each dot
+                            corresponds to a specific data point.. It effectively displays frequency distributions,
+                            highlighting patterns, peaks, and left/right-skew.&nbsp; Dot plots are ideal for small to
+                            moderately sized datasets in various fields such as education, biology, and economics.&nbsp;
+                        </p>
+                        <h2>Dot Plots</h2>
+                        <!--Definition-->
+                        <div class="definition">
+                            <h3>How do I make a Dot Plot?</h3>
+                            <p>To create a dot plot by hand, follow these steps</p>
+                            <ol>
+                                <li>Draw a horizontal axis to represent the range of values, labeling it appropriately.
+                                </li>
+                                <li>Divide the axis into evenly spaced intervals to cover all data points.</li>
+                                <li>For each value in the dataset, place a dot above its corresponding position on the
+                                    axis,
+                                    stacking dots vertically for repeated values.</li>
+                                <li>Add a title and labels to clarify the data being represented.</li>
+                            </ol>
+                        </div>
+                        <h3 class="example-header"><a href="#example1"></a></h3>
+                        <p>The following data represents the length in centimeters of a sample of 10 white oak leaves.
+                            Make
+                            a dotplot of this data.</p>
+                        <table style="width: auto;">
+                            <caption style="width: max-content; display: table-caption;">Leaf Length Data (in cm)
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" ,="" colspan="2">Length (cm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>17</td>
+                                    <td>18</td>
+                                </tr>
+                                <tr>
+                                    <td>18</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td>19</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>17</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>16</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--Solution Starts Here-->
+                        <div class="solution">
+                            <h4 class="solution-header">Solution</h4>
+                            <p>First, we note that the range of values are from 13 to 19, so we label the \(x\)-from 13
+                                to
+                                19.&nbsp; Since 13 only appears once, we will put one dot above 13.<br><img
+                                    src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_1.png"
+                                    alt="x-axis labeled from 13 to 19.  There is one dot above 13."
+                                    title="x-axis labeled from 13 to 19.  There is one dot above 13." width="400"
+                                    height="233"><br><br>Next, since 15 only appears once, we will put one dot above
+                                15.<br><img
+                                    src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_2.png"
+                                    alt="One dot was added above 15 on the dotplot in addition to the previous dot."
+                                    title="One dot was added above 15 on the dotplot in addition to the previous dot."
+                                    width="399" height="243"><br><br>Next, since 16 appears twice, we will put two dots
+                                above 16.<br><img
+                                    src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_3.png"
+                                    alt="Two dots are added above 16 in addition to the previous dots."
+                                    title="Two dots are added above 16 in addition to the previous dots." width="401"
+                                    height="244"><br><br>Next, since 17 appears 3 times, we will put three dots above
+                                17.<br><img
+                                    src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_3.png"
+                                    alt="Three dots are put above 17 in addition to the previous dots."
+                                    title="Three dots are put above 17 in addition to the previous dots." width="399"
+                                    height="243"><br><br>Next, since 18 appears 2 times, we will put two dots above
+                                18.<br><img
+                                    src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_5.png"
+                                    alt="Two dots are drawn above 18  in addition to the previous dots."
+                                    title="Two dots are drawn above 18  in addition to the previous dots." width="399"
+                                    height="243"><br><br>Finally, since 19 appears once and is the largest data point,
+                                we
+                                will add a dot above 19, and that completes the dotplot.</p>
+                            <p><img src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_6.png"
+                                    alt="A single dot is placed above 19 in addition to the previous dots, and that completes the graph."
+                                    title="A single dot is placed above 19 in addition to the previous dots, and that completes the graph."
+                                    width="399" height="243"><span
+                                    style="font-family: inherit; font-size: 1.25em; font-weight: bold; letter-spacing: 0.025rem;"></span>
+                            </p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!--Solution Ends Here-->
+                        <p>Of course, when doing anything by hand, this introduces human error.&nbsp; Like with our
+                            other
+                            displays, we will use GeoGebra to construct our Dot Plots.&nbsp; In this case, we will use
+                            the
+                            <a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dot Plot
+                                Generator
+                                Tool</a>.&nbsp; Let's use the tool on our next example.
+                        </p>
+                        <h3 class="example-header">Example 2</h3>
+                        <p>A customer service manager wants to evaluate the team's efficiency in responding to support
+                            tickets during peak hours. The response times (in minutes) for 10 randomly selected tickets
+                            are
+                            given in the table below. Make a dot plot of this data.<br><button
+                                onclick="copyToClipboard('supporttimes')">Copy Data to Clipboard</button></p>
+                        <pre style="display: none;" id="supporttimes">Times (minutes)
+                        5.9
+                        4.9
+                        7.6
+                        6.4
+                        5.4
+                        5.7
+                        5.9
+                        5.8
+                        6.2
+                        5.7
+                        </pre>
+                        <table style="width: auto;">
+                            <caption style="display: table-caption; width: max-content;">Response Time to Support
+                                Tickets
+                                (in Minutes)</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" ,="" colspan="2">Response Time (minutes)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5.9</td>
+                                    <td>5.7</td>
+                                </tr>
+                                <tr>
+                                    <td>4.9</td>
+                                    <td>5.8</td>
+                                </tr>
+                                <tr>
+                                    <td>7.6</td>
+                                    <td>6.2</td>
+                                </tr>
+                                <tr>
+                                    <td>6.4</td>
+                                    <td>5.7</td>
+                                </tr>
+                                <tr>
+                                    <td>5.4</td>
+                                    <td>5.9</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--Solution Starts Here-->
+                        <div class="solution">
+                            <h4 class="solution-header">Solution</h4>
+                            <p>Download the data and enter it into the <a href="https://www.geogebra.org/m/svdxyybm"
+                                    target="_blank" rel="noopener">Dot Plot Generator Tool</a>.&nbsp; Close the
+                                Spreadsheet
+                                Tab, and notice that the tool has already put the dots on the graph for you.</p>
+                            <p><img src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_1.png"
+                                    alt="The data from Example 2 is loaded into GeoGebra. The dots are correct, but the x-axis scale is incorrect."
+                                    title="The data from Example 2 is loaded into GeoGebra. The dots are correct, but the x-axis scale is incorrect."
+                                    width="400" height="389"></p>
+                            <p>The dots are correctly placed, but the \(x\)-axis labels start at 4.9 and increase by 1.
+                                This
+                                happens because the Dot Plot Generator defaults to integers. Since the data is rounded
+                                to
+                                one decimal place, select \(0.1\) from the dropdown menu. (Note: Due to an unresolved
+                                bug,
+                                \(0.1\) appears as \(1/10\).) Adjusting this fixes the \(x\)-scale, making all ticks and
+                                labels display correctly.</p>
+                            <p><img src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_2.png"
+                                    alt="Rounding option changed to 0.1. Arrow points to option reads &quot;Adjust this.&quot;"
+                                    title="Rounding option changed to 0.1. Arrow points to option reads &quot;Adjust this.&quot;"
+                                    width="401" height="382"></p>
+                            <p>Title your Dot Plot and \(x\)-axis, and your graph is done.</p>
+                            <p><img src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_3.png"
+                                    alt="Title is Times for 10 Support Tickets. The x-axis label is Time (minutes)."
+                                    title="Title is Times for 10 Support Tickets. The x-axis label is Time (minutes)."
+                                    width="400" height="383"></p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!--Solution Ends Here-->
+                        <h2>Interpreting Dot Plots</h2>
+                        <p>Dot plots give us another way to see the shape of the distribution.&nbsp; But unlike
+                            histograms,
+                            it gives us a way to identity the exact data points that are either unusually small or
+                            unusually
+                            large compared to the other data points.</p>
+                        <p>If we look at the dot plot for <a href="#example1"></a> and draw a curve over it<br><img
+                                src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example1_6_with_curve.png"
+                                alt="The dot plot from <a href=" #example1"></a>. A curve is drawn over it, showing a
+                            skew-left distribution."
+                            title="The dot plot from <a href="#example1"></a>. A curve is drawn over it, showing a
+                            skew-left distribution."
+                            width="399" height="243">&nbsp;<br>we see that since 13 is smaller than the rest of the data
+                            clustered around the peak at 17, and this unusually small data point skews the distribution
+                            to
+                            the left by elongating the left tail.</p>
+                        <p>Similarly, if we draw a curve over the dot plot for example 2<br><img
+                                src="../images/../2%20Frequency%20Distributions%20and%20Their%20Displays/dotplot_example2_3_with_curve.png"
+                                alt="The dot plot from <a href=" #example1"></a>. A curve is drawn over it, showing a
+                            skew-right distribution."
+                            title="The dot plot from <a href="#example1"></a>. A curve is drawn over it, showing a
+                            skew-right distribution."
+                            width="398" height="244"><br><br>we see that since 7.8 is larger than the rest of the data
+                            clustered around the peak approximately 5.6-5.9, and this unusually large data point skews
+                            the
+                            distribution to the right by elongating the left right.</p>
+                        <h3>Note</h3>
+                        <p>We will formally introduce the criteria for when a data point is significantly small or
+                            significantly large later in this course.</p>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

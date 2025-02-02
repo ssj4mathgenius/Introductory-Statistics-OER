@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating Frequency Histograms</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Creating Frequency Histograms</h1>
+    <p>In the previous section, we used tables to summarize the frequency of data points within specific
+        classes. However, humans are naturally drawn to visual representations, which are often more
+        effective than scanning a table of numbers that might seem meaningless. In this section, we will
+        learn how to visualize frequency distributions using frequency histograms. Histograms play a
+        crucial role later in this course, as they help connect the concepts of probability and the area
+        under a curve. Therefore, it’s essential to understand how ts construct and interpret histograms
+        now.</p>
+    <h2>Frequency Histograms</h2>
+    <div class="definition">
+        <h2 class="definition-header">What is a Frequency Histogram?</h2>
+        <p>A <strong>frequency histogram</strong> is a type of bar graph used to visualize the frequency
+            distribution of data. Below are its key features:</p>
+        <ul>
+            <li>The \(x\)-axis represents the data values, with tick marks indicating the class
+                boundaries of the frequency distribution.</li>
+            <li>The \(y\)-axis represents the frequencies of the classes. The scale always starts at 0,
+                but the other tick marks are determined by the data and are used to scale the heights of
+                the bars.</li>
+            <li>Each bar represents a class. The base of the bar spans the range of values for that
+                class, while the height corresponds to the frequency of the class.</li>
+            <li>The bars of successive classes touch each other.</li>
+            <li>If any class has a frequency of \(0\), no bar is drawn for that class.</li>
+        </ul>
+    </div>
+    <p>Traditionally, a student or researcher had to first build a frequency distribution and then
+        construct the frequency histogram from the distribution.&nbsp; Modern statistical programs (and
+        our GeoGebra tools) build the distribution in the background and just display the
+        histogram.&nbsp; Our next example shows how to precisely do this.</p>
+    <div>
+        <div class="example">
+            <h2 class="example-header">Example <span class="example-number"></span></h2>
+            <p>Using the data on Tornado deaths in Tennessee from <a href="#example1"></a> in <a
+                    href="#tornadoExample">How to Create Frequency Distributions</a>, create a
+                Frequency Histogram that has 8 classes.<br><button
+                    onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+            <pre style="display: none;" id="deathdata">year, deaths
+        2023, 17
+        2022, 0
+        2021, 4
+        2020, 27
+        2019, 0
+        2018, 1
+        2017, 0
+        2016, 2
+        2015, 2
+        2014, 2
+        2013, 0
+        2012, 3
+        2011, 32
+        2010, 1
+        2009, 2
+        2008, 31
+        2007, 0
+        2006, 34
+        2005, 0
+        2004, 0
+        2003, 12
+        2002, 17
+        2001, 3
+        2000, 1
+        1999, 12
+        1998, 7
+        1997, 1
+        1996, 0
+        1995, 3
+        1994, 5
+        1993, 1
+        1992, 1
+        1991, 5
+        1990, 0
+        1989, 1
+        1988, 6
+        1987, 0
+        1986, 0
+        1985, 0
+        1984, 1
+        1983, 0
+        1982, 0
+        1981, 0
+        1980, 0
+        1979, 2
+        1978, 0
+        1977, 0
+        1976, 0
+        1975, 3
+        1974, 47
+        1973, 1
+        1972, 0
+        1971, 3
+        1970, 3
+        1969, 0
+        1968, 4
+        1967, 2
+        1966, 0
+        1965, 1
+        1964, 0
+        1963, 4
+        1962, 0
+        1961, 0
+        1960, 0
+        1959, 0
+        1958, 0
+        1957, 0
+        1956, 3
+        1955, 0
+        1954, 0
+        1953, 4
+        1952, 75
+        1951, 0
+        1950, 9
+        </pre>
+            <!-- Solution Wrapper -->
+            <div class="solution">
+                <h2 class="solution-header">Solution</h2>
+                <div class="dontprint">
+                    <p>First, click on the <strong>Copy Data to Clipboard</strong> button and a popup
+                        should appear that indicates the copy was successful.<br><img
+                            src="../images/frequencydistribution_example1_a.png"
+                            alt="Copy Data to Clipboard button highlighted with a confirmation popup saying 'Dataset copied to clipboard' at the top."
+                            title="Copy Data to Clipboard button highlighted with a confirmation popup saying 'Dataset copied to clipboard' at the top."
+                            width="501" height="216"></p>
+                    <p>Next, open the Histogram Generator Tool by clicking on&nbsp;<a
+                            href="https://www.geogebra.org/m/betpufbt" target="_blank"
+                            rel="noopener">this link</a> or by going to the GeoGebra Tools module and
+                        clicking the link provided there.&nbsp; Once Frequency Distribution Tool is
+                        opened, click on the Spreadsheet tab.<br><img
+                            src="../images/frequencydistribution_example1_b.png"
+                            alt="GeoGebra interface showing the Spreadsheet tab highlighted with 'Click Here' annotation."
+                            title="GeoGebra interface showing the Spreadsheet tab highlighted with 'Click Here' annotation."
+                            width="500" height="360"><br>Click on the A1 Cell, and right click to open
+                        up the Context Menu.<br><img
+                            src="../images/frequencydistribution_example1_c.png"
+                            alt="Spreadsheet context menu with 'Paste' highlighted "
+                            title="Spreadsheet context menu with 'Paste' highlighted " width="500"
+                            height="445"><br>Select Paste from the Menu, and the data will copy into the
+                        spreadsheet.&nbsp; (This may take a moment to load.&nbsp; Please be
+                        patient.)<br><img
+                            src="../images/frequencydistribution_example1_d.png"
+                            alt="Spreadsheet view showing 'Year' and 'Direct Fatality' columns populated with data in GeoGebra Calculator Suite."
+                            title="Spreadsheet view showing 'Year' and 'Direct Fatality' columns populated with data in GeoGebra Calculator Suite."
+                            width="500" height="356"><br>Notice that the data in which we are interested
+                        is in column B. Remember this! Click on the Spreadsheet tab to hide the
+                        data.<br><img
+                            src="../images/frequencyhistogram_example1a.png"
+                            alt="Arrow pointing to the Spreadsheet icon with text Click Here indicating where to click."
+                            title="Arrow pointing to the Spreadsheet icon with text Click Here indicating where to click."
+                            width="499" height="219"></p>
+                    <p>Notice that the tool is set by default to column A.&nbsp; If we click on the
+                        dropdown box and select column B, the smallest data point (in this case, 0) will
+                        load into the <strong>Lower Boundary</strong> textbox.&nbsp; &nbsp;Notice that,
+                        like the Frequency Distribution, the&nbsp;<strong>Add an Extra Class</strong>
+                        checkbox is clicked on by default.</p>
+                    <p><img src="../images/frequencyhistogram_example1b.png"
+                            alt="Histogram Generator tool with column B selected and lower boundary set to 0."
+                            title="Histogram Generator tool with column B selected and lower boundary set to 0."
+                            width="500" height="236"></p>
+                    <p>We need to specify either a class width or the number of classes.&nbsp; We saw in
+                        Example 4 in <a
+                            href="#tornadoExample"
+                            target="_blank" rel="noopener">How to Create Frequency Distributions</a>
+                        that if we choose 8 classes, we get a class width of 10.&nbsp; So, let's enter
+                        in 8 for <strong>Class Width</strong>, and 10 will autofill in for the
+                        <strong>Number of Classes</strong>. Notice that the last class does not contain
+                        the maximum value of the data set; therefore, we can uncheck
+                        the&nbsp;<strong>Add an Extra Class</strong> checkbox.&nbsp; If you have
+                        everything set up correctly, the Histogram Generator Tool will look like this.
+                    </p>
+                    <p><img src="../images/frequencyhistogram_example1c.png"
+                            alt="The histogram is generated with number of classes set to 8 and no extra class."
+                            title="The histogram is generated with number of classes set to 8 and no extra class."
+                            width="500" height="448">&nbsp;</p>
+                    <p>Finally, use the textboxes to update at least the title and x-axis label so your
+                        reader knows what data your histogram describes.&nbsp; For my example, I will
+                        also update the y-axis label.</p>
+                    <p><img src="../images/frequencyhistogram_example1d.png"
+                            alt="Title, x-axis, and y-axis of histograms have custom labels."
+                            title="Title, x-axis, and y-axis of histograms have custom labels."
+                            width="501" height="419"></p>
+                    <h5>Interpretation</h5>
+                    <p>The base of the bars indicate which class they belong to.&nbsp; For example, the
+                        base of the second bar is starts at 10 and ends at 20.&nbsp; This represents the
+                        class&nbsp;<strong>10 to 19</strong> in the frequency distribution.&nbsp; The
+                        height of the bar gives the frequency, but it isn't always easy to read an exact
+                        number from the graph.</p>
+                    <p>$$\tag*{\(\blacksquare\)}$$</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Solution Wrapper -->
+        <h2>Relative Frequency Histograms</h2>
+        <p>Each type of frequency distribution can be converted into a histogram.&nbsp; All that changes
+            is the height of the bars and the labels and the values on the \(y\)-axis.&nbsp; For
+            relative frequency histograms, the \(y\)-axis will always start at 0 and end and 1 to
+            represent have 0% to 100% of the data.&nbsp; The next example will show you how to convert
+            our frequency histogram from <a href="#example1"></a> to a relative frequency histogram.</p>
+        <div class="example">
+            <h2 class="example-header">Example <span class="example-number"></span></h2>
+            <p>Using the data on Tornado deaths in Tennessee from <a href="#example1"></a> in <a
+                    href="#tornadoExample"
+                    target="_blank" rel="noopener">How to Create Frequency Distributions</a>, create a
+                Relative Frequency Histogram that has 8 classes.</p>
+            <!--Solution Block-->
+            <div class="solution">
+                <h2 class="solution-header">Solution</h2>
+                <div class="dontprint">
+                    <p>If you don't have the data loaded from <a href="#example1"></a> above, load it now.&nbsp; We
+                        will still have column B selected,&nbsp;<strong>Number of Classes</strong> set
+                        to 8, and unselect the&nbsp;<strong>Add an Extra Class&nbsp;</strong>checkbox.
+                    </p>
+                    <p><img src="../images/frequencyhistogram_example1d.png"
+                            alt="Title, x-axis, and y-axis of histograms have custom labels."
+                            title="Title, x-axis, and y-axis of histograms have custom labels."
+                            width="501" height="419"></p>
+                    <p>All you have to do to convert your \(y\)-axis to relative frequencies is to check
+                        the&nbsp;<strong>Relative Frequencies Checkbox</strong>, and your \(y\)-axis
+                        will update with the correct values.&nbsp; I will also update the \(y\)-axis to
+                        be labeled as "Percentage of Years."</p>
+                    <p><img src="../images/frequencyhistogram_example2.png"
+                            alt="The Relative Frequencies checkbox is selected, labeling the y-axis with relative frequencies."
+                            title="The Relative Frequencies checkbox is selected, labeling the y-axis with relative frequencies."
+                            width="499" height="443"></p>
+                    <h5>Important Note</h5>
+                    <p>If you compare the frequency histogram from <a href="#example1"></a> with this relative
+                        frequency histogram, they are identical except for the labeling of the
+                        \(y\)<span aria-hidden="true"></span>-axis. Both histograms have the same shape,
+                        but the frequency histogram shows the number of data points in each class, while
+                        the relative frequency histogram shows the percentage of data in each class.</p>
+                    <p>$$\tag*{\(\blacksquare\)}$$</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>Cumulative Frequency Histograms</h2>
+    <p>For cumulative frequency histograms, the height of each bar will represent the cumulative
+        frequency of the distribution. Our next example will show you how to create one in the Histogram
+        Generator Tool.</p>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>Using the data on Tornado deaths in Tennessee from <a href="#example1"></a> in <a
+                href="#tornadoExample"
+                target="_blank" rel="noopener">How to Create Frequency Distributions</a>, create a
+            Relative Frequency Histogram that has 8 classes.</p>
+        <!--Solution Block-->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="dontprint">
+                <p>If you don't have the data loaded from <a href="#example1"></a> above, load it now.&nbsp; We will
+                    still have column B selected,&nbsp;<strong>Number of Classes</strong> set to 8, and
+                    unselect the&nbsp;<strong>Add an Extra Class&nbsp;</strong>checkbox.</p>
+                <p><img src="../images/frequencyhistogram_example1d.png"
+                        alt="Title, x-axis, and y-axis of histograms have custom labels."
+                        title="Title, x-axis, and y-axis of histograms have custom labels." width="501"
+                        height="419"></p>
+                <p>All you have to do to convert your \(y\)-axis to cumulative frequencies is to check
+                    the&nbsp;<strong>Cumulative Frequencies Checkbox</strong>, and the heights of your
+                    bars will update.</p>
+                <p><img src="../images/frequencyhistogram_example3.png"
+                        alt="The Cumulative Frequencies checkbox is selected, adjusting the bar heights to show their cumulative frequencies."
+                        title="The Cumulative Frequencies checkbox is selected, adjusting the bar heights to show their cumulative frequencies."
+                        width="499" height="443"></p>
+                <h5>Important Note</h5>
+                <p>If you compare the frequency histogram from <a href="#example1"></a> with this cumulative frequency
+                    histogram, they differ only in bar heights. Both use the same \(y\)-axis labels, but
+                    the frequency histogram shows the number of years in each category, while the
+                    cumulative frequency histogram shows the running total up to that class.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+    <h2>Cumulative Relative Frequency Histograms</h2>
+    <p>For cumulative relative frequency histograms, the height of each bar will represent the running
+        total for the relative frequencies of the distribution. Our next example will show you how to
+        create one in the Histogram Generator Tool.</p>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span></h2>
+        <p>Using the data on Tornado deaths in Tennessee from <a href="#example1"></a> in <a
+                href="#tornadoExample"
+                target="_blank" rel="noopener">How to Create Frequency Distributions</a>, create a
+            Relative Frequency Histogram that has 8 classes.</p>
+        <!--Solution Block-->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="dontprint">
+                <p>If you don't have the data loaded from <a href="#example1"></a> above, load it now.&nbsp; We will
+                    still have column B selected,&nbsp;<strong>Number of Classes</strong> set to 8, and
+                    unselect the&nbsp;<strong>Add an Extra Class&nbsp;</strong>checkbox.</p>
+                <p><img src="../images/frequencyhistogram_example1d.png"
+                        alt="Title, x-axis, and y-axis of histograms have custom labels."
+                        title="Title, x-axis, and y-axis of histograms have custom labels." width="501"
+                        height="419"></p>
+                <p>All you have to do to convert your \(y\)-axis to cumulative relative frequencies is
+                    to select both the&nbsp;<strong>Relative Frequencies Checkbox</strong> and&nbsp;the
+                    <strong>Cumulative Frequencies Checkbox</strong>, and the histogram will update. I
+                    will also update the \(y\)-axis label to read "Percentage of Years."</p>
+                <p><img src="../images/frequencyhistogram_example4.png"
+                        alt="The Relative and Cumulative Frequencies checkboxes are selected."
+                        title="The Relative and Cumulative Frequencies checkboxes are selected"
+                        width="499" height="443"></p>
+                <h5>Important Note</h5>
+                <p>If you compare the cumulative histogram from Example 3 with this relative cumulative
+                    frequency histogram, they are identical except for the labeling of the \(y\)<span
+                        aria-hidden="true"></span>-axis. Both histograms have the same shape, but the
+                    cumulative frequency histogram shows the running total for the number of years,
+                    while the relative cumulative frequency histogram shows running total for the
+                    percentage of data.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

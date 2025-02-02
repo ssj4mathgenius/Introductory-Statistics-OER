@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constructing Stem-and-Leaf Plots</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Constructing Stem-and-Leaf Plots</h1>
+    <p>Stem-and-leaf plots are a simple, effective way to organize and visualize numerical data. They
+        reveal patterns, clusters, and unusually small or large data, making them valuable for
+        understanding distributions. This page covers how to create these plots, handle repeated values,
+        decide on rounding, split stems for clarity, and compare datasets using back-to-back plots.
+        Through examples and explanations, you’ll learn to master stem-and-leaf plots for various data
+        types.&nbsp;</p>
+    <h2>Stem-and-Leaf Plots</h2>
+    <!--Definition -->
+    <div class="definition">
+        <h3>What is a Stem-and-Leaf Plot?</h3>
+        <p>A <strong>stem-and-leaf plot</strong> is a way to organize rounded numerical data by
+            splitting each value into a <strong>stem</strong> (the leading digit(s), such as tens) and a
+            <strong>leaf </strong>(the trailing digit(s), based on the chosen rounding level). For
+            example, if the dataset includes \(32\), \(35\), and \(41\), rounded to the nearest one, the
+            plot would look like: \[ \begin{align*} 3 &amp;\mid 2 \ 5 \ 4 &amp;\mid 1 \end{align*} \]
+            Here, the stem represents the tens, and the leaf represents the ones. The leaf represents
+            the level of rounding, allowing the plot to effectively display and organize data&nbsp;
+        </p>
+        <h4>What if I have two or more data point with the same value?</h4>
+        <p>If the same value shows up more than once in a dataset, it will get a leaf for each time it
+            appears.&nbsp; If we change our example to \(32\), \(35\), \(35\), \(41\), the plot would
+            look like \[ \begin{align*} 3 &amp;\mid 2 \ 5 \ 5 \ 4 &amp;\mid 1 \end{align*} \] and the
+            two 5's represent the fact that 35 showed up twice in the data.</p>
+    </div>
+    <!--End Definition--> <!--Definition -->
+    <div class="definition">
+        <h3>Where should I round my data?</h3>
+        <p>There is a bit of an art to deciding how to create a stem-and-leaf plot. The best stems are
+            those that appear frequently in your data and group it meaningfully.</p>
+        <p>For example, if most of your data falls between 300 and 340, you are likely to have many
+            numbers in the ranges 300–309, 310–319, 320–329, and 330–339. In this case, 30, 31, 32, and
+            33 would be good choices for stems, and the one’s digit would make a good leaf.</p>
+        <p>On the other hand, if most of your data ranges from 500 to 900, you will likely see many
+            numbers in the broader ranges 500–599, 600–699, 700–799, and 800–899. In this case, 5, 6, 7,
+            and 8 would be better choices for stems. By rounding to the nearest 10, the tens digit
+            becomes your leaf.</p>
+        <p>The goal is to create a plot that organizes the data clearly and effectively, without being
+            cluttered or too sparse.</p>
+        <div class="two-columns">
+            <div>
+                <p style="text-align: center;"><strong>Too Clustered</strong></p>
+                <p><img src="../images/clumpedstems.png"
+                        alt="The stems are all in a single row."
+                        title="The stems are all in a single row."
+                        data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+            </div>
+            <div>
+                <p style="text-align: center;"><strong>Good Balance of Leaves</strong></p>
+                <p><img src="../images/goodstems.png"
+                        alt="There are five stems and there are no lines without any leaves."
+                        title="There are five stems and there are no lines without any leaves."
+                        width="153" height="163"
+                        style="display: block; margin-left: auto; margin-right: auto;"></p>
+            </div>
+            <div>
+                <p style="text-align: center;"><strong>Too Spread Out</strong></p>
+                <p><img src="../images/spreadstems.png"
+                        alt="Many stems have no leaves. While some gaps are okay, if most stems are empty, your data is too spread out."
+                        title="Many stems have no leaves. While some gaps are okay, if most stems are empty, your data is too spread out."
+                        width="164" height="320"
+                        style="display: block; margin-left: auto; margin-right: auto;"></p>
+            </div>
+        </div>
+    </div>
+    <!--End Definition-->
+    <h3 class="example-header"><a href="#example1"></a></h3>
+    <p>The following dataset represents the monthly average rainfall (in mm) for a Midwestern town from
+        2018 to 2022. Construct a stem-and-leaf plot for the data, and describe the shape of the
+        distribution.<br><button onclick="copyToClipboard('raindata')">Copy Data to Clipboard</button>
+    </p>
+    <pre style="display: none;" id="raindata">Rainfall (mm)
+                    32
+                    46
+                    53
+                    67
+                    41
+                    78
+                    35
+                    64
+                    52
+                    90
+                    48
+                    73
+                    36
+                    44
+                    50
+                    69
+                    45
+                    80
+                    38
+                    63
+                    55
+                    87
+                    50
+                    76
+                    31
+                    47
+                    54
+                    65
+                    43
+                    74
+                    37
+                    66
+                    50
+                    88
+                    49
+                    72
+                    34
+                    48
+                    52
+                    68
+                    42
+                    79
+                    36
+                    62
+                    53
+                    89
+                    47
+                    75
+                    33
+                    45
+                    51
+                    70
+                    40
+                    77
+                    34
+                    65
+                    54
+                    91
+                    46
+                    74
+                    </pre>
+    <table>
+        <caption>Monthly Rainfall (2018–2022)</caption>
+        <thead>
+            <tr>
+                <th scope="col">Month (2018)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2019)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2020)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2021)</th>
+                <th scope="col">Rainfall (mm)</th>
+                <th scope="col">Month (2022)</th>
+                <th scope="col">Rainfall (mm)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>January</td>
+                <td>32</td>
+                <td>January</td>
+                <td>36</td>
+                <td>January</td>
+                <td>31</td>
+                <td>January</td>
+                <td>34</td>
+                <td>January</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>46</td>
+                <td>February</td>
+                <td>44</td>
+                <td>February</td>
+                <td>47</td>
+                <td>February</td>
+                <td>48</td>
+                <td>February</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>53</td>
+                <td>March</td>
+                <td>50</td>
+                <td>March</td>
+                <td>54</td>
+                <td>March</td>
+                <td>52</td>
+                <td>March</td>
+                <td>51</td>
+            </tr>
+            <tr>
+                <td>April</td>
+                <td>67</td>
+                <td>April</td>
+                <td>69</td>
+                <td>April</td>
+                <td>65</td>
+                <td>April</td>
+                <td>68</td>
+                <td>April</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>May</td>
+                <td>41</td>
+                <td>May</td>
+                <td>45</td>
+                <td>May</td>
+                <td>43</td>
+                <td>May</td>
+                <td>42</td>
+                <td>May</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>June</td>
+                <td>78</td>
+                <td>June</td>
+                <td>80</td>
+                <td>June</td>
+                <td>74</td>
+                <td>June</td>
+                <td>79</td>
+                <td>June</td>
+                <td>77</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>35</td>
+                <td>July</td>
+                <td>38</td>
+                <td>July</td>
+                <td>37</td>
+                <td>July</td>
+                <td>36</td>
+                <td>July</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>August</td>
+                <td>64</td>
+                <td>August</td>
+                <td>63</td>
+                <td>August</td>
+                <td>66</td>
+                <td>August</td>
+                <td>62</td>
+                <td>August</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>September</td>
+                <td>52</td>
+                <td>September</td>
+                <td>55</td>
+                <td>September</td>
+                <td>50</td>
+                <td>September</td>
+                <td>53</td>
+                <td>September</td>
+                <td>54</td>
+            </tr>
+            <tr>
+                <td>October</td>
+                <td>90</td>
+                <td>October</td>
+                <td>87</td>
+                <td>October</td>
+                <td>88</td>
+                <td>October</td>
+                <td>89</td>
+                <td>October</td>
+                <td>91</td>
+            </tr>
+            <tr>
+                <td>November</td>
+                <td>48</td>
+                <td>November</td>
+                <td>50</td>
+                <td>November</td>
+                <td>49</td>
+                <td>November</td>
+                <td>47</td>
+                <td>November</td>
+                <td>46</td>
+            </tr>
+            <tr>
+                <td>December</td>
+                <td>73</td>
+                <td>December</td>
+                <td>76</td>
+                <td>December</td>
+                <td>72</td>
+                <td>December</td>
+                <td>75</td>
+                <td>December</td>
+                <td>74</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution -->
+    <div class="solution">
+        <h3 class="solution-header">Solution</h3>
+        <p>To keep the <a href="https://www.geogebra.org/m/payaagsb" target="_blank"
+                rel="noopener">Stem-and-Leaf Plot Generator</a> running smoothly, it is important to
+            determine the stems and leaves before starting. Since our data ranges from 31 to 91, the
+            most logical choice is to use the tens digit as the stem and the ones digit as the leaf. Set
+            the tool’s rounding to 1, <br><img
+                src="../images/stem_example1_a.png"
+                alt="The rounding is set to the ones digit."
+                title="The rounding is set to the ones digit." width="400" height="299"><br>copy the
+            dataset to your clipboard, and load it into the&nbsp;<a
+                href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf
+                Plot Generator</a>, which will automatically create the plot for you.<br><img
+                src="../images/stem_example1_b.png"
+                alt="The stem and leaf plot is automatically created in the tool."
+                title="The stem and leaf plot is automatically created in the tool." width="397"
+                height="298"></p>
+        <p>The stem-and-leaf plot reveals the shape of the data distribution. Like a histogram, the
+            lengths of the stems show the data’s shape. By rotating the plot \(90^\circ\)
+            counterclockwise, you can visualize the distribution over the tops of the bars. In this
+            case, the plot shows a normal distribution.<br><img
+                src="../images/stem_example1_c.png"
+                alt="The stem-and-leaf plot has a normal distribution."
+                title="The stem-and-leaf plot has a normal distribution." width="251" height="239"></p>
+    </div>
+    <!-- End of Solution-->
+    <h2>Split Stems</h2>
+    <!--Definition -->
+    <div class="definition">
+        <h3>What does it mean to split a stem?</h3>
+        <p>To <strong>split stems</strong> in a stem-and-leaf plot means dividing each stem into smaller
+            groups to spread out the data and make the plot easier to interpret. This is useful when a
+            single stem contains too many leaves, resulting in a cluttered display. Splitting the stem
+            divides it into two rows. The first row contains numbers where the rounded digit is between
+            \(0\) and \(4\), and the second row includes numbers where the rounded digit is between
+            \(5\) and \(9\).</p>
+        <p>For example, if the dataset includes \(32, 34, 35, 36, 37, 38, 39\), a traditional plot would
+            use \(3\) as the stem with all leaves grouped together: \[ 3 \mid 2 \ 4 \ 5 \ 6 \ 7 \ 8 \ 9
+            \] The split plot would look like this: \[ \begin{align*} 3 &amp;\mid 2 \ 4 \\ 3 &amp;\mid
+            5 \ 6 \ 7 \ 8 \ 9 \end{align*} \] In this example, \(32\) and \(34\) are placed in the first
+            row because their ones digits are \(2\) and \(4\). Numbers \(35, 36, 37, 38, 39\) are placed
+            in the second row because their ones digits are \(5, 6, 7, 8, 9\). This method provides a
+            clearer view of the data’s distribution by reducing overcrowding.</p>
+    </div>
+    <!--End Definition--> <!--Definition -->
+    <div class="definition">
+        <h3>When should I split my stems?</h3>
+        <p>You should split stems in a stem-and-leaf plot when...</p>
+        <ul>
+            <li>a single stem has too many leaves, making the plot crowded and difficult to read.</li>
+            <li>precision matters, such as with decimal data or closely spaced values.</li>
+            <li>one stem has significantly more leaves than others.</li>
+        </ul>
+        <p>Whenever the plot feels cluttered or unbalanced, splitting stems is an effective way to make
+            it clearer and more meaningful.</p>
+    </div>
+    <!--End Definition-->
+    <h3 class="example-header">Example 2</h3>
+    <p>The following dataset represents the weights (in kilograms) of items in a shipment. Explain why
+        you should split the stems, and then construct a stem-and-leaf plot with split stems. Describe
+        the shape of the distribution.<br><button onclick="copyToClipboard('weightdata')">Copy Data to
+            Clipboard</button></p>
+    <pre style="display: none;" id="weightdata">Weight (kg)
+                    2.34
+                    2.48
+                    3.57
+                    3.62
+                    3.94
+                    4.02
+                    4.37
+                    4.89
+                    5.01
+                    5.26
+                    5.74
+                    5.93
+                    6.14
+                    6.68
+                    6.91
+                    7.02
+                    2.42
+                    2.56
+                    3.63
+                    3.75
+                    3.98
+                    4.18
+                    4.51
+                    4.93
+                    5.08
+                    5.31
+                    5.81
+                    6.02
+                    6.24
+                    6.72
+                    6.95
+                    7.13
+                    2.30
+                    2.44
+                    3.50
+                    3.60
+                    3.92
+                    4.05
+                    4.40
+                    4.85
+                    5.02
+                    5.25
+                    5.71
+                    5.90
+                    6.11
+                    6.65
+                    6.90
+                    7.03
+                    </pre>
+    <table>
+        <caption>Weights of Items in Shipment</caption>
+        <thead>
+            <tr>
+                <th scope="col" colspan="3">Weight (kg)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2.34</td>
+                <td>2.42</td>
+                <td>2.30</td>
+            </tr>
+            <tr>
+                <td>2.48</td>
+                <td>2.56</td>
+                <td>2.44</td>
+            </tr>
+            <tr>
+                <td>3.57</td>
+                <td>3.63</td>
+                <td>3.50</td>
+            </tr>
+            <tr>
+                <td>3.62</td>
+                <td>3.75</td>
+                <td>3.60</td>
+            </tr>
+            <tr>
+                <td>3.94</td>
+                <td>3.98</td>
+                <td>3.92</td>
+            </tr>
+            <tr>
+                <td>4.02</td>
+                <td>4.18</td>
+                <td>4.05</td>
+            </tr>
+            <tr>
+                <td>4.37</td>
+                <td>4.51</td>
+                <td>4.40</td>
+            </tr>
+            <tr>
+                <td>4.89</td>
+                <td>4.93</td>
+                <td>4.85</td>
+            </tr>
+            <tr>
+                <td>5.01</td>
+                <td>5.08</td>
+                <td>5.02</td>
+            </tr>
+            <tr>
+                <td>5.26</td>
+                <td>5.31</td>
+                <td>5.25</td>
+            </tr>
+            <tr>
+                <td>5.74</td>
+                <td>5.81</td>
+                <td>5.71</td>
+            </tr>
+            <tr>
+                <td>5.93</td>
+                <td>6.02</td>
+                <td>5.90</td>
+            </tr>
+            <tr>
+                <td>6.14</td>
+                <td>6.24</td>
+                <td>6.11</td>
+            </tr>
+            <tr>
+                <td>6.68</td>
+                <td>6.72</td>
+                <td>6.65</td>
+            </tr>
+            <tr>
+                <td>6.91</td>
+                <td>6.95</td>
+                <td>6.90</td>
+            </tr>
+            <tr>
+                <td>7.02</td>
+                <td>7.13</td>
+                <td>7.03</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <p>To keep the <a href="https://www.geogebra.org/m/payaagsb" target="_blank"
+                rel="noopener">Stem-and-Leaf Plot Generator</a> running smoothly, it is important to
+            determine the stems and leaves before starting. Since our data ranges from about 2.3 to 7.1,
+            the most logical choice is to use the ones digit as the stem and the first decimal place as
+            the leaf. Set the tool’s rounding to 0.01,<br><img
+                src="../images/stem_example2_a.png"
+                alt="The rounding set to 0.1." title="The rounding set to 0.1." width="398"
+                height="296">
+        </p>
+        <p>copy the dataset to your clipboard, and load it into the&nbsp;<a
+                href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf
+                Plot Generator</a>, which will automatically create the basic plot for you.<br><img
+                src="../images/stem_example2_b.png"
+                alt="The tool automatically generates a basic stem plot rounded to the nearest 0.1."
+                title="The tool automatically generates a basic stem plot rounded to the nearest 0.1."
+                width="400" height="299"></p>
+        <p>Click on the Split Stems checkbox to expand the stem-and-leaf plot.</p>
+        <p><img src="../images/stem_example2_c.png"
+                alt="The stems are now split." title="The stems are now split." width="402"
+                height="300">
+        </p>
+        <p>By rotating the plot \(90^\circ\) counterclockwise, you can visualize the distribution over
+            the tops of the bars. In this case, the plot shows a skew-right distribution.</p>
+        <p><img src="../images/stem_example2_d.png"
+                alt="The distribution of the weights is skewed right."
+                title="The distribution of the weights is skewed right." width="300" height="201"></p>
+    </div>
+    <!--End Solution-->
+    <h2>Back-to-Back Plots</h2>
+    <p>If we want to compare two sets of data, we can make
+        a&nbsp;<strong>back-to-back</strong>&nbsp;<strong>stem-and-leaf plot</strong>.&nbsp; In this
+        setup, the stems will be up the middle.&nbsp; The leaves of the first dataset are to the right
+        of the stems. &nbsp;The leaves of the second dataset appear to the left of the stems, written in
+        reverse order for comparison. Back-to-back stem-and-leaf plots may have split stems.</p>
+    <p>In the example below, notice how the stems are shared between the datasets, with leaves for one
+        dataset on the right and leaves for the other on the left.</p>
+    <p><img src="../images/btbexample.png"
+            alt="Example of a Back-to-Back Stem Plot" title="Example of a Back-to-Back Stem Plot"
+            width="259" height="273" style="display: block; margin-left: auto; margin-right: auto;"></p>
+    <h3 class="example-header">Example 3</h3>
+    <p>The following datasets represent the ages of participants in two different training
+        programs.&nbsp;</p>
+    <ul>
+        <li><strong>Part A</strong>: Create a Stem-and-Leaf Plot and compare the shapes of the two
+            distributions.</li>
+        <li><strong>Part B</strong>: Split the stems and compare the shapes again.&nbsp; Then compare
+            this stem-and-leaf plot to the original one and explain how splitting the stems gives you a
+            more detailed view of the distribution of both datasets.</li>
+    </ul>
+    <p><button onclick="copyToClipboard('programdata')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="programdata">Age (Program A), Age (Program B)
+                    20.5, 22.4
+                    23.6, 27.3
+                    25.4, 29.8
+                    26.9, 31.6
+                    28.1, 33.5
+                    29.2, 35.2
+                    30.5, 36.8
+                    31.1, 38.6
+                    31.9, 40.7
+                    32.7, 35.6
+                    40.1, 43.7
+                    43.5, 45.2
+                    46.9, 47.8
+                    51.4, 50.3
+                    57.3, 54.9
+                    62.8, 59.2
+                    31.1, 63.4
+                    31.9, 34.6
+                    32.7, 36.9
+                    33.5, 42.1
+                    </pre>
+    <table style="width: auto;">
+        <caption style="width: max-content;">Ages of Participants in Programs A and B</caption>
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">Age (Program A)</th>
+                <th scope="col" colspan="2">Age (Program B)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>20.5</td>
+                <td>40.1</td>
+                <td>22.4</td>
+                <td>43.7</td>
+            </tr>
+            <tr>
+                <td>23.6</td>
+                <td>43.5</td>
+                <td>27.3</td>
+                <td>45.2</td>
+            </tr>
+            <tr>
+                <td>25.4</td>
+                <td>46.9</td>
+                <td>29.8</td>
+                <td>47.8</td>
+            </tr>
+            <tr>
+                <td>26.9</td>
+                <td>51.4</td>
+                <td>31.6</td>
+                <td>50.3</td>
+            </tr>
+            <tr>
+                <td>28.1</td>
+                <td>57.3</td>
+                <td>33.5</td>
+                <td>54.9</td>
+            </tr>
+            <tr>
+                <td>29.2</td>
+                <td>62.8</td>
+                <td>35.2</td>
+                <td>59.2</td>
+            </tr>
+            <tr>
+                <td>30.5</td>
+                <td>31.1</td>
+                <td>36.8</td>
+                <td>63.4</td>
+            </tr>
+            <tr>
+                <td>31.1</td>
+                <td>31.9</td>
+                <td>38.6</td>
+                <td>34.6</td>
+            </tr>
+            <tr>
+                <td>31.9</td>
+                <td>32.7</td>
+                <td>40.7</td>
+                <td>36.9</td>
+            </tr>
+            <tr>
+                <td>32.7</td>
+                <td>33.5</td>
+                <td>35.6</td>
+                <td>42.1</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <h5>Part A</h5>
+        <p>To keep the <a href="https://www.geogebra.org/m/payaagsb" target="_blank"
+                rel="noopener">Stem-and-Leaf Plot Generator</a> running smoothly, it is important to
+            determine the stems and leaves before starting. Since our data ranges from about 20.5 to
+            63.4, there would be too much variation in the stems used the data rounded to the first
+            decimal place.&nbsp; The most logical choice is to use the tens digit as the stem and the
+            ones digit as the leaf since this will only give us leaves from 2 to 6. Set the tool’s
+            rounding to 1,</p>
+        <p><img src="../images/stem_example1_a.png"
+                alt="The rounding is set to the ones digit."
+                title="The rounding is set to the ones digit." width="400" height="299"></p>
+        <p>copy the dataset to your clipboard, and load it into the&nbsp;<a
+                href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener">Stem-and-Leaf
+                Plot Generator</a>, which will automatically create the basic plot for you.<br><img
+                src="../images/stem_example3_a.png"
+                alt="The stem-and-leaf plot for the first data set."
+                title="The stem-and-leaf plot for the first data set." width="400" height="296"></p>
+        <p>Clicking the&nbsp;<strong>Back-to-Back checkbox</strong> creates the desired stem-and-leaf
+            plot.<br><img
+                src="../images/stem_example3_c.png"
+                alt="The back-to-back stem-and-leaf plot comparing Program A to Program B."
+                title="The back-to-back stem-and-leaf plot comparing Program A to Program B."
+                width="398" height="298"></p>
+        <p>If we look at the distribution of both programs, they appear to be roughly normal with a few
+            higher values.</p>
+        <p><img src="../images/stem_example3_d.png"
+                alt="Both distributions appear to be normal when the stems are not split."
+                title="Both distributions appear to be normal when the stems are not split." width="299"
+                height="214"></p>
+        <h5>Part B</h5>
+        <p>Clicking on the&nbsp;<strong>Split Stems</strong>&nbsp;<strong>checkbox</strong> will update
+            the stem-and-leaf plot.<br><img
+                src="../images/stem_example3_e.png"
+                alt="The back-to-back stem-and-leaf plot using split stems."
+                title="The back-to-back stem-and-leaf plot using split stems." width="402" height="298">
+        </p>
+        <p>Program A looks roughly normal with a few unusually high values, but Program B starts to show
+            a skew to the right.<br><img
+                src="../images/stem_example3_f.png"
+                alt="When the stems are split, Program B starts to show a skew to the right."
+                title="When the stems are split, Program B starts to show a skew to the right."
+                width="300" height="345"></p>
+        <p>While it was clear from the original back-to-back plot that we had values clusters in the
+            thirties, what wasn't clear was how much more extra data we had on the high end in Program B
+            until we split the stems.</p>
+    </div>
+    <!--End Solution-->
+    <h2>Conclusion</h2>
+    <p>Stem-and-leaf plots are a powerful tool for organizing data and identifying patterns. By learning
+        to construct, interpret, and refine these plots using techniques like splitting stems and
+        back-to-back comparisons, you can effectively analyze and communicate data insights.</p>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

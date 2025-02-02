@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating Cumulative Frequency Distributions</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Creating Cumulative Frequency Distributions</h1>
+    <p>Another important concept related to frequency is cumulative frequency, which keeps a
+        running
+        total of frequencies up to a specific value or class.&nbsp; This provides insight into
+        how data
+        accumulates over a specific range of values, and is fundamental in understanding ideas
+        such as
+        median, quartiles, interquartile ranges, computing area under the uniform, normal, and
+        student T
+        curves. By synthesizing raw data into meaningful patterns, cumulative frequency serves
+        as a
+        stepping stone to deeper statistical concepts, emphasizing the relationship between
+        individual
+        data points and their overall context within a dataset.&nbsp;</p>
+    <h2>Cumulative Frequency</h2>
+    <div class="definition">
+        <h2 class="definition-header">What is Cumulative Frequency?</h2>
+        <p><span class="blanked"><strong>Cumulative Frequency</strong></span> is the number of
+            data points that are less than or
+            equal to
+            some given number (not necessarily in the data set).</p>
+    </div>
+    <div class="definition">
+        <h2 class="definition-header">What is a Cumulative Frequency Distribution?</h2>
+        <p>A <strong>cumulative</strong> <strong>frequency distribution</strong> is a table that
+            lists
+            either the raw data or classes in the first column and the corresponding cumulative
+            frequencies in the second column.&nbsp;</p>
+    </div>
+    <div class="dontprint">
+        <div class="definition">
+            <h3>How do I compute Cumulative Frequency?</h3>
+            <p>Let's turn to our Frequency Distribution about tornado deaths in Tennessee from
+                <a href="#example1"></a> in
+                <a href="#tornadoExample"
+                    target="_blank" rel="noopener">How to Create Frequency
+                    Distributions</a>:<br><img src="../images/frequencydistribution_example1_f~.png"
+                    alt="Frequency distribution table with columns Data and Frequency; Data is Qualitative checkbox selected and column B chosen."
+                    title="Frequency distribution table with columns Data and Frequency; Data is Qualitative checkbox selected and column B chosen."
+                    width="402" height="237"><br>Suppose we are interested in the number of
+                years
+                with 3 or
+                fewer deaths. From the frequency distribution, 32 years had 0 deaths, 10 years
+                had 1
+                death,
+                6 years had 2 deaths, and 7 years had 3 deaths. Adding up the number of years
+                gives
+                \[32+10+6+7=55,\] so the cumulative frequency for \(3\) is 55. Therefore, 55
+                years
+                between
+                1950 and 2023 had 3 or fewer tornado-related deaths in Tennessee.&nbsp;
+            </p>
+        </div>
+    </div>
+    <!-- End Definition Wrapper -->
+    <p>While it is good to have an idea of how to compute a cumulative frequency, the multiple
+        manual
+        calculations needed for a cumulative frequency distribution increases the likelihood of
+        a
+        calculation error. In our next example, we will see how to use our GeoGebra tool to
+        create a
+        cumulative frequency distribution.</p>
+    <div class="example">
+        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+        <p>For the data from <a href="#example1"></a> in <a
+                href="#tornadoExample"
+                target="_blank" rel="noopener">How to Create Frequency Distributions</a>, create
+            a
+            cumulative frequency distribution for the raw data.<br><button
+                onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+        <pre style="display: none;" id="deathdata">year, deaths
+            2023, 17
+            2022, 0
+            2021, 4
+            2020, 27
+            2019, 0
+            2018, 1
+            2017, 0
+            2016, 2
+            2015, 2
+            2014, 2
+            2013, 0
+            2012, 3
+            2011, 32
+            2010, 1
+            2009, 2
+            2008, 31
+            2007, 0
+            2006, 34
+            2005, 0
+            2004, 0
+            2003, 12
+            2002, 17
+            2001, 3
+            2000, 1
+            1999, 12
+            1998, 7
+            1997, 1
+            1996, 0
+            1995, 3
+            1994, 5
+            1993, 1
+            1992, 1
+            1991, 5
+            1990, 0
+            1989, 1
+            1988, 6
+            1987, 0
+            1986, 0
+            1985, 0
+            1984, 1
+            1983, 0
+            1982, 0
+            1981, 0
+            1980, 0
+            1979, 2
+            1978, 0
+            1977, 0
+            1976, 0
+            1975, 3
+            1974, 47
+            1973, 1
+            1972, 0
+            1971, 3
+            1970, 3
+            1969, 0
+            1968, 4
+            1967, 2
+            1966, 0
+            1965, 1
+            1964, 0
+            1963, 4
+            1962, 0
+            1961, 0
+            1960, 0
+            1959, 0
+            1958, 0
+            1957, 0
+            1956, 3
+            1955, 0
+            1954, 0
+            1953, 4
+            1952, 75
+            1951, 0
+            1950, 9
+            </pre>
+        <!-- Solution Wrapper -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="dontprint">
+                <p>Load your data into GeoGeobra (see <a href="#example1"></a> of <a
+                        href="#tornadoExample"
+                        target="_blank" rel="noopener">How to Create Frequency Distributions</a>
+                    if you
+                    need a
+                    refresher).</p>
+                <p><img src="../images/frequencydistribution_example1_f~.png"
+                        alt="Frequency distribution table with columns Data and Frequency."
+                        title="Frequency distribution table with columns Data and Frequency."
+                        width="501" height="336"></p>
+                <p>While we can create a relative frequency distribution for the classes, as a
+                    first
+                    example, it
+                    is easier to work with and interpret the rate data.&nbsp; So, we are just
+                    going to
+                    click on
+                    the&nbsp;<strong>Cumulative Frequency Checkbox</strong> to change the second
+                    column
+                    from
+                    frequencies to cumulative frequencies.</p>
+                <p><img src="../images/cumulative_frequency_example1.png"
+                        alt="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                        title="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                        width="500" height="303"></p>
+                <h5>Interpretation</h5>
+                <p>The <strong>Raw</strong> <strong>Data</strong> column gives all the unique
+                    values of
+                    the raw
+                    data, listed from smallest to largest.&nbsp; The <strong>Cumulative
+                        Frequency</strong>
+                    column tells us the number of years where the death total for the year is
+                    less than
+                    or equal
+                    to the value in the Data column.&nbsp; For example, for \(x=17\) deaths, the
+                    cumulative
+                    frequency of 68 indicates that, between 1950 and 2023, there were 68 years
+                    in which
+                    the
+                    number of deaths caused by tornadoes in Tennessee was 17 or fewer.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+    <div class="dontprint">
+        <h2>Relative Cumulative Frequency</h2>
+        <p>Relative cumulative frequency, which integrates the concepts of relative frequency
+            and
+            cumulative
+            frequency, offers a powerful tool for understanding data distributions in a
+            statistical
+            context.
+            It represents the percentage of data points at or below a specific value.&nbsp; When
+            we
+            study
+            area under the normal curve later in this course, we will use both cumulative
+            frequencies and
+            relative cumulative frequencies.</p>
+        <!-- Definition Wrapper -->
+        <div class="definition">
+            <h3>What is Relative Cumulative Frequency?</h3>
+            <p><b>Relative Cumulative Frequency&nbsp;</b>is the percentage of data points that
+                are
+                less than
+                or equal to some given number (not necessarily in the data set).&nbsp; As with
+                relative
+                frequency, we will always express the percentage as a decimal, such as
+                \(0.2934\)
+                instead of
+                \(29.34\)%. Using percentages instead of decimals can cause errors in many of
+                the
+                formulas
+                we will use in this course, as they require values to be expressed as decimals
+                for
+                accurate
+                computation.&nbsp; &nbsp;As a formula, we can express this as \[\text{relative
+                cumulative
+                frequency}=\dfrac{\text{cumulative frequency}}{{n}},\] where \(n\) is the number
+                of
+                data
+                points.</p>
+        </div>
+        <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+        <div class="definition">
+            <h3>What is a Relative Cumulative Frequency Distribution?</h3>
+            <p>A&nbsp;<strong>relative </strong><strong>cumulative</strong> <strong>frequency
+                    distribution</strong> is a table that lists either the raw data or classes
+                in
+                the first
+                column and the corresponding relative cumulative frequencies in the second
+                column.&nbsp;</p>
+        </div>
+        <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+        <div class="definition">
+            <h3>How do I Compute a Relative Cumulative Frequency?</h3>
+            <p>Let's consider our Cumulative Frequency Distribution from <a href="#example1"></a>:<br><img
+                    src="../images/cumulative_frequency_example1.png"
+                    alt="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                    title="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                    width="500" height="303"><br>One useful feature of a cumulative frequency
+                distribution
+                is that the last row provides the total number of data points, which in this
+                case is
+                74.
+                Now, let’s pick a data point, such as 5. To calculate the relative cumulative
+                frequency,
+                divide its cumulative frequency by the total number of data points:
+                \[\dfrac{{61}}{{74}}\approx 0.8243.\] This means that \(82.43\%\) of the years
+                had 5
+                or
+                fewer deaths. As with relative frequency, we always round to four decimal
+                places.&nbsp;</p>
+        </div>
+        <!--End Definition Wrapper-->
+        <p>While it is good to have an idea of how to compute a relative cumulative frequency,
+            the
+            multiple
+            manual calculations needed for a cumulative frequency distribution increases the
+            likelihood of a
+            calculation error. In our next example, we will see how to use our GeoGebra tool to
+            create a
+            cumulative frequency distribution.</p>
+        <h3 class="example-header"> Example <span class="example-number"></span></h3>
+        <p>For the data from <a href="#example1"></a>, create a cumulative relative frequency distribution for
+            the
+            raw
+            data.</p>
+        <!-- Solution Wrapper -->
+        <div class="solution">
+            <h4 class="solution-header">Solution</h4>
+            <p>For the data from <a href="#example1"></a> in <a
+                    href="#tornadoExample"
+                    target="_blank" rel="noopener">How to Create Frequency Distributions</a>,
+            </p>
+            <p>If you are continuing from <a href="#example1"></a>, the Frequency Distribution Tool should like
+                this:</p>
+            <p><img src="../images/cumulative_frequency_example1.png"
+                    alt="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                    title="The cumulative frequency distribution for deaths by tornadoes in Tennessee."
+                    width="500" height="303"></p>
+            <p>We just need to make sure the&nbsp;<strong>Relative Frequencies</strong> checkbox
+                is
+                also
+                checked, and it will change the cumulative frequencies column to relative
+                cumulative
+                frequencies.&nbsp; If you have done this correctly, your tool should look like
+                this:
+            </p>
+            <p><img src="../images/cumulative_frequency_example2.png"
+                    alt="The relative cumulative frequency distribution of the tornado deaths in Tennessee."
+                    title="The relative cumulative frequency distribution of the tornado deaths in Tennessee."
+                    width="500" height="303"></p>
+            <h5>Interpretation</h5>
+            <p>The <strong>Raw Data</strong> column gives all the unique values of the raw data,
+                listed from
+                smallest to largest.&nbsp; The <strong>Relative</strong> <strong>Cumulative
+                    Frequency</strong> column tells us the percentage of years where the death
+                total
+                for the
+                year is less than or equal to the value in the Data column.&nbsp; For example,
+                for
+                \(x=17\)
+                deaths, the relative cumulative frequency of \(0.9189\) indicates that
+                \(91.89%\) of
+                the
+                years between 1950 and 2023 had 17 or fewer deaths.</p>
+            <p>$$\tag*{\(\blacksquare\)}$$</p>
+        </div>
+        <!-- End Solution Wrapper -->
+        <p>Just like relative frequencies, cumulative relative frequencies can be displayed as
+            percentages
+            or side-by-side with cumulative frequencies.</p>
+        <!--Definition Block-->
+        <div class="definition">
+            <h3>Relative Frequency Distribution Options</h3>
+            <h4>Convert To Percentage</h4>
+            <p>If you click on the&nbsp;<strong>Display as Percentages Checkbox, </strong>it
+                will
+                convert
+                the relative cumulative frequencies to cumulative percentages.</p>
+            <p><img src="../images/cumulative_frequency_options1.png"
+                    alt="The relative cumulative frequency distribution with cumulative percentages instead of relative cumulative frequencies."
+                    title="The cumulative relative frequency distribution with percentages instead of relative frequencies."
+                    width="500" height="303"></p>
+            <h4>Compare Frequency to Relative Frequency</h4>
+            <p>If you click on the&nbsp;<strong>Show Relative and Non-Relative
+                    Checkbox</strong>, a
+                third
+                column will be added showing the original cumulative frequencies so you can have
+                the
+                cumulative frequency and relative cumulative frequency data side-by-side.</p>
+            <p><img src="../images/cumulative_frequency_options2.png"
+                    alt="A third column containing the raw cumulative frequencies was added to the cumulative relative frequency distribution."
+                    title="A third column containing the raw cumulative frequencies was added to the cumulative relative frequency distribution."
+                    width="500" height="301"></p>
+            <h4>Both Options</h4>
+            <p>You can also select both options at once to compare cumulative percentages to
+                cumulative
+                frequencies.</p>
+            <p><img src="../images/cumulative_frequency_options3.png"
+                    alt="Both options are checked, allowed comparisons of cumulative percentages and raw cumuluative frequencies."
+                    title="Both options are checked, allowed comparisons of percentages and raw frequencies."
+                    width="500" height="297"></p>
+        </div>
+    </div>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

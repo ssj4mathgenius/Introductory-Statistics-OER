@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating Relative Frequency Distributions</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Creating Relative Frequency Distributions</h1>
+    <p>An important concept related to frequency is <strong>relative frequency</strong>, and it is a
+        foundational concept for several key topics in this course.&nbsp; We will use relative
+        frequencies when discussing cumulative frequencies (discussed below), creating histograms,
+        studying probability and probability distributions, and using statistical inference to
+        discuss
+        population proportions. &nbsp;By connecting data analysis to probability theory and
+        statistical
+        inference, relative frequency serves as a bridge between descriptive and inferential methods
+        in
+        a statistics course.&nbsp;</p>
+    <h2>Relative Frequency Distributions</h2>
+    <!-- Definition Wrapper -->
+    <div class="definition">
+        <h3>What is Relative Frequency?</h3>
+        <p><span class="blanked"><strong>Relative Frequency</strong></span> has two interpretations.
+        </p>
+        <ul>
+            <li>For&nbsp;<strong>raw data</strong>, relative frequency is the percentage of times
+                that a
+                particular value appears in a data set.</li>
+            <li>For <strong>data sorted into classes</strong>, relative frequency is the percentage
+                of
+                data that appear in a given class.</li>
+        </ul>
+        <p>In both cases, the formula for relative frequency is identical:
+            \[\text{relative frequency}=\dfrac{\text{{frequency}}}{{n}},\] where \(n\) is the number of
+            data points in the
+            sample.</p>
+        <p>Notice that this will always give a percentage as a decimal, so we will always write
+            \(0.3947\) instead of \(39.47\)% in this course. &nbsp;Using percentages instead of
+            decimals
+            can cause errors in many of the formulas because most statistical formulas use relative
+            frequencies rather than percentages to ensure accurate calculations. &nbsp;</p>
+    </div>
+    <h4 class="warning">⚠️ Warning ⚠️</h4>
+    <p>Relative frequencies will always yield a number between 0 and 1. If you get a number larger
+        than 1 or a negative number, double check your work because you made a calculation error!
+    </p>
+    <div class="definition">
+        <h3>What is a Relative Frequency Distribution?</h3>
+        <p>A <strong>relative</strong> <strong>frequency distribution</strong> is a table that lists
+            either the raw data or classes in the first column and the corresponding relative
+            frequencies in the second column.</p>
+    </div>
+    <div class="notes-page-break"></div>
+    <div class="definition">
+        <h3>How Do I Compute a Relative Frequency?</h3>
+        <p>Let's consider our Frequency Distribution from Example 4 in <a
+                href="#tornadoExample"
+                target="_blank" rel="noopener">How to Create Frequency Distributions</a>:<br><img
+                src="../images/frequencydistribution_example4a.png"
+                alt="Frequency Distribution with the extra class removed."
+                title="Frequency Distribution with the extra class removed." width="501"
+                height="321"><br>To determine the number of data points, we first choose a class,
+            such
+            as the interval 0 to 9, and note its frequency, which is 64. The relative frequency is
+            found
+            by dividing the class frequency by the total number of year, 74, as follows:
+            \[\dfrac{{64}}{{74}}\approx 0.8649.\] Thus, \(0.8649\) is the relative frequency for 0
+            to
+            10, meaning \(86.49\%\) of the years from 1950 to 2023 had 0 to 10 deaths (excluding
+            10).&nbsp; Note we will always round relative frequency to four decimal places, which is
+            a
+            standard practice in statistics.</p>
+    </div>
+    <!--End Definition Wrapper-->
+    <p>While it is essential to know how to compute a relative frequency, performing multiple manual
+        calculations to create a relative frequency distribution increases the risk of calculation
+        errors. In our next example, we will see how to use our Frequency Distribution Tool to
+        create a
+        relative frequency distribution.</p>
+    <div class="example">
+        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+        <p>According to <a href="https://seer.cancer.gov/statistics-network/" target="_blank"
+                rel="noopener">National Institutes of Health Cancer Statistics</a>, the rate at
+            which men
+            get Colon-Rectal cancer each year (per 100,000 men, rounded to one decimal place) from
+            2000 to
+            2021 is given in the table below.&nbsp; Find the relative frequency distribution for
+            this data
+            if we use a lower class boundary of 35 and a class width of 5.<br><button
+                onclick="copyToClipboard('cancer')">Copy Data to Clipboard</button></p>
+        <pre style="display: none;" id="cancer">Year of Diagnosis,Rate per 100000
+            2000,70.8
+            2001,69.6
+            2002,68.3
+            2003,66.3
+            2004,64.0
+            2005,61.9
+            2006,59.1
+            2007,58.1
+            2008,56.2
+            2009,53.1
+            2010,51.0
+            2011,49.5
+            2012,48.0
+            2013,46.9
+            2014,46.7
+            2015,45.5
+            2016,44.5
+            2017,43.5
+            2018,42.9
+            2019,42.7
+            2020,37.2
+            2021,40.8
+            </pre>
+        <div class="notes-page-break"></div>
+        <table style="width: 100.051%;">
+            <caption>Colon-Rectal Cancer Diagnosis Rates (Per 100,000 Men)</caption>
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 25.1863%;">Year</th>
+                    <th scope="col" style="width: 24.7425%;">Rate</th>
+                    <th scope="col" style="width: 25.1863%;">Year</th>
+                    <th scope="col" style="width: 24.7425%;">Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 25.1863%;">2000</td>
+                    <td style="width: 24.7425%;">70.8</td>
+                    <td style="width: 25.1863%;">2011</td>
+                    <td style="width: 24.7425%;">49.5</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2001</td>
+                    <td style="width: 24.7425%;">69.6</td>
+                    <td style="width: 25.1863%;">2012</td>
+                    <td style="width: 24.7425%;">48.0</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2002</td>
+                    <td style="width: 24.7425%;">68.3</td>
+                    <td style="width: 25.1863%;">2013</td>
+                    <td style="width: 24.7425%;">46.9</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2003</td>
+                    <td style="width: 24.7425%;">66.3</td>
+                    <td style="width: 25.1863%;">2014</td>
+                    <td style="width: 24.7425%;">46.7</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2004</td>
+                    <td style="width: 24.7425%;">64.0</td>
+                    <td style="width: 25.1863%;">2015</td>
+                    <td style="width: 24.7425%;">45.5</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2005</td>
+                    <td style="width: 24.7425%;">61.9</td>
+                    <td style="width: 25.1863%;">2016</td>
+                    <td style="width: 24.7425%;">44.5</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2006</td>
+                    <td style="width: 24.7425%;">59.1</td>
+                    <td style="width: 25.1863%;">2017</td>
+                    <td style="width: 24.7425%;">43.5</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2007</td>
+                    <td style="width: 24.7425%;">58.1</td>
+                    <td style="width: 25.1863%;">2018</td>
+                    <td style="width: 24.7425%;">42.9</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2008</td>
+                    <td style="width: 24.7425%;">56.2</td>
+                    <td style="width: 25.1863%;">2019</td>
+                    <td style="width: 24.7425%;">42.7</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2009</td>
+                    <td style="width: 24.7425%;">53.1</td>
+                    <td style="width: 25.1863%;">2020</td>
+                    <td style="width: 24.7425%;">37.2</td>
+                </tr>
+                <tr>
+                    <td style="width: 25.1863%;">2010</td>
+                    <td style="width: 24.7425%;">51.0</td>
+                    <td style="width: 25.1863%;">2021</td>
+                    <td style="width: 24.7425%;">40.8</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Solution Wrapper -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <p>Load your data into GeoGeobra (see <a href="#example1"></a> of <a
+                        href="#tornadoExample"
+                        target="_blank" rel="noopener">How to Create Frequency Distributions</a> if
+                    you need a
+                    refresher).&nbsp; Make sure to <strong>select
+                        column&nbsp;</strong><strong>B</strong> since
+                    the rates are in that column. Since our data is in decimals, this is a good time
+                    to choose
+                    our lower boundary manually, which is why I gave it to you in the problem.&nbsp;
+                    Enter 35
+                    for the <strong>lower class boundary</strong> and 5 for the&nbsp;<strong>class
+                        width</strong>.&nbsp; Also, make sure the&nbsp;<strong>Deselect if Last Row
+                        Equals
+                        0</strong> checkbox is checked since our classes only go from 35 up to 70
+                    and our larges
+                    data point is 70.8.&nbsp; If you have everything set correctly, your Frequency
+                    Distribution
+                    Tool should look like this.</p>
+                <p><img src="../images/relativefrequencydistribution_example1.png"
+                        alt="The Frequency Distribution Tool with column B selected, lower boundary of 35, and a class width of 5."
+                        title="The Frequency Distribution Tool with column B selected, lower boundary of 35, and a class width of 5."
+                        width="499" height="324"></p>
+                <p>Now that we have this set up correctly, all we have to do is check
+                    the&nbsp;<strong>Relative
+                        Frequencies</strong> checkbox to convert all the frequencies to relative
+                    frequencies.&nbsp; The Frequency Distribution Tool will automatically update the
+                    table.</p>
+                <p><img src="../images/relativefrequencydistribution_example1b.png"
+                        alt="The relative frequencies checkbox has been marked, converting the last column to relative frequencies."
+                        title="The relative frequencies checkbox has been marked, converting the last column to relative frequencies."
+                        width="500" height="316"></p>
+                <h5>Interpretation</h5>
+                <p>The class bin 45–49 has a relative frequency of 0.2773, meaning 27.73% of the
+                    years from 2000
+                    to 2021 had 45–49 men per 100,000 diagnosed with Colon-Rectal Cancer.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+        <div class="dontprint">
+            <p>There are two important options for Relative Frequency Distributions you should be
+                aware of.</p>
+            <!--Definition Block-->
+            <div class="definition">
+                <h2 class="definition-header">Relative Frequency Distribution Options</h2>
+                <h4>Convert To Percentage</h4>
+                <p>If you click on the&nbsp;<strong>Display as Percentages Checkbox, </strong>it
+                    will convert
+                    the relative frequencies to percentages.</p>
+                <p><img src="../images/relativefrequencydistribution_options1.png"
+                        alt="The relative frequency distribution from <a href="#example1"></a> with percentages instead of relative frequencies."
+                        title="The relative frequency distribution from <a href="#example1"></a> with percentages instead of relative frequencies."
+                        width="500" height="303"></p>
+                <h4>Compare Frequency to Relative Frequency</h4>
+                <p>If you click on the&nbsp;<strong>Show Relative and Non-Relative
+                        Checkbox</strong>, a third
+                    column will be added showing the original frequencies so you can have the
+                    frequency and
+                    relative frequency data side-by-side.</p>
+                <p><img src="../images/relativefrequencydistribution_options2.png"
+                        alt="A third column containing the raw frequencies was added to the relative frequency distribution."
+                        title="A third column containing the raw frequencies was added to the relative frequency distribution."
+                        width="500" height="301"></p>
+                <h4>Both Options</h4>
+                <p>You can also select both options at once to compare percentages to frequencies.
+                </p>
+                <p><img src="../images/relativefrequencydistribution_options3.png"
+                        alt="Both options are checked, allowed comparisons of percentages and raw frequencies."
+                        title="Both options are checked, allowed comparisons of percentages and raw frequencies."
+                        width="500" height="297"></p>
+            </div>
+        </div>
+        <p>
+            Even though the computer does most of the heavy lifting for us, it is
+            still important to know how to perform the calculations by hand to make sure there are
+            no errors in
+            the data or output.
+        </p>
+        <div class="notes-page-break"></div>
+        <div class="example">
+            <h2 class="example-header"> Example <span class="example-number"></span></h2>
+            <p>Consider the following frequency distribution for average August temperatures in
+                Nashville,
+                TN.&nbsp; (Source: <a href="https://www.wunderground.com" target="_blank"
+                    rel="noopener">Weather
+                    UnderGround</a>)&nbsp; Find the relative frequency for the class&nbsp;<strong>86
+                    to
+                    88.</strong></p>
+            <table>
+                <caption>Average August Temperature in Nashville, TN (1948-2024)</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Degrees Fahrenheit</th>
+                        <th scope="col">Number of Years</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">80 to 82</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">83 to 85</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">86 to 88</td>
+                        <td>33</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">89 to 91</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">92 to 94</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">95 to 97</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Total</td>
+                        <td>77</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="solution">
+                <h2 class="solution-header">Solution</h2>
+                <div class="inches" data-height="2in"></div>
+                <div class="dontprint">
+                    <p>Since 33 of the 77 years had an average temperature of \(86^\circ\)F to
+                        \(88^\circ\)F, the
+                        relative frequency is \[\dfrac{{33}}{{77}}\approx 0.4286\]</p>
+                    <h5>Interpretation</h5>
+                    <p>In Nashville, TN, 42.86% of the years between 1948 and 2024 experienced an
+                        average August
+                        temperature ranging from \(86^\circ\)F up to but not including
+                        \(89^\circ\)F.</p>
+                    <p>$$\tag*{\(\blacksquare\)}$$</p>
+                </div>
+            </div>
+        </div>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

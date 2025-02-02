@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constructing Bar Graphs</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Constructing Bar Graphs</h1>
+    <p>A&nbsp;<strong>bar graph&nbsp;</strong>uses proportional vertical or horizontal bars to represent
+        the frequency of categorical data.&nbsp; This allows for the quick comparison of different
+        categories of data.&nbsp; A common variation of a bar graph is the&nbsp;<strong>Pareto
+            graph</strong>, which sorts the bars from tallest to shortest.</p>
+    <h2>Bar Graphs</h2>
+    <p>Bar graphs are a powerful tool to visually compare categories of data. To understand how they
+        work, let us explore an example that demonstrates the process of creating a bar graph using our
+        <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart
+            Generator Tool</a>.
+    </p>
+    <h3><a href="#example1"></a></h3>
+    <p>A survey of 100 people was conducted to determine their favorite fast food restaurant among
+        various national brands. The results are summarized in the table below. Using the data, create a
+        bar graph to represent the distribution of responses.<br><button
+            onclick="copyToClipboard('favfastfood')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="favfastfood">FavoriteRestaurant
+    Chick-fil-A
+    McDonald's
+    Domino's
+    Taco Bell
+    McDonald's
+    McDonald's
+    McDonald's
+    Chick-fil-A
+    Wendy's
+    Burger King
+    Burger King
+    Domino's
+    McDonald's
+    Subway
+    Subway
+    KFC
+    KFC
+    Domino's
+    Chipotle
+    Domino's
+    Chipotle
+    Domino's
+    Taco Bell
+    Wendy's
+    Chipotle
+    Burger King
+    Pizza Hut
+    Wendy's
+    Taco Bell
+    Domino's
+    KFC
+    Domino's
+    Chipotle
+    Burger King
+    Chipotle
+    Wendy's
+    Domino's
+    KFC
+    Domino's
+    KFC
+    Subway
+    Chipotle
+    Burger King
+    Subway
+    Wendy's
+    Burger King
+    KFC
+    Wendy's
+    McDonald's
+    Chick-fil-A
+    McDonald's
+    Chick-fil-A
+    Subway
+    Domino's
+    Wendy's
+    Subway
+    Burger King
+    McDonald's
+    Burger King
+    McDonald's
+    Burger King
+    Burger King
+    Subway
+    Wendy's
+    Pizza Hut
+    Taco Bell
+    Burger King
+    Taco Bell
+    Chipotle
+    Pizza Hut
+    Wendy's
+    KFC
+    Subway
+    Subway
+    KFC
+    Taco Bell
+    Chick-fil-A
+    Subway
+    Subway
+    Chipotle
+    Taco Bell
+    Domino's
+    Chipotle
+    Chipotle
+    Burger King
+    Wendy's
+    Wendy's
+    Taco Bell
+    Wendy's
+    McDonald's
+    Pizza Hut
+    Wendy's
+    McDonald's
+    Taco Bell
+    Burger King
+    Subway
+    Domino's
+    Taco Bell
+    Domino's
+    McDonald's
+    </pre>
+    <table style="width: auto;">
+        <caption style="display: table-caption; width: max-content;">Favorite Restaurants</caption>
+        <thead>
+            <tr>
+                <th scope="col" colspan="8">Response from Survey</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Chick-fil-A</td>
+                <td>McDonald's</td>
+                <td>Domino's</td>
+                <td>Taco Bell</td>
+                <td>McDonald's</td>
+                <td>McDonald's</td>
+                <td>McDonald's</td>
+                <td>Chick-fil-A</td>
+            </tr>
+            <tr>
+                <td>Wendy's</td>
+                <td>Burger King</td>
+                <td>Burger King</td>
+                <td>Domino's</td>
+                <td>McDonald's</td>
+                <td>Subway</td>
+                <td>Subway</td>
+                <td>KFC</td>
+            </tr>
+            <tr>
+                <td>KFC</td>
+                <td>Domino's</td>
+                <td>Chipotle</td>
+                <td>Domino's</td>
+                <td>Chipotle</td>
+                <td>Domino's</td>
+                <td>Taco Bell</td>
+                <td>Wendy's</td>
+            </tr>
+            <tr>
+                <td>Chipotle</td>
+                <td>Burger King</td>
+                <td>Pizza Hut</td>
+                <td>Wendy's</td>
+                <td>Taco Bell</td>
+                <td>Domino's</td>
+                <td>KFC</td>
+                <td>Domino's</td>
+            </tr>
+            <tr>
+                <td>Chipotle</td>
+                <td>Burger King</td>
+                <td>Chipotle</td>
+                <td>Wendy's</td>
+                <td>Domino's</td>
+                <td>KFC</td>
+                <td>Domino's</td>
+                <td>KFC</td>
+            </tr>
+            <tr>
+                <td>Subway</td>
+                <td>Chipotle</td>
+                <td>Burger King</td>
+                <td>Subway</td>
+                <td>Wendy's</td>
+                <td>Burger King</td>
+                <td>KFC</td>
+                <td>Wendy's</td>
+            </tr>
+            <tr>
+                <td>McDonald's</td>
+                <td>Chick-fil-A</td>
+                <td>McDonald's</td>
+                <td>Chick-fil-A</td>
+                <td>Subway</td>
+                <td>Domino's</td>
+                <td>Wendy's</td>
+                <td>Subway</td>
+            </tr>
+            <tr>
+                <td>Burger King</td>
+                <td>McDonald's</td>
+                <td>Burger King</td>
+                <td>McDonald's</td>
+                <td>Burger King</td>
+                <td>Burger King</td>
+                <td>Subway</td>
+                <td>Wendy's</td>
+            </tr>
+            <tr>
+                <td>Pizza Hut</td>
+                <td>Taco Bell</td>
+                <td>Burger King</td>
+                <td>Taco Bell</td>
+                <td>Chipotle</td>
+                <td>Pizza Hut</td>
+                <td>Wendy's</td>
+                <td>KFC</td>
+            </tr>
+            <tr>
+                <td>Subway</td>
+                <td>Subway</td>
+                <td>KFC</td>
+                <td>Taco Bell</td>
+                <td>Chick-fil-A</td>
+                <td>Subway</td>
+                <td>Subway</td>
+                <td>Chipotle</td>
+            </tr>
+            <tr>
+                <td>Taco Bell</td>
+                <td>Domino's</td>
+                <td>Chipotle</td>
+                <td>Chipotle</td>
+                <td>Burger King</td>
+                <td>Wendy's</td>
+                <td>Wendy's</td>
+                <td>Taco Bell</td>
+            </tr>
+            <tr>
+                <td>Wendy's</td>
+                <td>McDonald's</td>
+                <td>Pizza Hut</td>
+                <td>Wendy's</td>
+                <td>McDonald's</td>
+                <td>Taco Bell</td>
+                <td>Burger King</td>
+                <td>Subway</td>
+            </tr>
+            <tr>
+                <td>Domino's</td>
+                <td>Taco Bell</td>
+                <td>Domino's</td>
+                <td>McDonald's</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution Starts Here-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <p>Copy the data to the clipboard, and load it into the <a
+                href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie
+                Chart Generator Tool</a>. The tool should automatically generate the bar graph by
+            default since the data is located in column A. If you load a data set where your information
+            is not in A, you will have to change the drop box to the appropriate column.</p>
+        <p><img src="../images/bargraph_example1a.png"
+                alt="A bar graph of the survey data on favorite fast food restaurant."
+                title="A bar graph of the survey data on favorite fast food restaurant." width="401"
+                height="360"></p>
+        <p>Just add in your title and labels, and you are done.&nbsp; I left the \(x-axis\) label blank
+            in my example since it is clear all the bars are food food restaurants.</p>
+        <p><img src="../images/bargraph_example1b.png"
+                alt="The title and y-axis have been labeled.  The x-axis label was removed."
+                title="The title and y-axis have been labeled.  The x-axis label was removed."
+                width="398" height="353"></p>
+        <h5>Note</h5>
+        <p>For this tool, I have enabled pan and zoom since labels on the \(x\)-axis can be bunched
+            together and hard to read.&nbsp; This is something I plan to fix in the future.&nbsp; For
+            now, you can use your mouse, touch pad, or fingers to change the size of the graph.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    <!--Solution Ends Here-->
+    <h2>Pareto Graphs</h2>
+    <p>While standard bar graphs are effective at showcasing categorical data, there are scenarios where
+        sorting the bars in descending order provides greater clarity. This leads us to a specialized
+        variation of the bar graph known as the <strong>Pareto graph</strong>.&nbsp; Let's modify
+        <a href="#example1"></a> so that all the bars are sorted from largest to smallest..</p>
+    <h3 class="example-header">Example 2</h3>
+    <p>Create a Pareto graph of the preferred fast food restaurants from <a href="#example1"></a>.</p>
+    <!--Solution Starts Here-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <p>Here is our result from <a href="#example1"></a>.</p>
+        <p><img src="../images/bargraph_example1b.png"
+                alt="The title and y-axis have been labeled.  The x-axis label was removed."
+                title="The title and y-axis have been labeled.  The x-axis label was removed."
+                width="398" height="353"></p>
+        <p>Notice there is a checkbox next to <strong>Bar Graph Checkbox</strong>&nbsp;that says
+            <strong>Pareto</strong>. Click on this box, and it will sort the bars for you.
+        </p>
+        <p><img src="../images/bargraph_example1c.png"
+                alt="The Pareto box has been check, and the bars are now sorted from longest to shortest."
+                title="The Pareto box has been check, and the bars are now sorted from longest to shortest."
+                width="400" height="366"></p>
+        <p>Notice that is is now easier to see that, in this sample, the most popular restaurants are
+            Wendy's, Domino's,a nd Burger King, and the least popular are KFC, Chick-fil-A, and Pizza
+            Hunt.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    <!--Solution Ends Here-->
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating Frequency Distributions</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1> Creating Frequency Distributions</h1>
+    <p>Distributions hold significant theoretical importance in this course. In this section, we
+        will
+        learn about frequency distributions, which is the basis for many of the concepts in this
+        course.
+    </p>
+    <h2>Basics of Frequency Distributions</h2>
+    <!-- Definition Wrapper -->
+    <div class="definition">
+        <h2 class="definition-header">What is Frequency?</h2>
+        <p>The <span class="blanked"><strong>frequency</strong></span> of a data point is how many
+            times it shows up in the data set.
+        </p>
+    </div>
+    <!-- End Definition Wrapper --> <!-- Definition Wrapper -->
+    <div class="definition">
+        <h2 class="definition-header">What is a Frequency Distribution?</h2>
+        <p>A <span class="blanked"><strong>frequency distribution</strong></span> is a table that
+            lists either the raw data or
+            classes (defined below) in the first column and corresponding frequency in the second
+            column.</p>
+    </div>
+    <!-- End Definition Wrapper -->
+    <p>Before the advent of computers, frequency distributions were created manually. This involved
+        arranging the data in ascending order and marking a tally for each occurrence of a data
+        point.
+        This process was prone to human errors such as miscounting or duplicating data.</p>
+    <p>With computers, creating frequency distributions is much faster and more accurate than manual
+        methods. Tools like SPSS, MATLAB, and Excel offer advanced statistical capabilities.
+        GeoGebra,
+        however, is particularly useful in educational settings because of its simplicity and
+        visualization tools, making it ideal for students learning this process.</p>
+    <div class="example" id="tornadoExample">
+        <h2 class="example-header"> Example <span class="example-number" id="example1"></span></h2>
+        <p>The data on the number of deaths directly caused by tornadoes in Tennessee is given in
+            the table
+            below. Create a Frequency Distribution for the number of deaths per year.<br><button
+                onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+        <pre style="display: none;" id="deathdata">year, deaths
+            2023, 17
+            2022, 0
+            2021, 4
+            2020, 27
+            2019, 0
+            2018, 1
+            2017, 0
+            2016, 2
+            2015, 2
+            2014, 2
+            2013, 0
+            2012, 3
+            2011, 32
+            2010, 1
+            2009, 2
+            2008, 31
+            2007, 0
+            2006, 34
+            2005, 0
+            2004, 0
+            2003, 12
+            2002, 17
+            2001, 3
+            2000, 1
+            1999, 12
+            1998, 7
+            1997, 1
+            1996, 0
+            1995, 3
+            1994, 5
+            1993, 1
+            1992, 1
+            1991, 5
+            1990, 0
+            1989, 1
+            1988, 6
+            1987, 0
+            1986, 0
+            1985, 0
+            1984, 1
+            1983, 0
+            1982, 0
+            1981, 0
+            1980, 0
+            1979, 2
+            1978, 0
+            1977, 0
+            1976, 0
+            1975, 3
+            1974, 47
+            1973, 1
+            1972, 0
+            1971, 3
+            1970, 3
+            1969, 0
+            1968, 4
+            1967, 2
+            1966, 0
+            1965, 1
+            1964, 0
+            1963, 4
+            1962, 0
+            1961, 0
+            1960, 0
+            1959, 0
+            1958, 0
+            1957, 0
+            1956, 3
+            1955, 0
+            1954, 0
+            1953, 4
+            1952, 75
+            1951, 0
+            1950, 9
+            </pre>
+        <table style="width: 100.029%; height: 741.528px;">
+            <caption>Direct Fatalities Caused by Tornadoes in Tennessee (1950-2023)</caption>
+            <thead>
+                <tr style="height: 39.0278px;">
+                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                    <th scope="col" style="width: 18.233%; height: 39.0278px;">Direct Fatalities
+                    </th>
+                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                    <th scope="col" style="width: 18.233%; height: 39.0278px;">Direct Fatalities
+                    </th>
+                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                    <th scope="col" style="width: 18.233%; height: 39.0278px;">Direct Fatalities
+                    </th>
+                    <th scope="col" style="width: 6.74155%; height: 39.0278px;">Year</th>
+                    <th scope="col" style="width: 18.2374%; height: 39.0278px;">Direct Fatalities
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2023</td>
+                    <td style="width: 18.233%; height: 39.0278px;">17</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">2004</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1985</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1966</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2022</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">2003</td>
+                    <td style="width: 18.233%; height: 39.0278px;">12</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1984</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1965</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">1</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2021</td>
+                    <td style="width: 18.233%; height: 39.0278px;">4</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">2002</td>
+                    <td style="width: 18.233%; height: 39.0278px;">17</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1983</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1964</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2020</td>
+                    <td style="width: 18.233%; height: 39.0278px;">27</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">2001</td>
+                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1982</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1963</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">4</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2019</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">2000</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1981</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1962</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2018</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1999</td>
+                    <td style="width: 18.233%; height: 39.0278px;">12</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1980</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1961</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2017</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1998</td>
+                    <td style="width: 18.233%; height: 39.0278px;">7</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1979</td>
+                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1960</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2016</td>
+                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1997</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1978</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1959</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2015</td>
+                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1996</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1977</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1958</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2014</td>
+                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1995</td>
+                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1976</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1957</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2013</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1994</td>
+                    <td style="width: 18.233%; height: 39.0278px;">5</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1975</td>
+                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1956</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">3</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2012</td>
+                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1993</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1974</td>
+                    <td style="width: 18.233%; height: 39.0278px;">47</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1955</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2011</td>
+                    <td style="width: 18.233%; height: 39.0278px;">32</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1992</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1973</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1954</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2010</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1991</td>
+                    <td style="width: 18.233%; height: 39.0278px;">5</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1972</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1953</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">4</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2009</td>
+                    <td style="width: 18.233%; height: 39.0278px;">2</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1990</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1971</td>
+                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1952</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">75</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2008</td>
+                    <td style="width: 18.233%; height: 39.0278px;">31</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1989</td>
+                    <td style="width: 18.233%; height: 39.0278px;">1</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1970</td>
+                    <td style="width: 18.233%; height: 39.0278px;">3</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1951</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">0</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2007</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1988</td>
+                    <td style="width: 18.233%; height: 39.0278px;">6</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1969</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1950</td>
+                    <td style="width: 18.2374%; height: 39.0278px;">9</td>
+                </tr>
+                <tr style="height: 39.0278px;">
+                    <td style="width: 6.74155%; height: 39.0278px;">2006</td>
+                    <td style="width: 18.233%; height: 39.0278px;">34</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1987</td>
+                    <td style="width: 18.233%; height: 39.0278px;">0</td>
+                    <td style="width: 6.74155%; height: 39.0278px;">1968</td>
+                    <td style="width: 18.233%; height: 39.0278px;">4</td>
+                    <td style="width: 6.74155%; height: 39.0278px;"></td>
+                    <td style="width: 18.2374%; height: 39.0278px;"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Solution Wrapper -->
+        <div class="solution">
+            <h4 class="solution-header">Solution</h4>
+            <p>First, click on the <strong>Copy Data to Clipboard</strong> button and a popup should
+                appear
+                that indicates the copy was successful.<br><img
+                    src="../images/frequencydistribution_example1_a.png"
+                    alt="Copy Data to Clipboard button highlighted with a confirmation popup saying 'Dataset copied to clipboard' at the top."
+                    title="Copy Data to Clipboard button highlighted with a confirmation popup saying 'Dataset copied to clipboard' at the top."
+                    width="501" height="216"></p>
+            <p>Next, open the Frequency Distribution Tool by clicking on <a
+                    href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">this
+                    link</a>
+                or by going to the GeoGebra Tools module and clicking the link provided there.&nbsp;
+                Once
+                Frequency Distribution Tool is opened, click on the Spreadsheet tab.<br><img
+                    src="../images/frequencydistribution_example1_b.png"
+                    alt="GeoGebra interface showing the Spreadsheet tab highlighted with 'Click Here' annotation."
+                    title="GeoGebra interface showing the Spreadsheet tab highlighted with 'Click Here' annotation."
+                    width="500" height="360"><br>Click on the A1 Cell, and right click to open up
+                the
+                Context Menu.<br><img src="../images/frequencydistribution_example1_c.png"
+                    alt="Spreadsheet context menu with 'Paste' highlighted "
+                    title="Spreadsheet context menu with 'Paste' highlighted " width="500"
+                    height="445"><br>Select Paste from the Menu, and the data will copy into the
+                spreadsheet.&nbsp; (This may take a moment to load.&nbsp; Please be
+                patient.)<br><img src="../images/frequencydistribution_example1_d.png"
+                    alt="Spreadsheet view showing 'Year' and 'Direct Fatality' columns populated with data in GeoGebra Calculator Suite."
+                    title="Spreadsheet view showing 'Year' and 'Direct Fatality' columns populated with data in GeoGebra Calculator Suite."
+                    width="500" height="356"><br>Notice that the data in which we are interested is
+                in
+                column B. Remember this! Click on the Spreadsheet tab to hide the data.<br><img
+                    src="../images/frequencydistribution_example1_e~.png"
+                    alt="Arrow pointing to the Spreadsheet icon with text Click Here Again indicating where to click."
+                    title="Arrow pointing to the Spreadsheet icon with text Click Here Again indicating where to click."
+                    width="500" height="335"></p>
+            <p>Notice that the tool is set by default to column A.&nbsp; If we click on the dropdown
+                box and
+                select column B, we will get the correct frequency distribution.</p>
+            <p><img src="../images/frequencydistribution_example1_f~.png"
+                    alt="Frequency distribution table with columns Data and Frequency."
+                    title="Frequency distribution table with columns Data and Frequency." width="501"
+                    height="336"></p>
+            <h5>Interpretation</h5>
+            <p>The numbers in the Data column represents the number of deaths reported.&nbsp; The
+                numbers in
+                the Frequency column represent the number of years from 1950 to 2023 that reported
+                that many
+                deaths.&nbsp; For example, 10 years between 1950 and 2023 reported 1 death caused by
+                Tornadoes in Tennessee.</p>
+            <h5>Note</h5>
+            <p>The Title and Column headers as customizable.&nbsp; Just click on the corresponding
+                TextBox
+                in the lower right corner, delete the existing text, and enter what you want to
+                appear
+                there.&nbsp; There is also a slider above the title so you can adjust the horizontal
+                positioning of the title.</p>
+            <p><img src="../images/frequencydistribution_example1_g.png"
+                    alt="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                    title="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                    width="500" height="295"></p>
+            <p>$$\tag*{\(\blacksquare\)}$$</p>
+        </div>
+    </div>
+    <div class="notes-page-break"></div>
+    <!-- <div class="inches" data-height="1.5in"></div> -->
+    <h2>Frequency Distribution Classes</h2>
+    <p>While the above example works well for small data sets, many frequency distributions group
+        data into
+        ranges instead of listing each unique data point individually. For example, we could group
+        the
+        number of years with 0 to 4 deaths, 5 to 9 deaths, 10 to 14 deaths, and so on, creating a
+        row in
+        the table for each of these ranges. These ranges are called&nbsp;<span
+            class="blanked"><strong>classes</strong></span> or
+        <strong>bins</strong> in statistics.
+    </p>
+    <p>If we created a new class for every 5 deaths, we would need 16 classes to cover all the data,
+        from the class with 0 to 4 deaths up to the class with 75 to 79 deaths. However, this
+        approach
+        would lead to many classes with a frequency of 0, which makes the table less meaningful. To
+        avoid this, we want the ranges to be large enough to capture meaningful data but not so
+        small
+        that most classes are empty.</p>
+    <p>So how many classes should we have? As the researcher, you get to decide, but a good rule of
+        thumb is to aim for 5 to 20 classes. Once the number of classes is chosen, the formula below
+        will help determine the range for each class, known as the <strong>class width</strong>.</p>
+    <!-- Definition Wrapper -->
+    <div class="definition">
+        <h2 class="definition-header">Calculating Class Width?</h2>
+        <p>The <span class="blanked"><strong>class width</strong></span> is the size of each class
+            and determines how data is
+            grouped. It is calculated using the formula&nbsp; \[ \text{class width } =
+            \dfrac{\text{largest value } - \text{smallest value }}{\text{number of classes}}.\]</p>
+        <p>If the result is a decimal, always round <span class="blanked"><strong>up</strong></span>
+            to the next whole number to ensure all data
+            points fit into the intervals. For example, if the calculated width is 9.38, round it up
+            to
+            10. This ensures every data point fits into one of the classes without gaps.</p>
+        <h4>What does this number mean?</h4>
+        <p>The class width measures the difference between the smallest numbers in successive
+            classes.&nbsp; For example, if our first class is from 0 to 4 deaths and our second
+            class is
+            from 5 to 9 deaths, then the class width is 5 since \(5-0=5\).</p>
+        <h4>Can I choose my own class width?</h4>
+        <p>Yes!&nbsp; This formula isn't perfect, and occasionally excludes the maximal data
+            point.&nbsp; Sometimes, you have a preferred width you would like to use.&nbsp; It is up
+            to
+            you!&nbsp; For academic purposes though, we will always use the formula unless a problem
+            requires otherwise.</p>
+    </div>
+    <div class="notes-page-break"></div>
+    <div class="example">
+        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+        <p>Our data from <a href="#example1"></a> range from 0 deaths to 75 deaths.&nbsp; Find the class width that
+            you
+            will need if you want 6 classes.</p>
+        <!-- Solution Wrapper -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1.5in"></div>
+            <div class="dontprint">
+                <p>Using the formula above, we have that
+                    \[\begin{align*}\text{class width } = \dfrac{\text{largest value } -
+                    \text{smallest value }}{\text{number of classes}}=\dfrac{75-0}{{6}}\approx
+                    12.5\end{align*}\]</p>
+                <p>Since our output gave use a decimal, we round it up to the next integer.&nbsp;
+                    Therefore, our class width will be 13.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+    <p>Class widths, along with the minimum value of the data set, define what is known as the
+        <strong>boundary points</strong> of the classes. Boundary points define where one class ends
+        and
+        another class begins.
+    </p>
+    <div class="definition">
+        <h2 class="definition-header">How do I compute the Boundary Points?</h2>
+        <p>The minimum value is typically the first boundary point.&nbsp; &nbsp;To find the other
+            boundary points, keep adding the class width until you get a value that is larger than
+            (but
+            not equal to) the maximal value in our data set.</p>
+        <p>For example, if we wanted a class width of 5 for the classes of tornado deaths and we
+            know the lowest value in our dataset is 0 and the largest value is 75, the boundary
+            points would be <span class="blanked"><strong>0, 5, 10, 15, 20, \(\ldots\), 70, 75,
+                    80.</strong></span></p>
+        <h4>Can I use a number other than the minimum value for the first Boundary Point?</h4>
+        <p>Yes!&nbsp; If you choose your own class size, typically you also choose the first
+            boundary
+            points as well.&nbsp; Just remember to keep adding the class width until you get a
+            number
+            larger than the largest value in the data set.</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+        <p>Our data from <a href="#example1"></a> range from 0 deaths to 75 deaths.&nbsp; Suppose you want your
+            boundary
+            points to start at 7 and have class width 10.&nbsp; Find all the boundary points.</p>
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1.5in"></div>
+            <div class="dontprint">
+                <p>We just start at 7 and keep adding 10 and until we get a number larger than
+                    75.&nbsp; So, the
+                    boundary points starting with 5 are \[7,\qquad 17,\qquad 27,\qquad 37,\qquad
+                    47,\qquad
+                    57,\qquad 67,\qquad 77\]</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+    <p>Calculating boundary points and determining the number of classes is straightforward.
+        However,
+        tallying data points in each class can be tedious and error-prone. Instead, we’ll use our
+        GeoGeobra tool to automate the tallying and format it into a table. The next example
+        demonstrates this process.</p>
+    <div class="example">
+        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+        <p>Using our data from <a href="#example1"></a>, create a frequency distribution with 8 different classes.
+            Write the resulting frequency distribution in the space below.</p>
+        <!-- Solution Wrapper -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1.5in"></div>
+            <div class="dontprint">
+                <p>The data from <a href="#example1"></a> should already be loaded into GeoGebra.&nbsp; If it is
+                    not, follow
+                    the steps at the beginning of <a href="#example1"></a> to load the data in and selected option
+                    B from the
+                    dropbox.&nbsp; Your tool should like this:</p>
+                <p><img src="../images/frequencydistribution_example1_g.png"
+                        alt="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                        title="Frequency distribution table of tornado deaths in Tennessee (1950-2023) with deaths and years columns."
+                        width="502" height="296"></p>
+                <p>The first thing we are going to do is check the&nbsp;<strong>Organize Data into
+                        Classes</strong> checkbox.&nbsp; Multiple new options
+                    appear:&nbsp;<strong>Lower Class
+                        Boundary</strong>,&nbsp;<strong>Class Width</strong>,&nbsp;<strong>Number of
+                        Classes</strong><strong>.</strong> (There are other new options; we can
+                    ignore them for
+                    now.)&nbsp; Notice that the Lower Class Boundary will automatically become the
+                    value of the
+                    smallest data point; the class width and number of classes will default to
+                    preassigned
+                    values.</p>
+                <p>First, we want to calculate the class width.&nbsp; Since we want 8 classes, we
+                    will enter
+                    that value info class width.&nbsp; Notice that the number of classes will update
+                    to 10 since
+                    \[\begin{align*}\text{class width }&amp;= \dfrac{\text{largest value } -
+                    \text{smallest
+                    value }}{\text{number of classes}}\&amp;=\dfrac{75-0}{{8}}\&amp;\approx
+                    9.375\&amp;=10 (\text{rounding up})\end{align*}\]&nbsp;</p>
+                <p><img src="../images/frequencydistribution_example4~.png"
+                        alt="Frequency distribution with 8 classes, a class width of 10, showing frequencies for tornado deaths in Tennessee."
+                        title="Frequency distribution with 8 classes, a class width of 10, showing frequencies for tornado deaths in Tennessee."
+                        width="502" height="296"></p>
+                <p>Now, if you count up the number of classes in the table, notice there is 11
+                    different
+                    classes.&nbsp; Why is there 11 when Number of Classes is set to 10?&nbsp;
+                    Sometimes, the
+                    largest value of the data set gets counted in the last classes when it should
+                    not be.&nbsp;
+                    It is a quirk of how GeoGebra defined class frequencies. (And there is nothing
+                    wrong with
+                    that the method GeoGebra uses; it is just uses a slightly different definition
+                    of boundary
+                    points than was given above.)&nbsp; To correct for this difference, the
+                    Frequency
+                    Distribution Tool automatically adds an extra class by default.&nbsp; But,
+                    notice that the
+                    last class has a frequency of 0. That means the extra class wasn't needed, and
+                    we can click
+                    on the click on the&nbsp;<strong>Deselect if Last Row Equals
+                        0&nbsp;</strong>checkbox to
+                    remove it. Therefore, we get the following frequency distribution.</p>
+                <p><img src="../images/frequencydistribution_example4a.png"
+                        alt="Frequency Distribution with the extra class removed."
+                        title="Frequency Distribution with the extra class removed." width="501"
+                        height="321">
+                </p>
+                <h5>Interpretation</h5>
+                <p>The&nbsp;<strong>classes/bins</strong> column gives the range of values for each
+                    class,
+                    always including the first number in the range and excluding the last number in
+                    the
+                    range.&nbsp; For example, the interval <strong>0 to 9</strong> means the range
+                    of values
+                    starting at 0 and include all the numbers up to but not including 10.&nbsp; The
+                    Frequency,
+                    as before, tells us the number of years whose number of deaths fell into that
+                    range of
+                    values.&nbsp; For example, there were 64 years that had 0 up to 10 deaths.</p>
+                <h5>What is the Use Interval Notation Checkbox?</h5>
+                <p>Some instructors/websites prefer to use interval notation to describe the
+                    classes/bins.&nbsp;
+                    For example,&nbsp;<strong>0 to 9</strong> would be written as $[0,10)$ since
+                    $[0$ indicates
+                    to start and include 0 and $10)$ means to include all the number up to but not
+                    including
+                    10.&nbsp; When the check box is clicked, the frequency distribution looks like
+                    this.</p>
+                <p><img src="../images/frequencydistribution_example4c.png"
+                        alt="The classes/bins column is now expressed in interval notation."
+                        title="The classes/bins column is now expressed in interval notation."
+                        width="501" height="320"></p>
+                <p>For future examples, we will not use interval notation.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+    <p>Before we close this section out, we will give a demonstration of creating a frequency
+        distribution that starts at a value other than the minimum value of the data set.</p>
+    <div class="example">
+        <h2 class="example-header"> Example <span class="example-number"></span></h2>
+        <p>Use our data set from <a href="#example1"></a> to create a frequency distribution that starts at 7 and
+            has a
+            class width of 6.</p>
+        <!-- Solution Wrapper -->
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1.5in"></div>
+            <div class="dontprint">
+                <p>The data from <a href="#example1"></a> should already be loaded into GeoGebra.&nbsp; If it is
+                    not, follow
+                    the steps at the beginning of <a href="#example1"></a> to load the data in and selected option
+                    B from the
+                    dropbox.&nbsp; Your tool should like this if you've been doing all the examples
+                    in order on
+                    this page:</p>
+                <p><img src="../images/frequencydistribution_example4c.png"
+                        alt="The classes/bins column is now expressed in interval notation."
+                        title="The classes/bins column is now expressed in interval notation."
+                        width="501" height="320"></p>
+                <p>All we need to do enter 7 for the Lower Class Boundary and 8 for the Class
+                    Width.&nbsp;
+                    Notice the Number of Classes will update to 10 since&nbsp; &nbsp;Since we want 8
+                    classes, we
+                    will enter that value info class width.&nbsp; Notice that the number of classes
+                    will update
+                    to 10 since \[\begin{align*}\text{number of classes}&amp;= \dfrac{\text{largest
+                    value } -
+                    \text{smallest value }}{\text{class width}}\&amp;=\dfrac{75-0}{{6}}\&amp;\approx
+                    12.5\&amp;=13 (\text{rounding up})\end{align*}\]&nbsp;</p>
+                <p><img src="../images/frequencydistribution_example5.png"
+                        alt="Frequency distribution with lower boundary 7 and class width 6."
+                        title="Frequency distribution with lower boundary 7 and class width 6."
+                        width="502" height="296"></p>
+            </div>
+        </div>
+    </div>
+    <h4 class="warning">⚠️ Warning ⚠️</h4>
+    <p>Notice there are 13 classes, and each has a class width of 6.&nbsp; But, notice that the last
+        class has a 0 in it.&nbsp; The best Frequency Distributions always have a non-zero frequency
+        for the first and last class.&nbsp; Also, notice we missed all the years that had fewer than
+        7 deaths.&nbsp; So, while this is a correctly constructed Frequency Distribution, it is also
+        a bit misleading.&nbsp;</p>
+    <p>That is why it is better to let the Lower Boundary be the <span class="blanked"><strong>minimum
+                value</strong></span> of the dataset. We get all the
+        data, and our first and last classes will be a non-zero frequency ensuring that our table is
+        just the right size for the number of classes or class width we desire.</p>
+    <!-- End Solution Wrapper -->
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

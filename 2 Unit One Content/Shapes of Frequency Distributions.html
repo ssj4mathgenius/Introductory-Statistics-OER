@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shapes of Frequency Distributions</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Shapes of Frequency Distributions</h1>
+    <p>The shape of a frequency distribution is an important geometric property that we can determine
+        from
+        its histogram. While there is one shape that is the most important, we will discuss other shapes
+        at
+        various points during the course. Before diving into the different shapes, it is helpful to
+        understand some important concepts related to distributions: the <strong>peak</strong> and
+        <strong>tails</strong> of a distribution.
+    </p>
+    <h2>The Peak and Tails</h2>
+    <!-- Div Definition-->
+    <div class="definition">
+        <h2 class="definition-header">What is the peak of a distribution?</h2>
+        <p>The <strong>peak of a distribution</strong> refers to the tallest part of the histogram,
+            which
+            represents the class(es) with the most data. Distributions can have one peak
+            (<strong>unimodal</strong>)
+            <img class="img-centered" src="../images/normal1.png"
+                alt="Example of a unimodal distribution with a peak at class the 70 to 79."
+                title="Example of a unimodal distribution with a peak at class the 70 to 79."
+                width="401" height="226"><br><br>multiple peaks
+            (<strong>multimodal</strong>)
+            <img class="img-centered" src="../images/bimodal1.png"
+                alt="Example of multimodal distribution with two peaks."
+                title="Example of multimodal distribution with two peaks." width="399" height="249">
+        <div class="notes-page-break"></div>
+        or no distinct peak (<strong>uniform</strong>).
+        <img class="img-centered" src="../images/uniform1.png" alt="Example of a Uniform Distribution."
+            title="Example of a Uniform Distribution." width="399" height="260">
+        </p>
+    </div>
+    <div class="definition">
+        <h2 class="definition-header">What are the tails of a distribution?</h2>
+        <p>The <strong>tails of a distribution</strong> refer to the far ends of the distribution, which
+            represent the extreme values of the dataset. For example, in a histogram, the left tail
+            corresponds to the smallest values, while the right tail corresponds to the largest values.
+            The
+            shape and behavior of the tails can provide insights into the skewness and outliers of the
+            distribution.</p>
+        <p><img src="../images/normal2.png"
+                alt="Example of a unimodal distribution. Areas corresponding to its peak and tails are labeled."
+                title="Example of a unimodal distribution. Areas corresponding to its peak and tails are labeled."
+                width="400" height="242"></p>
+    </div>
+    <!-- End Div Definition-->
+    <p>Now that we understand the tails and peaks of frequency distributions, let’s examine the
+        different
+        shapes these distributions can take.</p>
+    <div class="notes-page-break"></div>
+    <h2>Shapes of Distributions</h2>
+    <!--Definition-->
+    <div class="definition">
+        <h2 class="definition-header">What are the different shapes of frequency distributions?</h2>
+        <p>There are three main shapes: <strong>unimodal</strong>, <strong>multimodal</strong>, and
+            <strong>uniform</strong>.
+        </p>
+        <h4>Unimodal Distributions (single-peak)</h4>
+        <p>Unimodal distributions have a single peak in their histogram. These distributions begin with
+            small bars that gradually increase in height from left to right, reach a peak at one class,
+            and
+            then decrease from left to right. There are three subtypes of unimodal
+            distributions:&nbsp;<strong>normal</strong>, <strong>skew-left</strong>, and
+            <strong>skew-right</strong>.
+        </p>
+        <p></p>
+        <h5>Normal Distributions (aka bell-shaped distribution)</h5>
+        <p>This is the most important distribution in the course. A <span class="blanked"><strong>normal
+                    distribution</strong></span> is symmetric,
+            with
+            its peak located at the center. Its tails extend in both directions but gradually get closer
+            and
+            closer to the horizontal axis as they extend outward. The shape of the histogram for a
+            normal
+            distribution resembles a bell, hence the name "bell-shaped distribution."</p>
+        <p><img class="img-centered" src="../images/normal2.png"
+                alt="The red curve drawn over the histogram looks like a bell."
+                title="The red curve drawn over the histogram looks like a bell." width="400"
+                height="242">
+        </p>
+        <div class="notes-page-break"></div>
+        <h5>Skew-Left Distributions</h5>
+        <p>A skew-left distribution (also called negatively skewed) is a distribution where the left
+            tail is
+            longer than the right tail. In these distributions, the majority of the data values are
+            concentrated toward the right side of the histogram, with fewer values on the left. This
+            creates
+            a tail that extends toward smaller values.</p>
+        <p><img class="img-centered" src="../images/leftskew.png"
+                alt="Distribution is left-skewed since the left tail is longer than the right tail."
+                title="Distribution is left-skewed since the left tail is longer than the right tail."
+                width="399" height="238"></p>
+        <h5>Skew-Right Distributions</h5>
+        <p>A skew-right distribution (also called positively skewed) is a distribution where the right
+            tail
+            is longer than the left tail. In these distributions, the majority of the data values are
+            concentrated toward the left side of the histogram, with fewer values on the right. This
+            creates
+            a tail that extends toward larger values.</p>
+        <p><img class="img-centered" src="../images/rightskew.png"
+                alt="Distribution is right-skewed because its right tail is longer than its left tail."
+                title="Distribution is right-skewed because its right tail is longer than its left tail."
+                width="401" height="232"></p>
+        <div class="notes-page-break"></div>
+        <h4>Multimodal Distributions (multiple peaks)</h4>
+        <p>Multimodal distributions have multiple peaks in their histogram. A <strong>bimodal
+                distribution</strong> has two peaks, a <strong>trimodal distribution</strong> has three,
+            and
+            anything with four or more peaks is just called a <strong>multimodal distribution</strong>.
+            While we won’t cover multimodal distributions in this course, you may encounter them in
+            advanced
+            statistics courses.&nbsp;</p>
+        <p><img class="img-centered" src="../images/bimodal2.png"
+                alt="A bimodal distribution with its two peaks labeled."
+                title="A bimodal distribution with its two peaks labeled." width="400" height="249"></p>
+        <h4>Uniform Distributions</h4>
+        <p><span class="blanked"><strong>Uniform distributions</strong></span> have bars that area all
+            approximately the same height (give or take a
+            small
+            margin of error).</p>
+        <p><img class="img-centered" src="../images/uniform2.png"
+                alt="Uniform distribution have bars that are all approximately the same height."
+                title="Uniform distribution have bars that are all approximately the same height."
+                width="399" height="260"></p>
+        <h5>Homework Note</h5>
+        <p>Homework problems will ask you to identify the shape of a distribution. The easiest way to
+            determine the shape is by drawing or visualizing a curve through the tops of the bars, as
+            shown
+            in the examples above for unimodal and multimodal distributions.&nbsp; If the distribution
+            is
+            uniform, all the bars should be approximately the same height.</p>
+    </div>
+    <!-- End Div Definition-->
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

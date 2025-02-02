@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating Pie Graphs</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Creating Pie Graphs</h1>
+    A&nbsp;<strong>pie chart</strong> is statistical graph that divides a circle up into slices whose
+    area is proportional to the quantity of the category that it represents.&nbsp; Pie charts are useful
+    when there are a small selection of categories, and the categories represent every possible option
+    under consideration.<br>
+    <h2>Conditions for Using a Pie Graph</h2>
+    <!--Begin Explaination Block-->
+    <div class="definition">
+        <h3>When can I use a Pie Graph?</h3>
+        <p>A pie graph should only be used under two specific conditions.</p>
+        <ol>
+            <li>Data can belong to exactly one of the categories.</li>
+            <li>Categories must be parts of a whole.</li>
+        </ol>
+        <p>For example, the following table summarizes the numbers of stars a particular store was rated
+            during a 30-day period.</p>
+        <table style="width: auto; height: 234.643px;">
+            <caption style="display: table-caption; width: max-content;">Store Ratings Over a 30-Day
+                Period</caption>
+            <thead>
+                <tr style="height: 39.1071px;">
+                    <th scope="col">Star Rating</th>
+                    <th scope="col">Percentage of Ratings</th>
+                    <th scope="col">Number of Transactions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="height: 39.1071px;">
+                    <td>1 Star</td>
+                    <td>5%</td>
+                    <td>16,468</td>
+                </tr>
+                <tr style="height: 39.1071px;">
+                    <td>2 Stars</td>
+                    <td>12%</td>
+                    <td>39,522</td>
+                </tr>
+                <tr style="height: 39.1071px;">
+                    <td>3 Stars</td>
+                    <td>8%</td>
+                    <td>26,348</td>
+                </tr>
+                <tr style="height: 39.1071px;">
+                    <td>4 Stars</td>
+                    <td>20%</td>
+                    <td>65,871</td>
+                </tr>
+                <tr style="height: 39.1071px;">
+                    <td>5 Stars</td>
+                    <td>55%</td>
+                    <td>181,144</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Notice that every category is included, and since each transaction can only be associated to
+            exact one rating, the first condition is satisfied as well.&nbsp; This data could be made
+            into a Pie Chart.</p>
+    </div>
+    <!--End Explaination Block-->At times, categorical data may be provided that violates one or both of
+    these conditions. In some cases, it might still be possible to use a pie graph, but not always. In
+    our first example, the data cannot be used to create a pie graph.&nbsp;
+    <h3 class="example-header"><a href="#example1"></a></h3>
+    <p>Suppose a survey asked which department(s) a customer purchased from during their last visit to a
+        particular department store. Explain why a pie graph cannot be used with the following set of
+        data.</p>
+    <table style="width: auto;">
+        <caption style="display: table-caption; width: max-content;">Percentage of People Shopping in
+            Each Department</caption>
+        <thead>
+            <tr>
+                <th scope="col">Department</th>
+                <th scope="col">Percentage of Shoppers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Electronics</td>
+                <td>40%</td>
+            </tr>
+            <tr>
+                <td>Clothing</td>
+                <td>55%</td>
+            </tr>
+            <tr>
+                <td>Groceries</td>
+                <td>70%</td>
+            </tr>
+            <tr>
+                <td>Home &amp; Furniture</td>
+                <td>30%</td>
+            </tr>
+            <tr>
+                <td>Sports &amp; Outdoors</td>
+                <td>25%</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution Block Start-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <p>Although this data is helpful for stores to understand which departments are shopped the
+            most, it is not suitable for creating a pie chart because customers may shop in multiple
+            departments during a single visit. Unless the question is reframed to something like, "Which
+            department was your primary reason for visiting the store today?" customers will fall into
+            more than one category, violating the first condition.</p>
+        <p>Moreover, this categorical overlap causes the percentages to exceed 100%, which goes against
+            the pie chart's requirement that all parts must represent a complete whole.</p>
+        <p>Additionally, the list of departments may not be exhaustive (e.g., common departments like
+            "Health &amp; Beauty" are missing), further disqualifying this data for use in a pie chart.
+        </p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    <!-- End Solution Block-->Many examples can be resolved by simply adding an "Other" category to the
+    results. This is commonly done because some responses may not fit within the predefined categories
+    in a survey question. Furthermore, when several categories have relatively small percentages
+    compared to the main categories, they are often grouped into an "Other" option. This approach
+    highlights the primary categories and makes the overall results easier to interpret, avoiding an
+    overload of less significant choices for the reader. Our next example demonstrates an appropriate
+    use of adding an "Other" category.&nbsp;
+    <h3 class="example-header">Example 2</h3>
+    <p>A survey was conducted to determine the types of activities people prefer on weekends. A survey
+        of 1,303 people were asked, "Which of the follow activities do you most prefer to do on
+        weekends? Please select only one option." The percentages were tabulated and reported in the
+        table below. Explain why a pie chart cannot be created from this table and suggest how it could
+        be corrected.</p>
+    <table style="width: auto;">
+        <caption style="display: table-caption; width: max-content;">Weekend Activity Preferences
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Activity</th>
+                <th scope="col">Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Watching Movies</td>
+                <td>25%</td>
+            </tr>
+            <tr>
+                <td>Outdoor Sports</td>
+                <td>30%</td>
+            </tr>
+            <tr>
+                <td>Reading Books</td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <td>Cooking</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>Playing Video Games</td>
+                <td>8%</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution Block Start-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <p>Since the survey question required respondents to select only one activity, we know that each
+            person belongs to exactly one category. However, the given percentages only add up to 98%,
+            which indicates that 2% of the data is missing. To fix this, we can create an "Other"
+            category to account for the remaining 2%. This ensures that all respondents are included,
+            and the categories represent parts of a whole. Once the missing data is accounted for, the
+            conditions for creating a pie chart are satisfied.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    <!-- End Solution Block-->
+    <p>As a final example, it is important to recognize that some reported data may have percentages
+        that add up to 100%, but the categories are not truly parts of a whole. This often confuses
+        students who focus too heavily on the idea that the parts must sum to 100%, without recognizing
+        that the data does not represent components of a single whole. The next example provides a
+        demonstration of this type of situation.</p>
+    <h3 class="example-header">Example 3</h3>
+    <p>A survey asked 1,373 respondents, "What is your favorite activity while on vacation?" The
+        responses are summarized in the following table. Explain why this data cannot be used to make a
+        Pie Chart.</p>
+    <table style="width: auto;">
+        <caption style="display: table-caption; width: max-content;">Vacation Activity Preferences
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Activity</th>
+                <th scope="col">Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sightseeing</td>
+                <td>35%</td>
+            </tr>
+            <tr>
+                <td>Relaxing on the beach</td>
+                <td>25%</td>
+            </tr>
+            <tr>
+                <td>Trying local cuisine</td>
+                <td>20%</td>
+            </tr>
+            <tr>
+                <td>Outdoor adventures (e.g., hiking or kayaking)</td>
+                <td>10%</td>
+            </tr>
+            <tr>
+                <td>Shopping</td>
+                <td>10%</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution Starts Here-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <p>In this case, the percentages add up to 100%, but the responses do not represent parts of a
+            whole. Each response reflects a preference for a single activity while on vacation, rather
+            than components of a unified whole. For example, another type of response could have been
+            attending cultural events such as festivals, concerts, or other local performances.</p>
+        <p>This illustrates how data that sums to 100% can still fail to meet the criteria of
+            representing parts of a single whole.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    <!--Solution Ends Here-->
+    <h2>Constructing Pie Graphs</h2>
+    <p>Pie Graphs are difficult to draw well by hand and are exclusively made with technology nowadays.
+        The following example will show you how to build Pie Charts with the <a
+            href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart
+            Generator Tool</a>.</p>
+    <h3 class="example-header">Example 4</h3>
+    <p>A survey of 50 patients who were recently discharged from a hospital were asked to rate their
+        overall stay at the hospital as Very Satisfied, Satisfied, Neutral, Dissatisfied, or Very
+        Dissatisfied. The results are complied in the table below.&nbsp; Use the <a
+            href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Chart
+            Generator Tool</a> to make a Pie Graph of the data.<br><button
+            onclick="copyToClipboard('satisfaction')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="satisfaction">Satisfaction Level
+    Neutral
+    Neutral
+    Very Dissatisfied
+    Satisfied
+    Satisfied
+    Dissatisfied
+    Satisfied
+    Neutral
+    Very Dissatisfied
+    Very Dissatisfied
+    Dissatisfied
+    Neutral
+    Dissatisfied
+    Neutral
+    Satisfied
+    Satisfied
+    Neutral
+    Dissatisfied
+    Very Satisfied
+    Satisfied
+    Dissatisfied
+    Satisfied
+    Neutral
+    Neutral
+    Neutral
+    Dissatisfied
+    Neutral
+    Neutral
+    Neutral
+    Neutral
+    Satisfied
+    Neutral
+    Satisfied
+    Very Satisfied
+    Dissatisfied
+    Very Dissatisfied
+    Neutral
+    Dissatisfied
+    Neutral
+    Dissatisfied
+    Very Dissatisfied
+    Dissatisfied
+    Neutral
+    Satisfied
+    Dissatisfied
+    Satisfied
+    Neutral
+    Satisfied
+    Neutral
+    Neutral
+    </pre>
+    <table style="width: auto;">
+        <caption style="display: table-caption; width: max-content;">Satisfaction Levels from Survey
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col" colspan="5">Satisfaction Levels</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Neutral</td>
+                <td>Neutral</td>
+                <td>Very Dissatisfied</td>
+                <td>Satisfied</td>
+                <td>Satisfied</td>
+            </tr>
+            <tr>
+                <td>Dissatisfied</td>
+                <td>Satisfied</td>
+                <td>Neutral</td>
+                <td>Very Dissatisfied</td>
+                <td>Very Dissatisfied</td>
+            </tr>
+            <tr>
+                <td>Dissatisfied</td>
+                <td>Neutral</td>
+                <td>Dissatisfied</td>
+                <td>Neutral</td>
+                <td>Satisfied</td>
+            </tr>
+            <tr>
+                <td>Satisfied</td>
+                <td>Neutral</td>
+                <td>Dissatisfied</td>
+                <td>Very Satisfied</td>
+                <td>Satisfied</td>
+            </tr>
+            <tr>
+                <td>Dissatisfied</td>
+                <td>Satisfied</td>
+                <td>Neutral</td>
+                <td>Neutral</td>
+                <td>Neutral</td>
+            </tr>
+            <tr>
+                <td>Dissatisfied</td>
+                <td>Neutral</td>
+                <td>Neutral</td>
+                <td>Neutral</td>
+                <td>Neutral</td>
+            </tr>
+            <tr>
+                <td>Satisfied</td>
+                <td>Neutral</td>
+                <td>Satisfied</td>
+                <td>Very Satisfied</td>
+                <td>Dissatisfied</td>
+            </tr>
+            <tr>
+                <td>Very Dissatisfied</td>
+                <td>Neutral</td>
+                <td>Dissatisfied</td>
+                <td>Neutral</td>
+                <td>Dissatisfied</td>
+            </tr>
+            <tr>
+                <td>Very Dissatisfied</td>
+                <td>Dissatisfied</td>
+                <td>Neutral</td>
+                <td>Satisfied</td>
+                <td>Dissatisfied</td>
+            </tr>
+            <tr>
+                <td>Satisfied</td>
+                <td>Neutral</td>
+                <td>Satisfied</td>
+                <td>Neutral</td>
+                <td>Neutral</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--Solution Starts Here-->
+    <div class="solution">
+        <h4 class="solution-header">Solution</h4>
+        <p>First, load the data into the <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank"
+                rel="noopener">Bar and Pie Chart Generator Tool</a> and note that the tool automatically
+            generates a bar graph by default.&nbsp; Click on the&nbsp;<strong>Pie Graph
+                Checkbox</strong>, and it switches the graph to a Pie Graph.&nbsp;</p>
+        <p><img src="../images/piegraph_example1a.png"
+                alt="A pie graph of the satisfaction rates for a recent hospital visit."
+                title="A pie graph of the satisfaction rates for a recent hospital visit." width="400"
+                height="311"></p>
+        <p>Since there are no units attached to our data, we can delete the text from the units
+            textbox.&nbsp; We also give the pie chart a title, and our pie chart is complete.</p>
+        <p><img src="../images/piegraph_example1b.png"
+                alt="A title have been added to the pie graph."
+                title="A title have been added to the pie graph." width="400" height="322"></p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    <!--Solution Ends Here-->
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>
