@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Syllabus for Introductory Statistics</title>
+    <title></title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Bootstrap CDN CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Optional Bootstrap theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
@@ -19,7 +20,6 @@
     <!-- Custom Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- CSS Stylesheets Used in Course Content Pages -->
@@ -34,6 +34,53 @@
             <div class="row bottom-md">
                 <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
                     <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+
                         <h1 class="text-center">Introductory Statistics Syllabus</h1>
                         <h2 class="text-center">Math 1530 C05 (CRN 12330)</h2>
                     </header>
@@ -150,8 +197,16 @@
                         have plenty of time to get this complete. So while there is no participation points for physical
                         attendance, it is important to attend class so you know what content you need to be working on
                         and to do any in-class quizzes we may have during the week.</p>
-                        <p><strong>Discussion Board:</strong> At times the instructor may make use of the "discussion" tool in Online Campus. You can find discussion board topics under "Assignments" then "Discussion" on the top navigation bar. The discussion tool is always used for any classes that are <strong>online</strong> or <strong>hybrid</strong>, but may also be utilized for other courses at the instructor's discretion. Make sure to follow class announcements to ensure you aren't missing any discussion board posts.</p>
-                        <p><strong>Projects:</strong> Introductory Statistics courses may assign a project to do during the course of the semester. Make sure to follow class announcements to see if the instructor plans to have a semester statistics project. </p>
+                    <p><strong>Discussion Board:</strong> At times the instructor may make use of the "discussion" tool
+                        in Online Campus. You can find discussion board topics under "Assignments" then "Discussion" on
+                        the top navigation bar. The discussion tool is always used for any classes that are
+                        <strong>online</strong> or <strong>hybrid</strong>, but may also be utilized for other courses
+                        at the instructor's discretion. Make sure to follow class announcements to ensure you aren't
+                        missing any discussion board posts.
+                    </p>
+                    <p><strong>Projects:</strong> Introductory Statistics courses may assign a project to do during the
+                        course of the semester. Make sure to follow class announcements to see if the instructor plans
+                        to have a semester statistics project. </p>
                     <p><strong>Weekly Checks, Discussion, and Projects make up 5% of your grade</strong>.</p>
 
                     <h2>Quizzes</h2>
@@ -167,7 +222,8 @@
                         the due date for a 15% late penalty. If there is some reason you do have to miss an exam, please
                         make arrangements <strong>before</strong> the exam happens so you can get an extension.
                         <strong>Each test is 10% of your final grade.</strong> <strong>The final exam is a comprehensive
-                            test worth 25% of your final grade.</strong></p>
+                            test worth 25% of your final grade.</strong>
+                    </p>
 
                     <h2>Bonus Points</h2>
                     <p>You can obtain bonus points in the course by doing various activities around campus, the STEM
@@ -176,7 +232,8 @@
                         your regular unit tests (test 1, 2 or 3). Bonus points CANNOT be applied to the final exam. You
                         will save your bonus points up till the end of the semester and let me know then which of the 3
                         exams you want your points on. You can split the points you have accumulated in any way you
-                        desire.</p>
+                        desire.
+                    </p>
 
                     <h2>Deadlines</h2>
                     <p>This course is not self paced. You will have deadlines that must be followed to be successful.
@@ -349,12 +406,19 @@
                         <li>Course name and I.D. for which you require assistance.</li>
                         <li>A complete description of the problem for which you require assistance.</li>
                     </ul>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
                 </div>
             </div>
         </main>
     </div>
     <!-- jQuery local fallback (Bootstrap Dependency) -->
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap CDN JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
