@@ -42,8 +42,20 @@ function copyToClipboard(preID) {
 function copyCodeToClipboard(elementId, message = "Code copied to clipboard ready to be pasted into MyOpenMath!") {
     var copyText = document.getElementById(elementId);
     if (copyText) {
+        // Get the text content and split it into lines
+        var lines = copyText.value.split("\n");
+
+        // Trim whitespace from each line and remove empty lines
+        var trimmedText = lines.map(line => line.trim()).filter(line => line !== "").join("\n");
+
+        // Temporarily set the cleaned text into the textarea for copying
+        copyText.value = trimmedText;
         copyText.select();
         document.execCommand("copy");
+
+        // Restore the original value (in case it's needed later)
+        copyText.value = copyText.defaultValue;
+        
         alert(message);
     } else {
         alert("Error: Element not found!");

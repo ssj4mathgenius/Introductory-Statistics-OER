@@ -81,6 +81,28 @@
                     <p>Below are copy/pasteable codes that can be used in MyOpenMath for different widgets inside this
                         project.</p>
 
+                    <div style="background-color: #DFF6DD; color: #034732; font-size: 16px; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif; margin-bottom:10px;">
+                        <p
+                            style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
+                            Contains a div element for embedding into MyOpenMath problems to make the "Question Text" area pretty with the following settings:
+                        </p>
+                        <ul>
+                            <li>The &lt;div&gt; uses a light green background (#DFF6DD) with dark green text (#034732) for clarity.</li>
+                            <li>Added padding and rounded corners for a modern, clean design.</li>
+                            <li>The font size is 16px and font stack prioritizes "Roboto", with fallbacks to "Arial" and generic sans-serif fonts.</li>
+                        </ul>
+                        <div style="display: flex; justify-content: center; align-items: center; border: none;">
+                            <button onclick="copyCodeToClipboard('divMyOpenMath')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+                                Copy &lt;div&gt; Element for use in MyOpenMath
+                            </button>
+                        </div>
+                        <textarea id="divMyOpenMath" style="position: absolute; left: -9999px;"><div style="background-color: #DFF6DD; color: #034732; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
+                            <p>Enter Text for the question in this space.</p>
+                        </div>
+                        </textarea>
+                    </div>
+
                     <div class="iframe-copy">
                         <p
                             style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
