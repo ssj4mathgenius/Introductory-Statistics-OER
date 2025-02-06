@@ -500,14 +500,14 @@ mark.highlight {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     .definition {
         background-color: #FFB300; 
         color: #000000;
     }
 
     .solution {
-        background-color: #FF7043; /* Deep orange (dark mode) */
+        background-color: #FF7043; 
         color: #FFFFFF;
     }
 
@@ -515,7 +515,7 @@ mark.highlight {
         background-color: #1565C0;
         color: #FFFFFF;
     }
-}
+} */
 
 .two-columns {
     display: flex;
