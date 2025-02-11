@@ -1,0 +1,26 @@
+ <script>
+    function copyToClipboard(preID) {
+      const pre = document.getElementById(preID);
+      const text = pre.textContent || pre.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Dataset copied to clipboard!');
+      }).catch(err => {
+        console.error('Error copying text: ', err);
+      });
+    }
+ </script>
+<button onclick="copyToClipboard('beatdata')">Copy Data to Clipboard</button></p><pre style="display:none" id="beatdata">Data Set (units)
+$data[0]
+$data[1]
+$data[2]
+$data[3]
+$data[4]
+$data[5]
+$data[6]
+$data[7]
+$data[8]
+$data[9]
+.
+.
+.
+</pre>

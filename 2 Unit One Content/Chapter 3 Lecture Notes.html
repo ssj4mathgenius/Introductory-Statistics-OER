@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descriptive Statistics</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+<br>
+    <h1>Calculating the Mean of a Data Set</h1>
+<p>The <strong>mean</strong>, or <strong>average</strong>, is a fundamental statistical measure that represents the center of a dataset by balancing values above and below it. It is widely used in fields like business, healthcare, and education. This section explains the mean, its formulas, and how to calculate it manually and with technology. Through examples, we will see how the mean helps summarize and interpret data efficiently.</p>
+<h2>Mean</h2>
+<!-- Definition -->
+<div class="definition">
+<h2 class="definition-header">What is the Mean?</h2>
+<p>The <span class="blanked"><strong>mean</strong></span>, also commonly known as the <strong>average</strong>, is the sum of all data values divided by the number of values. The sample mean is often denoted as \( \bar{{x}} \), while the population mean is denoted as \( \mu \). The mathematical formulas for calculating the mean are:</p>
+\[ \begin{align*} \textbf{Population Mean: }&amp;&amp; \mu &amp;= \dfrac{\sum x}{{N}} \\\\ \textbf{Sample Mean: } &amp;&amp;\bar{{x}} &amp;= \dfrac{\sum x}{{n}} \end{align*} \]
+<h4>What do these symbols mean?</h4>
+<p>Although the primary focus of this text is interpretation, it is still a math textbook, so we will encounter mathematical symbols and formulas throughout. To aid our understanding, we will explain these symbols as they appear, especially since many of these will be used repeatedly throughout this text.</p>
+<ul>
+<li>The symbol \( \sum \) means "sum" or "add everything up."</li>
+<li>The symbol \( x \) represents individual data values.</li>
+<li>\( N \) denotes the total number of values in a population and is often referred to as the <strong>population size</strong>.</li>
+<li>\( n \) denotes the number of values in a sample and is often referred to as the <strong>sample size.</strong></li>
+</ul>
+<div class="dontprint">
+    <p>It is important to note that \( \sum \) cannot stand alone; it must be followed by another symbol specifying what is being summed. In our formulas, we see \( \sum x \) in the numerator, which instructs us to "add up all the data values." This notation is especially useful when dealing with large datasets containing hundreds or thousands of values, as it eliminates the need to list each number individually.</p>
+</div>
+<h4>Why do we have two formulas for mean?</h4>
+<p>Populations and samples each have their own formulas for related concepts, such as the mean. In this case, the formulas are functionally identical, but as we explore other topics later in this chapter, we will see that some formulas differ between populations and samples.</p>
+<p>Additionally, note that \( \mu \) represents the <span class="blanked">population mean</span> and is classified as a parameter, while \( \overline{{x}} \) represents the <span class="blanked">sample mean</span> and is classified as a statistic.</p>
+<p>But why do we use \( \mu \) (pronounced "mew" and written in English as "mu") instead of a more familiar letter? By convention, parameters (which describe populations) are often represented by Greek letters, whereas statistics (which describe samples) are typically denoted using more familiar Latin letters from the English alphabet.</p>
+</div>
+<!-- End Definition -->
+<p>Now that we know the formulas for mean and how to interpret them, let's do a quick example to make sure we understand how to perform a calculation.</p>
+
+<div class="notes-page-break"></div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>Consider the following data representing test scores of five students on their first exam: 75, 80, 85, 90, 95. Use this data to calculate the average exam score for this sample.</p>
+    <table style="width: auto;"><caption style="width: max-content;">Test Scores of Five Students</caption>
+    <tbody>
+    <tr>
+    <th scope="col">Score</th>
+    </tr>
+    <tr>
+    <td>75</td>
+    </tr>
+    <tr>
+    <td>80</td>
+    </tr>
+    <tr>
+    <td>85</td>
+    </tr>
+    <tr>
+    <td>90</td>
+    </tr>
+    <tr>
+    <td>95</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="dontprint">
+        <p>To find the mean of this sample, sum all the test scores and divide by the number of scores. In mathematical terms, we calculate: \[ \sum x = 75 + 80 + 85 + 90 + 95 = 425 \] since \( x \) represents an individual test score and \( \sum x \) means to sum all the test scores. The sample size is 5, so we have \( n = 5 \). Combining this information, the final calculation is: \[ \begin{align*} \bar{{x}} &amp;= \dfrac{\sum x}{{n}} \ &amp;= \dfrac{75 + 80 + 85 + 90 + 95}{{5}} \ &amp;= \dfrac{{425}}{{5}} \ &amp;= 85 \end{align*} \] $$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+
+<!-- End Solution -->
+
+<p>Now that we understand how to calculate the mean, let's focus on what this number actually represents. One way to think about the mean is in terms of wealth redistribution. In society, some people have more money than others. The mean, or average, represents the amount each person would have if we could redistribute wealth so that everyone had exactly the same amount.</p>
+<br>
+<p>We can see this concept clearly using our previous example. Notice that the score of 75 is 10 points below the mean, while the score of 95 is 10 points above the mean. If we take 10 points from the person who scored 95 and give them to the person who scored 75, both students would now have 85 points. Similarly, since the score of 80 is 5 points below the mean and the score of 90 is 5 points above the mean, we can transfer 5 points from the student who scored 90 to the student who scored 80, so that both also end up with 85. After these adjustments, every student has a score of 85.</p>
+<p>This illustrates what the mean represents—it balances out values above and below average to give a single number that evenly distributes the data across all individuals in the sample or population.</p>
+<br>
+<p>Of course, we don’t actually redistribute scores or money in this way. The purpose of the mean is to help us understand the central tendency of a dataset—the balance point between those with the highest values and those with the lowest.</p>
+<div class="dontprint">
+    <p>Our next example provides an interactive way to illustrate this concept of balancing.</p>
+    <h2 class="example-header">Example 2</h2>
+    <p>Complete the <a href="https://www.geogebra.org/m/w5ubnzje" target="_blank" rel="noopener">Understanding the Idea of Average Value/Mean</a> interactive example below.</p>
+    <iframe scrolling="no" title="What Does the Average Value Represent?" src="https://www.geogebra.org/material/iframe/id/tb7gucqf/width/692/height/623/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="692px" height="623px" style="border: 0px;"> </iframe>
+</div>
+<br>
+<p>Now that we understand what a mean is and how to calculate a mean, we need to see how to calculate the mean using a technology since many datasets number in the hundreds and thousands. Manually calculating large datasets is time-consuming and prone to errors; in these circumstances, it is okay to let the technology do the heavy lifting.</p>
+
+<div class="notes-page-break"></div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The following Law School Admission Test (LSAT) scores for a sample of 50 students are given below. Find the mean of the sample using the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><button onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="deathdata">LSTAT Score
+    174
+    172
+    169
+    176
+    169
+    170
+    175
+    171
+    168
+    177
+    165
+    180
+    173
+    166
+    178
+    170
+    174
+    167
+    179
+    172
+    163
+    181
+    171
+    164
+    177
+    169
+    175
+    168
+    180
+    170
+    162
+    182
+    170
+    165
+    176
+    168
+    174
+    166
+    178
+    171
+    161
+    183
+    169
+    167
+    175
+    167
+    173
+    165
+    177
+    172
+    </pre>
+    <table style="width: auto;"><caption>Sample of 50 LSAT Scores</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="10">LSAT Scores</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>174</td>
+    <td>172</td>
+    <td>169</td>
+    <td>176</td>
+    <td>169</td>
+    <td>170</td>
+    <td>175</td>
+    <td>171</td>
+    <td>168</td>
+    <td>177</td>
+    </tr>
+    <tr>
+    <td>165</td>
+    <td>180</td>
+    <td>173</td>
+    <td>166</td>
+    <td>178</td>
+    <td>170</td>
+    <td>174</td>
+    <td>167</td>
+    <td>179</td>
+    <td>172</td>
+    </tr>
+    <tr>
+    <td>163</td>
+    <td>181</td>
+    <td>171</td>
+    <td>164</td>
+    <td>177</td>
+    <td>169</td>
+    <td>175</td>
+    <td>168</td>
+    <td>180</td>
+    <td>170</td>
+    </tr>
+    <tr>
+    <td>162</td>
+    <td>182</td>
+    <td>170</td>
+    <td>165</td>
+    <td>176</td>
+    <td>168</td>
+    <td>174</td>
+    <td>166</td>
+    <td>178</td>
+    <td>171</td>
+    </tr>
+    <tr>
+    <td>161</td>
+    <td>183</td>
+    <td>169</td>
+    <td>167</td>
+    <td>175</td>
+    <td>167</td>
+    <td>173</td>
+    <td>165</td>
+    <td>177</td>
+    <td>172</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="inches" data-height="1.5in"></div>
+    <div class="dontprint">
+        <p>We load the data into the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> with its default settings, and \(\overline{{x}}\) is calculated automatically.  The result is \(\overline{{x}}\approx 171.68\).</p>
+        <p><img src="../images/example3%20mean.png" alt="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." title="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." width="498" height="287"></p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+<!-- End Solution -->
+<h2>Conclusion</h2>
+<p>The mean provides a simple yet powerful way to understand the central tendency of a dataset. It balances values above and below it, making it a key tool for data analysis. While calculating the mean manually is useful for small datasets, technology is essential for handling larger ones efficiently. Understanding the mean is a crucial step in mastering statistical analysis as we will be repeatedly using the mean throughout this entire text.</p>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+    <h1>Calculating the Median of a Data Set</h1>
+<!-- Introduction -->
+<p>The median is a measure of central tendency that represents the middle value of an ordered dataset. In this section, we will define the median, discuss how to calculate it, and explore examples both by hand and using technology.</p>
+<h2>Median</h2>
+<!-- Definition -->
+<div class="definition">
+<h2 class="definition-header">What is the Median?</h2>
+<p>The <span class="blanked"><strong>median</strong></span> of an ordered dataset is the value that separates the lower 50% from the upper 50%. This number may or may not be part of the dataset. Unlike the mean, the median does not have a universally accepted notation, but many people represent it as \( M \).</p>
+</div>
+<!-- End Definition --> <!-- Procedure for Finding the Median -->
+<div class="definition">
+<h3>How do I calculate the Median?</h3>
+<p>Let \( n \) be the sample size of your data.</p>
+<ul>
+<li><strong>Step 1:</strong> Order the data from smallest to largest. Ensure all repeated values are included.</li>
+<li><strong>Step 2:</strong> Determine whether \( n \) is even or odd:
+<ul>
+<li>If \( n \) is <strong>odd</strong>, the median is the exact middle data value in the ordered list.</li>
+<li>If \( n \) is <strong>even</strong>, the median is the <span class="blanked"><strong>average</strong></span> of the two middle data values in the ordered list.</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Procedure -->
+<p>While the procedure for calculating the median seems hard on the surface, it is in fact very easy to calculate, especially for small data sets. The next two examples will demonstrate the process step by step. The first example illustrates how to find the median with an odd sample size.</p>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The following <strong>weekly hours spent studying</strong> for a sample of <strong>7 students</strong> are recorded below. Find the median number of study hours by hand.</p>
+    <!-- Table -->
+    <table style="width: auto;"><caption style="width: max-content;">Sample of Weekly Study Hours (in hours)</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="7">Study Hours Per Week</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>12</td>
+    <td>15</td>
+    <td>10</td>
+    <td>18</td>
+    <td>14</td>
+    <td>11</td>
+    <td>16</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h4 class="example-header">Solution</h4>
+    <div class="inches" data-height="1.5in"></div>
+    <div class="dontprint">
+        <p>First, order the data from smallest to largest: <br><br><img src="../images/median_example1.png" alt="The data has been ordered as 10, 11, 12, 14, 15, 16, 18." title="The data has been ordered as 10, 11, 12, 14, 15, 16, 18." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Next, strike out the first and last numbers: <br><br><img src="../images/median_example1a.png" alt="The 10 and 18 have been cross off the list of numbers." title="The 10 and 18 have been cross off the list of numbers." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Then, strike out the next two inner numbers:<br><br><img src="../images/median_example1b.png" alt="The 11 and 16 are now struck out." title="The 11 and 16 are now struck out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Again, strike out the next two inner numbers:<br><br><img src="../images/median_example1c.png" alt="The 12 and 15 have been struck out." title="The 12 and 15 have been struck out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Now, notice that only one number remains:<br><br><img src="../images/median_example1d.png" alt="The remaining number 14 has been boxed." title="The remaining number 14 has been boxed." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Since there is only one number left, \(14\) is our median.</p>
+        <h5>Note</h5>
+        <p>What do we mean by separating the upper 50% of data from the lower 50% of data?  In this case, there are the same amount of numbers to the left of 14 as there are numbers to the right of 14.  Notice I do not say lower or higher than 14 since there can be repetitions of numbers in the list. The median is determined by its position in the ordered list, not its value.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+<!-- End Solution -->
+<p>Finding the median for an even sample size follows the same steps, except for the final calculation.</p>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The cholesterol levels (mg/dL) of a sample of 10 people are recorded below. Find the median cholesterol level by hand.</p>
+    <!-- Table -->
+    <table style="width: auto;"><caption style="width: max-content;">Sample of 10 Cholesterol Levels</caption>
+    <tbody>
+    <tr>
+    <th scope="col" colspan="5">Cholesterol Level (mg/dL)</th>
+    </tr>
+    <tr>
+    <td>154</td>
+    <td>240</td>
+    <td>171</td>
+    <td>188</td>
+    <td>235</td>
+    </tr>
+    <tr>
+    <td>203</td>
+    <td>184</td>
+    <td>173</td>
+    <td>181</td>
+    <td>275</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="inches" data-height="2in"></div>
+    <div class="dontprint">
+        <p>First, order the data from smallest to largest:<br><br><img src="../images/median_example2_transparent.png" alt="The data has been ordered as 154, 171, 173, 181, 184, 188, 203, 235, 240, 275." title="The data has been ordered as 154, 171, 173, 181, 184, 188, 203, 235, 240, 275." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Now, strike off the first and last numbers in the list:<br><br><img src="../images/median_example2a_transparent.png" alt="154 and 275 have been stricken from the list." title="154 and 275 have been stricken from the list." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Then, strike out the next two inner numbers:<br><br><img src="../images/median_example2b_transparent.png" alt="171 and 240 have been stricken off." title="171 and 240 have been stricken off." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Again, strike out the next two inner numbers:<br><br><img src="../images/median_example2c_transparent.png" alt="173 and 235 have been stricken out." title="173 and 235 have been stricken out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Again, strike out the next two inner numbers: <br><br><img src="../images/median_example2d_transparent.png" alt="181 and 203 have been stricken out." title="181 and 203 have been stricken out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+        <p>Instead of arriving at a single central number, we end up with two central numbers—184 and 188:<br><br><img src="../images/median_example2e_transparent.png" alt="184 and 188 have been boxed since they are the last two numbers remaining." title="184 and 188 have been boxed since they are the last two numbers remaining." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>When we end up with two central numbers we will average them together to find the median: \[\text{median }=\dfrac{184+188}{{2}}=186\]</p>
+    </div>
+        <h5>Note</h5>
+        <p>What does it mean to separate the upper 50% from the lower 50% of the data? The median is the average of the two central numbers, so it may not be an actual data point, even if it matches a value in the list. It lies exactly between the two central numbers, dividing the dataset into two equal parts. In this case, the lower half consists of 154, 171, 173, 181, and 184, while the upper half consists of 188, 203, 235, 240, and 275.</p>
+        <p class="dontprint">$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    
+</div>
+<!-- End Solution -->
+<p>Just like the mean, we often compute the median from large data sets. Our next example uses our <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> to compute the median.</p>
+
+<div class="notes-page-break"></div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The following LSAT scores for a sample of 50 students are given below. Find the <strong>median</strong> of the sample using the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><button onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="deathdata">LSTAT Score
+    174
+    172
+    169
+    176
+    169
+    170
+    175
+    171
+    168
+    177
+    165
+    180
+    173
+    166
+    178
+    170
+    174
+    167
+    179
+    172
+    163
+    181
+    171
+    164
+    177
+    169
+    175
+    168
+    180
+    170
+    162
+    182
+    170
+    165
+    176
+    168
+    174
+    166
+    178
+    171
+    161
+    183
+    169
+    167
+    175
+    167
+    173
+    165
+    177
+    172
+    </pre>
+    <!-- Table -->
+    <table style="width: auto;"><caption>Sample of 50 LSAT Scores</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="10">LSAT Scores</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>174</td>
+    <td>172</td>
+    <td>169</td>
+    <td>176</td>
+    <td>169</td>
+    <td>170</td>
+    <td>175</td>
+    <td>171</td>
+    <td>168</td>
+    <td>177</td>
+    </tr>
+    <tr>
+    <td>165</td>
+    <td>180</td>
+    <td>173</td>
+    <td>166</td>
+    <td>178</td>
+    <td>170</td>
+    <td>174</td>
+    <td>167</td>
+    <td>179</td>
+    <td>172</td>
+    </tr>
+    <tr>
+    <td>163</td>
+    <td>181</td>
+    <td>171</td>
+    <td>164</td>
+    <td>177</td>
+    <td>169</td>
+    <td>175</td>
+    <td>168</td>
+    <td>180</td>
+    <td>170</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="inches" data-height="1in"></div>
+    <div class="dontprint">
+        <p>We load the data into the Summary Statistics Calculator with its default settings.</p>
+        <p><img src="../images/example3%20mean.png" alt="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." title="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." width="498" height="287"></p>
+        <p>Click on the <strong>Median</strong> <strong>checkbox </strong>to reveal the value of the median.</p>
+        <p><img src="../images/example3%20media.png" alt="The median checkbox is clicked. The value of the median is 171." title="The median checkbox is clicked. The value of the median is 171." width="500" height="304"></p>
+        <p>Therefore, the value of the median is 171.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+<!-- End Solution --> <!-- Conclusion -->
+<h2>Conclusion</h2>
+<p>The median is a valuable measure of central tendency because it is resistant to outliers. By understanding how to calculate the median manually and using technology, we can analyze data more effectively in various contexts.</p>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+    <h1>Calculating the Mode of a Dataset</h1>
+<!-- Introduction -->
+<p>The mode is a measure of central tendency that identifies the most frequently occurring value(s) in a dataset. Unlike the mean and median, the mode does not require numerical calculations but instead focuses on how often values appear. In this section, we will define the mode, discuss its characteristics, and explore examples of how to determine and interpret it.</p>
+<h2>Mode</h2>
+<!-- Definition -->
+<div class="dontprint">
+    <div class="definition">
+    <h2 class="definition-header">What is the Mode?</h2>
+    <p>The <span class="blanked"><strong>mode</strong></span> of a dataset is the value(s) that occur locally with the highest frequency.</p>
+    <h4>What Does "Occur Locally" Mean?</h4>
+    <p>When discussing the shape of histograms, we encountered <strong>unimodal</strong>, <strong>multimodal</strong>, and <strong>uniform</strong> distributions. The mode corresponds to the peaks in these distributions.</p>
+    <ul>
+    <li>A <strong>unimodal</strong> distribution has one peak.<br><img class="img-downsized" src="../images/normal2.png" alt="The red curve drawn over the histogram looks like a bell." title="The red curve drawn over the histogram looks like a bell." width="400" height="242"></li>
+    <li>A <strong>multimodal</strong> distribution has multiple peaks with similar frequencies.<br><img class="img-downsized" src="../images/bimodal2.png" alt="A bimodal distribution with its two peaks labeled." title="A bimodal distribution with its two peaks labeled." width="400" height="249"></li>
+    <li>A <strong>uniform</strong> distribution has no distinct peaks, meaning no mode exists.<br><img class="img-downsized" src="../images/uniform2.png" alt="A uniform distribution has bars that are all approximately the same height." title="A uniform distribution has bars that are all approximately the same height." width="399" height="260"></li>
+    </ul>
+    </div>
+    <!-- End Explanation -->
+    <p>Identifying these peaks precisely requires advanced mathematical techniques, such as calculus, even though many multimodal distributions are intuitive and can be visualized easily with histograms, stem-and-leaf plots, and dot plots. (Human height, for example, is bimodal because there is a mode for men's height and a mode for women's height since, on average, men tend to be about five inches taller than women.) Therefore, we will refine our definition of mode to avoid local considerations.</p>
+</div>
+<!-- Revised Definition -->
+<div class="definition">
+<h2 class="definition-header">Definition: Mode</h2>
+<p>The <span class="blanked"><strong>mode</strong></span> of a dataset is the value(s) that occur most frequently.</p>
+<h4>What Changed in This Definition?</h4>
+<p>By removing the term "occur locally," we ensure that all identified modes have the same frequency. This revised definition makes it easier to identify all the modes at a glance from frequency distributions.</p>
+</div>
+<!-- End Explanation -->
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>Find the mode of the <strong>2016-2017 tuition and fees</strong> (in thousands of dollars) for the top 14 universities in the U.S. by hand.</p>
+    <!-- Table -->
+    <table style="width: auto;"><caption style="width: max-content;">2016-2017 Tuition and Fees (in $1000s)</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="7">Tuition and Fees</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>45</td>
+    <td>47</td>
+    <td>52</td>
+    <td>49</td>
+    <td>55</td>
+    <td>48</td>
+    <td>48</td>
+    </tr>
+    <tr>
+    <td>51</td>
+    <td>51</td>
+    <td>50</td>
+    <td>51</td>
+    <td>48</td>
+    <td>51</td>
+    <td>51</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="inches" data-height="1in"></div>
+    <div class="dontprint">
+        <p>By observation, the most frequently occurring value is 51, which appears five times.</p>
+        <p><img src="../images/mode_example1.png" alt="A copy of the tuition fees table with the five instances of 51 enclosed each in a black box." title="A copy of the tuition fees table with the five instances of 51 enclosed each in a black box." width="423" height="118"></p>
+        <p>Thus, <strong>the mode is 51</strong>.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+
+<div class="notes-page-break"></div>
+<!-- End Solution -->
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The following <strong>LSAT scores</strong> for a sample of 50 students are recorded below. Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> to determine if a mode exists, and if it does, identify the mode(s). Also, classify the dataset as <strong>unimodal</strong>, <strong>multimodal</strong>, or having <strong>no mode</strong>.<br><button onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="deathdata">LSTAT Score
+    174
+    172
+    169
+    176
+    169
+    170
+    175
+    171
+    168
+    177
+    165
+    180
+    173
+    166
+    178
+    170
+    174
+    167
+    179
+    172
+    163
+    181
+    171
+    164
+    177
+    169
+    175
+    168
+    180
+    170
+    162
+    182
+    170
+    165
+    176
+    168
+    174
+    166
+    178
+    171
+    161
+    183
+    169
+    167
+    175
+    167
+    173
+    165
+    177
+    172
+    </pre>
+    <table style="width: auto;"><caption style="width: max-content;">Sample of 50 LSAT Scores</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="10">LSAT Scores</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>174</td>
+    <td>172</td>
+    <td>169</td>
+    <td>176</td>
+    <td>169</td>
+    <td>170</td>
+    <td>175</td>
+    <td>171</td>
+    <td>168</td>
+    <td>177</td>
+    </tr>
+    <tr>
+    <td>165</td>
+    <td>180</td>
+    <td>173</td>
+    <td>166</td>
+    <td>178</td>
+    <td>170</td>
+    <td>174</td>
+    <td>167</td>
+    <td>179</td>
+    <td>172</td>
+    </tr>
+    <tr>
+    <td>163</td>
+    <td>181</td>
+    <td>171</td>
+    <td>164</td>
+    <td>177</td>
+    <td>169</td>
+    <td>175</td>
+    <td>168</td>
+    <td>180</td>
+    <td>170</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h3 class="example-header">Solution</h3>
+    <div class="inches" data-height="1in"></div>
+    <div class="dontprint">
+        <p>Copy the data and enter it into the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><img src="../images/example3%20mean.png" alt="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." title="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." width="498" height="287"><br><br>Click on the <strong>Mode Checkbox</strong>.<br><br><img src="../images/mode_example2.png" alt="The mode checkbox is revealed, showing that 169 and 170 are the two modes and indicates this is a bimodal set." title="The mode checkbox is revealed, showing that 169 and 170 are the two modes and indicates this is a bimodal set." width="501" height="293"><br><br>The tool reveals that <strong>169 and 170</strong> are the modes of the data set, and indicates that this is a bimodal set, which is a type of <strong>multimodal </strong>distribution.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+<!-- End Solution -->
+<p>The mode is particularly useful to summarize certain types of qualitative data.  Unfortunately, the <strong>Summary Statistics Calculator</strong> does not handle qualitative data. Therefore, we will use the <a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency Distribution Tool</a> to make a frequency distribution of the data and then find the data point(s) with the highest frequency.</p>
+
+<div class="example">
+    <p class="example-header">Example <span class="example-number"></span></p>
+    <p>The following dataset represents the size of shirts sold over the last 30 days at a clothing retailer. Use the <a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency Distribution Tool</a> to determine the mode of the dataset.<br><button onclick="copyToClipboard('sizes')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="sizes">Shirt Size
+    Small
+    Medium
+    Large
+    X-Large
+    X-Large
+    Medium
+    Large
+    X-Large
+    Small
+    X-Large
+    Medium
+    X-Large
+    X-Large
+    Large
+    Small
+    X-Large
+    Medium
+    X-Large
+    Large
+    X-Large
+    X-Large
+    X-Large
+    Large
+    Small
+    Medium
+    X-Large
+    X-Large
+    X-Large
+    Large
+    Medium
+    X-Large
+    Large
+    Medium
+    X-Large
+    X-Large
+    Small
+    Medium
+    Large
+    X-Large
+    X-Large
+    Large
+    X-Large
+    Medium
+    Small
+    X-Large
+    X-Large
+    X-Large
+    Large
+    Small
+    Medium
+    </pre>
+    <table style="width: auto;"><caption style="width: max-content;">Shirt Sizes Sold Over the Last 30 Days</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="10">Shirt Sizes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Small</td>
+    <td>Medium</td>
+    <td>Large</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>Medium</td>
+    <td>Large</td>
+    <td>X-Large</td>
+    <td>Small</td>
+    <td>X-Large</td>
+    </tr>
+    <tr>
+    <td>Medium</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>Large</td>
+    <td>Small</td>
+    <td>X-Large</td>
+    <td>Medium</td>
+    <td>X-Large</td>
+    <td>Large</td>
+    <td>X-Large</td>
+    </tr>
+    <tr>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>Large</td>
+    <td>Small</td>
+    <td>Medium</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>Large</td>
+    <td>Medium</td>
+    </tr>
+    <tr>
+    <td>X-Large</td>
+    <td>Large</td>
+    <td>Medium</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>Small</td>
+    <td>Medium</td>
+    <td>Large</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    </tr>
+    <tr>
+    <td>Large</td>
+    <td>X-Large</td>
+    <td>Medium</td>
+    <td>Small</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>X-Large</td>
+    <td>Large</td>
+    <td>Small</td>
+    <td>Medium</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="solution">
+    <h2 class="solution-header">Solution</h2>
+    <div class="inches" data-height="1.5in"></div>
+    <div class="dontprint">
+        <p>Load the data into the <a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency Distribution Tool</a>, and nothing should appear since we only make classes with quantitative data.<br><br><img src="../images/mode_example3.png" alt="The data has been loaded into the GeoGebra tool.  Nothing is displayed yet." title="The data has been loaded into the GeoGebra tool.  Nothing is displayed yet." width="500" height="368"><br><br>To display a frequency distribution of the raw data, deselect the 'Organize Data Into Classes' checkbox. The distribution will then appear on the right.</p>
+        <p><img src="../images/mode_example3a.png" alt="The organize data into classes checkbox is deselected. The mode is X-Large with a frequency of 23." title="The organize data into classes checkbox is deselected. The mode is X-Large with a frequency of 23." width="503" height="381"><br><br>From the distribution, the most frequently sold size was X-Large, with a count of 23.</p>
+    </div>
+    </div>
+</div>
+
+<div class="notes-page-break"></div>
+<h2>Conclusion</h2>
+<p>The mode helps identify the most common values in a dataset, making it useful for analyzing both quantitative and qualitative data. Unlike the mean and median, the mode may not always exist and can have multiple values. By understanding how to determine the mode and classify distributions as unimodal, multimodal, or having no mode, we gain deeper insights into data patterns.</p>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+    <h1>How Skewness Affects the Mean, Median, and Mode of a Dataset</h1>
+<p>Measures of central tendency—mean, median, and mode—help us describe datasets. However, their values are influenced by the shape of the distribution and the presence of outliers. In this section, we will define outliers, explore how outliers impact these measures, and how their relationships change based on the skewness of a dataset.</p>
+<h2>Outliers</h2>
+<div class="example">
+<h3>What is an Outlier?</h3>
+<p>An <strong>outlier</strong> is a data point that does not follow the overall pattern or shape of a distribution.  These are data points that are typically much larger or much smaller than other points in the data set.</p>
+</div>
+<p>Let's look at an example to see how outliers affect the mean, median and mode.</p>
+<h3 class="example-header">Example 1</h3>
+<p>A list of 5 exam scores are given below.<br>\[78\qquad 82\qquad 84\qquad 91\qquad 91\]</p>
+<ul>
+<li><strong>Part A:</strong> Find the mean, median, and mode of this distribution.</li>
+<li><strong>Part B:</strong>Another student scored a 41 on the exam, which is an outlier compared to the other five scores.  Revaluate the mean, median, and mode.</li>
+<li><strong>Part C:</strong> Which measure of center changed the least? Which changed the most? Did any remain unchanged?</li>
+</ul>
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<div class="inches" data-height="2in"></div>
+<div class="dontprint">
+    <h5>Part A</h5>
+    <ul>
+    <li>\(\textbf{mean } =\dfrac{78+82+84+91+91}{{5}}=85.2\)</li>
+    <li>\(\textbf{median }=84\)</li>
+    <li>\(\textbf{mode }=91\)</li>
+    </ul>
+    <h5>Part B</h5>
+    <ul>
+    <li>\(\textbf{mean } =\dfrac{41+78+82+84+91+91}{{6}}=77.83\)</li>
+    <li>\(\textbf{median }=\dfrac{82+84}{{2}}=81\)</li>
+    <li>\(\textbf{mode }=91\)</li>
+    </ul>
+    <h5>Part C</h5>
+    <ul>
+    <li>The <strong>mean</strong> changed the most.</li>
+    <li>The <strong>median</strong> changed the least.</li>
+    <li>The <strong>mode</strong> did not change at all.</li>
+    </ul>
+</div>
+</div>
+<p>Since an outlier affects each one of these measurements differently, we get the following definition.</p>
+<div class="example">
+<h3>What is resistance to outliers?</h3>
+<p>A statistic is <strong>resistant to outliers</strong> if extreme values cause little to no change in its value.</p>
+<p>In the Example 1, notice that</p>
+<ul>
+<li>the mean is <span class="blanked">NOT RESISTANT</span> to outliers.</li>
+<li>the median and mode are resistant to outliers.</li>
+</ul>
+</div>
+<p>We will use this idea to describe the relative locations of the mean, median, and mode in unimodal distributions.</p>
+
+<div class="notes-page-break"></div>
+<h2>The Mean, Median, and Mode in Unimodal Distributions</h2>
+<h3>Normal Distribution</h3>
+<p>In a normal distribution, we have that \[\text{mean }=\text{ median }=\text{ mode.}\] Since many real-world datasets follow a normal distribution, this is one reason we often focus on the mean rather than the median or mode.  The following figure demonstrates the positions of the mean, median, and median by marking their location on top of a normal distribution.</p>
+<p><img src="../images/normal.png" alt="In a normal distribution, the x-coordinate of the peak is the mean, median, and mode of the dataset." title="In a normal distribution, the x-coordinate of the peak is the mean, median, and mode of the dataset." width="400" height="254"></p>
+<h3>Skew-Right Distribution</h3>
+<p>In a skew-right distribution, part of the reason we get a skew to the right is because there is unusually large data in the distribution. Unusually large data will make the value of the mean and median shift to the right, with the mean being pulled further to the right than the median.  The mode remains unchanged in this case.  Overall, this change from a normal distribution can be summarized for skew-right distributions as  \[\text{mode }&lt;\text{ median }&lt;\text{ mean}\] and visually as </p>
+<p><img src="../images/skewright.png" alt="A skew right distributions pulls the mean and median to the right, away from the mode.  The mean is pulled farther than the median." title="A skew right distributions pulls the mean and median to the right, away from the mode.  The mean is pulled farther than the median." width="399" height="223"></p>
+<p></p>
+<h3>Skew-Left Distribution</h3>
+<p>In a skew-left distribution, part of the reason we get a skew to the left is because there is unusually small data in the distribution. Unusually small data will make the value of the mean and median shift to the left, with the mean being pulled further to the left than the median.  The mode remains unchanged in this case.  Overall, this change from a normal distribution can be summarized for skew-right distributions as  \[\text{mean }&lt;\text{ median }&lt;\text{ mode}\] and visually as </p>
+<p><img src="../images/skewleft.png" alt="A skew left distributions pulls the mean and median to the left, away from the mode.  The mean is pulled farther than the median." title="A skew left distributions pulls the mean and median to the left, away from the mode.  The mean is pulled farther than the median." width="399" height="226"></p>
+<h2>Conclusion</h2>
+<p>The mean, median, and mode each describe the center of a dataset but respond differently to outliers and skewness. The mean is sensitive to extreme values and shifts in the direction of skewness, while the median is resistant to outliers and better represents center in skewed distributions. The mode remains unchanged by outliers and identifies the most frequently occurring value(s). Understanding these differences helps in choosing the most appropriate measure for analyzing real-world data.  We will explore that issue in more depth later in this chapter.</p>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+    <h1>How to Calculate a Weighted Mean</h1>
+<p>The mean is a fundamental measure of central tendency, but not all data points contribute equally in every scenario. In cases where there are a lot of repeated values, we use the weighted mean to calculate the mean faster than a standard calculation. This section will explore different methods for calculating a weighted mean and demonstrate its applications through practical examples.</p>
+<h2>Weighted Means</h2>
+<h3 class="example-header">Example 1</h3>
+<p>A small retail store tracks the number of sales transactions completed by seven different employees during a particular week \[ 12, 15, 15, 18, 18, 18, 25 \] Calculate the mean using the following methods.</p>
+<ul>
+<li><strong>Part A:</strong> Using the Definition of the Mean</li>
+<li><strong>Part B:</strong> Using the Definition of Multiplication to Simplify the Numerator</li>
+<li><strong>Part C:</strong> Using the Definition of Multiplication and Simplifying the Fraction</li>
+</ul>
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<h5>Part A</h5>
+<p>\[\overline{{x}}=\dfrac{12+15+15+18+18+18+25}{{7}}=\dfrac{{121}}{{7}}\approx17.29\]</p>
+<h5>Part B</h5>
+<p>We can rewrite repeated values using multiplication: \[ 12 = 1 \times 12, \quad 15+15 = 2 \times 15, \quad 18+18+18 = 3 \times 18, \quad 25 = 1 \times 25 \] Using this, we calculate the mean as: \[ \bar{{x}} = \dfrac{1\times 12 + 2\times 15 + 3\times 18 + 1\times 25}{{7}} = \dfrac{12 + 30 + 54 + 25}{{7}} \approx 17.29 \]</p>
+<h6>Important Note</h6>
+<p>Notice that each term in the numerator follows the pattern <strong>frequency</strong> \( \times \) <strong>data</strong>. Using \( f \) for frequency and \( x \) for data, we express the numerator as \( \sum (f \cdot x) \) and the denominator as \( \sum f \). This leads to the formula: \[ \bar{{x}} = \dfrac{\sum (f \cdot x)}{\sum f} \] which is useful for computing the mean from a frequency distribution.</p>
+<h5>Part C</h5>
+<p>Let's first look at the relative frequency distribution for this dataset:</p>
+<table style="width: auto; height: 235.436px;"><caption style="width: max-content;">Relative Frequency Table</caption>
+<thead>
+<tr style="height: 39.6627px;">
+<th scope="col">Data Value (\(x\))</th>
+<th scope="col">Frequency (\(f\))</th>
+<th scope="col">Relative Frequency \(\left(w=\dfrac{{f}}{\sum f}\right)\)</th>
+</tr>
+</thead>
+<tbody>
+<tr style="height: 39.0278px;">
+<td>12</td>
+<td>1</td>
+<td>\(\dfrac{{1}}{{7}}\)</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>15</td>
+<td>2</td>
+<td>\(\dfrac{{2}}{{7}}\)</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>18</td>
+<td>3</td>
+<td>\(\dfrac{{3}}{{7}}\)</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>25</td>
+<td>1</td>
+<td>\(\dfrac{{1}}{{7}}\)</td>
+</tr>
+<tr style="height: 39.6627px;">
+<td>Total</td>
+<td>\(\sum f=7\)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Now, observe what happens when we simplify our calculation from part B:</p>
+<p>\[\begin{align*}\bar{{x}} &amp;= \dfrac{1\times 12 + 2\times 15 + 3\times 18 + 1\times 25}{{7}} \\\\&amp;=\dfrac{1\times 12}{{7}}+\dfrac{2\times 15}{{7}}+\dfrac{3\times 18}{{7}}+\dfrac{1\times 25}{{7}}\\\\&amp;=\dfrac{{1}}{{7}}\times 12+\dfrac{{2}}{{7}}\times 15+\dfrac{{3}}{{7}}\times 18+\dfrac{{1}}{{7}}\times 25\\\\&amp;\approx 17.29\end{align*}\]</p>
+<h6>Important Note</h6>
+<p>Notice that in this case, we have expressed the mean as <strong>relative frequency</strong> \(\times\) <strong>data</strong>.  In the context of a mean, a relative frequency is often called a <strong>weight</strong>, and that is why we are using the variable \(w\) in the table.  Therefore, for a relative frequency distribution, we can express the mean as \[\overline{{x}}=\sum(w\cdot x)\] as long as the sum of the relative frequencies add to one.</p>
+<p>But, sometimes we want to compute an average using only some of the relative frequencies instead of all of them.  For example, most online gradebooks will often ignore things like exams that have not been taken yet.  So, it will only use the relative frequencies for grades you already have to give you current grade.  In that case, the formula for the mean becomes \[\overline{{x}}=\dfrac{\sum(w\cdot x)}{\sum w}\].</p>
+</div>
+<p>The discussion in Example 1 motivates the following definition.</p>
+<!-- Definition -->
+<div class="definition">
+<h3>What is a Weighted Mean?</h3>
+<p>A <strong>weighted mean</strong> is the mean of a dataset where each value in the dataset has varying weights or frequencies. There are two common formulas for calculating the weighted mean.</p>
+<ul>
+<li><strong>Using Frequencies:</strong> \[ \bar{{x}} = \dfrac{\sum (f \cdot x)}{\sum f} \]</li>
+<li><strong>Using Weights or Relative Frequencies:</strong> \[ \bar{{x}} = \dfrac{\sum (w \cdot x)}{\sum w} \]</li>
+</ul>
+<p><strong>Note:</strong> In many cases, the sum of the weights (\(\sum w\)) equals 1 since we usually want to include all the data, not just some of the data.</p>
+</div>
+<!-- End Definition -->
+<p>Now that we understand the weighted mean and have explored two examples, we will use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> to calculate the weighted mean.</p>
+<h3 class="example-header">Example 2</h3>
+<p>Suppose you just took your third exam, and your grade distribution is given below. Calculate your current grade using the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><button onclick="copyToClipboard('gradedata')">Copy Data to Clipboard</button></p>
+<pre style="display: none;" id="gradedata">Category,Grade,Percentage of Grade
+MyLab Stat,43,0.075
+Quizzes,63,0.075
+Exam 1,92,0.20
+Exam 2,67,0.20
+Exam 3,76,0.20
+</pre>
+<!-- Table -->
+<table style="width: auto; height: 234.167px;"><caption style="width: max-content;">Sample Grades for a Course</caption>
+<thead>
+<tr style="height: 39.0278px;">
+<th scope="col">Category</th>
+<th scope="col">Grade (%)</th>
+<th scope="col">Percentage of Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr style="height: 39.0278px;">
+<td>MyLab Stat</td>
+<td>43%</td>
+<td>7.5%</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>Quizzes</td>
+<td>63%</td>
+<td>7.5%</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>Exam 1</td>
+<td>92%</td>
+<td>20%</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>Exam 2</td>
+<td>67%</td>
+<td>20%</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>Exam 3</td>
+<td>76%</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>First, we load the dataset into <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.  <br><br><img src="../images/weighted_example2a.png" alt="The data is loaded into GeoGebra.  Column B has the grade data, and column C has the weights as percentages." title="The data is loaded into GeoGebra.  Column B has the grade data, and column C has the weights as percentages." width="500" height="241"><br><br>Before closing the spreadsheet, let’s examine how the data is entered.The first column is just exposition data and is not relevant to the computation. Column B contains our data: the grades we get.  Notice the percent symbol is dropped since GeoGebra will auto-convert the data to decimals if we include the percent symbol.  In the last column, the percentage of the grade represents the weight. Since weights are given as percentages, we must convert them to decimals for accurate calculations.</p>
+<p>After closing the spreadsheet, we will set the <strong>Problem Type </strong>to <strong>Weighted Statistics</strong>, set <strong>Data</strong> to <strong>Column B</strong>, and <strong>Weights</strong> to <strong>Column C</strong>.<br><br><img src="../images/weighted_example2c.png" alt="The weighted mean calculated by the tool is 73.27." title="The weighted mean calculated by the tool is 73.27." width="498" height="237"><br><br>The Calculator automatically computes the weighted average as \(\overline{{x}}=73.27\).  Therefore, our current grade in the course is a C.</p>
+</div>
+<p>Often, data is reported through a frequency distribution rather than raw values. We can use the distribute to estimate the mean of the data using midpoints and a weighted mean. Our next example illustrates this idea.</p>
+<h3 class="example-header">Example 3</h3>
+<p>Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator </a>to estimate the mean gas mileage (mpg) for 24 family sedans.</p>
+<!-- Table -->
+<table style="width: auto; height: 195.139px;"><caption style="width: max-content;">A Frequency Distribution for the Gas Mileage of 24 Family Sedans</caption>
+<thead>
+<tr style="height: 39.0278px;">
+<th scope="col">Gas Mileage (mpg)</th>
+<th scope="col">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr style="height: 39.0278px;">
+<td>22 to 27</td>
+<td>16</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>28 to 33</td>
+<td>2</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>34 to 39</td>
+<td>2</td>
+</tr>
+<tr style="height: 39.0278px;">
+<td>40 to 45</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<div class="solution">
+<h4 class="solution-header">Solution</h4>
+<p>First, we compute the midpoints for each class:</p>
+<!-- Table -->
+<table style="width: auto;"><caption style="width: max-content;">A Frequency Distribution for the Gas Mileage of 24 Family Sedans</caption>
+<thead>
+<tr>
+<th scope="col">Gas Mileage (mpg)</th>
+<th scope="col">Midpoint</th>
+<th scope="col">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22 to 27</td>
+<td>24.5</td>
+<td>16</td>
+</tr>
+<tr>
+<td>28 to 33</td>
+<td>30.5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>34 to 39</td>
+<td>36.5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>40 to 45</td>
+<td>42.5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>The midpoints become the estimated data points for the distribution. Since the data is derived from midpoints, a premade dataset is unavailable.Instead, we will manually enter the data into <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> like this: <br><br><img src="../images/weighted_example3a.png" alt="The midpoint and frequency columns entered into the spreadsheet in our tool." title="The midpoint and frequency columns entered into the spreadsheet in our tool." width="397" height="211"><br><br>These notes apply to all the tools that use the Spreadsheet: Row 1 is always the header, which gives a Small Description of the Data in the Column.  In our case, Midpoint and Frequency.  Do not enter data into Row 1, as the tool begins scanning for data from Row 2..  In rows 2-5, we recreate the table. </p>
+<p>Once you have entered all this data into spreadsheet, you can close it, and make sure your options are set to weighted means, data is in column A, and weights in column B.  If you have everything set up correctly, the mean will automatically be computed, and you'll get this screen.<br><br><img src="../images/weighted_example3b.png" alt="The weighted mean is 29." title="The weighted mean is 29." width="499" height="240"><br><br>Therefore, the average gas mileage is \(\overline{{x}}=29\) mpg.</p>
+</div>
+<h2>Summary</h2>
+<p>Now that we understand the weighted mean and have explored examples using both frequencies and weights, we see how it provides a quicker calculation when many data points are repeated. Using tools like the Summary Statistics Calculator, we can efficiently compute weighted means in practical scenarios, such as grades, sales, and performance tracking.</p>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+    <h1>Is the Mean Enough to Describe a Dataset?</h1>
+<p>The mean is one of the most commonly used measures to summarize a dataset. While it provides useful information about the central tendency of the data, it doesn’t always tell the whole story. Different datasets can have the same mean yet exhibit vastly different distributions. In this example, we’ll explore two datasets with the same mean and analyze how they differ beyond that single statistic.</p>
+<h2 class="example-header">Example 1</h2>
+<ul>
+<li><strong>Part A:</strong> Find the mean of the data set \( 76, 74, 83, 97, 70 \).</li>
+<li><strong>Part B:</strong> Find the mean of the data set \( 82, 81, 76, 85, 76 \).</li>
+<li><strong>Part C:</strong> Even though the means are the same, how are the data sets different?</li>
+</ul>
+<!-- Solution -->
+<div class="solution">
+<h3 class="example-header">Solution</h3>
+<ul>
+<li><strong>Part A:</strong> The mean is the sum of all data values divided by the number of values in the set. The given data set is \( 76, 74, 83, 97, 70 \). \[ \begin{align*} \text{{Mean}} &amp;= \dfrac{76 + 74 + 83 + 97 + 70}{{5}} \\\\ &amp;= \dfrac{{400}}{{5}} \\\\ &amp;= 80 \end{align*} \]</li>
+<li><strong>Part B:</strong> The given data set is \( 82, 81, 76, 85, 76 \). We follow the same process. \[ \begin{align*} \text{{Mean}} &amp;= \dfrac{82 + 81 + 76 + 85 + 76}{{5}} \\\\ &amp;= \dfrac{{400}}{{5}} \\\\ &amp;= 80 \end{align*} \]</li>
+<li><strong>Part C:</strong> Even though both data sets have the same mean, they differ in their distribution. The first data set has a wider range (from 70 to 97), indicating more variability, while the second data set has a smaller range (from 76 to 85), showing less variability.</li>
+</ul>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!-- End Solution -->
+<h2>Conclusion</h2>
+<p>In conclusion, the mean alone is not always sufficient to fully describe a dataset. While it offers a measure of central tendency, other statistics such as range, variance, or standard deviation are essential to understand the data’s variability and distribution. As shown in this example, two datasets with identical means can represent very different patterns.</p>
+</section>
+
+<div class="page-break"></div>
+
+<section>
+
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>
