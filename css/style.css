@@ -368,32 +368,26 @@ td {
 
 .half-inch {
     margin-bottom: 0.5in;
-    display: none;
 }
 
 .one-inch {
     margin-bottom: 1in;
-    display: none;
 }
 
 .two-inch {
     margin-bottom: 2in;
-    display: none;
 }
 
 .three-inch {
     margin-bottom: 3in;
-    display: none;
 }
 
 .four-inch {
     margin-bottom: 4in;
-    display: none;
 }
 
 .five-inch {
     margin-bottom: 5in;
-    display: none;
 }
 
 /* search bar page highlighting color */
