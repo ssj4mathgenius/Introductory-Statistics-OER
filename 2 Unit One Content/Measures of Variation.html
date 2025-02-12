@@ -2,170 +2,221 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measures of Variation</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../js/loadmathjax.js"></script>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Measures of Variation</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/main.min.css">
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-    <link rel="stylesheet" href="../css/style.css" />
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-    <div class="container-fluid">
-        <main>
-            <div class="row bottom-md">
-                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-                    <h1>Measures of Variation</h1>
-                    <p>Measures of variation provide insights into the spread or variability within a dataset.
-                        They help us understand the consistency or diversity of data values. Common measures
-                        include the range, standard deviation, and variance. These measures are crucial in
-                        comparing datasets and determining data reliability.</p>
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <div class="definition">
-                        <h2 class="definition-header">Range</h2>
-                        <p>The range is the difference between the largest and smallest values in a dataset. It provides
-                            a very easy to calculate measure of variability. It is found by the formula: </p>
-                        <p class="p-centered"><em>Range = Max - Min</em></p>
-                        <p>While range is an easy way to gauge variance in datasets, it uses outliers in it's
-                            calculation making it not as reliable as other measures of variation.</p>
-                    </div>
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Standard Deviation</h2>
-                        <p>The standard deviation quantifies the average deviation of each data point from the
-                            mean \( \bar{x} \). It is the most commonly used statistic to assess variability in
-                            datasets. The standard deviation is commonly represented with \( s \) and is found by the
-                            following formula:</p>
-                        <p>\[ s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n-1}} \]</p>
-                        <p>Standard deviation will have the same units as the original data. Later on in the course we
-                            will reference the population standard deviation which is commonly represented by the \(
-                            \sigma \) symbol (the greek letter "sigma"). </p>
-                    </div>
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Variance</h2>
-                        <p>Variance is the square of the standard deviation and provides a measure of data
-                            spread in squared units. It can be found by squaring the standard deviation. Variance for
-                            the sample is represented by \(s^2\) where the population variance is represented by \(
-                            \sigma^2 \).</p>
-                    </div>
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Dataset of Values</h2>
-                        <p>A small bakery tracks the number of cakes sold each day over a six-day period to analyze
-                            trends
-                            and improve inventory planning. The following data represents their cake sales for a 6 day
-                            period. Use the data to find the range, standard deviation, and variance for cake sales
-                            during
-                            this week.</p>
-                        <pre id="example1data" style="display:none;">20, 5, 15, 10, 30, 25</pre>
-                        <button onclick="copyToClipboard('example1data')">Copy Data to Clipboard</button>
-                        <table>
-                            <caption>Table 1: Cake Sales for a Six Day Period</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Day</th>
-                                    <th scope="col">Cakes Sold</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>20</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>30</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>25</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p><strong>Range:</strong> \( 30 - 5 = 25 \)</p>
-                        <p><strong>Standard Deviation:</strong> Calculated using technology, \( s = 8.37 \).</p>
-                        <p><strong>Variance:</strong> \( s^2 = 70.08 \).</p>
-                    </div>
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Earthquake Data</h2>
-                        <p>Use the magnitudes (Richter scale) of the 600 earthquakes listed in the data set linked below
-                            to find the range, standard deviation, and variance for the given sample data. In 1989, the
-                            San Francisco Bay area was struck with an earthquake that measured 7.0 on the Richter scale.
-                            If we add that value of 7.0 to those listed in the data set, do the measures of variation
-                            change much?</p>
-                        <p>Because of the amount of data, this dataset is omitted from viewing, but can be viewed
-                            visually in a scrollable table by clicking the button below or by downloading the data here:
-                            <a href="../datasets/24_Earthquakestxt.csv" download>Download Earthquake Data</a>.</p>
-                        <button aria-describedby="tableDescription"
-                            onclick="generateTable('../datasets/24_Earthquakestxt.csv', 'Table 2: Magnitude and Depth Data')">View
-                            Table of Earthquake Data</button>
-                        <p id="tableDescription" class="visually-hidden">
-                            This button loads and displays data from a CSV file with the Earthquake data as a table on
-                            this
-                            page.
-                        </p>
-                        <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>These are the values without the 7.0 earthquake added (rounded to three decimal places):</p>
-                        <p><strong>Range:</strong> \( 3.6 \)</p>
-                        <p><strong>Standard Deviation:</strong> Using technology, \( s = 0.651 \).</p>
-                        <p><strong>Variance:</strong> \( s^2 = 0.423 \).</p>
-                        <p>These are the values with the 7.0 earthquake added (rounded to three decimal places):</p>
-                        <p><strong>Range:</strong> \( 5.91 \)</p>
-                        <p><strong>Standard Deviation:</strong> Using technology, \( s = 0.675 \).</p>
-                        <p><strong>Variance:</strong> \( s^2 = 0.455 \).</p>
-                        <p>We see that range changed the most which shows the volatility of that particular measure of
-                            variance.</p>
-                    </div>
-
-                    <h2>Chebyshev's Rule</h2>
-                    <p>Chebyshev's Rule states that for any dataset, at least \( 1 - \frac{1}{k^2} \) of the
-                        data lies within \( k \) standard deviations from the mean, where \( k > 1 \).</p>
-                    <p>Example: For \( k = 2 \), at least 75% of the data lies within two standard deviations of
-                        the mean.</p>
-
-                    <h2>Empirical Rule</h2>
-                    <p>The Empirical Rule applies to bell-shaped (normal) distributions. Approximately:</p>
-                    <ul>
-                        <li>68% of the data lies within 1 standard deviation of the mean.</li>
-                        <li>95% of the data lies within 2 standard deviations of the mean.</li>
-                        <li>99.7% of the data lies within 3 standard deviations of the mean.</li>
-                    </ul>
-                    <div>
-                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
-                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
-                    </div>
-                </div>
-            </div>
-        </main>
     </div>
+</nav>
+</header>
+
+<section>
+    <h1>Measures of Variation</h1>
+    <p>Measures of variation provide insights into the spread or variability within a dataset.
+        They help us understand the consistency or diversity of data values. Common measures
+        include the range, standard deviation, and variance. These measures are crucial in
+        comparing datasets and determining data reliability.</p>
+    <div class="definition">
+        <h2 class="definition-header">Range</h2>
+        <p>The range is the difference between the largest and smallest values in a dataset. It provides
+            a very easy to calculate measure of variability. It is found by the formula: </p>
+        <p class="p-centered"><em>Range = Max - Min</em></p>
+        <p>While range is an easy way to gauge variance in datasets, it uses outliers in it's
+            calculation making it not as reliable as other measures of variation.</p>
+    </div>
+    <div class="definition">
+        <h2 class="definition-header">Standard Deviation</h2>
+        <p>The standard deviation quantifies the average deviation of each data point from the
+            mean \( \bar{x} \). It is the most commonly used statistic to assess variability in
+            datasets. The standard deviation is commonly represented with \( s \) and is found by the
+            following formula:</p>
+        <p>\[ s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n-1}} \]</p>
+        <p>Standard deviation will have the same units as the original data. Later on in the course we
+            will reference the population standard deviation which is commonly represented by the \(
+            \sigma \) symbol (the greek letter "sigma"). </p>
+    </div>
+    <div class="definition">
+        <h2 class="definition-header">Variance</h2>
+        <p>Variance is the square of the standard deviation and provides a measure of data
+            spread in squared units. It can be found by squaring the standard deviation. Variance for
+            the sample is represented by \(s^2\) where the population variance is represented by \(
+            \sigma^2 \).</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Dataset of Values</h2>
+        <p>A small bakery tracks the number of cakes sold each day over a six-day period to analyze
+            trends
+            and improve inventory planning. The following data represents their cake sales for a 6 day
+            period. Use the data to find the range, standard deviation, and variance for cake sales
+            during
+            this week.</p>
+        <pre id="example1data" style="display:none;">20, 5, 15, 10, 30, 25</pre>
+        <button onclick="copyToClipboard('example1data')">Copy Data to Clipboard</button>
+        <table>
+            <caption>Table 1: Cake Sales for a Six Day Period</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Cakes Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>25</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <p><strong>Range:</strong> \( 30 - 5 = 25 \)</p>
+        <p><strong>Standard Deviation:</strong> Calculated using technology, \( s = 8.37 \).</p>
+        <p><strong>Variance:</strong> \( s^2 = 70.08 \).</p>
+    </div>
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Earthquake Data</h2>
+        <p>Use the magnitudes (Richter scale) of the 600 earthquakes listed in the data set linked below
+            to find the range, standard deviation, and variance for the given sample data. In 1989, the
+            San Francisco Bay area was struck with an earthquake that measured 7.0 on the Richter scale.
+            If we add that value of 7.0 to those listed in the data set, do the measures of variation
+            change much?</p>
+        <p>Because of the amount of data, this dataset is omitted from viewing, but can be viewed
+            visually in a scrollable table by clicking the button below or by downloading the data here:
+            <a href="../datasets/24_Earthquakestxt.csv" download>Download Earthquake Data</a>.</p>
+        <button aria-describedby="tableDescription"
+            onclick="generateTable('../datasets/24_Earthquakestxt.csv', 'Table 2: Magnitude and Depth Data')">View
+            Table of Earthquake Data</button>
+        <p id="tableDescription" class="visually-hidden">
+            This button loads and displays data from a CSV file with the Earthquake data as a table on
+            this
+            page.
+        </p>
+        <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
+    </div>
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <p>These are the values without the 7.0 earthquake added (rounded to three decimal places):</p>
+        <p><strong>Range:</strong> \( 3.6 \)</p>
+        <p><strong>Standard Deviation:</strong> Using technology, \( s = 0.651 \).</p>
+        <p><strong>Variance:</strong> \( s^2 = 0.423 \).</p>
+        <p>These are the values with the 7.0 earthquake added (rounded to three decimal places):</p>
+        <p><strong>Range:</strong> \( 5.91 \)</p>
+        <p><strong>Standard Deviation:</strong> Using technology, \( s = 0.675 \).</p>
+        <p><strong>Variance:</strong> \( s^2 = 0.455 \).</p>
+        <p>We see that range changed the most which shows the volatility of that particular measure of
+            variance.</p>
+    </div>
+    <h2>Chebyshev's Rule</h2>
+    <p>Chebyshev's Rule states that for any dataset, at least \( 1 - \frac{1}{k^2} \) of the
+        data lies within \( k \) standard deviations from the mean, where \( k > 1 \).</p>
+    <p>Example: For \( k = 2 \), at least 75% of the data lies within two standard deviations of
+        the mean.</p>
+    <h2>Empirical Rule</h2>
+    <p>The Empirical Rule applies to bell-shaped (normal) distributions. Approximately:</p>
+    <ul>
+        <li>68% of the data lies within 1 standard deviation of the mean.</li>
+        <li>95% of the data lies within 2 standard deviations of the mean.</li>
+        <li>99.7% of the data lies within 3 standard deviations of the mean.</li>
+    </ul>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>
