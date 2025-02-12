@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculating Mean of a Data Set</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Calculating the Mean of a Data Set</h1>
+<p>The <strong>mean</strong>, or <strong>average</strong>, is a fundamental statistical measure that represents the center of a dataset by balancing values above and below it. It is widely used in fields like business, healthcare, and education. This section explains the mean, its formulas, and how to calculate it manually and with technology. Through examples, we will see how the mean helps summarize and interpret data efficiently.</p>
+<h2>Mean</h2>
+<!-- Definition -->
+<div class="definition">
+<h2 class="definition-header">What is the Mean?</h2>
+<p>The <span class="blanked"><strong>mean</strong></span>, also commonly known as the <strong>average</strong>, is the sum of all data values divided by the number of values. The sample mean is often denoted as \( \bar{{x}} \), while the population mean is denoted as \( \mu \). The mathematical formulas for calculating the mean are:</p>
+\[ \begin{align*} \textbf{Population Mean: }&amp;&amp; \mu &amp;= \dfrac{\sum x}{{N}} \\\\ \textbf{Sample Mean: } &amp;&amp;\bar{{x}} &amp;= \dfrac{\sum x}{{n}} \end{align*} \]
+<h4>What do these symbols mean?</h4>
+<p>Although the primary focus of this text is interpretation, it is still a math textbook, so we will encounter mathematical symbols and formulas throughout. To aid our understanding, we will explain these symbols as they appear, especially since many of these will be used repeatedly throughout this text.</p>
+<ul>
+<li>The symbol \( \sum \) means "sum" or "add everything up."</li>
+<li>The symbol \( x \) represents individual data values.</li>
+<li>\( N \) denotes the total number of values in a population and is often referred to as the <strong>population size</strong>.</li>
+<li>\( n \) denotes the number of values in a sample and is often referred to as the <strong>sample size.</strong></li>
+</ul>
+<div class="dontprint">
+    <p>It is important to note that \( \sum \) cannot stand alone; it must be followed by another symbol specifying what is being summed. In our formulas, we see \( \sum x \) in the numerator, which instructs us to "add up all the data values." This notation is especially useful when dealing with large datasets containing hundreds or thousands of values, as it eliminates the need to list each number individually.</p>
+</div>
+<h4>Why do we have two formulas for mean?</h4>
+<p>Populations and samples each have their own formulas for related concepts, such as the mean. In this case, the formulas are functionally identical, but as we explore other topics later in this chapter, we will see that some formulas differ between populations and samples.</p>
+<p>Additionally, note that \( \mu \) represents the <span class="blanked">population mean</span> and is classified as a parameter, while \( \overline{{x}} \) represents the <span class="blanked">sample mean</span> and is classified as a statistic.</p>
+<p>But why do we use \( \mu \) (pronounced "mew" and written in English as "mu") instead of a more familiar letter? By convention, parameters (which describe populations) are often represented by Greek letters, whereas statistics (which describe samples) are typically denoted using more familiar Latin letters from the English alphabet.</p>
+</div>
+<!-- End Definition -->
+<p>Now that we know the formulas for mean and how to interpret them, let's do a quick example to make sure we understand how to perform a calculation.</p>
+
+<div class="notes-page-break"></div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>Consider the following data representing test scores of five students on their first exam: 75, 80, 85, 90, 95. Use this data to calculate the average exam score for this sample.</p>
+    <table style="width: auto;"><caption style="width: max-content;">Test Scores of Five Students</caption>
+    <tbody>
+    <tr>
+    <th scope="col">Score</th>
+    </tr>
+    <tr>
+    <td>75</td>
+    </tr>
+    <tr>
+    <td>80</td>
+    </tr>
+    <tr>
+    <td>85</td>
+    </tr>
+    <tr>
+    <td>90</td>
+    </tr>
+    <tr>
+    <td>95</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="dontprint">
+        <p>To find the mean of this sample, sum all the test scores and divide by the number of scores. In mathematical terms, we calculate: \[ \sum x = 75 + 80 + 85 + 90 + 95 = 425 \] since \( x \) represents an individual test score and \( \sum x \) means to sum all the test scores. The sample size is 5, so we have \( n = 5 \). Combining this information, the final calculation is: \[ \begin{align*} \bar{{x}} &amp;= \dfrac{\sum x}{{n}} \ &amp;= \dfrac{75 + 80 + 85 + 90 + 95}{{5}} \ &amp;= \dfrac{{425}}{{5}} \ &amp;= 85 \end{align*} \] $$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+
+<!-- End Solution -->
+
+<p>Now that we understand how to calculate the mean, let's focus on what this number actually represents. One way to think about the mean is in terms of wealth redistribution. In society, some people have more money than others. The mean, or average, represents the amount each person would have if we could redistribute wealth so that everyone had exactly the same amount.</p>
+<br>
+<p>We can see this concept clearly using our previous example. Notice that the score of 75 is 10 points below the mean, while the score of 95 is 10 points above the mean. If we take 10 points from the person who scored 95 and give them to the person who scored 75, both students would now have 85 points. Similarly, since the score of 80 is 5 points below the mean and the score of 90 is 5 points above the mean, we can transfer 5 points from the student who scored 90 to the student who scored 80, so that both also end up with 85. After these adjustments, every student has a score of 85.</p>
+<p>This illustrates what the mean represents—it balances out values above and below average to give a single number that evenly distributes the data across all individuals in the sample or population.</p>
+<br>
+<p>Of course, we don’t actually redistribute scores or money in this way. The purpose of the mean is to help us understand the central tendency of a dataset—the balance point between those with the highest values and those with the lowest.</p>
+<div class="dontprint">
+    <p>Our next example provides an interactive way to illustrate this concept of balancing.</p>
+    <h2 class="example-header">Example 2</h2>
+    <p>Complete the <a href="https://www.geogebra.org/m/w5ubnzje" target="_blank" rel="noopener">Understanding the Idea of Average Value/Mean</a> interactive example below.</p>
+    <iframe scrolling="no" title="What Does the Average Value Represent?" src="https://www.geogebra.org/material/iframe/id/tb7gucqf/width/692/height/623/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="692px" height="623px" style="border: 0px;"> </iframe>
+</div>
+<br>
+<p>Now that we understand what a mean is and how to calculate a mean, we need to see how to calculate the mean using a technology since many datasets number in the hundreds and thousands. Manually calculating large datasets is time-consuming and prone to errors; in these circumstances, it is okay to let the technology do the heavy lifting.</p>
+
+<div class="notes-page-break"></div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The following Law School Admission Test (LSAT) scores for a sample of 50 students are given below. Find the mean of the sample using the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><button onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="deathdata">LSTAT Score
+    174
+    172
+    169
+    176
+    169
+    170
+    175
+    171
+    168
+    177
+    165
+    180
+    173
+    166
+    178
+    170
+    174
+    167
+    179
+    172
+    163
+    181
+    171
+    164
+    177
+    169
+    175
+    168
+    180
+    170
+    162
+    182
+    170
+    165
+    176
+    168
+    174
+    166
+    178
+    171
+    161
+    183
+    169
+    167
+    175
+    167
+    173
+    165
+    177
+    172
+    </pre>
+    <table style="width: auto;"><caption>Sample of 50 LSAT Scores</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="10">LSAT Scores</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>174</td>
+    <td>172</td>
+    <td>169</td>
+    <td>176</td>
+    <td>169</td>
+    <td>170</td>
+    <td>175</td>
+    <td>171</td>
+    <td>168</td>
+    <td>177</td>
+    </tr>
+    <tr>
+    <td>165</td>
+    <td>180</td>
+    <td>173</td>
+    <td>166</td>
+    <td>178</td>
+    <td>170</td>
+    <td>174</td>
+    <td>167</td>
+    <td>179</td>
+    <td>172</td>
+    </tr>
+    <tr>
+    <td>163</td>
+    <td>181</td>
+    <td>171</td>
+    <td>164</td>
+    <td>177</td>
+    <td>169</td>
+    <td>175</td>
+    <td>168</td>
+    <td>180</td>
+    <td>170</td>
+    </tr>
+    <tr>
+    <td>162</td>
+    <td>182</td>
+    <td>170</td>
+    <td>165</td>
+    <td>176</td>
+    <td>168</td>
+    <td>174</td>
+    <td>166</td>
+    <td>178</td>
+    <td>171</td>
+    </tr>
+    <tr>
+    <td>161</td>
+    <td>183</td>
+    <td>169</td>
+    <td>167</td>
+    <td>175</td>
+    <td>167</td>
+    <td>173</td>
+    <td>165</td>
+    <td>177</td>
+    <td>172</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="inches" data-height="1.5in"></div>
+    <div class="dontprint">
+        <p>We load the data into the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> with its default settings, and \(\overline{{x}}\) is calculated automatically.  The result is \(\overline{{x}}\approx 171.68\).</p>
+        <p><img src="../images/example3%20mean.png" alt="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." title="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." width="498" height="287"></p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+<!-- End Solution -->
+<h2>Conclusion</h2>
+<p>The mean provides a simple yet powerful way to understand the central tendency of a dataset. It balances values above and below it, making it a key tool for data analysis. While calculating the mean manually is useful for small datasets, technology is essential for handling larger ones efficiently. Understanding the mean is a crucial step in mastering statistical analysis as we will be repeatedly using the mean throughout this entire text.</p>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

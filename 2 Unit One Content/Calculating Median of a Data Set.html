@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculating Median of a Data Set</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+</header>
+
+<section>
+    <h1>Calculating the Median of a Data Set</h1>
+<!-- Introduction -->
+<p>The median is a measure of central tendency that represents the middle value of an ordered dataset. In this section, we will define the median, discuss how to calculate it, and explore examples both by hand and using technology.</p>
+<h2>Median</h2>
+<!-- Definition -->
+<div class="definition">
+<h2 class="definition-header">What is the Median?</h2>
+<p>The <span class="blanked"><strong>median</strong></span> of an ordered dataset is the value that separates the lower 50% from the upper 50%. This number may or may not be part of the dataset. Unlike the mean, the median does not have a universally accepted notation, but many people represent it as \( M \).</p>
+</div>
+<!-- End Definition --> <!-- Procedure for Finding the Median -->
+<div class="definition">
+<h3>How do I calculate the Median?</h3>
+<p>Let \( n \) be the sample size of your data.</p>
+<ul>
+<li><strong>Step 1:</strong> Order the data from smallest to largest. Ensure all repeated values are included.</li>
+<li><strong>Step 2:</strong> Determine whether \( n \) is even or odd:
+<ul>
+<li>If \( n \) is <strong>odd</strong>, the median is the exact middle data value in the ordered list.</li>
+<li>If \( n \) is <strong>even</strong>, the median is the <span class="blanked"><strong>average</strong></span> of the two middle data values in the ordered list.</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- End Procedure -->
+<p>While the procedure for calculating the median seems hard on the surface, it is in fact very easy to calculate, especially for small data sets. The next two examples will demonstrate the process step by step. The first example illustrates how to find the median with an odd sample size.</p>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The following <strong>weekly hours spent studying</strong> for a sample of <strong>7 students</strong> are recorded below. Find the median number of study hours by hand.</p>
+    <!-- Table -->
+    <table style="width: auto;"><caption style="width: max-content;">Sample of Weekly Study Hours (in hours)</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="7">Study Hours Per Week</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>12</td>
+    <td>15</td>
+    <td>10</td>
+    <td>18</td>
+    <td>14</td>
+    <td>11</td>
+    <td>16</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h4 class="example-header">Solution</h4>
+    <div class="inches" data-height="1.5in"></div>
+    <div class="dontprint">
+        <p>First, order the data from smallest to largest: <br><br><img src="../images/median_example1.png" alt="The data has been ordered as 10, 11, 12, 14, 15, 16, 18." title="The data has been ordered as 10, 11, 12, 14, 15, 16, 18." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Next, strike out the first and last numbers: <br><br><img src="../images/median_example1a.png" alt="The 10 and 18 have been cross off the list of numbers." title="The 10 and 18 have been cross off the list of numbers." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Then, strike out the next two inner numbers:<br><br><img src="../images/median_example1b.png" alt="The 11 and 16 are now struck out." title="The 11 and 16 are now struck out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Again, strike out the next two inner numbers:<br><br><img src="../images/median_example1c.png" alt="The 12 and 15 have been struck out." title="The 12 and 15 have been struck out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Now, notice that only one number remains:<br><br><img src="../images/median_example1d.png" alt="The remaining number 14 has been boxed." title="The remaining number 14 has been boxed." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Since there is only one number left, \(14\) is our median.</p>
+        <h5>Note</h5>
+        <p>What do we mean by separating the upper 50% of data from the lower 50% of data?  In this case, there are the same amount of numbers to the left of 14 as there are numbers to the right of 14.  Notice I do not say lower or higher than 14 since there can be repetitions of numbers in the list. The median is determined by its position in the ordered list, not its value.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+<!-- End Solution -->
+<p>Finding the median for an even sample size follows the same steps, except for the final calculation.</p>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The cholesterol levels (mg/dL) of a sample of 10 people are recorded below. Find the median cholesterol level by hand.</p>
+    <!-- Table -->
+    <table style="width: auto;"><caption style="width: max-content;">Sample of 10 Cholesterol Levels</caption>
+    <tbody>
+    <tr>
+    <th scope="col" colspan="5">Cholesterol Level (mg/dL)</th>
+    </tr>
+    <tr>
+    <td>154</td>
+    <td>240</td>
+    <td>171</td>
+    <td>188</td>
+    <td>235</td>
+    </tr>
+    <tr>
+    <td>203</td>
+    <td>184</td>
+    <td>173</td>
+    <td>181</td>
+    <td>275</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="inches" data-height="2in"></div>
+    <div class="dontprint">
+        <p>First, order the data from smallest to largest:<br><br><img src="../images/median_example2_transparent.png" alt="The data has been ordered as 154, 171, 173, 181, 184, 188, 203, 235, 240, 275." title="The data has been ordered as 154, 171, 173, 181, 184, 188, 203, 235, 240, 275." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Now, strike off the first and last numbers in the list:<br><br><img src="../images/median_example2a_transparent.png" alt="154 and 275 have been stricken from the list." title="154 and 275 have been stricken from the list." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Then, strike out the next two inner numbers:<br><br><img src="../images/median_example2b_transparent.png" alt="171 and 240 have been stricken off." title="171 and 240 have been stricken off." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Again, strike out the next two inner numbers:<br><br><img src="../images/median_example2c_transparent.png" alt="173 and 235 have been stricken out." title="173 and 235 have been stricken out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>Again, strike out the next two inner numbers: <br><br><img src="../images/median_example2d_transparent.png" alt="181 and 203 have been stricken out." title="181 and 203 have been stricken out." data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+        <p>Instead of arriving at a single central number, we end up with two central numbers—184 and 188:<br><br><img src="../images/median_example2e_transparent.png" alt="184 and 188 have been boxed since they are the last two numbers remaining." title="184 and 188 have been boxed since they are the last two numbers remaining." data-d2l-editor-default-img-style="true" style="max-width: 100%;"><br><br>When we end up with two central numbers we will average them together to find the median: \[\text{median }=\dfrac{184+188}{{2}}=186\]</p>
+    </div>
+        <h5>Note</h5>
+        <p>What does it mean to separate the upper 50% from the lower 50% of the data? The median is the average of the two central numbers, so it may not be an actual data point, even if it matches a value in the list. It lies exactly between the two central numbers, dividing the dataset into two equal parts. In this case, the lower half consists of 154, 171, 173, 181, and 184, while the upper half consists of 188, 203, 235, 240, and 275.</p>
+        <p class="dontprint">$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    
+</div>
+<!-- End Solution -->
+<p>Just like the mean, we often compute the median from large data sets. Our next example uses our <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> to compute the median.</p>
+
+<div class="notes-page-break"></div>
+
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span></h2>
+    <p>The following LSAT scores for a sample of 50 students are given below. Find the <strong>median</strong> of the sample using the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><button onclick="copyToClipboard('deathdata')">Copy Data to Clipboard</button></p>
+    <pre style="display: none;" id="deathdata">LSTAT Score
+    174
+    172
+    169
+    176
+    169
+    170
+    175
+    171
+    168
+    177
+    165
+    180
+    173
+    166
+    178
+    170
+    174
+    167
+    179
+    172
+    163
+    181
+    171
+    164
+    177
+    169
+    175
+    168
+    180
+    170
+    162
+    182
+    170
+    165
+    176
+    168
+    174
+    166
+    178
+    171
+    161
+    183
+    169
+    167
+    175
+    167
+    173
+    165
+    177
+    172
+    </pre>
+    <!-- Table -->
+    <table style="width: auto;"><caption>Sample of 50 LSAT Scores</caption>
+    <thead>
+    <tr>
+    <th scope="col" colspan="10">LSAT Scores</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>174</td>
+    <td>172</td>
+    <td>169</td>
+    <td>176</td>
+    <td>169</td>
+    <td>170</td>
+    <td>175</td>
+    <td>171</td>
+    <td>168</td>
+    <td>177</td>
+    </tr>
+    <tr>
+    <td>165</td>
+    <td>180</td>
+    <td>173</td>
+    <td>166</td>
+    <td>178</td>
+    <td>170</td>
+    <td>174</td>
+    <td>167</td>
+    <td>179</td>
+    <td>172</td>
+    </tr>
+    <tr>
+    <td>163</td>
+    <td>181</td>
+    <td>171</td>
+    <td>164</td>
+    <td>177</td>
+    <td>169</td>
+    <td>175</td>
+    <td>168</td>
+    <td>180</td>
+    <td>170</td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- Solution -->
+    <div class="solution">
+    <h2 class="example-header">Solution</h2>
+    <div class="inches" data-height="1in"></div>
+    <div class="dontprint">
+        <p>We load the data into the Summary Statistics Calculator with its default settings.</p>
+        <p><img src="../images/example3%20mean.png" alt="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." title="A screenshot of the Summary Statistics Calculator showing that the average value is 171.68." width="498" height="287"></p>
+        <p>Click on the <strong>Median</strong> <strong>checkbox </strong>to reveal the value of the median.</p>
+        <p><img src="../images/example3%20media.png" alt="The median checkbox is clicked. The value of the median is 171." title="The median checkbox is clicked. The value of the median is 171." width="500" height="304"></p>
+        <p>Therefore, the value of the median is 171.</p>
+        <p>$$\tag*{\(\blacksquare\)}$$</p>
+    </div>
+    </div>
+</div>
+<!-- End Solution --> <!-- Conclusion -->
+<h2>Conclusion</h2>
+<p>The median is a valuable measure of central tendency because it is resistant to outliers. By understanding how to calculate the median manually and using technology, we can analyze data more effectively in various contexts.</p>
+</section>
+
+<div class="d-flex justify-content-between mt-4">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Descriptive Statistics</title>
+<title>Is Mean Enough to Describe a Dataset</title>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 <!-- Bootstrap CDN CSS -->
@@ -23,27 +23,6 @@
 <!-- CSS Stylesheets Used in Course Content Pages -->
 <link rel="stylesheet" href="../css/main.min.css">
 <link rel="stylesheet" href="../css/style.css" />
-
-<!-- Define different pages for Chapter 3 -->
-<script>
-    const sectionPages = [
-    "GeoGebra Tools and Datasets for Chapter 2.html",
-    "Creating Frequency Distributions.html",
-    "Creating Relative Frequency Distributions.html",
-    "Creating Cumulative Frequency Distributions.html",
-    "Creating Frequency Histograms.html",
-    "Shapes of Frequency Distributions.html",
-    "Constructing Stem_and_Leaf Plots.html",
-    "Constructing Dot Plots.html",
-    "Constructing Time Series Plots.html",
-    "Constructing Bar Graphs.html",
-    "Misleading Graphs.html",
-    "Creating Pie Graphs.html",
-    "Misleading Graphs.html"];
-</script>
-
-<!-- Link to the same JavaScript file -->
-<script defer src="../js/sectionLoader.js"></script>
 
 </head>
 
@@ -92,7 +71,29 @@
 </nav>
 </header>
 
-<div id="content"></div>
+<section>
+    <h1>Is the Mean Enough to Describe a Dataset?</h1>
+<p>The mean is one of the most commonly used measures to summarize a dataset. While it provides useful information about the central tendency of the data, it doesn’t always tell the whole story. Different datasets can have the same mean yet exhibit vastly different distributions. In this example, we’ll explore two datasets with the same mean and analyze how they differ beyond that single statistic.</p>
+<h2 class="example-header">Example 1</h2>
+<ul>
+<li><strong>Part A:</strong> Find the mean of the data set \( 76, 74, 83, 97, 70 \).</li>
+<li><strong>Part B:</strong> Find the mean of the data set \( 82, 81, 76, 85, 76 \).</li>
+<li><strong>Part C:</strong> Even though the means are the same, how are the data sets different?</li>
+</ul>
+<!-- Solution -->
+<div class="solution">
+<h3 class="example-header">Solution</h3>
+<ul>
+<li><strong>Part A:</strong> The mean is the sum of all data values divided by the number of values in the set. The given data set is \( 76, 74, 83, 97, 70 \). \[ \begin{align*} \text{{Mean}} &amp;= \dfrac{76 + 74 + 83 + 97 + 70}{{5}} \\\\ &amp;= \dfrac{{400}}{{5}} \\\\ &amp;= 80 \end{align*} \]</li>
+<li><strong>Part B:</strong> The given data set is \( 82, 81, 76, 85, 76 \). We follow the same process. \[ \begin{align*} \text{{Mean}} &amp;= \dfrac{82 + 81 + 76 + 85 + 76}{{5}} \\\\ &amp;= \dfrac{{400}}{{5}} \\\\ &amp;= 80 \end{align*} \]</li>
+<li><strong>Part C:</strong> Even though both data sets have the same mean, they differ in their distribution. The first data set has a wider range (from 70 to 97), indicating more variability, while the second data set has a smaller range (from 76 to 85), showing less variability.</li>
+</ul>
+<p>$$\tag*{\(\blacksquare\)}$$</p>
+</div>
+<!-- End Solution -->
+<h2>Conclusion</h2>
+<p>In conclusion, the mean alone is not always sufficient to fully describe a dataset. While it offers a measure of central tendency, other statistics such as range, variance, or standard deviation are essential to understand the data’s variability and distribution. As shown in this example, two datasets with identical means can represent very different patterns.</p>
+</section>
 
 <div class="d-flex justify-content-between mt-4">
 <button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
