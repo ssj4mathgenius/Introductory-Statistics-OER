@@ -476,6 +476,10 @@ section:not(#content section) {
         display: none;
     }
 
+    .no-print-nav {
+        display: none !important;
+    }
+
     .tooltip {
         display: none !important;
     }

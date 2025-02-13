@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculating the Range of a Dataset</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>Understanding the Range of a Data Set</h1>
+                        <p>The range measures the spread of a dataset by subtracting the minimum value from the maximum.
+                            It’s easy to calculate and provides a quick estimate of variability. However, since it only
+                            uses two values, it can be misleading if outliers are present.</p>
+                        <h2>Range</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h2 class="definition-header">What is the Range of a Dataset?</h2>
+                            <p>The <span class="blanked"><strong>range</strong></span> of a data set is given by the
+                                formula: \[ \text{Range} = \text{maximum value} - \text{minimum value} \]</p>
+                        </div>
+                        <!-- End Definition --> <!-- Example Block 1 -->
+                        <div class="definition">
+                            <h2 class="definition-header">Advantages of the Range</h2>
+                            <ul>
+                                <li><strong>Simple to Calculate:</strong> The range is easy to compute—just subtract the
+                                    minimum value from the maximum value.</li>
+                                <li><strong>Quick Estimate of Data Spread:</strong> It provides a quick sense of the
+                                    overall spread of the data.</li>
+                                <li><strong>Useful for Small Data Sets:</strong> For small or preliminary data sets, it
+                                    can give a rough indication of variability.</li>
+                                <li><strong>Identifies Outliers Easily:</strong> A large range may indicate the presence
+                                    of outliers or extreme values.</li>
+                            </ul>
+                        </div>
+                        <!-- End Example Block 1 --> <!-- Example Block 2 -->
+                        <div class="definition">
+                            <h2 class="definition-header">Disadvantages of the Range</h2>
+                            <ul>
+                                <li><strong>Ignores Most Data Points:</strong> The range only depends on two values
+                                    (maximum and minimum), ignoring all other data points.</li>
+                                <li><strong>Sensitive to <span class="blanked">Outliers</span>:</strong> A single extreme value can drastically
+                                    affect the range, making it an unreliable measure of variability.</li>
+                                <li><strong>No Information on Data Distribution:</strong> The range tells us nothing
+                                    about how data is distributed between the minimum and maximum values.</li>
+                                <li><strong>Limited Use in Large Data Sets:</strong> In larger data sets, the range
+                                    becomes less informative because it doesn’t reflect the overall variability
+                                    accurately.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="notes-page-break"></div>
+                        
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>Scientists are tracking the migration distances of a species of birds over several years. The
+                                distances (in miles) recorded for a sample of 10 birds are as follows:</p>
+                            <table style="width: auto;">
+                                <caption style="width: max-content;">Migration Distances</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="10" style="width: 401.29px;">Distance (in miles)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 40.129px;">354</td>
+                                        <td style="width: 40.129px;">400</td>
+                                        <td style="width: 40.129px;">412</td>
+                                        <td style="width: 40.129px;">375</td>
+                                        <td style="width: 40.129px;">389</td>
+                                        <td style="width: 40.129px;">410</td>
+                                        <td style="width: 40.129px;">368</td>
+                                        <td style="width: 40.129px;">390</td>
+                                        <td style="width: 40.129px;">405</td>
+                                        <td style="width: 40.129px;">392</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>Answer the following questions based on the data:</p>
+                            <ul>
+                                <li><strong>Part A:</strong> Find the range of the migration distances.</li>
+                                <li><strong>Part B:</strong> Explain what the range tells us about the variation in the
+                                    birds' migration distances</li>
+                            </ul>
+                            <!-- Solution -->
+                            <div class="solution">
+                                <h2 class="example-header">Solution</h2>
+                                <div class="inches" data-height="1in"></div>
+                                <div class="dontprint">
+                                    <ul>
+                                        <li><strong>Part A:</strong> To find the range of the migration distances, we calculate
+                                            the difference between the maximum and minimum values:
+                                            <ul>
+                                                <li>Maximum distance = 412 miles</li>
+                                                <li>Minimum distance = 354 miles</li>
+                                            </ul>
+                                            <p><strong>Range </strong>= 412 - 354 = 58 miles</p>
+                                        </li>
+                                        <li><strong>Part B:</strong> The range of 58 miles represents the spread of the
+                                            migration distances among the 10 birds. A relatively small range suggests that the
+                                            birds have similar migration patterns, with no extreme outliers in the distances
+                                            traveled.</li>
+                                    </ul>
+                                    <p>$$\tag*{\(\blacksquare\)}$$</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Solution -->
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>A sociologist is studying the ages of participants in a community program aimed at improving
+                                digital literacy. The ages (in years) of 12 participants are as follows:</p>
+                            <table style="width: auto;">
+                                <caption style="width: max-content;">Participants in a Community Program</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="12" style="width: 374.762px;">Age (in years)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 31.2302px;">22</td>
+                                        <td style="width: 31.2302px;">25</td>
+                                        <td style="width: 31.2302px;">31</td>
+                                        <td style="width: 31.2302px;">28</td>
+                                        <td style="width: 31.2302px;">24</td>
+                                        <td style="width: 31.2302px;">35</td>
+                                        <td style="width: 31.2302px;">45</td>
+                                        <td style="width: 31.2302px;">41</td>
+                                        <td style="width: 31.2302px;">29</td>
+                                        <td style="width: 31.2302px;">33</td>
+                                        <td style="width: 31.2302px;">38</td>
+                                        <td style="width: 31.2302px;">40</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><button onclick="copyToClipboard('agedata')">Copy Data to Clipboard</button></p>
+                            <pre id="agedata" style="display: none;">Ages of Participants
+                            22
+                            25
+                            31
+                            28
+                            24
+                            35
+                            45
+                            41
+                            29
+                            33
+                            38
+                            40
+                            </pre>
+                            <p>Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary
+                                    Stats Calculator</a> to find the range of the participants’ ages.</p>
+                            <!-- Solution Shell -->
+                            <div class="solution">
+                                <h2 class="example-header">Solution</h2>
+                                <div class="inches" data-height="1in"></div>
+                                <div class="dontprint">
+                                    <p>Upload the dataset to the&nbsp;<a href="https://www.geogebra.org/m/gka7dwu7"
+                                            target="_blank" rel="noopener">Summary Stats Calculator</a>, and then click on
+                                        the&nbsp;<strong>Minimum&nbsp;</strong>and&nbsp;<strong>Maximum checkboxes</strong> to
+                                        reveal the smallest and largest values in the dataset.&nbsp; If you did everything
+                                        correctly, the calculator should look like this:&nbsp;<br><br><img
+                                            src="../images/range_example2.png"
+                                            alt="The maximum checkbox reveals 45, and the minimum checkbox reveals 22."
+                                            title="The maximum checkbox reveals 45, and the minimum checkbox reveals 22."
+                                            width="400" height="241"><br><br>Using the maximum and minimum value, we calculate
+                                        the range to be \[45-22=23.\]</p>
+                                    <p>$$\tag*{\(\blacksquare\)}$$</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Solution Shell -->
+                        <h2>Conclusion</h2>
+                        <p>The range is a simple tool for understanding data spread but lacks detail about overall
+                            variability. While useful for quick insights, it should be paired with other measures like
+                            variance or standard deviation for a more complete analysis.</p>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>
