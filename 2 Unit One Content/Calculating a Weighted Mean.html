@@ -2,290 +2,439 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculating a Weighted Mean</title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculating a Weighted Mean</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<!-- Bootstrap CDN CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Optional Bootstrap theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-<!-- Optional Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-<!-- Custom Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- CSS Stylesheets Used in Course Content Pages -->
-<link rel="stylesheet" href="../css/main.min.css">
-<link rel="stylesheet" href="../css/style.css" />
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-<div class="container-fluid">
-<main>
-<div class="row mb-4">
-<div class="col-10 offset-1 col-md-10 offset-md-1">
-<header>
-<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <!-- Home & About Buttons as Links -->
-        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
-        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
-<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
-        <!-- Search Bar -->
-        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
-            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
 
-        <!-- Theme Toggle Dropdown Button -->
-        <div class="dropdown">
-            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
-                </svg>
-                <span class="ms-2">Theme</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
-                <li><a class="dropdown-item" href="#" data-theme="light">
-                    <i class="bi bi-sun"></i> Light
-                </a></li>
-                <li><a class="dropdown-item" href="#" data-theme="dark">
-                    <i class="bi bi-moon"></i> Dark
-                </a></li>
-                <li><a class="dropdown-item" href="#" data-theme="auto">
-                    <i class="bi bi-circle-half"></i> Auto
-                </a></li>
-            </ul>
-        </div>
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
 
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>Calculating a Weighted Mean</h1>
+                        <p>The mean is a fundamental measure of central tendency, but not all data points contribute
+                            equally in every scenario. In cases where there are a lot of repeated values, we use the
+                            weighted mean to calculate the mean faster than a standard calculation. This section will
+                            explore different methods for calculating a weighted mean and demonstrate its applications
+                            through practical examples.</p>
+                        <h2>Weighted Means</h2>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>A small retail store tracks the number of sales transactions completed by seven different
+                                employees during a particular week \[ 12, 15, 15, 18, 18, 18, 25 \] Calculate the mean
+                                using the following methods.</p>
+                            <ul>
+                                <li><strong>Part A:</strong> Using the Definition of the Mean</li>
+                                <li><strong>Part B:</strong> Using the Definition of Multiplication to Simplify the
+                                    Numerator</li>
+                                <li><strong>Part C:</strong> Using the Definition of Multiplication and Simplifying the
+                                    Fraction</li>
+                            </ul>
+                            <div class="solution">
+                                <h4 class="solution-header">Solution</h4>
+                                <h5>Part A</h5>
+                                <p>\[\overline{{x}}=\dfrac{12+15+15+18+18+18+25}{{7}}=\dfrac{{121}}{{7}}\approx17.29\]
+                                </p>
+                                <h5>Part B</h5>
+                                <p>We can rewrite repeated values using multiplication: \[ 12 = 1 \times 12, \quad 15+15
+                                    = 2 \times 15, \quad 18+18+18 = 3 \times 18, \quad 25 = 1 \times 25 \] Using this,
+                                    we calculate the mean as: \[ \bar{{x}} = \dfrac{1\times 12 + 2\times 15 + 3\times 18
+                                    + 1\times 25}{{7}} = \dfrac{12 + 30 + 54 + 25}{{7}} \approx 17.29 \]</p>
+                                <h6>Important Note</h6>
+                                <p>Notice that each term in the numerator follows the pattern <strong>frequency</strong>
+                                    \( \times \) <strong>data</strong>. Using \( f \) for frequency and \( x \) for
+                                    data, we express the numerator as \( \sum (f \cdot x) \) and the denominator as \(
+                                    \sum f \). This leads to the formula: \[ \bar{{x}} = \dfrac{\sum (f \cdot x)}{\sum
+                                    f} \] which is useful for computing the mean from a frequency distribution.</p>
+                                    <div class="notes-page-break"></div>
+                                <h5>Part C</h5>
+                                <p>Let's first look at the relative frequency distribution for this dataset:</p>
+                                <table style="width: auto; height: 235.436px;">
+                                    <caption style="width: max-content;">Relative Frequency Table</caption>
+                                    <thead>
+                                        <tr style="height: 39.6627px;">
+                                            <th scope="col">Data Value (\(x\))</th>
+                                            <th scope="col">Frequency (\(f\))</th>
+                                            <th scope="col">Relative Frequency \(\left(w=\dfrac{{f}}{\sum f}\right)\)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="height: 39.0278px;">
+                                            <td>12</td>
+                                            <td>1</td>
+                                            <td>\(\dfrac{{1}}{{7}}\)</td>
+                                        </tr>
+                                        <tr style="height: 39.0278px;">
+                                            <td>15</td>
+                                            <td>2</td>
+                                            <td>\(\dfrac{{2}}{{7}}\)</td>
+                                        </tr>
+                                        <tr style="height: 39.0278px;">
+                                            <td>18</td>
+                                            <td>3</td>
+                                            <td>\(\dfrac{{3}}{{7}}\)</td>
+                                        </tr>
+                                        <tr style="height: 39.0278px;">
+                                            <td>25</td>
+                                            <td>1</td>
+                                            <td>\(\dfrac{{1}}{{7}}\)</td>
+                                        </tr>
+                                        <tr style="height: 39.6627px;">
+                                            <td>Total</td>
+                                            <td>\(\sum f=7\)</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>Now, observe what happens when we simplify our calculation from part B:</p>
+                                <p>\[\begin{align*}\bar{{x}} &amp;= \dfrac{1\times 12 + 2\times 15 + 3\times 18 +
+                                    1\times 25}{{7}} \\&amp;=\dfrac{1\times 12}{{7}}+\dfrac{2\times
+                                    15}{{7}}+\dfrac{3\times 18}{{7}}+\dfrac{1\times
+                                    25}{{7}}\\&amp;=\dfrac{{1}}{{7}}\times 12+\dfrac{{2}}{{7}}\times
+                                    15+\dfrac{{3}}{{7}}\times 18+\dfrac{{1}}{{7}}\times 25\\&amp;\approx
+                                    17.29\end{align*}\]</p>
+                                <h6>Important Note</h6>
+                                <p>Notice that in this case, we have expressed the mean as <strong>relative
+                                        frequency</strong> \(\times\) <strong>data</strong>. In the context of a mean, a
+                                    relative frequency is often called a <strong>weight</strong>, and that is why we are
+                                    using the variable \(w\) in the table. Therefore, for a relative frequency
+                                    distribution, we can express the mean as \[\overline{{x}}=\sum(w\cdot x)\] as long
+                                    as the sum of the relative frequencies add to one.</p>
+                                <p>But, sometimes we want to compute an average using only some of the relative
+                                    frequencies instead of all of them. For example, most online gradebooks will often
+                                    ignore things like exams that have not been taken yet. So, it will only use the
+                                    relative frequencies for grades you already have to give you current grade. In that
+                                    case, the formula for the mean becomes \[\overline{{x}}=\dfrac{\sum(w\cdot x)}{\sum
+                                    w}\].</p>
+                            </div>
+                        </div>
+
+                        <p>The discussion in the previous Example motivates the following definition.</p>
+                        <!-- Definition -->
+<div class="notes-page-break"></div>
+                        <div class="definition">
+                            <h2>What is a Weighted Mean?</h2>
+                            <p>A <span class="blanked"><strong>weighted mean</strong></span> is the mean of a dataset
+                                where each value in the
+                                dataset has varying weights or frequencies. There are two common formulas for
+                                calculating the weighted mean.</p>
+                            <ul>
+                                <li><strong>Using Frequencies:</strong> \[ \bar{{x}} = \dfrac{\sum (f \cdot x)}{\sum
+                                    f} \]</li>
+                                <li><strong>Using Weights or Relative Frequencies:</strong> \[ \bar{{x}} =
+                                    \dfrac{\sum (w \cdot x)}{\sum w} \]</li>
+                            </ul>
+                            <p><strong>Note:</strong> In many cases, the sum of the weights (\(\sum w\)) equals 1
+                                since we usually want to include all the data, not just some of the data.</p>
+                        </div>
+                        <!-- End Definition -->
+                        <p>Now that we understand the weighted mean and have explored two examples, we will use the
+                            <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary
+                                Statistics Calculator</a> to calculate the weighted mean.
+                        </p>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>Suppose you just took your third exam, and your grade distribution is given below.
+                                Calculate your current grade using the <a href="https://www.geogebra.org/m/gka7dwu7"
+                                    target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><button
+                                    onclick="copyToClipboard('gradedata')">Copy Data to Clipboard</button></p>
+                            <pre style="display: none;" id="gradedata">Category,Grade,Percentage of Grade
+    MyLab Stat,43,0.075
+    Quizzes,63,0.075
+    Exam 1,92,0.20
+    Exam 2,67,0.20
+    Exam 3,76,0.20
+    </pre>
+                            <!-- Table -->
+                            <table style="width: auto; height: 234.167px;">
+                                <caption style="width: max-content;">Sample Grades for a Course</caption>
+                                <thead>
+                                    <tr style="height: 39.0278px;">
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Grade (%)</th>
+                                        <th scope="col">Percentage of Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="height: 39.0278px;">
+                                        <td>MyLab Stat</td>
+                                        <td>43%</td>
+                                        <td>7.5%</td>
+                                    </tr>
+                                    <tr style="height: 39.0278px;">
+                                        <td>Quizzes</td>
+                                        <td>63%</td>
+                                        <td>7.5%</td>
+                                    </tr>
+                                    <tr style="height: 39.0278px;">
+                                        <td>Exam 1</td>
+                                        <td>92%</td>
+                                        <td>20%</td>
+                                    </tr>
+                                    <tr style="height: 39.0278px;">
+                                        <td>Exam 2</td>
+                                        <td>67%</td>
+                                        <td>20%</td>
+                                    </tr>
+                                    <tr style="height: 39.0278px;">
+                                        <td>Exam 3</td>
+                                        <td>76%</td>
+                                        <td>20%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="2in"></div>
+                                <div class="dontprint">
+                                    <p>First, we load the dataset into <a href="https://www.geogebra.org/m/gka7dwu7"
+                                            target="_blank" rel="noopener">Summary Statistics Calculator</a>.
+                                        <br><br><img src="../images/weighted_example2a.png"
+                                            alt="The data is loaded into GeoGebra.  Column B has the grade data, and column C has the weights as percentages."
+                                            title="The data is loaded into GeoGebra.  Column B has the grade data, and column C has the weights as percentages."
+                                            width="500" height="241"><br><br>Before closing the spreadsheet, let’s
+                                        examine
+                                        how the data is entered.The first column is just exposition data and is not
+                                        relevant
+                                        to the computation. Column B contains our data: the grades we get. Notice the
+                                        percent symbol is dropped since GeoGebra will auto-convert the data to decimals
+                                        if
+                                        we include the percent symbol. In the last column, the percentage of the grade
+                                        represents the weight. Since weights are given as percentages, we must convert
+                                        them
+                                        to decimals for accurate calculations.</p>
+                                    <p>After closing the spreadsheet, we will set the <strong>Problem Type </strong>to
+                                        <strong>Weighted Statistics</strong>, set <strong>Data</strong> to
+                                        <strong>Column
+                                            B</strong>, and <strong>Weights</strong> to <strong>Column
+                                            C</strong>.<br><br><img src="../images/weighted_example2c.png"
+                                            alt="The weighted mean calculated by the tool is 73.27."
+                                            title="The weighted mean calculated by the tool is 73.27." width="498"
+                                            height="237"><br><br>The Calculator automatically computes the weighted
+                                        average
+                                        as \(\overline{{x}}=73.27\). Therefore, our current grade in the course is a C.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>Often, data is reported through a frequency distribution rather than raw values. We can use
+                            the distribute to estimate the mean of the data using <span class="blanked"><strong>midpoints</strong></span> and a weighted mean. Our next example illustrates this
+                            idea.</p>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank"
+                                    rel="noopener">Summary
+                                    Statistics Calculator </a>to estimate the mean gas mileage (mpg) for 24 family
+                                sedans.
+                            </p>
+                            <!-- Table -->
+                            <table style="width: auto; height: 195.139px;">
+                                <caption style="width: max-content;">A Frequency Distribution for the Gas Mileage of 24
+                                    Family Sedans</caption>
+                                <thead>
+                                    <tr style="height: 39.0278px;">
+                                        <th scope="col">Gas Mileage (mpg)</th>
+                                        <th scope="col">Frequency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="height: 39.0278px;">
+                                        <td>22 to 27</td>
+                                        <td>16</td>
+                                    </tr>
+                                    <tr style="height: 39.0278px;">
+                                        <td>28 to 33</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr style="height: 39.0278px;">
+                                        <td>34 to 39</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr style="height: 39.0278px;">
+                                        <td>40 to 45</td>
+                                        <td>4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="2in"></div>
+                                <div class="dontprint">
+                                    <p>First, we compute the midpoints for each class:</p>
+                                    <!-- Table -->
+                                    <table style="width: auto;">
+                                        <caption style="width: max-content;">A Frequency Distribution for the Gas
+                                            Mileage of
+                                            24
+                                            Family Sedans</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Gas Mileage (mpg)</th>
+                                                <th scope="col">Midpoint</th>
+                                                <th scope="col">Frequency</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>22 to 27</td>
+                                                <td>24.5</td>
+                                                <td>16</td>
+                                            </tr>
+                                            <tr>
+                                                <td>28 to 33</td>
+                                                <td>30.5</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>34 to 39</td>
+                                                <td>36.5</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>40 to 45</td>
+                                                <td>42.5</td>
+                                                <td>4</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p>The midpoints become the estimated data points for the distribution. Since the
+                                        data
+                                        is
+                                        derived from midpoints, a premade dataset is unavailable.Instead, we will
+                                        manually
+                                        enter
+                                        the data into <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank"
+                                            rel="noopener">Summary Statistics Calculator</a> like this: <br><br><img
+                                            src="../images/weighted_example3a.png"
+                                            alt="The midpoint and frequency columns entered into the spreadsheet in our tool."
+                                            title="The midpoint and frequency columns entered into the spreadsheet in our tool."
+                                            width="397" height="211"><br><br>These notes apply to all the tools that use
+                                        the
+                                        Spreadsheet: Row 1 is always the header, which gives a Small Description of the
+                                        Data
+                                        in
+                                        the Column. In our case, Midpoint and Frequency. Do not enter data into Row 1,
+                                        as
+                                        the
+                                        tool begins scanning for data from Row 2.. In rows 2-5, we recreate the table.
+                                    </p>
+                                    <p>Once you have entered all this data into spreadsheet, you can close it, and make
+                                        sure
+                                        your options are set to weighted means, data is in column A, and weights in
+                                        column
+                                        B. If
+                                        you have everything set up correctly, the mean will automatically be computed,
+                                        and
+                                        you'll get this screen.<br><br><img src="../images/weighted_example3b.png"
+                                            alt="The weighted mean is 29." title="The weighted mean is 29." width="499"
+                                            height="240"><br><br>Therefore, the average gas mileage is
+                                        \(\overline{{x}}=29\)
+                                        mpg.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Summary</h2>
+                        <p>Now that we understand the weighted mean and have explored examples using both frequencies
+                            and weights, we see how it provides a quicker calculation when many data points are
+                            repeated. Using tools like the Summary Statistics Calculator, we can efficiently compute
+                            weighted means in practical scenarios, such as grades, sales, and performance tracking.</p>
+                    </section>
+
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
     </div>
-</nav>
-</header>
-
-<section>
-    <h1>Calculating a Weighted Mean</h1> 
-<p>The mean is a fundamental measure of central tendency, but not all data points contribute equally in every scenario. In cases where there are a lot of repeated values, we use the weighted mean to calculate the mean faster than a standard calculation. This section will explore different methods for calculating a weighted mean and demonstrate its applications through practical examples.</p>
-<h2>Weighted Means</h2>
-<h3 class="example-header">Example 1</h3>
-<p>A small retail store tracks the number of sales transactions completed by seven different employees during a particular week \[ 12, 15, 15, 18, 18, 18, 25 \] Calculate the mean using the following methods.</p>
-<ul>
-<li><strong>Part A:</strong> Using the Definition of the Mean</li>
-<li><strong>Part B:</strong> Using the Definition of Multiplication to Simplify the Numerator</li>
-<li><strong>Part C:</strong> Using the Definition of Multiplication and Simplifying the Fraction</li>
-</ul>
-<div class="solution">
-<h4 class="solution-header">Solution</h4>
-<h5>Part A</h5>
-<p>\[\overline{{x}}=\dfrac{12+15+15+18+18+18+25}{{7}}=\dfrac{{121}}{{7}}\approx17.29\]</p>
-<h5>Part B</h5>
-<p>We can rewrite repeated values using multiplication: \[ 12 = 1 \times 12, \quad 15+15 = 2 \times 15, \quad 18+18+18 = 3 \times 18, \quad 25 = 1 \times 25 \] Using this, we calculate the mean as: \[ \bar{{x}} = \dfrac{1\times 12 + 2\times 15 + 3\times 18 + 1\times 25}{{7}} = \dfrac{12 + 30 + 54 + 25}{{7}} \approx 17.29 \]</p>
-<h6>Important Note</h6>
-<p>Notice that each term in the numerator follows the pattern <strong>frequency</strong> \( \times \) <strong>data</strong>. Using \( f \) for frequency and \( x \) for data, we express the numerator as \( \sum (f \cdot x) \) and the denominator as \( \sum f \). This leads to the formula: \[ \bar{{x}} = \dfrac{\sum (f \cdot x)}{\sum f} \] which is useful for computing the mean from a frequency distribution.</p>
-<h5>Part C</h5>
-<p>Let's first look at the relative frequency distribution for this dataset:</p>
-<table style="width: auto; height: 235.436px;"><caption style="width: max-content;">Relative Frequency Table</caption>
-<thead>
-<tr style="height: 39.6627px;">
-<th scope="col">Data Value (\(x\))</th>
-<th scope="col">Frequency (\(f\))</th>
-<th scope="col">Relative Frequency \(\left(w=\dfrac{{f}}{\sum f}\right)\)</th>
-</tr>
-</thead>
-<tbody>
-<tr style="height: 39.0278px;">
-<td>12</td>
-<td>1</td>
-<td>\(\dfrac{{1}}{{7}}\)</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>15</td>
-<td>2</td>
-<td>\(\dfrac{{2}}{{7}}\)</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>18</td>
-<td>3</td>
-<td>\(\dfrac{{3}}{{7}}\)</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>25</td>
-<td>1</td>
-<td>\(\dfrac{{1}}{{7}}\)</td>
-</tr>
-<tr style="height: 39.6627px;">
-<td>Total</td>
-<td>\(\sum f=7\)</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>Now, observe what happens when we simplify our calculation from part B:</p>
-<p>\[\begin{align*}\bar{{x}} &amp;= \dfrac{1\times 12 + 2\times 15 + 3\times 18 + 1\times 25}{{7}} \\\\&amp;=\dfrac{1\times 12}{{7}}+\dfrac{2\times 15}{{7}}+\dfrac{3\times 18}{{7}}+\dfrac{1\times 25}{{7}}\\\\&amp;=\dfrac{{1}}{{7}}\times 12+\dfrac{{2}}{{7}}\times 15+\dfrac{{3}}{{7}}\times 18+\dfrac{{1}}{{7}}\times 25\\\\&amp;\approx 17.29\end{align*}\]</p>
-<h6>Important Note</h6>
-<p>Notice that in this case, we have expressed the mean as <strong>relative frequency</strong> \(\times\) <strong>data</strong>.  In the context of a mean, a relative frequency is often called a <strong>weight</strong>, and that is why we are using the variable \(w\) in the table.  Therefore, for a relative frequency distribution, we can express the mean as \[\overline{{x}}=\sum(w\cdot x)\] as long as the sum of the relative frequencies add to one.</p>
-<p>But, sometimes we want to compute an average using only some of the relative frequencies instead of all of them.  For example, most online gradebooks will often ignore things like exams that have not been taken yet.  So, it will only use the relative frequencies for grades you already have to give you current grade.  In that case, the formula for the mean becomes \[\overline{{x}}=\dfrac{\sum(w\cdot x)}{\sum w}\].</p>
-</div>
-<p>The discussion in Example 1 motivates the following definition.</p>
-<!-- Definition -->
-<div class="definition">
-<h3>What is a Weighted Mean?</h3>
-<p>A <strong>weighted mean</strong> is the mean of a dataset where each value in the dataset has varying weights or frequencies. There are two common formulas for calculating the weighted mean.</p>
-<ul>
-<li><strong>Using Frequencies:</strong> \[ \bar{{x}} = \dfrac{\sum (f \cdot x)}{\sum f} \]</li>
-<li><strong>Using Weights or Relative Frequencies:</strong> \[ \bar{{x}} = \dfrac{\sum (w \cdot x)}{\sum w} \]</li>
-</ul>
-<p><strong>Note:</strong> In many cases, the sum of the weights (\(\sum w\)) equals 1 since we usually want to include all the data, not just some of the data.</p>
-</div>
-<!-- End Definition -->
-<p>Now that we understand the weighted mean and have explored two examples, we will use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> to calculate the weighted mean.</p>
-<h3 class="example-header">Example 2</h3>
-<p>Suppose you just took your third exam, and your grade distribution is given below. Calculate your current grade using the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.<br><button onclick="copyToClipboard('gradedata')">Copy Data to Clipboard</button></p>
-<pre style="display: none;" id="gradedata">Category,Grade,Percentage of Grade
-MyLab Stat,43,0.075
-Quizzes,63,0.075
-Exam 1,92,0.20
-Exam 2,67,0.20
-Exam 3,76,0.20
-</pre>
-<!-- Table -->
-<table style="width: auto; height: 234.167px;"><caption style="width: max-content;">Sample Grades for a Course</caption>
-<thead>
-<tr style="height: 39.0278px;">
-<th scope="col">Category</th>
-<th scope="col">Grade (%)</th>
-<th scope="col">Percentage of Grade</th>
-</tr>
-</thead>
-<tbody>
-<tr style="height: 39.0278px;">
-<td>MyLab Stat</td>
-<td>43%</td>
-<td>7.5%</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>Quizzes</td>
-<td>63%</td>
-<td>7.5%</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>Exam 1</td>
-<td>92%</td>
-<td>20%</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>Exam 2</td>
-<td>67%</td>
-<td>20%</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>Exam 3</td>
-<td>76%</td>
-<td>20%</td>
-</tr>
-</tbody>
-</table>
-<div class="solution">
-<h4 class="solution-header">Solution</h4>
-<p>First, we load the dataset into <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>.  <br><br><img src="../images/weighted_example2a.png" alt="The data is loaded into GeoGebra.  Column B has the grade data, and column C has the weights as percentages." title="The data is loaded into GeoGebra.  Column B has the grade data, and column C has the weights as percentages." width="500" height="241"><br><br>Before closing the spreadsheet, let’s examine how the data is entered.The first column is just exposition data and is not relevant to the computation. Column B contains our data: the grades we get.  Notice the percent symbol is dropped since GeoGebra will auto-convert the data to decimals if we include the percent symbol.  In the last column, the percentage of the grade represents the weight. Since weights are given as percentages, we must convert them to decimals for accurate calculations.</p>
-<p>After closing the spreadsheet, we will set the <strong>Problem Type </strong>to <strong>Weighted Statistics</strong>, set <strong>Data</strong> to <strong>Column B</strong>, and <strong>Weights</strong> to <strong>Column C</strong>.<br><br><img src="../images/weighted_example2c.png" alt="The weighted mean calculated by the tool is 73.27." title="The weighted mean calculated by the tool is 73.27." width="498" height="237"><br><br>The Calculator automatically computes the weighted average as \(\overline{{x}}=73.27\).  Therefore, our current grade in the course is a C.</p>
-</div>
-<p>Often, data is reported through a frequency distribution rather than raw values. We can use the distribute to estimate the mean of the data using midpoints and a weighted mean. Our next example illustrates this idea.</p>
-<h3 class="example-header">Example 3</h3>
-<p>Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator </a>to estimate the mean gas mileage (mpg) for 24 family sedans.</p>
-<!-- Table -->
-<table style="width: auto; height: 195.139px;"><caption style="width: max-content;">A Frequency Distribution for the Gas Mileage of 24 Family Sedans</caption>
-<thead>
-<tr style="height: 39.0278px;">
-<th scope="col">Gas Mileage (mpg)</th>
-<th scope="col">Frequency</th>
-</tr>
-</thead>
-<tbody>
-<tr style="height: 39.0278px;">
-<td>22 to 27</td>
-<td>16</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>28 to 33</td>
-<td>2</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>34 to 39</td>
-<td>2</td>
-</tr>
-<tr style="height: 39.0278px;">
-<td>40 to 45</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<div class="solution">
-<h4 class="solution-header">Solution</h4>
-<p>First, we compute the midpoints for each class:</p>
-<!-- Table -->
-<table style="width: auto;"><caption style="width: max-content;">A Frequency Distribution for the Gas Mileage of 24 Family Sedans</caption>
-<thead>
-<tr>
-<th scope="col">Gas Mileage (mpg)</th>
-<th scope="col">Midpoint</th>
-<th scope="col">Frequency</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>22 to 27</td>
-<td>24.5</td>
-<td>16</td>
-</tr>
-<tr>
-<td>28 to 33</td>
-<td>30.5</td>
-<td>2</td>
-</tr>
-<tr>
-<td>34 to 39</td>
-<td>36.5</td>
-<td>2</td>
-</tr>
-<tr>
-<td>40 to 45</td>
-<td>42.5</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<p>The midpoints become the estimated data points for the distribution. Since the data is derived from midpoints, a premade dataset is unavailable.Instead, we will manually enter the data into <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a> like this: <br><br><img src="../images/weighted_example3a.png" alt="The midpoint and frequency columns entered into the spreadsheet in our tool." title="The midpoint and frequency columns entered into the spreadsheet in our tool." width="397" height="211"><br><br>These notes apply to all the tools that use the Spreadsheet: Row 1 is always the header, which gives a Small Description of the Data in the Column.  In our case, Midpoint and Frequency.  Do not enter data into Row 1, as the tool begins scanning for data from Row 2..  In rows 2-5, we recreate the table. </p>
-<p>Once you have entered all this data into spreadsheet, you can close it, and make sure your options are set to weighted means, data is in column A, and weights in column B.  If you have everything set up correctly, the mean will automatically be computed, and you'll get this screen.<br><br><img src="../images/weighted_example3b.png" alt="The weighted mean is 29." title="The weighted mean is 29." width="499" height="240"><br><br>Therefore, the average gas mileage is \(\overline{{x}}=29\) mpg.</p>
-</div>
-<h2>Summary</h2>
-<p>Now that we understand the weighted mean and have explored examples using both frequencies and weights, we see how it provides a quicker calculation when many data points are repeated. Using tools like the Summary Statistics Calculator, we can efficiently compute weighted means in practical scenarios, such as grades, sales, and performance tracking.</p>
-</section>
-
-
-<div class="d-flex justify-content-between mt-4 no-print-nav">
-<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
-<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
-</div>
-<button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
-</div>
-</div>
-</main>
-</div>
-<!-- jQuery local fallback (Bootstrap Dependency) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap CDN JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Course Scripts -->
-<script src="../js/loadmathjax.js"></script>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>

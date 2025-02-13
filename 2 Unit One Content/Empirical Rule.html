@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empirical Rule</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>What is the Empirical Rule?</h1>
+                        <!-- Introduction -->
+                        <p>The Empirical Rule provides a simple way to understand the distribution of data in normal
+                            distributions. It states that for approximately normal data sets, the percentage of values
+                            within one, two, or three standard deviations of the mean follows predictable patterns.</p>
+                        <h2>The Empirical Rule</h2>
+                        <div class="definition">
+                            <h3>What is the Empirical Rule?</h3>
+                            <p>Let \(\mu\) and \(\sigma\) be the mean and standard deviation for a population that is
+                                normally distributed.&nbsp; Then the data of the normal distribution followings the
+                                following guidelines.</p>
+                            <ul>
+                                <li><strong>Approximately 68% of the data is within one standard deviation of the
+                                        mean.</strong>&nbsp; In other words, 68% of the data is between \(\mu-\sigma\)
+                                    and \(\mu+\sigma\).</li>
+                                <li><strong>Approximately 95% of the data is within two standard deviations of the
+                                        mean.</strong>&nbsp; In other words, 95% of the data is between \(\mu-2\cdot
+                                    \sigma\) and \(\mu+2\cdot \sigma\).</li>
+                                <li><strong>Approximately 99.7% of the data is within three standard deviations of the
+                                        mean.</strong>&nbsp; In other words, 99.70% of the data is between
+                                    \(\mu-3\cdot\sigma\) and \(\mu+3\cdot\sigma\).</li>
+                            </ul>
+                            <h4>Notes</h4>
+                            <ul>
+                                <li>When we draw a normal distribution with a known mean and standard deviation, we
+                                    often label the \(x\)-axis with the values of \(\mu\), \(\mu\pm\sigma\), \(\mu\pm
+                                    2\cdot\sigma\), and \(\mu\pm 3\cdot\sigma\).&nbsp; For example, if \(\mu=85\) and
+                                    \(\sigma=15\), our normal distribution looks like this:<br><br><img
+                                        src="../images/normalempirical85_15.png"
+                                        alt="A normal distribution with mean 85 and standard deviation 15."
+                                        title="A normal distribution with mean 85 and standard deviation 15."
+                                        width="400" height="314"></li>
+                            </ul>
+                        </div>
+                        <p>Traditionally, the empirical rule required you to add an subtract areas in certain
+                            ways.&nbsp; Thankfully, with modern technology, we can focus on the most important aspect of
+                            the Empirical Rule: the relationship between relative frequency (percentage of data) and a
+                            range of values from a normal distribution.</p>
+                        <h3 class="example-header">Example 1</h3>
+                        <p>In a national survey, a sample of women aged 20 to 29 in the United States had a mean height
+                            of 64.2 inches and a standard deviation of 2.9 inches.&nbsp; Use the <a
+                                href="https://www.geogebra.org/m/xttfsxzr" target="_blank" rel="noopener">Empirical Rule
+                                Calculator</a> to answer the following questions.</p>
+                        <ul>
+                            <li><strong>Part A:</strong> Based on this sample, what percentage of women aged 20 to 29
+                                would you expect to be between 64.2 and 67.1 inches tall?</li>
+                            <li><strong>Part B:</strong> Based on this sample, what percentage of women aged 20 to 29
+                                would you expect to be taller than 70 inches?</li>
+                            <li><strong>Part C:</strong> Based on this sample, what percentage of women aged 20 to 29
+                                would you expect to be shorter than 55.5 inches?</li>
+                        </ul>
+                        <!-- Solution Shell -->
+                        <div class="solution">
+                            <h2 class="example-header">Solution</h2>
+                            <ul>
+                                <li><strong>Part A:</strong>
+                                    <p>Open up the <a href="https://www.geogebra.org/m/xttfsxzr" target="_blank"
+                                            rel="noopener">Empirical Rule Calculator</a>, and make sure we have the tail
+                                        type set to&nbsp;<strong>Between </strong>since we want the percentage between
+                                        two numbers.&nbsp; Set \(\mu\) to 64.2 and \(\sigma\) to 2.9.&nbsp; You will get
+                                        the following image.<br><br><img
+                                            src="../images/empirical1.png"
+                                            alt="The empirical rule calculator with mean 64.2 and standard deviation 2.9."
+                                            title="The empirical rule calculator with mean 64.2 and standard deviation 2.9."
+                                            width="450" height="252"><br><br>Notice that 64.2 is the peak, so
+                                        \(\mu=64.2\).&nbsp; Since 67.1 is one number to the right of 64.2, it is one
+                                        standard deviation above the mean; so, \(\mu+\sigma=67.1\).&nbsp; Therefore, we
+                                        set \(x_1=\mu\) (since 64.2 is the smaller number) and \(x_2=x+\sigma\) (since
+                                        67.1 is the larger number).&nbsp; The box in the upper right corner gives use
+                                        the percentage:&nbsp;<br><br><img
+                                            src="../images/empirical2.png"
+                                            alt="The percentage is 34%." title="The percentage is 34%." width="351"
+                                            height="81"><br><br>Therefore, 34% of the women are between 64.2 and 67.1
+                                        inches tall.</p>
+                                </li>
+                                <li><strong>Part B:</strong>
+                                    <p>Since we want the percentage greater than a number, we will change the tail-type
+                                        to <strong>right-tail</strong>.&nbsp; &nbsp;Make sure to change the \(\mu\) and
+                                        \(\sigma\) to the correct values since, when you change tail type, they will
+                                        default back to 0 and 1, respectively&nbsp; Since 70 is two numbers to the right
+                                        of the peak, it is two standard deviations above the mean.&nbsp; Therefore,
+                                        \(\mu+2\sigma=70\).&nbsp; This means we need to set \(x=\mu+2\sigma\).&nbsp; If
+                                        you have done everything correctly, you should get the following
+                                        output.<br><br><img
+                                            src="../images/empirical3.png"
+                                            alt="The empirical rule showing a right-tail percentage of 2.5%."
+                                            title="The empirical rule showing a right-tail percentage of 2.5%."
+                                            width="450" height="254"><br><br>Therefore, 2.5% of women in the sample are
+                                        taller than 70 inches.</p>
+                                </li>
+                                <li><strong>Part C<br></strong>Since we want the percentage less than a number, we will
+                                    change the tail-type to <strong>left-tail</strong>.&nbsp; &nbsp;Make sure to change
+                                    the \(\mu\) and \(\sigma\) to the correct values since, when you change tail type,
+                                    they will default back to 0 and 1, respectively&nbsp; Since 55.5 is three numbers to
+                                    the left of the peak, it is three standard deviations below the mean.&nbsp;
+                                    Therefore, \(\mu-3sigma=55.5\).&nbsp; This means we need to set
+                                    \(x=\mu-3\sigma\).&nbsp; If you have done everything correctly, you should get the
+                                    following output.<br><br><img
+                                        src="../images/empirical4.png"
+                                        alt="The empirical rule showing a left-tail percentage."
+                                        title="The empirical rule showing a left-tail percentage." width="452"
+                                        height="253"><br><br>Therefore, 0.15% of women in the sample are shorter than
+                                    55.5 inches.</li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution Shell --> <!-- Conclusion -->
+                        <h2>Conclusion</h2>
+                        <p>The Empirical Rule is a powerful tool for understanding how data is distributed in a normal
+                            distribution. By knowing the mean and standard deviation, you can estimate the percentage of
+                            values within a range. This helps in identifying what is typical and what may be unusual in
+                            a dataset.</p>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

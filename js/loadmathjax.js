@@ -66,12 +66,18 @@ function copyCodeToClipboard(elementId, message = "Code copied to clipboard read
 //<button onclick="toggleTable()">Toggle Table Visibility</button>
 function toggleTable() {
     const tableDiv = document.getElementById('wrappedTable');
+    
+    if (!tableDiv) {
+        console.warn("⚠️ Warning: No element with ID 'wrappedTable' found. Skipping toggleTable().");
+        return; // Prevents errors if the element doesn't exist
+    }
+
     if (tableDiv.classList.contains('hidden')) {
         tableDiv.classList.remove('hidden'); // Show the table
     } else {
         tableDiv.classList.add('hidden'); // Hide the table
     }
-};
+}
 
 function generateTableFromPre(preId, captionText) {
     const tableContainer = document.getElementById('tableContainer');

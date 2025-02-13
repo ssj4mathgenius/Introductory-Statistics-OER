@@ -39,15 +39,16 @@ async function loadContent(url, sectionContainer) {
 
             console.log(`✅ Successfully loaded <section> from ${url}`);
 
-            // ✅ Rerun MathJax for new sections
+            // ✅ Ensure MathJax is fully loaded before attempting to typeset new content
             if (window.MathJax && typeof MathJax.typesetPromise === "function") {
-                MathJax.typesetPromise([newSection]).then(() => {
+                MathJax.startup.promise.then(() => {
+                    return MathJax.typesetPromise([newSection]);
+                }).then(() => {
                     console.log(`🔢 MathJax reprocessed for ${url}`);
                 }).catch(err => console.error("🚨 MathJax error:", err));
             } else {
-                console.warn("⚠️ MathJax is not available.");
+                console.warn("⚠️ MathJax is not fully initialized. Waiting for startup.");
             }
-
             // ✅ Rerun function to set heights for dynamically loaded ".inches" divs
             if (typeof setDivHeightFromData === "function") {
                 setDivHeightFromData();
@@ -69,12 +70,16 @@ async function loadContent(url, sectionContainer) {
                 console.log("🔄 Re-ran replaceBlanksForPrint() and restoreOriginalText() for dynamically loaded sections.");
             }
 
-            // ✅ Ensure tables can be toggled in newly loaded content
+            // Ensure tables can be toggled in newly loaded content
             if (typeof toggleTable === "function") {
-                toggleTable();
-                console.log("🔄 Re-ran toggleTable() to ensure dynamic table toggling works.");
+                try {
+                    toggleTable();
+                    console.log("🔄 Re-ran toggleTable() to ensure dynamic table toggling works.");
+                } catch (error) {
+                    console.error("🚨 Error in toggleTable():", error);
+                }
             }
-            
+
         } else {
             console.warn(`⚠️ No <section> found in ${url}`);
             sectionContainer.removeChild(spinner); // Remove spinner even if no section

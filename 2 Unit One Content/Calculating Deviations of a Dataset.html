@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculating Deviations of a Dataset</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>How to Calculate the Deviations of a Dataset</h1>
+                        <!-- Introduction -->
+                        <p>Deviation measures how far a data point is from the mean of a data set. It helps determine
+                            whether a specific value is above or below the average and by how much. Positive deviations
+                            indicate values larger than the mean, while negative deviations show values smaller than the
+                            mean. In this section, we’ll explore how to calculate deviation and understand its significance
+                            with a practical example.</p>
+                        <h2>Deviation</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h2 class="definition-header">What is Deviation?</h2>
+                            <p>The deviation of a data point \( x \) in a distribution is the difference between the value
+                                of the data point and the <span class="blanked"><strong>mean</strong></span> of the data set. The formula for deviation is:</p>
+                            <h3>Formula for Deviation</h3>
+                            <ul>
+                                <li><strong>Population Deviation:</strong> \(\text{deviation} = x - \mu\)</li>
+                                <li><strong>Sample Deviation:</strong> \(\text{deviation} = x - \bar{{x}}\)</li>
+                            </ul>
+                            <p>In both cases, in words, we have that \[\text{deviation }= \text{ data }-\text{ mean.}\]</p>
+                            <h3>Notes on Deviation</h3>
+                            <ul>
+                                <li>If the deviation is positive, the data point is <span class="blanked">larger</span> than the average value.</li>
+                                <li>If the deviation is negative, the data point is <span class="blanked">smaller</span> than the average value.</li>
+                            </ul>
+                        </div>
+                        <!-- End Notes on Deviation -->
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>The salaries for a random sample of 10 individuals is given below.</p>
+                            <table style="width: auto;">
+                                <caption style="width: max-content;">Sample of 10 Salaries (in Thousands of Dollars)</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="10">Salaries (in thousands of dollars)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>23</td>
+                                        <td>41</td>
+                                        <td>50</td>
+                                        <td>49</td>
+                                        <td>32</td>
+                                        <td>41</td>
+                                        <td>59</td>
+                                        <td>52</td>
+                                        <td>58</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><button onclick="copyToClipboard('salarydata')">Copy Data to Clipboard</button></p>
+                            <pre id="salarydata" style="display: none;">Salaries (in Thousands of Dollars)
+                            40
+                            23
+                            41
+                            50
+                            49
+                            32
+                            41
+                            59
+                            52
+                            58
+                            </pre>
+                            <ul>
+                                <li><strong>Part A:</strong> Calculate the deviation for each salary in the data set.</li>
+                                <li><strong>Part B:</strong> Use the <a href="https://www.geogebra.org/m/gka7dwu7"
+                                        target="_blank" rel="noopener">Summary Statistics Calculator</a> to find the average
+                                    deviation for the data set.</li>
+                            </ul>
+                            <!-- Solution Shell -->
+                            <div class="notes-page-break"></div>
+                            <div class="solution">
+                                <h2 class="example-header">Solution</h2>
+                                <div class="inches" data-height="4in"></div>
+                                <div class="dontprint">
+                                    <ul>
+                                        <li><strong>Part A:</strong><br>First, we have to use the&nbsp;<a
+                                                href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary
+                                                Statistics Calculator</a> to compute the average value of the data:<br><br><img
+                                                src="../images/deviations_example1.png"
+                                                alt="The average value of the dataset is 44.5."
+                                                title="The average value of the dataset is 44.5." width="400"
+                                                height="241"><br><br>Now, we manually subtract the data to find all the
+                                            deviations:<br><br>
+                                            <table style="width: auto; height: 422.306px;">
+                                                <caption style="width: max-content;">Salaries and Their Deviations</caption>
+                                                <thead>
+                                                    <tr style="height: 39.0278px;">
+                                                        <th scope="col" style="width: 261.597px;">Salary (in Thousands)</th>
+                                                        <th scope="col" style="width: 265.526px;">Deviation (\( x - 44.5 \))</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="height: 32.0278px;">
+                                                        <td style="width: 261.597px;">40</td>
+                                                        <td style="width: 265.526px;">40 - 44.5 = -4.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">23</td>
+                                                        <td style="width: 265.526px;">23 - 44.5 = -21.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">41</td>
+                                                        <td style="width: 265.526px;">41 - 44.5 = -3.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">50</td>
+                                                        <td style="width: 265.526px;">50 - 44.5 = 5.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">49</td>
+                                                        <td style="width: 265.526px;">49 - 44.5 = 4.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">32</td>
+                                                        <td style="width: 265.526px;">32 - 44.5 = -12.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">41</td>
+                                                        <td style="width: 265.526px;">41 - 44.5 = -3.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">59</td>
+                                                        <td style="width: 265.526px;">59 - 44.5 = 14.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">52</td>
+                                                        <td style="width: 265.526px;">52 - 44.5 = 7.5</td>
+                                                    </tr>
+                                                    <tr style="height: 39.0278px;">
+                                                        <td style="width: 261.597px;">58</td>
+                                                        <td style="width: 265.526px;">58 - 44.5 = 13.5</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li><strong>Part B:<br></strong>To find the average deviation, we will create a second
+                                            column manually in the tool, putting deviations in B1 and typing the deviations in the
+                                            cells below B1:<br><br><img
+                                                src="../images/deviations_example1b.png"
+                                                alt="The deviations are added to the spreadsheet in the same order as they appear in the table from Part A."
+                                                title="The deviations are added to the spreadsheet in the same order as they appear in the table from Part A."
+                                                width="400" height="296"><br><br>Close the spreadsheet, and the change the column to
+                                            B in the Calculator.&nbsp; The average will be recalculated, and it will tell us that
+                                            \(\overline{{x}}=0\)!<br><br><img
+                                                src="../images/deviations_example1c.png"
+                                                alt="The average value of the deviations is always 0 for any dataset."
+                                                title="The average value of the deviations is always 0 for any dataset." width="400"
+                                                height="244"><br><br>It turns out, the average value of the deviations of ANY
+                                            dataset is ALWAYS 0!&nbsp; So, the idea of an average deviation from the mean is not
+                                            very useful.</li>
+                                    </ul>
+                                    <h5>Note</h5>
+                                    <p>If you think about our example with the stacks of dots we did when we learned about the mean,
+                                        the number of dots that were above the mean height is equal to the number of dots missing in
+                                        the below-average stacks.&nbsp; Deviations count the number of dots that are missing from a
+                                        stack as a negative number and the number of extra dots as positive numbers.<br><br><img
+                                            src="../images/deviations_example1d.png"
+                                            alt="The 1st and 7th stacks are missing 2 dots, the 2nd and 5th are missing 1, the 3rd has 1 extra, the 4th has 2 extra, and the 6th has 3 extra."
+                                            title="The 1st and 7th stacks are missing 2 dots, the 2nd and 5th are missing 1, the 3rd has 1 extra, the 4th has 2 extra, and the 6th has 3 extra."
+                                            data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                                    <p><br>In order to get stacks of all the same heights, the sum of the positive numbers must
+                                        cancel out the sum of the negative numbers.&nbsp; Remember the when you cancel things with
+                                        addition and subtraction, the sum is always zero!&nbsp; And zero divided by any number is
+                                        0.&nbsp; So the average value will always be 0, no matter what dataset we use!</p>
+                                    <p>$$\tag*{\(\blacksquare\)}$$</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Solution Shell --> <!-- Conclusion -->
+                        <h2>Conclusion</h2>
+                        <p>Deviation helps identify how individual data points relate to the mean, but its usefulness is
+                            limited because the sum of all deviations always equals zero. Therefore, deviation alone cannot
+                            measure variation in a dataset. In the next section, we’ll introduce the <strong>standard
+                                deviation</strong>, which overcomes this limitation and provides a more effective measure of
+                            variability.</p>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

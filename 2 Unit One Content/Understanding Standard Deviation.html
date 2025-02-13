@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Standard Deviation</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>Understanding Standard Deviation</h1>
+                        <!-- Introduction -->
+                        <p>Standard deviation is one of the most important measures of variability in statistics. It
+                            tells us how much data values typically deviate from the mean. Before calculating the
+                            standard deviation, we must first understand squared deviations and variance. This section
+                            will explain these concepts step by step, leading to the definition of standard deviation
+                            and its properties.</p>
+                        <h2>Squared Deviation</h2>
+                        <!-- Definition: Squared Deviation -->
+                        <div class="definition">
+                            <h3>What is Squared Deviation?</h3>
+                            <p>The squared deviation is the square of the value of the deviation. It is calculated as
+                                follows:</p>
+                            <ul>
+                                <li><strong>Population Squared Deviation:</strong> \((x - \mu)^2\)</li>
+                                <li><strong>Sample Squared Deviation:</strong> \((x - \bar{{x}})^2\)</li>
+                            </ul>
+                        </div>
+                        <h2 class="example-header">Example <span class="example-number"></span></h2>
+                        <p>Compute the squared deviation for our example on salaries from our <a
+                                href="Calculating Deviations of a Dataset.html"
+                                target="_blank" rel="noopener">discussion on deviations</a> and find their sum.</p>
+                        <div class="solution">
+                            <h4 class="solution-header">Solution</h4>
+                            <table style="width: auto;">
+                                <caption style="width: max-content;">Salaries, Deviations, and Squared Deviations (in
+                                    Thousands of Dollars)</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Salary (in Thousands)</th>
+                                        <th scope="col">Deviation (\( x - 44.5 \))</th>
+                                        <th scope="col">Squared Deviation (\((x - 44.5)^2\))</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>-4.5</td>
+                                        <td>(-4.5)^2 = 20.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>-21.5</td>
+                                        <td>(-21.5)^2 = 462.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>41</td>
+                                        <td>-3.5</td>
+                                        <td>(-3.5)^2 = 12.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>50</td>
+                                        <td>5.5</td>
+                                        <td>(5.5)^2 = 30.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>49</td>
+                                        <td>4.5</td>
+                                        <td>(4.5)^2 = 20.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>-12.5</td>
+                                        <td>(-12.5)^2 = 156.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>41</td>
+                                        <td>-3.5</td>
+                                        <td>(-3.5)^2 = 12.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>59</td>
+                                        <td>14.5</td>
+                                        <td>(14.5)^2 = 210.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>52</td>
+                                        <td>7.5</td>
+                                        <td>(7.5)^2 = 56.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>58</td>
+                                        <td>13.5</td>
+                                        <td>(13.5)^2 = 182.25</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>1162.50</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>Unlike deviations, squared deviations add up to a non-zero number since all the squared
+                            deviations are positive or zero.&nbsp; Now, we are in a good position to calculate the
+                            average value of the squared deviations.&nbsp; But, as we will see below, there are further
+                            complications when we do this.</p>
+                        <h2>Variance</h2>
+                        <!-- Definition: Variance -->
+                        <div class="definition">
+                            <h2 class="definition-header">What is Variance?</h2>
+                            <p>The variance of a distribution is the average value of its squared deviations. It is
+                                calculated as follows:</p>
+                            <ul>
+                                <li><strong>Population Variance:</strong> \(\sigma^2 = \dfrac{\sum (x - \mu)^2}{{N}}\)
+                                </li>
+                                <li><strong>Sample Variance:</strong> \(s^2 = \dfrac{\sum (x - \bar{{x}})^2}{n - 1}\)
+                                </li>
+                            </ul>
+                            <h4>Why does sample variance use \(n-1\)?</h4>
+                            <p>Let's create a new stack of dot, and again, we want to arrange the dots into stacks of
+                                3.&nbsp; Suppose we are are only told the heights of six of the seven stacks:<br><br>
+                            </p>
+                            <p><img src="../images/variance1.png"
+                                    alt="Stacks of 1, 2, 4, 2, 3, and 5 dots, respectively."
+                                    title="Stacks of 1, 2, 4, 2, 3, and 5 dots, respectively." width="300" height="226">
+                            </p>
+                            <p><br>If we ask the questions, if \(\overline{{x}}=3\) and we know the six of the seven
+                                data points (1, 2, 4, 2, 3, 5), can we find the missing data point?&nbsp; The answer is
+                                YES!&nbsp; If we rearrange the dots<br><br><img
+                                    src="../images/variance2.png"
+                                    alt="One stack is still height 2 after arranging all the dots into even stacks of 3."
+                                    title="One stack is still height 2 after arranging all the dots into even stacks of 3."
+                                    width="299" height="218"><br><br>notice that one stack is still missing a dot.&nbsp;
+                                This means that the last stack should be 1 above average; in other words, it should be a
+                                stack of four dots.<br><br><img
+                                    src="../images/variance3.png"
+                                    alt="The original stacks with a stack of four dots adding as the seventh stack."
+                                    title="The original stacks with a stack of four dots adding as the seventh stack."
+                                    width="300" height="220"><br><br>Notice that if we know the mean and all but one of
+                                the data points, that last data point is forced to be a certain value.&nbsp; &nbsp;</p>
+                            <p>This example shows that if we know the mean and all but one of the data points, the
+                                missing value is not free to vary—it’s determined by the others. Therefore, we divide by
+                                \(n-1\) to account for the fact that only \(n-1\) data points are free to vary
+                                independently. This concept is known as <strong>degrees of freedom</strong>. You’ll encounter it again
+                                in Chapters 8 and 9!</p>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>Compute the variance for our example on salaries.</p>
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="1in"></div>
+                                <div class="dontprint">
+                                    <p>In our previous example, we computed the sum of the deviations squared as
+                                        \[\sum(x-\overline{{x}})=1162.50.\]&nbsp; Since \(n=10\), we divide this number by
+                                        \(n-1=9\) to get that \[s^2=\dfrac{1162.50}{{9}}\approx 129.167.\]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>There are two major disadvantages to calculating variance:</p>
+                        <ul>
+                            <li><strong>The units are squared:</strong> In this example, the units are dollars-squared,
+                                which doesn’t make sense. In general, variance always has units that are the <span class="blanked">square</span> of
+                                the original data’s units (e.g., if the data is in meters, the variance is in meters²).
+                            </li>
+                            <li><strong>The value is unusually large:</strong> This happens because all deviations are
+                                squared, which inflates the result.</li>
+                        </ul>
+                        <p>To address these issues, we take the <strong>square root of the variance</strong>. This
+                            transforms the units back to the original scale and reduces the size of the value, giving us
+                            the <strong>standard deviation</strong>.</p>
+
+                            <div class="notes-page-break"></div>
+                            
+                        <h2>Standard Deviation</h2>
+                        <!-- Definition: Standard Deviation -->
+                        <div class="definition">
+                            <h2 class="definition-header">What is Standard Deviation?</h2>
+                            <p>The <span class="blanked"><strong>standard deviation</strong></span> is the square root of the variance. It is expressed as:</p>
+                            <ul>
+                                <li><strong>Population Standard Deviation:</strong> \(\sigma = \sqrt{\dfrac{\sum (x -
+                                    \mu)^2}{{N}}}\)</li>
+                                <li><strong>Sample Standard Deviation:</strong> \(s = \sqrt{\dfrac{\sum (x -
+                                    \bar{{x}})^2}{n - 1}}\)</li>
+                            </ul>
+                            <h3>What are the Important Properties of Standard Deviation</h3>
+                            <ul>
+                                <li>Measures how much data values (on average) deviate from the <span class="blanked">mean</span>.</li>
+                                <li>Always greater than or equal to zero. (If it equals zero, all the data points are
+                                    the same value.)</li>
+                                <li>Larger standard deviations indicate more variation.</li>
+                                <li>Not resistant to outliers.</li>
+                                <li>Has the same units as the data set.</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary
+                                    Statistics Calculator</a> to calculate the standard deviation of the salaries.</p>
+                            <!-- Solution Shell -->
+                            <div class="solution">
+                                <h4 class="example-header">Solution</h4>
+                                <div class="inches" data-height="1in"></div>
+                                <div class="dontprint">
+                                    <p>Our tool should still look like this: <br><br><img
+                                            src="../images/deviations_example1c.png"
+                                            alt="The average value of the deviations is always 0 for any dataset."
+                                            title="The average value of the deviations is always 0 for any dataset." width="498"
+                                            height="304"><br><br>We need to change the dataset back to A, and notice that the
+                                        standard deviation is checked by default.&nbsp; Therefore, the standard deviation is
+                                        \(s\approx 11.365\)<br><br><img
+                                            src="../images/std1.png"
+                                            alt="The column has been changed back to A.  The standard deviation is calculated to be 11.3652."
+                                            title="The column has been changed back to A.  The standard deviation is calculated to be 11.3652."
+                                            width="495" height="297"></p>
+                                    <h5>Quick Note</h5>
+                                    <p>There is also a checkbox for the variance as well.<br><br><img
+                                            src="../images/std2.png"
+                                            alt="The variance checkbox is selected and shows that the variance is 129.1667."
+                                            title="The variance checkbox is selected and shows that the variance is 129.1667."
+                                            width="500" height="284"></p>
+                                    <p>$$\tag*{\(\blacksquare\)}$$</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Solution Shell --> <!-- Conclusion -->
+                        <h2>Conclusion</h2>
+                        <p>Standard deviation is a powerful tool for measuring data variability. By combining the
+                            concepts of squared deviation and variance, we can determine how much data values deviate
+                            from the mean on average. In practice, standard deviation helps us interpret data
+                            distributions, detect outliers, and understand the spread of a dataset.</p>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>
