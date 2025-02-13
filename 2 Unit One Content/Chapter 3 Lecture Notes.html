@@ -24,6 +24,33 @@
 <link rel="stylesheet" href="../css/main.min.css">
 <link rel="stylesheet" href="../css/style.css" />
 
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        },
+        options: {
+            renderActions: {
+                addDarkMode: [200, function (doc) {
+                    const style = document.createElement('style');
+                    style.innerHTML = `
+                    .mjx-container * {
+                        color: var(--mjx-color, inherit) !important;
+                    }
+                    @media print {
+                        .mjx-container * {
+                            color: var(--mjx-color, inherit) !important;
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+                }, '', false]
+            }
+        }
+    };
+</script>
+
 <!-- Define different pages for Chapter 3 -->
 <script>
     const sectionPages = [

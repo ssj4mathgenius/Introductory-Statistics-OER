@@ -1,3 +1,29 @@
+// Define MathJax configuration BEFORE loading the script
+window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    },
+    options: {
+        renderActions: {
+            addDarkMode: [200, function (doc) {
+                const style = document.createElement('style');
+                style.innerHTML = `
+                .mjx-container * {
+                    color: var(--mjx-color, inherit) !important;
+                }
+                @media print {
+                    .mjx-container * {
+                        color: var(--mjx-color, inherit) !important;
+                    }
+                }
+            `;
+                document.head.appendChild(style);
+            }, '', false]
+        }
+    }
+};
+
 // Function to set color scheme for MathJax
 function setMathJaxColorScheme() {
     const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -66,12 +92,16 @@ function copyCodeToClipboard(elementId, message = "Code copied to clipboard read
 //<button onclick="toggleTable()">Toggle Table Visibility</button>
 function toggleTable() {
     const tableDiv = document.getElementById('wrappedTable');
-    
-    if (!tableDiv) {
-        console.warn("⚠️ Warning: No element with ID 'wrappedTable' found. Skipping toggleTable().");
-        return; // Prevents errors if the element doesn't exist
-    }
 
+    if (!tableDiv) {
+        // Only log this warning ONCE per page load to avoid spam in console
+        if (!window.toggleTableWarningLogged) {
+            console.warn("⚠️ Warning: No element with ID 'wrappedTable' found. Skipping toggleTable().");
+            window.toggleTableWarningLogged = true; // Prevents repeating this warning
+        }
+        return;
+    }
+ 
     if (tableDiv.classList.contains('hidden')) {
         tableDiv.classList.remove('hidden'); // Show the table
     } else {
@@ -615,30 +645,30 @@ document.addEventListener("DOMContentLoaded", function () {
     setDivHeightFromData();
 
     // Define MathJax configuration BEFORE loading the script
-    window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        },
-        options: {
-            renderActions: {
-                addDarkMode: [200, function (doc) {
-                    const style = document.createElement('style');
-                    style.innerHTML = `
-                    .mjx-container * {
-                        color: var(--mjx-color, inherit) !important;
-                    }
-                    @media print {
-                        .mjx-container * {
-                            color: var(--mjx-color, inherit) !important;
-                        }
-                    }
-                `;
-                    document.head.appendChild(style);
-                }, '', false]
-            }
-        }
-    };
+    // window.MathJax = {
+    //     tex: {
+    //         inlineMath: [['$', '$'], ['\\(', '\\)']],
+    //         displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    //     },
+    //     options: {
+    //         renderActions: {
+    //             addDarkMode: [200, function (doc) {
+    //                 const style = document.createElement('style');
+    //                 style.innerHTML = `
+    //                 .mjx-container * {
+    //                     color: var(--mjx-color, inherit) !important;
+    //                 }
+    //                 @media print {
+    //                     .mjx-container * {
+    //                         color: var(--mjx-color, inherit) !important;
+    //                     }
+    //                 }
+    //             `;
+    //                 document.head.appendChild(style);
+    //             }, '', false]
+    //         }
+    //     }
+    // };
 
     // Dynamically add MathJax script
     // Dynamically add MathJax script
@@ -693,6 +723,27 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("🚨 MathJax is not defined!");
         }
     };
+
+    console.log("📌 DOM fully loaded. Ensuring MathJax is processed...");
+
+    if (window.MathJax && typeof MathJax.typesetPromise === "function") {
+        setTimeout(() => {
+            MathJax.typesetPromise().then(() => {
+                console.log("✅ MathJax successfully reprocessed after refresh.");
+            }).catch(err => console.error("🚨 MathJax error after refresh:", err));
+        }, 300); // Delay to ensure all content is loaded
+    } else {
+        console.warn("⚠️ MathJax is not available. Retrying in 500ms...");
+        setTimeout(() => {
+            if (window.MathJax && typeof MathJax.typesetPromise === "function") {
+                MathJax.typesetPromise().then(() => {
+                    console.log("✅ MathJax reprocessed successfully after retry.");
+                }).catch(err => console.error("🚨 MathJax retry error:", err));
+            } else {
+                console.error("🚨 MathJax is still not available after retry.");
+            }
+        }, 500);
+    }
 
     document.head.appendChild(script);
 });

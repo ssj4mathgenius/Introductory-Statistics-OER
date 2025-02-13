@@ -1,5 +1,5 @@
 async function loadContent(url, sectionContainer) {
-    console.log(`Attempting to load section from: ${url}`);
+    console.groupCollapsed(`🔄 Loading Section: ${url}`);
 
     // Create a temporary loading spinner
     let spinner = document.createElement("div");
@@ -39,16 +39,29 @@ async function loadContent(url, sectionContainer) {
 
             console.log(`✅ Successfully loaded <section> from ${url}`);
 
-            // ✅ Ensure MathJax is fully loaded before attempting to typeset new content
-            if (window.MathJax && typeof MathJax.typesetPromise === "function") {
+            // ✅ Ensure MathJax is fully initialized before running typesetPromise()
+            if (window.MathJax && typeof MathJax.startup !== "undefined" && typeof MathJax.typesetPromise === "function") {
                 MathJax.startup.promise.then(() => {
+                    console.log("🔢 MathJax is now fully initialized. Running typesetPromise()...");
                     return MathJax.typesetPromise([newSection]);
                 }).then(() => {
-                    console.log(`🔢 MathJax reprocessed for ${url}`);
+                    console.log(`✅ MathJax successfully reprocessed for ${url}`);
                 }).catch(err => console.error("🚨 MathJax error:", err));
             } else {
-                console.warn("⚠️ MathJax is not fully initialized. Waiting for startup.");
+                console.warn("⚠️ MathJax is either not loaded or not fully initialized. Retrying in 500ms...");
+
+                // ✅ Retry MathJax processing in 500ms if it's not ready yet
+                setTimeout(() => {
+                    if (window.MathJax && typeof MathJax.typesetPromise === "function") {
+                        MathJax.typesetPromise([newSection]).then(() => {
+                            console.log(`✅ MathJax successfully reprocessed for ${url}`);
+                        }).catch(err => console.error("🚨 MathJax error:", err));
+                    } else {
+                        console.warn("⚠️ MathJax is not available. Skipping typesetting.");
+                    }
+                }, 500);
             }
+
             // ✅ Rerun function to set heights for dynamically loaded ".inches" divs
             if (typeof setDivHeightFromData === "function") {
                 setDivHeightFromData();
@@ -70,7 +83,7 @@ async function loadContent(url, sectionContainer) {
                 console.log("🔄 Re-ran replaceBlanksForPrint() and restoreOriginalText() for dynamically loaded sections.");
             }
 
-            // Ensure tables can be toggled in newly loaded content
+            // ✅ Ensure tables can be toggled in newly loaded content
             if (typeof toggleTable === "function") {
                 try {
                     toggleTable();
@@ -80,6 +93,23 @@ async function loadContent(url, sectionContainer) {
                 }
             }
 
+            // ✅ Remove unexpected GeoGebra iframes **AFTER section is added**
+            setTimeout(() => {
+                document.querySelectorAll("iframe").forEach(iframe => {
+                    if (iframe.src.includes("geogebra.org")) {
+                        console.log("🛑 Removing unexpected GeoGebra iframe:", iframe.src);
+                        iframe.remove();
+                    }
+                });
+
+                document.querySelectorAll("script").forEach(script => {
+                    if (script.src.includes("geogebra.org")) {
+                        console.log("🛑 Removing unexpected GeoGebra script:", script.src);
+                        script.remove();
+                    }
+                });
+            }, 100); // Slight delay to ensure section is loaded first
+
         } else {
             console.warn(`⚠️ No <section> found in ${url}`);
             sectionContainer.removeChild(spinner); // Remove spinner even if no section
@@ -88,6 +118,8 @@ async function loadContent(url, sectionContainer) {
         console.error(`❌ Error loading ${url}:`, error);
         sectionContainer.removeChild(spinner); // Remove spinner if fetch fails
     }
+
+    console.groupEnd(); // Collapse console logs neatly
 }
 
 document.addEventListener("DOMContentLoaded", () => {
