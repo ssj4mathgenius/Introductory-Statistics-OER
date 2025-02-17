@@ -20,10 +20,23 @@
 <!-- Custom Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- CSS Stylesheets Used in Course Content Pages -->
-<link rel="stylesheet" href="../css/main.min.css">
-<link rel="stylesheet" href="../css/style.css" />
+<!-- Define different pages for Chapter 3 -->
+<script>
+    const sectionPages = [
+    "Calculating Mean of a Data Set.html",
+    "Calculating Median of a Data Set.html",
+    "Calculating Mode of a Data Set.html",
+    "Skewness Affects on Mean Median Mode of a Dataset.html",
+    "Calculating a Weighted Mean.html",
+    "Is Mean Enough to Describe a Dataset.html",
+    "Calculating the Range of a Dataset.html",
+    "Calculating Deviations of a Dataset.html",
+    "Understanding Standard Deviation.html",
+    "Finding Outliers for Normal Distributions.html",
+    "Empirical Rule.html"];
+</script>
 
+<!-- ✅ Configure MathJax Before Loading -->
 <script>
     window.MathJax = {
         tex: {
@@ -51,24 +64,15 @@
     };
 </script>
 
-<!-- Define different pages for Chapter 3 -->
-<script>
-    const sectionPages = [
-    "Calculating Mean of a Data Set.html",
-    "Calculating Median of a Data Set.html",
-    "Calculating Mode of a Data Set.html",
-    "Skewness Affects on Mean Median Mode of a Dataset.html",
-    "Calculating a Weighted Mean.html",
-    "Is Mean Enough to Describe a Dataset.html",
-    "Calculating the Range of a Dataset.html",
-    "Calculating Deviations of a Dataset.html",
-    "Understanding Standard Deviation.html",
-    "Finding Outliers for Normal Distributions.html",
-    "Empirical Rule.html"];
-</script>
+<!-- ✅ Load MathJax Immediately -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- Link to the same JavaScript file -->
+<!-- ✅ Load Other Scripts Like sectionLoader.js AFTER MathJax -->
 <script defer src="../js/sectionLoader.js"></script>
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
 
 </head>
 

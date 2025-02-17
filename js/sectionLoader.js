@@ -49,15 +49,13 @@ async function loadContent(url, sectionContainer) {
                 }).catch(err => console.error("🚨 MathJax error:", err));
             } else {
                 console.warn("⚠️ MathJax is either not loaded or not fully initialized. Retrying in 500ms...");
-
-                // ✅ Retry MathJax processing in 500ms if it's not ready yet
                 setTimeout(() => {
                     if (window.MathJax && typeof MathJax.typesetPromise === "function") {
                         MathJax.typesetPromise([newSection]).then(() => {
                             console.log(`✅ MathJax successfully reprocessed for ${url}`);
                         }).catch(err => console.error("🚨 MathJax error:", err));
                     } else {
-                        console.warn("⚠️ MathJax is not available. Skipping typesetting.");
+                        console.error("🚨 MathJax is still not available after retry.");
                     }
                 }, 500);
             }

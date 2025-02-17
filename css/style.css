@@ -420,10 +420,11 @@ mark.highlight {
 }
 
 /* For "Print Notes" only (applied dynamically via JavaScript) */
-.blanked.print-underscore {
+.blanked.print-underscore, .print-underscore {
     font-family: monospace; /* Ensures proper spacing */
     letter-spacing: 0.02em;
     color: black;
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 /* Default page break for normal printing (Ctrl + P) */

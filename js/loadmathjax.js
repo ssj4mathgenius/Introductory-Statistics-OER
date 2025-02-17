@@ -616,30 +616,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Function to replace blanked text with underscores
-    function replaceBlanksForPrint() {
-        const blankedElements = document.querySelectorAll('.blanked');
+function replaceBlanksForPrint() {
+    const blankedElements = document.querySelectorAll('.blanked');
 
-        blankedElements.forEach(element => {
-            const originalText = element.textContent.trim();
-            const underscores = '__'.repeat(originalText.length); // Generate underscores
-            element.setAttribute('data-original', originalText); // Store original text
-            element.textContent = underscores; // Replace text with underscores
-            element.classList.add("print-underscore"); // Apply special formatting
-        });
-    };
+    blankedElements.forEach(element => {
+        const originalText = element.textContent.trim();
+        const maxUnderscoreLength = Math.min(originalText.length, 10); // Limit underscores to 10 characters
+        const underscores = '__'.repeat(maxUnderscoreLength); // Generate limited underscores
+        
+        element.setAttribute('data-original', originalText); // Store original text
+        element.textContent = underscores; // Replace text with underscores
+        element.classList.add("print-underscore"); // Apply special formatting
 
-    // Function to restore original text after printing
-    function restoreOriginalText() {
-        const blankedElements = document.querySelectorAll('.blanked');
+        // Ensure the blank does not wrap within its container
+        element.style.whiteSpace = "nowrap";
 
-        blankedElements.forEach(element => {
-            const originalText = element.getAttribute('data-original'); // Retrieve original text
-            if (originalText) {
-                element.textContent = originalText; // Restore original text
-                element.classList.remove("print-underscore"); // Remove special formatting
-            }
-        });
-    };
+        // Move to a new line if it's too long (based on container width)
+        const parentWidth = element.parentElement.clientWidth;
+        if (element.clientWidth > parentWidth * 0.4) {
+            element.style.display = "block"; // Move to a new line
+        }
+    });
+};
+
+// Function to restore original text after printing
+function restoreOriginalText() {
+    const blankedElements = document.querySelectorAll('.blanked');
+
+    blankedElements.forEach(element => {
+        const originalText = element.getAttribute('data-original'); // Retrieve original text
+        if (originalText) {
+            element.textContent = originalText; // Restore original text
+            element.classList.remove("print-underscore"); // Remove special formatting
+            element.style.whiteSpace = ""; // Reset white-space
+            element.style.display = ""; // Reset display style
+        }
+    });
+};
 
     // Set height for spacing divs
     setDivHeightFromData();
@@ -681,46 +694,43 @@ document.addEventListener("DOMContentLoaded", function () {
     script.onload = function () {
         console.log("✅ MathJax script loaded!");
 
-        if (window.MathJax) {
-            window.MathJax = {
-                tex: {
-                    inlineMath: [['$', '$'], ['\\(', '\\)']],
-                    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                },
-                options: {
-                    renderActions: {
-                        addDarkMode: [200, function (doc) {
-                            const style = document.createElement('style');
-                            style.innerHTML = `
-                            .mjx-container * {
-                                color: var(--mjx-color, inherit) !important;
-                            }
-                            @media print {
-                                .mjx-container * {
-                                    color: var(--mjx-color, inherit) !important;
-                                }
-                            }
-                        `;
-                            document.head.appendChild(style);
-                        }, '', false]
-                    }
-                }
-            };
+        // if (window.MathJax) {
+        //     window.MathJax = {
+        //         tex: {
+        //             inlineMath: [['$', '$'], ['\\(', '\\)']],
+        //             displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        //         },
+        //         options: {
+        //             renderActions: {
+        //                 addDarkMode: [200, function (doc) {
+        //                     const style = document.createElement('style');
+        //                     style.innerHTML = `
+        //                     .mjx-container * {
+        //                         color: var(--mjx-color, inherit) !important;
+        //                     }
+        //                     @media print {
+        //                         .mjx-container * {
+        //                             color: var(--mjx-color, inherit) !important;
+        //                         }
+        //                     }
+        //                 `;
+        //                     document.head.appendChild(style);
+        //                 }, '', false]
+        //             }
+        //         }
+        //     };
 
-            console.log("🔢 Running MathJax Typesetting...");
+        console.log("🔢 Running MathJax Typesetting...");
 
-            // Check if `typesetPromise()` exists before calling it
-            if (typeof MathJax.typesetPromise === "function") {
-                MathJax.typesetPromise().then(() => {
-                    console.log("✅ MathJax rendering complete.");
-                }).catch((err) => {
-                    console.error("🚨 MathJax error during typesetting:", err);
-                });
-            } else {
-                console.warn("⚠️ Warning: MathJax.typesetPromise is not available. Skipping typesetting.");
-            }
+        // Check if MathJax is available before running typesetting
+        if (window.MathJax && typeof MathJax.startup !== "undefined" && typeof MathJax.typesetPromise === "function") {
+            MathJax.typesetPromise().then(() => {
+                console.log("✅ MathJax rendering complete.");
+            }).catch((err) => {
+                console.error("🚨 MathJax error during typesetting:", err);
+            });
         } else {
-            console.error("🚨 MathJax is not defined!");
+            console.error("🚨 MathJax is not defined or typesetPromise is unavailable.");
         }
     };
 
@@ -756,4 +766,4 @@ $(document).ready(function () {
     });
 });
 
-console.log("JS loaded!");
+console.log("Full JS loaded!");

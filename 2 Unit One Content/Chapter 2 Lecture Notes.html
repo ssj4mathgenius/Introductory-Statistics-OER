@@ -2,28 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 2: Summarizing and Organizing Data</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descriptive Statistics</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <!-- Bootstrap CDN CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Optional Bootstrap theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-    <!-- Optional Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-    <!-- Custom Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- CSS Stylesheets Used in Course Content Pages -->
-    <link rel="stylesheet" href="../css/main.min.css">
-    <link rel="stylesheet" href="../css/style.css" />
-
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Define different pages for Chapter 2 -->
     <script>
         const sectionPages = [
@@ -42,8 +37,43 @@
         "Misleading Graphs.html"];
     </script>
 
-    <!-- Link to the same JavaScript file -->
-    <script defer src="../js/sectionLoader.js"></script>
+    <!-- ✅ Configure MathJax Before Loading -->
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        },
+        options: {
+            renderActions: {
+                addDarkMode: [200, function (doc) {
+                    const style = document.createElement('style');
+                    style.innerHTML = `
+                    .mjx-container * {
+                        color: var(--mjx-color, inherit) !important;
+                    }
+                    @media print {
+                        .mjx-container * {
+                            color: var(--mjx-color, inherit) !important;
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+                }, '', false]
+            }
+        }
+    };
+</script>
+
+<!-- ✅ Load MathJax Immediately -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- ✅ Load Other Scripts Like sectionLoader.js AFTER MathJax -->
+<script defer src="../js/sectionLoader.js"></script>
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
