@@ -1,161 +1,203 @@
 <!DOCTYPE html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GeoGebra Embed Code Links</title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoGebra Embed Code Links</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<!-- Bootstrap CDN CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Optional Bootstrap theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-<!-- Optional Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-<!-- Custom Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- CSS Stylesheets Used in Course Content Pages -->
-<link rel="stylesheet" href="../css/main.min.css">
-<link rel="stylesheet" href="../css/style.css" />
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-  <div class="container-fluid">
-      <main>
-          <div class="row mb-4">
-              <div class="col-10 offset-1 col-md-10 offset-md-1">
-                  <header>
-                      <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
-                          style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
-                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                              <!-- Home & About Buttons as Links -->
-                              <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
-                              <a href="../1 Start Here/About This Course.html"
-                                  class="btn btn-outline-secondary me-2">About</a>
-                              <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
-                                  data-bs-placement="bottom"
-                                  title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
-                                  Lecture Blank Notes</a>
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
-                              <!-- Search Bar -->
-                              <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
-                                  <input id="searchInput" class="form-control me-2" type="search"
-                                      placeholder="Search this page..." aria-label="Search">
-                                  <button class="btn btn-outline-success" type="submit">Search</button>
-                              </form>
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
 
-                              <!-- Theme Toggle Dropdown Button -->
-                              <div class="dropdown">
-                                  <button id="theme-toggle"
-                                      class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
-                                      type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                          fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
-                                          <path d="M8 15A7 7 0 1 0 8 1v14z" />
-                                      </svg>
-                                      <span class="ms-2">Theme</span>
-                                  </button>
-                                  <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
-                                      <li><a class="dropdown-item" href="#" data-theme="light">
-                                              <i class="bi bi-sun"></i> Light
-                                          </a></li>
-                                      <li><a class="dropdown-item" href="#" data-theme="dark">
-                                              <i class="bi bi-moon"></i> Dark
-                                          </a></li>
-                                      <li><a class="dropdown-item" href="#" data-theme="auto">
-                                              <i class="bi bi-circle-half"></i> Auto
-                                          </a></li>
-                                  </ul>
-                              </div>
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
 
-                          </div>
-                      </nav>
-                  </header>
-<h1>Embed Codes for GeoGebra Applications</h1>
-<p>This page contains all the embed codes needed to embed the GeoGebra tools directly into webpages and assignments. If any links or buttons are broken, please report them to <a href="mailto:charles.mccauley@volstate.edu" target="_blank" rel="noopener">charles.mccauley@volstate.edu</a></p>
-<h2>Distribution Tools</h2>
-<ul>
-<li><a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency Distribution Tool</a> <button onclick="copyToClipboard('frequency')">Copy Embed Code to Clipboard</button>
-<pre id="frequency" style="display: none;">&lt;iframe scrolling="no" title="Frequency Distribution Tool" src="https://www.geogebra.org/material/iframe/id/ekavhshj/width/807/height/478/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/true/asb/true/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="807px" height="478px" style="border: 0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-<li>Discrete Probability Distribution</li>
-<li><a href="https://www.geogebra.org/m/prfhvg3m" target="_blank" rel="noopener">Binomial Distribution Calculator</a>&nbsp;<button onclick="copyToClipboard('binom')">Copy Embed Code to Clipboard</button>
-<pre id="binom" style="display: none;">&lt;iframe scrolling="no" title="Binomial Distribution Calculator" src="https://www.geogebra.org/material/iframe/id/jmftj3qq/width/873/height/639/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="873px" height="639px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-</ul>
-<h2>Data Visualization Tools</h2>
-<ul>
-<li>Standard Tools
-<ul>
-<li><a href="https://www.geogebra.org/m/betpufbt" target="_blank" rel="noopener">Histograms</a> <button onclick="copyToClipboard('histogram')">Copy Embed Code to Clipboard</button>
-<pre id="histogram" style="display: none;">&lt;iframe scrolling="no" title="Histogram Generation Tool" src="https://www.geogebra.org/material/iframe/id/zsasjepe/width/781/height/440/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="781px" height="440px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-<li><a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dotplot Generator</a>&nbsp;<button onclick="copyToClipboard('dotplot')">Copy Embed Code to Clipboard</button>
-<pre id="dotplot" style="display: none;">&lt;iframe scrolling="no" title="Dotplot Generator" src="https://www.geogebra.org/material/iframe/id/ychuscp9/width/881/height/602/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="881px" height="602px" style="border:0px;&gt;&lt;/iframe&gt;</pre>
-</li>
-<li><a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener">Time Series Generator</a>&nbsp;<button onclick="copyToClipboard('timeseries')">Copy Embed Code to Clipboard</button>
-<pre id="timeseries" style="display: none;">&lt; iframe scrolling="no" title="Time Series Generator" src="https://www.geogebra.org/material/iframe/id/e6pvjjz3/width/944/height/571/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="944px" height="571px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-<li><a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and Pie Graph Generator</a>&nbsp;<button onclick="copyToClipboard('barpie')">Copy Embed Code to Clipboard</button>
-<pre id="barpie" style="display: none;">&lt; iframe scrolling="no" title="Bar and Pie Graph Generator" src="https://www.geogebra.org/material/iframe/id/pb6xvej6/width/1419/height/621/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/true/sdz/false/ctl/false" width="1419px" height="621px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-<li><a href="https://www.geogebra.org/m/gyymcsbx" target="_blank" rel="noopener">Boxplot Generator</a>&nbsp;<button onclick="copyToClipboard('boxplot')">Copy Embed Code to Clipboard</button>
-<pre id="boxplot" style="display: none;">&lt;iframe scrolling="no" title="BoxPlot Generator" src="https://www.geogebra.org/material/iframe/id/ytvffjt2/width/904/height/490/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="904px" height="490px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-</ul>
-</li>
-<li><a href="https://www.geogebra.org/m/epr8jb4h" target="_blank" rel="noopener">Linear Regression Tool</a>&nbsp;<button onclick="copyToClipboard('linreg')">Copy Embed Code to Clipboard</button>
-<pre id="linreg" style="display: none;">&lt;iframe scrolling="no" title="Linear Regression Tool" src="https://www.geogebra.org/material/iframe/id/npksdkc4/width/968/height/683/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="968px" height="683px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-</ul>
-<h2>Summary Statistics</h2>
-<ul>
-<li><a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary Statistics Calculator</a>&nbsp;<button onclick="copyToClipboard('summarystats')">Copy Embed Code to Clipboard</button>
-<pre id="summarystats" style="display: none;">&lt;iframe scrolling="no" title="Summary Stats Calculator" src="https://www.geogebra.org/material/iframe/id/a8vdcm73/width/1326/height/591/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="1326px" height="591px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-<li>Percentile Calculator</li>
-</ul>
-<h2>Probability Calculators</h2>
-<ul>
-<li><a href="https://www.geogebra.org/m/rjms6u8t" target="_blank" rel="noopener">\(z\)-distribution</a> <button onclick="copyToClipboard('normalcalc')">Copy Embed Code to Clipboard</button>
-<pre id="normalcalc" style="display: none;">&lt;iframe scrolling="no" title="Normal Distribution Calculator" src="https://www.geogebra.org/material/iframe/id/qgquy9qs/width/1350/height/545/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="1350px" height="545px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-<li><a href="https://www.geogebra.org/m/ubcyajry" target="_blank" rel="noopener">\(t\)-distribution</a>&nbsp;<button onclick="copyToClipboard('Tcalc')">Copy Embed Code to Clipboard</button>
-<pre id="Tcalc" style="display: none;">&lt;iframe scrolling="no" title="Student T Calculator" src="https://www.geogebra.org/material/iframe/id/nu3hsek6/width/971/height/622/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="971px" height="622px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-</ul>
-<h2>Confidence Intervals and Hypothesis Testing</h2>
-<ul>
-<li><a href="https://www.geogebra.org/m/yqvx78n5" target="_blank" rel="noopener">Confidence Interval and Hypothesis Testing Calculator</a>&nbsp;<button onclick="copyToClipboard('CItestcalc')">Copy Embed Code to Clipboard</button>
-<pre id="CItestcalc" style="display: none;">&lt;iframe scrolling="no" title="Confidence Interval and Hypothesis Test Calculator" src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="1100px" height="651px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
-</li>
-</ul>
-<div class="d-flex justify-content-between mt-4 no-print-nav">
-  <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
-      role="button">Previous Page</button>
-  <button id="nextPage" class="btn btn-outline-primary navigation-link next"
-      role="button">Next Page</button>
-</div>
-<button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
-</div>
-</div>
-</main>
-</div>
-<!-- jQuery local fallback (Bootstrap Dependency) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap CDN JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-crossorigin="anonymous"></script>
-<!-- Course Scripts -->
-<script src="../js/loadmathjax.js"></script>
+                            </div>
+                        </nav>
+                    </header>
+                    <h1>Embed Codes for GeoGebra Applications</h1>
+                    <p>This page contains all the embed codes needed to embed the GeoGebra tools directly into webpages
+                        and assignments. If any links or buttons are broken, please report them to <a
+                            href="mailto:charles.mccauley@volstate.edu" target="_blank"
+                            rel="noopener">charles.mccauley@volstate.edu</a></p>
+                    <h2>Distribution Tools</h2>
+                    <ul>
+                        <li><a href="https://www.geogebra.org/m/qg4j4jc4" target="_blank" rel="noopener">Frequency
+                                Distribution Tool</a> <button onclick="copyToClipboard('frequency')">Copy Embed Code to
+                                Clipboard</button>
+                            <pre id="frequency"
+                                style="display: none;">&lt;iframe scrolling="no" title="Frequency Distribution Tool" src="https://www.geogebra.org/material/iframe/id/ekavhshj/width/807/height/478/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/true/asb/true/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="807px" height="478px" style="border: 0px;"&gt;&lt;/iframe&gt;</pre>
+                        </li>
+                        <li>Discrete Probability Distribution</li>
+                        <li><a href="https://www.geogebra.org/m/prfhvg3m" target="_blank" rel="noopener">Binomial
+                                Distribution Calculator</a>&nbsp;<button onclick="copyToClipboard('binom')">Copy Embed
+                                Code to Clipboard</button>
+                            <pre id="binom"
+                                style="display: none;">&lt;iframe scrolling="no" title="Binomial Distribution Calculator" src="https://www.geogebra.org/material/iframe/id/jmftj3qq/width/873/height/639/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="873px" height="639px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                        </li>
+                    </ul>
+                    <h2>Data Visualization Tools</h2>
+                    <ul>
+                        <li>Standard Tools
+                            <ul>
+                                <li><a href="https://www.geogebra.org/m/betpufbt" target="_blank"
+                                        rel="noopener">Histograms</a> <button
+                                        onclick="copyToClipboard('histogram')">Copy Embed Code to Clipboard</button>
+                                    <pre id="histogram"
+                                        style="display: none;">&lt;iframe scrolling="no" title="Histogram Generation Tool" src="https://www.geogebra.org/material/iframe/id/zsasjepe/width/781/height/440/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="781px" height="440px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                                </li>
+                                <li><a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener">Dotplot
+                                        Generator</a>&nbsp;<button onclick="copyToClipboard('dotplot')">Copy Embed Code
+                                        to Clipboard</button>
+                                    <pre id="dotplot"
+                                        style="display: none;">&lt;iframe scrolling="no" title="Dotplot Generator" src="https://www.geogebra.org/material/iframe/id/ychuscp9/width/881/height/602/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="881px" height="602px" style="border:0px;&gt;&lt;/iframe&gt;</pre>
+                                </li>
+                                <li><a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener">Time
+                                        Series Generator</a>&nbsp;<button onclick="copyToClipboard('timeseries')">Copy
+                                        Embed Code to Clipboard</button>
+                                    <pre id="timeseries"
+                                        style="display: none;">&lt; iframe scrolling="no" title="Time Series Generator" src="https://www.geogebra.org/material/iframe/id/e6pvjjz3/width/944/height/571/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" width="944px" height="571px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                                </li>
+                                <li><a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener">Bar and
+                                        Pie Graph Generator</a>&nbsp;<button onclick="copyToClipboard('barpie')">Copy
+                                        Embed Code to Clipboard</button>
+                                    <pre id="barpie"
+                                        style="display: none;">&lt; iframe scrolling="no" title="Bar and Pie Graph Generator" src="https://www.geogebra.org/material/iframe/id/pb6xvej6/width/1419/height/621/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/true/sdz/false/ctl/false" width="1419px" height="621px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                                </li>
+                                <li><a href="https://www.geogebra.org/m/gyymcsbx" target="_blank" rel="noopener">Boxplot
+                                        Generator</a>&nbsp;<button onclick="copyToClipboard('boxplot')">Copy Embed Code
+                                        to Clipboard</button>
+                                    <pre id="boxplot"
+                                        style="display: none;">&lt;iframe scrolling="no" title="BoxPlot Generator" src="https://www.geogebra.org/material/iframe/id/ytvffjt2/width/904/height/490/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="904px" height="490px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="https://www.geogebra.org/m/epr8jb4h" target="_blank" rel="noopener">Linear
+                                Regression Tool</a>&nbsp;<button onclick="copyToClipboard('linreg')">Copy Embed Code to
+                                Clipboard</button>
+                            <pre id="linreg"
+                                style="display: none;">&lt;iframe scrolling="no" title="Linear Regression Tool" src="https://www.geogebra.org/material/iframe/id/npksdkc4/width/968/height/683/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="968px" height="683px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                        </li>
+                    </ul>
+                    <h2>Summary Statistics</h2>
+                    <ul>
+                        <li><a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary
+                                Statistics Calculator</a>&nbsp;<button onclick="copyToClipboard('summarystats')">Copy
+                                Embed Code to Clipboard</button>
+                            <pre id="summarystats"
+                                style="display: none;">&lt;iframe scrolling="no" title="Summary Stats Calculator" src="https://www.geogebra.org/material/iframe/id/a8vdcm73/width/1326/height/591/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="1326px" height="591px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                        </li>
+                        <li>Percentile Calculator</li>
+                    </ul>
+                    <h2>Probability Calculators</h2>
+                    <ul>
+                        <li><a href="https://www.geogebra.org/m/rjms6u8t" target="_blank"
+                                rel="noopener">\(z\)-distribution</a> <button
+                                onclick="copyToClipboard('normalcalc')">Copy Embed Code to Clipboard</button>
+                            <pre id="normalcalc"
+                                style="display: none;">&lt;iframe scrolling="no" title="Normal Distribution Calculator" src="https://www.geogebra.org/material/iframe/id/qgquy9qs/width/1350/height/545/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="1350px" height="545px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                        </li>
+                        <li><a href="https://www.geogebra.org/m/ubcyajry" target="_blank"
+                                rel="noopener">\(t\)-distribution</a>&nbsp;<button
+                                onclick="copyToClipboard('Tcalc')">Copy Embed Code to Clipboard</button>
+                            <pre id="Tcalc"
+                                style="display: none;">&lt;iframe scrolling="no" title="Student T Calculator" src="https://www.geogebra.org/material/iframe/id/nu3hsek6/width/971/height/622/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="971px" height="622px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                        </li>
+                    </ul>
+                    <h2>Confidence Intervals and Hypothesis Testing</h2>
+                    <ul>
+                        <li><a href="https://www.geogebra.org/m/yqvx78n5" target="_blank" rel="noopener">Confidence
+                                Interval and Hypothesis Testing Calculator</a>&nbsp;<button
+                                onclick="copyToClipboard('CItestcalc')">Copy Embed Code to Clipboard</button>
+                            <pre id="CItestcalc"
+                                style="display: none;">&lt;iframe scrolling="no" title="Confidence Interval and Hypothesis Test Calculator" src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="1100px" height="651px" style="border:0px;"&gt;&lt;/iframe&gt;</pre>
+                        </li>
+                    </ul>
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
 
-</body></html>
+</body>
+
+</html>

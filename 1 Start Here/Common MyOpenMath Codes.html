@@ -76,234 +76,463 @@
                         </nav>
                     </header>
 
-                    <h1>Common HTML Codes Used in MyOpenMath</h1>
+                    <section>
+                        <h1>Common HTML Codes Used in MyOpenMath</h1>
+                        <p>Below are some copy/pasteable codes that can be used in MyOpenMath to add different widgets
+                            to your assignments in MyOpenMath for the GeoGebra tools used inside this project.</p>
+                        <h2>Formatting Elements for MyOpenMath</h2>
+                        <p>The following code is a container I made for the "Question Text" portion of MyOpenMath so
+                            that problems are displayed in a visually appealing way. The font, color of the contents,
+                            and background-colors are all customizable.</p>
+                        <div
+                            style="background-color: #DFF6DD; color: #034732; font-size: 16px; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif; margin-bottom:10px;">
+                            <p
+                                style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
+                                Contains a div element for embedding into MyOpenMath problems to make the "Question
+                                Text" area pretty with the following settings:
+                            </p>
+                            <ul>
+                                <li>The &lt;div&gt; uses a light green background (#DFF6DD) with dark green text
+                                    (#034732) for clarity.</li>
+                                <li>Added padding and rounded corners for a modern, clean design.</li>
+                                <li>The font size is 16px and font stack prioritizes "Roboto", with fallbacks to "Arial"
+                                    and generic sans-serif fonts.</li>
+                            </ul>
+                            <div style="display: flex; justify-content: center; align-items: center; border: none;">
+                                <button onclick="copyCodeToClipboard('divMyOpenMath')"
+                                    style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+                                    Copy &lt;div&gt; Element for use in MyOpenMath
+                                </button>
+                            </div>
+                            <textarea id="divMyOpenMath" style="position: absolute; left: -9999px;"><div style="background-color: #DFF6DD; color: #034732; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
+                                <p>Enter Text for the question in this space.</p>
+                            </div>
+                            </textarea>
+                        </div>
 
-                    <p>Below are copy/pasteable codes that can be used in MyOpenMath for different widgets inside this
-                        project.</p>
-
-                    <div style="background-color: #DFF6DD; color: #034732; font-size: 16px; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif; margin-bottom:10px;">
-                        <p
-                            style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
-                            Contains a div element for embedding into MyOpenMath problems to make the "Question Text" area pretty with the following settings:
-                        </p>
-                        <ul>
-                            <li>The &lt;div&gt; uses a light green background (#DFF6DD) with dark green text (#034732) for clarity.</li>
-                            <li>Added padding and rounded corners for a modern, clean design.</li>
-                            <li>The font size is 16px and font stack prioritizes "Roboto", with fallbacks to "Arial" and generic sans-serif fonts.</li>
-                        </ul>
-                        <div style="display: flex; justify-content: center; align-items: center; border: none;">
-                            <button onclick="copyCodeToClipboard('divMyOpenMath')"
+                        <p>Here is some code that contains the script element for making a "copy to clipboard" button as well as the "pre" element that contains the CSV data that will be copied.</p>
+                        <div
+                            style="background-color: #DFF6DD; color: #034732; font-size: 16px; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif; margin-bottom:10px;">
+                            <p style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
+                                Contains an HTML snippet that provides a "Copy to Clipboard" script element, the "button" HTML, and the pre CSV element with the dataset inside a styled container for MyOpenMath.
+                            </p>
+                            <div style="display: flex; justify-content: center; align-items: center; border: none;">
+                                <button onclick="copyCodeToClipboard('datasetCopyFunction')" 
                                 style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">
-                                Copy &lt;div&gt; Element for use in MyOpenMath
+                                Copy Dataset Copying Script, Button, and Pre HTML Elements
                             </button>
+                            <textarea id="datasetCopyFunction" style="position: absolute; left: -9999px;">
+                                <script>
+                                  function copyToClipboard(preID) {
+                                    const pre = document.getElementById(preID);
+                                    const text = pre.textContent || pre.innerText;
+                                    navigator.clipboard.writeText(text).then(() => {
+                                      alert('Dataset copied to clipboard!');
+                                    }).catch(err => {
+                                      console.error('Error copying text: ', err);
+                                    });
+                                  }
+                                </script>
+                                <div style="background-color: #DFF6DD; color: #034732; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
+                                    <p>Enter Text for the question in this space.</p>
+                                    <p><button onclick="copyToClipboard('dataToCopy')">Copy Data to Clipboard</button></p>
+                                    <pre style="display:none" id="dataToCopy"> 
+                        "Column 1 Title","Column 2 Title"
+                        #value,#value 
+                        #value,#value 
+                                    </pre> 
+                                </div>
+                            </textarea>
                         </div>
-                        <textarea id="divMyOpenMath" style="position: absolute; left: -9999px;"><div style="background-color: #DFF6DD; color: #034732; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
-                            <p>Enter Text for the question in this space.</p>
                         </div>
-                        </textarea>
-                    </div>
-
-                    <div class="iframe-copy">
-                        <p
-                            style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the GeoGebra tool into MyOpenMath
-                            problems.
-                        </p>
-                        <button onclick="copyCodeToClipboard('frequencyDistributionGeoGebraTool')"
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Frequency Distribution GeoGebra Tool
-                        </button>
-                        <textarea id="frequencyDistributionGeoGebraTool" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Frequency Distribution Tool. If this app is too small to view, you can open the <a href="https://www.geogebra.org/material/iframe/id/vhvywg89/width/1390/height/681/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" target="_blank">application here in a new window</a>. If the spreadsheet isn't showing, you can click the "hamburger" menu in the top right corner, click "view", and toggle the "spreadsheet" on to paste in your data.</p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 49%;">
-                                    <iframe scrolling="no" title="Frequency Distribution Tool" 
-                                        src="https://www.geogebra.org/material/iframe/id/vhvywg89/width/1390/height/681/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" 
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </textarea>
-                    </div>
-
-                    <div class="iframe-copy">
-                        <p
-                            style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the Histogram Generator GeoGebra tool
-                            into MyOpenMath problems.
-                        </p>
-                        <button onclick="copyCodeToClipboard('histogramGeoGebraTool')"
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Histogram Generator GeoGebra Tool
-                        </button>
-                        <textarea id="histogramGeoGebraTool" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Histogram Generator Tool. If this app is too small to view, you can open the 
-                                <a href="https://www.geogebra.org/material/iframe/id/p8ubdwrm" target="_blank" rel="noopener noreferrer" 
-                                   style="font-weight: bold; color: #034078; text-decoration: underline;">
-                                    application here in a new window
-                                </a>.
-                                If the spreadsheet isn't showing, you can click the "hamburger" menu in the top right corner, click "view", and toggle the "spreadsheet" on to paste in your data.
+                        
+                        <h2>Chapter 1 and Chapter 4 Tool</h2>
+                        <p>Just providing a GeoGebra calculator is simple enough for most of chapter 1 and chapter 4.
+                            Below is a link you can use to drop this tool into your MyOpenMath content.</p>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Scientific Calculator GeoGebra
+                                tool
+                                into MyOpenMath or webpages.
                             </p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 89.8%;">
-                                    <iframe scrolling="no" title="Histogram Generator Tool" 
-                                        src="https://www.geogebra.org/material/iframe/id/p8ubdwrm/width/973/height/874/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" 
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
+                            <button onclick="copyCodeToClipboard('scientificCalculatorGeoGebra')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Scientific Calculator GeoGebra Tool
+                            </button>
+                            <textarea id="scientificCalculatorGeoGebra" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Scientific calculator. If this app is too small to view, you can open the <a href="https://www.geogebra.org/scientific?lang=en" target="_blank">application here in a new window</a>.</p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
+                                        <iframe title="GeoGebra Scientific Calculator"
+                                            src="https://www.geogebra.org/scientific?lang=en"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
                                 </div>
-                            </div>
-                        </textarea>
-                    </div>
-
-                    <div class="iframe-copy">
-                        <p
-                            style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the Scientific Calculator GeoGebra tool
-                            into MyOpenMath or webpages.
-                        </p>
-                        <button onclick="copyCodeToClipboard('scientificCalculatorGeoGebra')"
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Scientific Calculator GeoGebra Tool
-                        </button>
-                        <textarea id="scientificCalculatorGeoGebra" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Scientific calculator. If this app is too small to view, you can open the <a href="https://www.geogebra.org/scientific?lang=en" target="_blank">application here in a new window</a>.</p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
-                                    <iframe title="GeoGebra Scientific Calculator"
-                                        src="https://www.geogebra.org/scientific?lang=en" 
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </textarea>
-                    </div>
-
-                    <div class="iframe-copy">
-                        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the Stem-And-Leaf Plot GeoGebra tool into MyOpenMath problems.
-                        </p>
-                        <button onclick="copyCodeToClipboard('stemLeafGeoGebraTool')" 
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Stem-And-Leaf Plot GeoGebra Tool
-                        </button>
-                        <textarea id="stemLeafGeoGebraTool" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Stem-And-Leaf Plot Tool. If this app is too small to view, you can open the 
-                                <a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener noreferrer">
-                                    application here in a new window
-                                </a>.
+                            </textarea>
+                        </div>
+                        <h2>Chapter 2 Tools - Data Visualization and Organization</h2>
+                        <p>Most of the tools in this section provide tables or graphs based on the data entered into the
+                            spreadsheet columns.</p>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the GeoGebra Frequency Distribution
+                                tool into MyOpenMath
+                                problems.
                             </p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
-                                    <iframe scrolling="no" title="Stem-And-Leaf Plot Tool"
-                                        src="https://www.geogebra.org/material/iframe/id/payaagsb"
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
+                            <button onclick="copyCodeToClipboard('frequencyDistributionGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Frequency Distribution GeoGebra Tool
+                            </button>
+                            <textarea id="frequencyDistributionGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Frequency Distribution Tool. If this app is too small to view, you can open the <a href="https://www.geogebra.org/material/iframe/id/vhvywg89/width/1390/height/681/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" target="_blank">application here in a new window</a>. If the spreadsheet isn't showing, you can click the "hamburger" menu in the top right corner, click "view", and toggle the "spreadsheet" on to paste in your data.</p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 49%;">
+                                        <iframe scrolling="no" title="Frequency Distribution Tool"
+                                            src="https://www.geogebra.org/material/iframe/id/vhvywg89/width/1390/height/681/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
                                 </div>
-                            </div>
-                        </textarea>
-                    </div>
+                            </textarea>
+                        </div>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Histogram Generator GeoGebra tool
+                                into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('histogramGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Histogram Generator GeoGebra Tool
+                            </button>
+                            <textarea id="histogramGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Histogram Generator Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/p8ubdwrm" target="_blank" rel="noopener noreferrer"
+                                       style="font-weight: bold; color: #034078; text-decoration: underline;">
+                                        application here in a new window
+                                    </a>.
+                                    If the spreadsheet isn't showing, you can click the "hamburger" menu in the top right corner, click "view", and toggle the "spreadsheet" on to paste in your data.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 89.8%;">
+                                        <iframe scrolling="no" title="Histogram Generator Tool"
+                                            src="https://www.geogebra.org/material/iframe/id/p8ubdwrm/width/973/height/874/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Stem-And-Leaf Plot GeoGebra tool
+                                into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('stemLeafGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Stem-And-Leaf Plot GeoGebra Tool
+                            </button>
+                            <textarea id="stemLeafGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Stem-And-Leaf Plot Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
+                                        <iframe scrolling="no" title="Stem-And-Leaf Plot Tool"
+                                            src="https://www.geogebra.org/material/iframe/id/payaagsb"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Dot Plot GeoGebra tool into
+                                MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('dotPlotGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Dot Plot GeoGebra Tool
+                            </button>
+                            <textarea id="dotPlotGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Dot Plot Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
+                                        <iframe scrolling="no" title="Dot Plot Tool"
+                                            src="https://www.geogebra.org/material/iframe/id/svdxyybm"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
 
-                    <div class="iframe-copy">
-                        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the Dot Plot GeoGebra tool into MyOpenMath problems.
-                        </p>
-                        <button onclick="copyCodeToClipboard('dotPlotGeoGebraTool')" 
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Dot Plot GeoGebra Tool
-                        </button>
-                        <textarea id="dotPlotGeoGebraTool" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Dot Plot Tool. If this app is too small to view, you can open the 
-                                <a href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener noreferrer">
-                                    application here in a new window
-                                </a>.
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Time Series Plot GeoGebra tool
+                                into MyOpenMath problems.
                             </p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
-                                    <iframe scrolling="no" title="Dot Plot Tool"
-                                        src="https://www.geogebra.org/material/iframe/id/svdxyybm"
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
+                            <button onclick="copyCodeToClipboard('timeSeriesGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Time Series Plot GeoGebra Tool
+                            </button>
+                            <textarea id="timeSeriesGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Time Series Plot Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
+                                        <iframe scrolling="no" title="Time Series Plot Tool"
+                                            src="https://www.geogebra.org/material/iframe/id/khx9mq7k"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
                                 </div>
-                            </div>
-                        </textarea>
-                    </div>
-                    
-                    <div class="iframe-copy">
-                        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the Time Series Plot GeoGebra tool into MyOpenMath problems.
-                        </p>
-                        <button onclick="copyCodeToClipboard('timeSeriesGeoGebraTool')" 
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Time Series Plot GeoGebra Tool
-                        </button>
-                        <textarea id="timeSeriesGeoGebraTool" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Time Series Plot Tool. If this app is too small to view, you can open the 
-                                <a href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener noreferrer">
-                                    application here in a new window
-                                </a>.
+                            </textarea>
+                        </div>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Bar and Pie Graph GeoGebra tool
+                                into MyOpenMath problems.
                             </p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
-                                    <iframe scrolling="no" title="Time Series Plot Tool"
-                                        src="https://www.geogebra.org/material/iframe/id/khx9mq7k"
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
+                            <button onclick="copyCodeToClipboard('barPieGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Bar and Pie Graph GeoGebra Tool
+                            </button>
+                            <textarea id="barPieGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Bar and Pie Graph Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
+                                        <iframe scrolling="no" title="Bar and Pie Graph Tool"
+                                            src="https://www.geogebra.org/material/iframe/id/tmu6ja9y"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
                                 </div>
-                            </div>
-                        </textarea>
-                    </div>
+                            </textarea>
+                        </div>
+                        <h2>Chapter 3 Tools - Descriptive Statistics</h2>
+                        <p>Below are the GeoGebra tool iframe elements for the descriptive statistics chapter of content
+                            that calculate these based on data that is in columns in the spreadsheet.</p>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Summary Stats Calculator GeoGebra
+                                tool into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('summaryStatsGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Summary Stats Calculator GeoGebra Tool
+                            </button>
+                            <textarea id="summaryStatsGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Summary Stats Calculator Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/a8vdcm73" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 48.8%;">
+                                        <iframe scrolling="no" title="Summary Stats Calculator"
+                                            src="https://www.geogebra.org/material/iframe/id/a8vdcm73/width/1324/height/646/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Box Plot Generator GeoGebra tool
+                                into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('boxPlotGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Box Plot Generator GeoGebra Tool
+                            </button>
+                            <textarea id="boxPlotGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Box Plot Generator Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/ytvffjt2" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 54.2%;">
+                                        <iframe scrolling="no" title="Box Plot Generator"
+                                            src="https://www.geogebra.org/material/iframe/id/ytvffjt2/width/904/height/490/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
 
-                    <div class="iframe-copy">
-                        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the Bar and Pie Graph GeoGebra tool into MyOpenMath problems.
-                        </p>
-                        <button onclick="copyCodeToClipboard('barPieGeoGebraTool')" 
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Bar and Pie Graph GeoGebra Tool
-                        </button>
-                        <textarea id="barPieGeoGebraTool" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Bar and Pie Graph Tool. If this app is too small to view, you can open the 
-                                <a href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener noreferrer">
-                                    application here in a new window
-                                </a>.
-                            </p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 75%;">
-                                    <iframe scrolling="no" title="Bar and Pie Graph Tool"
-                                        src="https://www.geogebra.org/material/iframe/id/tmu6ja9y"
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </textarea>
-                    </div>
+                        <h2>Chapter 5 Tools - Binomial Distributions</h2>
+                        <p>You can copy the Binomial GeoGebra tool's iframe element below for use in the probability
+                            distribution section of your course.</p>
 
-                    <div class="iframe-copy">
-                        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                            Contains a responsive iframe element for embedding the Summary Stats Calculator GeoGebra tool into MyOpenMath problems.
-                        </p>
-                        <button onclick="copyCodeToClipboard('summaryStatsGeoGebraTool')" 
-                            style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
-                            Copy Summary Stats Calculator GeoGebra Tool
-                        </button>
-                        <textarea id="summaryStatsGeoGebraTool" style="position: absolute; left: -9999px;">
-                            <p>Below is the GeoGebra Summary Stats Calculator Tool. If this app is too small to view, you can open the 
-                                <a href="https://www.geogebra.org/material/iframe/id/a8vdcm73" target="_blank" rel="noopener noreferrer">
-                                    application here in a new window
-                                </a>.
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Binomial Distribution Calculator
+                                GeoGebra tool into MyOpenMath problems.
                             </p>
-                            <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
-                                <div style="position: relative; width: 100%; max-width: 800px; padding-top: 48.8%;">
-                                    <iframe scrolling="no" title="Summary Stats Calculator" 
-                                        src="https://www.geogebra.org/material/iframe/id/a8vdcm73/width/1324/height/646/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" 
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-                                    </iframe>
+                            <button onclick="copyCodeToClipboard('binomialDistGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Binomial Distribution Calculator GeoGebra Tool
+                            </button>
+                            <textarea id="binomialDistGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Binomial Distribution Calculator Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/ujwtqqjb" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 54.6%;">
+                                        <iframe scrolling="no" title="Binomial Distribution Calculator"
+                                            src="https://www.geogebra.org/material/iframe/id/ujwtqqjb/width/827/height/452/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
                                 </div>
-                            </div>
-                        </textarea>
-                    </div>
-                    
-                    
+                            </textarea>
+                        </div>
+                        <h2>Chapter 6 - Normal Distributions</h2>
+                        <p>Here is the GeoGebra applet iframe element for working with the normal distribution (finding
+                            areas, z-scores, etc).</p>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Normal Distribution Calculator
+                                GeoGebra tool into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('normalDistGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Normal Distribution Calculator GeoGebra Tool
+                            </button>
+                            <textarea id="normalDistGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Normal Distribution Calculator Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/qgquy9qs" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 40.4%;">
+                                        <iframe scrolling="no" title="Normal Distribution Calculator"
+                                            src="https://www.geogebra.org/material/iframe/id/qgquy9qs/width/1350/height/545/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+                        <h2>Chapter 7, 8, and 9 - Inferential Statistics</h2>
+                        <p>Here is the iframe element for the tool that will do all of your inferential statistics
+                            calculations for the final leg of the statistics course.</p>
+
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Confidence Intervals and
+                                Hypothesis Testing GeoGebra tool into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('confIntervalsGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Confidence Intervals and Hypothesis Testing GeoGebra Tool
+                            </button>
+                            <textarea id="confIntervalsGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Confidence Intervals and Hypothesis Testing Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/sqbsgdkk" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 59.2%;">
+                                        <iframe scrolling="no" title="Confidence Interval and Hypothesis Test Calculator"
+                                            src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the T-Distribution Calculator
+                                GeoGebra tool into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('tDistGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy T-Distribution Calculator GeoGebra Tool
+                            </button>
+                            <textarea id="tDistGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra T-Distribution Calculator Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/nu3hsek6" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 64.1%;">
+                                        <iframe scrolling="no" title="Student T Calculator"
+                                            src="https://www.geogebra.org/material/iframe/id/nu3hsek6/width/971/height/622/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+
+                        <h2>Chapter 10 - Linear Regression</h2>
+                        <p>Here is the tool used for the Linear Regression, Correlation, and Prediction section of the
+                            statistics course.</p>
+                        <div class="iframe-copy">
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the Linear Regression GeoGebra tool
+                                into MyOpenMath problems.
+                            </p>
+                            <button onclick="copyCodeToClipboard('linearRegressionGeoGebraTool')"
+                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
+                                Copy Linear Regression GeoGebra Tool
+                            </button>
+                            <textarea id="linearRegressionGeoGebraTool" style="position: absolute; left: -9999px;">
+                                <p>Below is the GeoGebra Linear Regression Tool. If this app is too small to view, you can open the
+                                    <a href="https://www.geogebra.org/material/iframe/id/npksdkc4" target="_blank" rel="noopener noreferrer">
+                                        application here in a new window
+                                    </a>.
+                                </p>
+                                <div style="background-color: #A9D6E5; border: 3px solid #034078; padding: 10px; border-radius: 5px; display: flex; justify-content: center;">
+                                    <div style="position: relative; width: 100%; max-width: 800px; padding-top: 70.6%;">
+                                        <iframe scrolling="no" title="Linear Regression Tool"
+                                            src="https://www.geogebra.org/material/iframe/id/npksdkc4/width/968/height/683/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </textarea>
+                        </div>
+                    </section>
 
                     <div class="d-flex justify-content-between mt-4 no-print-nav">
                         <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
@@ -313,34 +542,10 @@
                     </div>
                     <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
 
-
                 </div>
             </div>
         </main>
     </div>
-
-    <script>
-        function copyHistogramCode() {
-            var copyText = document.getElementById("histogramIframeCode");
-            copyText.select();
-            document.execCommand("copy");
-            alert("Histogram Generator GeoGebra Tool code copied to clipboard!");
-        }
-
-        function copyScientificCalculatorCode() {
-            var copyText = document.getElementById("scientificCalculatorCode");
-            copyText.select();
-            document.execCommand("copy");
-            alert("Scientific Calculator GeoGebra Tool code copied to clipboard!");
-        }
-
-        function copyIframeCode() {
-            var copyText = document.getElementById("iframeCode");
-            copyText.select();
-            document.execCommand("copy");
-            alert("Iframe code copied to clipboard!");
-        }
-    </script>
 
     <!-- jQuery local fallback (Bootstrap Dependency) -->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
