@@ -34,6 +34,14 @@ p{
     margin: 0;
 }
 
+.p-iframe-copy{
+    font-family: 'Roboto', Arial, sans-serif; 
+    font-size: 16px; 
+    color: #034732; 
+    text-align: left; 
+    margin-bottom: 5px;
+}
+
 .blacksquare {
     font-size: 0.8em; 
     line-height: 1; 
