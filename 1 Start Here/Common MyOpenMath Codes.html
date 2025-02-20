@@ -153,6 +153,40 @@
                             </div>
                         </div>
 
+                        <p>Here is some code that contains the PHP code for setting data arrays and putting them into a nice table in the "Common Control" section of MyOpenMath. Includes code to add the "stats" library, and has code to make the data table collapsable.</p>
+                        <div
+                            style="background-color: #DFF6DD; color: #034732; font-size: 16px; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif; margin-bottom:10px;">
+                            <p
+                                style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
+                                Contains PHP snippet that for making an array of data for two columns and putting it into a table. The code loads the "stats" library, and can be pasted into the "common control" section of a MyOpenMath problem.
+                            </p>
+                            <div style="display: flex; justify-content: center; align-items: center; border: none;">
+                                <button onclick="copyCodeToClipboard('copyPHPStatsTable')"
+                                    style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+                                    Copy PHP Script for two Columns of Data and Generating a collapsable table
+                                </button>
+                                <textarea id="copyPHPStatsTable" style="position: absolute; left: -9999px;">
+// Load the stats library
+loadlibrary("stats");
+
+// Define an array for column labels
+$labelArray = ["Mass (g)", "Volume (mL)"];
+
+// Generate two datasets (replace with real data or random values)
+$dataset1 = [2.5, 3.1, 4.7, 5.2, 6.3]; // Example mass data
+// Generate an array with 5 randomized values between 5.0 and 10.0, rounded to 1 decimal place
+//rrands(minimum,maximum,step-size,number of random values)
+$dataset2 = rrands(5.0, 10.0, 0.1, 5);
+
+// Create the table using showarrays, which formats the data as a table
+$dataTable = showarrays($labelArray, array($dataset1, $dataset2));
+
+// Create a toggle button to show/hide the table
+$tableToggleButton = forminlinebutton("Show/Hide Data", "$dataTable", "button", "block");
+                            </textarea>
+                            </div>
+                        </div>
+
                         <h2>Chapter 1 and Chapter 4 Tool</h2>
                         <p>Just providing a GeoGebra calculator is simple enough for most of chapter 1 and chapter 4.
                             Below is a link you can use to drop this tool into your MyOpenMath content.</p>
