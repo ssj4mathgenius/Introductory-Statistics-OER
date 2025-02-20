@@ -37,9 +37,13 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                                 <!-- Home & About Buttons as Links -->
-                                <a href="index.html" class="btn btn-outline-success me-2">Home</a>
-                                <a href="1 Start Here/About This Course MCT.html"
-                                    class="btn btn-outline-secondary">About</a>
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
                                 <!-- Search Bar -->
                                 <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
@@ -110,50 +114,58 @@
                             </textarea>
                         </div>
 
-                        <p>Here is some code that contains the script element for making a "copy to clipboard" button as well as the "pre" element that contains the CSV data that will be copied.</p>
+                        <p>Here is some code that contains the script element for making a "copy to clipboard" button as
+                            well as the "pre" element that contains the CSV data that will be copied.</p>
                         <div
                             style="background-color: #DFF6DD; color: #034732; font-size: 16px; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif; margin-bottom:10px;">
-                            <p style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
-                                Contains an HTML snippet that provides a "Copy to Clipboard" script element, the "button" HTML, and the pre CSV element with the dataset inside a styled container for MyOpenMath.
+                            <p
+                                style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
+                                Contains an HTML snippet that provides a "Copy to Clipboard" script element, the
+                                "button" HTML, and the pre CSV element with the dataset inside a styled container for
+                                MyOpenMath.
                             </p>
                             <div style="display: flex; justify-content: center; align-items: center; border: none;">
-                                <button onclick="copyCodeToClipboard('datasetCopyFunction')" 
-                                style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">
-                                Copy Dataset Copying Script, Button, and Pre HTML Elements
-                            </button>
-                            <textarea id="datasetCopyFunction" style="position: absolute; left: -9999px;">
+                                <button onclick="copyCodeToClipboard('datasetCopyFunction')"
+                                    style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+                                    Copy Dataset Copying Script, Button, and Pre HTML Elements
+                                </button>
+                                <textarea id="datasetCopyFunction" style="position: absolute; left: -9999px;">
                                 <script>
-                                  function copyToClipboard(preID) {
-                                    const pre = document.getElementById(preID);
-                                    const text = pre.textContent || pre.innerText;
-                                    navigator.clipboard.writeText(text).then(() => {
-                                      alert('Dataset copied to clipboard!');
-                                    }).catch(err => {
-                                      console.error('Error copying text: ', err);
-                                    });
-                                  }
+                                    function copyToClipboard(preID) {
+                                        const pre = document.getElementById(preID);
+                                        const text = pre.textContent || pre.innerText;
+                                        navigator.clipboard.writeText(text).then(() => {
+                                            alert('Dataset copied to clipboard!');
+                                        }).catch(err => {
+                                            console.error('Error copying text: ', err);
+                                        });
+                                    }
                                 </script>
                                 <div style="background-color: #DFF6DD; color: #034732; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
                                     <p>Enter Text for the question in this space.</p>
                                     <p><button onclick="copyToClipboard('dataToCopy')">Copy Data to Clipboard</button></p>
-                                    <pre style="display:none" id="dataToCopy"> 
-                        "Column 1 Title","Column 2 Title"
-                        #value,#value 
-                        #value,#value 
-                                    </pre> 
+                                    <pre style="display:none" id="dataToCopy">Column 1 Title,Column 2 Title
+#value,#value
+#value,#value
+                                    </pre>
                                 </div>
                             </textarea>
+                            </div>
                         </div>
-                        </div>
-                        
+
                         <h2>Chapter 1 and Chapter 4 Tool</h2>
                         <p>Just providing a GeoGebra calculator is simple enough for most of chapter 1 and chapter 4.
                             Below is a link you can use to drop this tool into your MyOpenMath content.</p>
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Scientific Calculator GeoGebra
-                                tool
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/scientific?lang=en" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">
+                                    Scientific Calculator GeoGebra
+                                    tool
+                                </a>
                                 into MyOpenMath or webpages.
                             </p>
                             <button onclick="copyCodeToClipboard('scientificCalculatorGeoGebra')"
@@ -178,8 +190,12 @@
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the GeoGebra Frequency Distribution
-                                tool into MyOpenMath
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/vhvywg89/width/1390/height/681/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                    target="_blank" rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">GeoGebra
+                                    Frequency Distribution
+                                    tool</a> into MyOpenMath
                                 problems.
                             </p>
                             <button onclick="copyCodeToClipboard('frequencyDistributionGeoGebraTool')"
@@ -198,10 +214,15 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Histogram Generator GeoGebra tool
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/p8ubdwrm" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Histogram
+                                    Generator GeoGebra tool</a>
                                 into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('histogramGeoGebraTool')"
@@ -226,10 +247,14 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Stem-And-Leaf Plot GeoGebra tool
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/m/payaagsb" target="_blank" rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Stem-And-Leaf
+                                    Plot GeoGebra tool</a>
                                 into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('stemLeafGeoGebraTool')"
@@ -252,10 +277,14 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Dot Plot GeoGebra tool into
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/m/svdxyybm" target="_blank" rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Dot Plot
+                                    GeoGebra tool</a> into
                                 MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('dotPlotGeoGebraTool')"
@@ -282,7 +311,10 @@
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Time Series Plot GeoGebra tool
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/m/khx9mq7k" target="_blank" rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Time Series
+                                    Plot GeoGebra tool</a>
                                 into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('timeSeriesGeoGebraTool')"
@@ -305,10 +337,14 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Bar and Pie Graph GeoGebra tool
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/m/tmu6ja9y" target="_blank" rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Bar and Pie
+                                    Graph GeoGebra tool</a>
                                 into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('barPieGeoGebraTool')"
@@ -331,14 +367,20 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <h2>Chapter 3 Tools - Descriptive Statistics</h2>
+
                         <p>Below are the GeoGebra tool iframe elements for the descriptive statistics chapter of content
                             that calculate these based on data that is in columns in the spreadsheet.</p>
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Summary Stats Calculator GeoGebra
-                                tool into MyOpenMath problems.
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/a8vdcm73" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Summary Stats
+                                    Calculator GeoGebra
+                                    tool</a> into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('summaryStatsGeoGebraTool')"
                                 style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
@@ -362,10 +404,15 @@
                         </div>
 
                         <div class="iframe-copy">
-                            <p style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the GeoGebra Empirical Rule Calculator into MyOpenMath problems.
+                            <p
+                                style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/sgrmqchm" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">GeoGebra
+                                    Empirical Rule Calculator</a> into MyOpenMath problems.
                             </p>
-                            <button onclick="copyCodeToClipboard('empiricalRuleGeoGebraTool')" 
+                            <button onclick="copyCodeToClipboard('empiricalRuleGeoGebraTool')"
                                 style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
                                 Copy Empirical Rule Calculator GeoGebra Tool
                             </button>
@@ -385,12 +432,15 @@
                                 </div>
                             </textarea>
                         </div>
-                        
 
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Box Plot Generator GeoGebra tool
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/ytvffjt2" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Box Plot
+                                    Generator GeoGebra tool</a>
                                 into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('boxPlotGeoGebraTool')"
@@ -415,14 +465,19 @@
                         </div>
 
                         <h2>Chapter 5 Tools - Binomial Distributions</h2>
+
                         <p>You can copy the Binomial GeoGebra tool's iframe element below for use in the probability
                             distribution section of your course.</p>
 
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Binomial Distribution Calculator
-                                GeoGebra tool into MyOpenMath problems.
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/ujwtqqjb" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Binomial
+                                    Distribution Calculator
+                                    GeoGebra tool</a> into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('binomialDistGeoGebraTool')"
                                 style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
@@ -444,14 +499,20 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <h2>Chapter 6 - Normal Distributions</h2>
+
                         <p>Here is the GeoGebra applet iframe element for working with the normal distribution (finding
                             areas, z-scores, etc).</p>
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Normal Distribution Calculator
-                                GeoGebra tool into MyOpenMath problems.
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/qgquy9qs" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Normal
+                                    Distribution Calculator
+                                    GeoGebra tool</a> into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('normalDistGeoGebraTool')"
                                 style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
@@ -473,15 +534,21 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <h2>Chapter 7, 8, and 9 - Inferential Statistics</h2>
+
                         <p>Here is the iframe element for the tool that will do all of your inferential statistics
                             calculations for the final leg of the statistics course.</p>
 
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Confidence Intervals and
-                                Hypothesis Testing GeoGebra tool into MyOpenMath problems.
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/sqbsgdkk" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Confidence
+                                    Intervals and
+                                    Hypothesis Testing GeoGebra tool</a> into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('confIntervalsGeoGebraTool')"
                                 style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
@@ -503,11 +570,16 @@
                                 </div>
                             </textarea>
                         </div>
+
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the T-Distribution Calculator
-                                GeoGebra tool into MyOpenMath problems.
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/nu3hsek6" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">T-Distribution
+                                    Calculator
+                                    GeoGebra tool</a> into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('tDistGeoGebraTool')"
                                 style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 14px; border-radius: 5px; cursor: pointer;">
@@ -531,12 +603,17 @@
                         </div>
 
                         <h2>Chapter 10 - Linear Regression</h2>
+
                         <p>Here is the tool used for the Linear Regression, Correlation, and Prediction section of the
                             statistics course.</p>
                         <div class="iframe-copy">
                             <p
                                 style="font-family: Arial, sans-serif; font-size: 14px; color: #034078; text-align: center; margin-bottom: 10px;">
-                                Contains a responsive iframe element for embedding the Linear Regression GeoGebra tool
+                                Contains a responsive iframe element for embedding the <a
+                                    href="https://www.geogebra.org/material/iframe/id/npksdkc4" target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="font-weight: bold; color: #034078; text-decoration: underline;">Linear
+                                    Regression GeoGebra tool</a>
                                 into MyOpenMath problems.
                             </p>
                             <button onclick="copyCodeToClipboard('linearRegressionGeoGebraTool')"
@@ -568,14 +645,12 @@
                             Page</button>
                     </div>
                     <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
-
                 </div>
             </div>
         </main>
     </div>
-
     <!-- jQuery local fallback (Bootstrap Dependency) -->
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap CDN JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

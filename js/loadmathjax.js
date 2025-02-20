@@ -657,32 +657,6 @@ function restoreOriginalText() {
     // Set height for spacing divs
     setDivHeightFromData();
 
-    // Define MathJax configuration BEFORE loading the script
-    // window.MathJax = {
-    //     tex: {
-    //         inlineMath: [['$', '$'], ['\\(', '\\)']],
-    //         displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    //     },
-    //     options: {
-    //         renderActions: {
-    //             addDarkMode: [200, function (doc) {
-    //                 const style = document.createElement('style');
-    //                 style.innerHTML = `
-    //                 .mjx-container * {
-    //                     color: var(--mjx-color, inherit) !important;
-    //                 }
-    //                 @media print {
-    //                     .mjx-container * {
-    //                         color: var(--mjx-color, inherit) !important;
-    //                     }
-    //                 }
-    //             `;
-    //                 document.head.appendChild(style);
-    //             }, '', false]
-    //         }
-    //     }
-    // };
-
     // Dynamically add MathJax script
     // Dynamically add MathJax script
     var head = document.getElementsByTagName("head")[0];
@@ -756,6 +730,11 @@ function restoreOriginalText() {
     }
 
     document.head.appendChild(script);
+
+    document.querySelectorAll("a[target='_blank']").forEach(link => {
+        link.setAttribute("rel", "noopener noreferrer");
+    });
+
 });
 
 //Make Bootstrap tooltips appear instantly

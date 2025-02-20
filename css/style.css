@@ -41,17 +41,6 @@ p{
     margin-bottom: 5px;
 }
 
-.blacksquare {
-    font-size: 0.8em; 
-    line-height: 1; 
-    padding: 0; 
-    margin: 0; 
-    height: auto; 
-    width: auto; 
-    vertical-align: middle; 
-    float: right; /* Moves the black square to the right */
-}
-
 ol, ul{
     margin-bottom: 0;
 }
@@ -214,6 +203,27 @@ img {
     overflow: visible !important; /* Ensures no scrollbars appear */
     max-width: 100%; /* Prevents content from exceeding the container */
     height: auto !important; /* Adjust height dynamically */
+}
+
+.solution {
+    position: relative; /* Ensures absolute children stay inside */
+    padding-bottom: 1rem; /* Optional: Adds spacing */
+    overflow: hidden; /* Prevents scrollbars from appearing */
+}
+
+.blacksquare {
+    font-size: 0.8em;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    height: auto; /* Ensures no unnecessary height */
+    width: auto;
+    max-width: fit-content;
+    display: inline-block;
+    position: absolute; /* Keeps it inside `.solution` */
+    bottom: 5px;
+    right: 5px;
+    overflow: hidden; /* Ensures MathJax doesn't create scroll issues */
 }
 
 .definition {
