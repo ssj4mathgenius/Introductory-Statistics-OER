@@ -121,7 +121,7 @@
                             <p
                                 style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #034732; text-align: left; margin-bottom: 5px;">
                                 Contains an HTML snippet that provides a "Copy to Clipboard" script element, the
-                                "button" HTML, and the pre CSV element with the dataset inside a styled container for
+                                "button" HTML, and the pre CSV (output as $preCSV using the next code) element with the dataset inside a styled container for
                                 MyOpenMath.
                             </p>
                             <div style="display: flex; justify-content: center; align-items: center; border: none;">
@@ -130,25 +130,18 @@
                                     Copy Dataset Copying Script, Button, and Pre HTML Elements
                                 </button>
                                 <textarea id="datasetCopyFunction" style="position: absolute; left: -9999px;">
-                                <script>
-                                    function copyToClipboard(preID) {
-                                        const pre = document.getElementById(preID);
-                                        const text = pre.textContent || pre.innerText;
-                                        navigator.clipboard.writeText(text).then(() => {
-                                            alert('Dataset copied to clipboard!');
-                                        }).catch(err => {
-                                            console.error('Error copying text: ', err);
-                                        });
-                                    }
-                                </script>
-                                <div style="background-color: #DFF6DD; color: #034732; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
-                                    <p>Enter Text for the question in this space.</p>
-                                    <p><button onclick="copyToClipboard('dataToCopy')">Copy Data to Clipboard</button></p>
-                                    <pre style="display:none" id="dataToCopy">Column 1 Title,Column 2 Title
-#value,#value
-#value,#value
-                                    </pre>
-                                </div>
+                                    <script>
+                                        function copyToClipboard(preID) {
+                                            const pre = document.getElementById(preID);
+                                            const text = pre.textContent || pre.innerText;
+                                            navigator.clipboard.writeText(text).then(() => {
+                                                alert('Dataset copied to clipboard!');
+                                            }).catch(err => {
+                                                console.error('Error copying text: ', err);
+                                            });
+                                        }
+                                        </script>
+                                    <p>$preCSV <button type="button" onclick="copyToClipboard('dataID')">Copy Data to Clipboard</button></p>
                             </textarea>
                             </div>
                         </div>
@@ -172,17 +165,30 @@ loadlibrary("stats");
 // Define an array for column labels
 $labelArray = ["Mass (g)", "Volume (mL)"];
 
+// Set a value for number of data rows you will have
+$n = 5
+$n1 = $n-1 //arrays start at 0 so this is for those
+
 // Generate two datasets (replace with real data or random values)
 $dataset1 = [2.5, 3.1, 4.7, 5.2, 6.3]; // Example mass data
-// Generate an array with 5 randomized values between 5.0 and 10.0, rounded to 1 decimal place
+// Generate an array with $n randomized values between 5.0 and 10.0, rounded to 1 decimal place
 //rrands(minimum,maximum,step-size,number of random values)
-$dataset2 = rrands(5.0, 10.0, 0.1, 5);
+$dataset2 = rrands(5.0, 10.0, 0.1, $n);
 
 // Create the table using showarrays, which formats the data as a table
 $dataTable = showarrays($labelArray, array($dataset1, $dataset2));
 
 // Create a toggle button to show/hide the table
 $tableToggleButton = forminlinebutton("Show/Hide Data", "$dataTable", "button", "block");
+
+// Create a &lt;pre&gt; element from your data
+$preCSV = "&lt;pre id=\"dataID\" style=\"display:none;\"&gt;$labelArray\n";
+
+    for ($i = 0..$n1) {
+      $preCSV .= "$dataset1[$i],$dataset2[$i]\n";
+    }
+    
+    $preCSV .= "&lt;/pre&gt;";
                             </textarea>
                             </div>
                         </div>
