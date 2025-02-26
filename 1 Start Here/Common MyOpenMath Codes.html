@@ -114,6 +114,34 @@
                             </textarea>
                         </div>
 
+                        <p>The following code is a container I made for my "Instruction Text" portion of MyOpenMath assessments so that they are displayed in a visually appealing way. The font, color of the contents,
+                            and background-colors are all customizable.</p>
+                        <div
+                        style="background-color: #FFD8B1; color: #6B1E1E; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
+                            <p
+                                style="font-family: 'Roboto', Arial, sans-serif; font-size: 16px; color: #6B1E1E; text-align: left; margin-bottom: 5px;">
+                                Contains a div element for containing instructions into MyOpenMath problems to make the "Instruction" area for tests and quizzes pretty with the following settings:
+                            </p>
+                            <ul>
+                                <li>The &lt;div&gt; uses a soft pastel orange background (#FFD8B1) with deep reddish-brown text
+                                    (#6B1E1E) for clarity.</li>
+                                <li>Added padding and rounded corners for a modern, clean design.</li>
+                                <li>The font size is 16px and font stack prioritizes "Roboto", with fallbacks to "Arial"
+                                    and generic sans-serif fonts.</li>
+                            </ul>
+                            <div style="display: flex; justify-content: center; align-items: center; border: none;">
+                                <button onclick="copyCodeToClipboard('divMyOpenMathInstructions')"
+                                    style="background-color: #034078; color: white; border: none; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+                                    Copy Instruction &lt;div&gt; Element for use in MyOpenMath
+                                </button>
+                            </div>
+                        <textarea id="divMyOpenMathInstructions" style="position: absolute; left: -9999px;">
+                        <div style="background-color: #FFD8B1; color: #6B1E1E; font-size: 16px; text-align: left; padding: 10px; border-radius: 5px; font-family: 'Roboto', Arial, sans-serif;">
+  <p>Instructions/Text Go Here</p>
+                        </div>
+                    </textarea>
+                </div>
+
                         <p>Here is some code that contains the script element for making a "copy to clipboard" button as
                             well as the "pre" element that contains the CSV data that will be copied.</p>
                         <div
