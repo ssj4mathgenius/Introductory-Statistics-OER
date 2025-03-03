@@ -2,94 +2,431 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculating a Percentile</title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculating a Percentile</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<!-- Bootstrap CDN CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Optional Bootstrap theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-<!-- Optional Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-<!-- Custom Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- CSS Stylesheets Used in Course Content Pages -->
-<link rel="stylesheet" href="../css/main.min.css">
-<link rel="stylesheet" href="../css/style.css" />
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-<div class="container-fluid">
-<main>
-<div class="row mb-4">
-<div class="col-10 offset-1 col-md-10 offset-md-1">
-<header>
-<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <!-- Home & About Buttons as Links -->
-        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
-        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
-<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
-        <!-- Search Bar -->
-        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
-            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
 
-        <!-- Theme Toggle Dropdown Button -->
-        <div class="dropdown">
-            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
-                </svg>
-                <span class="ms-2">Theme</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
-                <li><a class="dropdown-item" href="#" data-theme="light">
-                    <i class="bi bi-sun"></i> Light
-                </a></li>
-                <li><a class="dropdown-item" href="#" data-theme="dark">
-                    <i class="bi bi-moon"></i> Dark
-                </a></li>
-                <li><a class="dropdown-item" href="#" data-theme="auto">
-                    <i class="bi bi-circle-half"></i> Auto
-                </a></li>
-            </ul>
-        </div>
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
 
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>How to Calculate a Percentile</h1>
+                        <p>Percentiles help us understand how a data value compares to the rest of a dataset by
+                            determining what percentage of values fall below it. This page explains how to calculate
+                            percentiles manually, interpret their meaning, and use tools like GeoGebra to find
+                            percentiles efficiently.</p>
+                        <h2>Percentiles By Hand</h2>
+                        <!-- Definition Block -->
+                        <div class="definition">
+                            <h3>What is a Percentile?</h3>
+                            <p>A <strong>percentile</strong> is a measure that indicates the relative standing of a data
+                                point within a dataset. The \( p^\text{{th}} \) percentile of a dataset is the value
+                                below which \( p\% \) of the data falls.</p>
+                            <h4>Formula for the Percentile from a Set of Data:</h4>
+                            <p>The percentile of a data value \( x \) is given by:&nbsp;\[ \text{{Percentile}} = \left(
+                                \dfrac{\text{Number of values less than } x}{\text{Total number of values}} \right)
+                                \times 100 \]</p>
+                            <h4>How do I find the data value for a specific percentile?</h4>
+                            <p>To determine the value that corresponds to the \( p^\text{{th}} \) percentile in an
+                                ordered dataset of size \( n \), follow these steps:</p>
+                            <ul>
+                                <li><strong>Step 1:</strong> Compute \( \dfrac{{p}}{{100}} \times n \). This gives the
+                                    index (position) of the percentile in the ordered dataset.</li>
+                                <li><strong>Step 2:</strong> Use the result from Step 1 to locate the percentile value:
+                                    <ul>
+                                        <li>If the result is a decimal, round down to the previous whole number AND
+                                            round up to the next whole number and take the average of the values in
+                                            those two positions.<br><strong>Example:</strong> If you get 39.4, average
+                                            the values in the \(39^\text{{th}}\) and \(40^\text{{th}}\) positions in the
+                                            ordered list.</li>
+                                        <li>If the result is a whole number, add one to that number and take the average
+                                            of the values in those two positions.<br><strong>Example: </strong>If you
+                                            get 42, take the average of the values in the \(42^\text{{nd}}\) and
+                                            \(43^\text{{rd}}\) positions in the ordered list.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <h4>Notation</h4>
+                            <p>We often denote percentile as \(P_n\), where \(n\) is the percentile.&nbsp; For example,
+                                the \(45^\text{{th}}\) percentile would be denoted \(P_{{45}}\).</p>
+                        </div>
+                        <!-- End Definition Block -->
+                        <h3 class="example-header">&nbsp;Example 1</h3>
+                        <p>The following data represents the number of three-point shots made by 50 randomly selected
+                            NBA players who played at least 50 games in a season.&nbsp;</p>
+                        <ul>
+                            <li><strong>Part A:</strong> Find the \(80^\text{{th}}\) percentile of the dataset.</li>
+                            <li><strong>Part B:</strong> What is the percentile rank of a player who made 180
+                                three-pointers?</li>
+                        </ul>
+                        <table style="width: auto;">
+                            <caption style="width: max-content;">Three-Point Shots Made by 50 NBA Players</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" colspan="10">Number of Three-Point Shots (Ordered)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5</td>
+                                    <td>8</td>
+                                    <td>12</td>
+                                    <td>18</td>
+                                    <td>22</td>
+                                    <td>28</td>
+                                    <td>35</td>
+                                    <td>40</td>
+                                    <td>48</td>
+                                    <td>55</td>
+                                </tr>
+                                <tr>
+                                    <td>60</td>
+                                    <td>68</td>
+                                    <td>72</td>
+                                    <td>80</td>
+                                    <td>85</td>
+                                    <td>90</td>
+                                    <td>98</td>
+                                    <td>105</td>
+                                    <td>110</td>
+                                    <td>118</td>
+                                </tr>
+                                <tr>
+                                    <td>125</td>
+                                    <td>130</td>
+                                    <td>135</td>
+                                    <td>140</td>
+                                    <td>148</td>
+                                    <td>150</td>
+                                    <td>158</td>
+                                    <td>165</td>
+                                    <td>170</td>
+                                    <td>175</td>
+                                </tr>
+                                <tr>
+                                    <td>180</td>
+                                    <td>185</td>
+                                    <td>190</td>
+                                    <td>198</td>
+                                    <td>205</td>
+                                    <td>210</td>
+                                    <td>220</td>
+                                    <td>230</td>
+                                    <td>240</td>
+                                    <td>250</td>
+                                </tr>
+                                <tr>
+                                    <td>260</td>
+                                    <td>270</td>
+                                    <td>280</td>
+                                    <td>290</td>
+                                    <td>300</td>
+                                    <td>310</td>
+                                    <td>320</td>
+                                    <td>330</td>
+                                    <td>340</td>
+                                    <td>350</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h2 class="example-header">Solution</h2>
+                            <ul>
+                                <li><strong>Part A: Finding the \(80^\text{{th}}\) Percentile</strong>
+                                    <p>The 80th percentile is the value below which 80% of the data falls. We calculate
+                                        the position in the ordered where the \(80^\text{{th}}\) percentile would
+                                        appear:\[ \begin{align*}\text{position in list} &amp;= \dfrac{{p}}{{100}} \times
+                                        n\\\\&amp;=\dfrac{{80}}{{100}}\times 50\\\\&amp;=40\end{align*} \] Since 40 is a
+                                        whole number, we take the average of the 40th and 41st values in the ordered
+                                        dataset. Thus, the 80th percentile is \[ \dfrac{250 + 260}{{2}} = 255\text{
+                                        three-point shots.} \]</p>
+                                </li>
+                                <li><strong>Part B: Finding the Percentile Rank of 180 Three-Pointers</strong>
+                                    <p>The percentile rank is found using the formula:\[ \text{{Percentile}} = \left(
+                                        \dfrac{\text{Number of values less than } x}{{n}} \right) \times 100 \]For \( x
+                                        = 180 \), there are 30 values below 180 in the dataset. We get that \[ \left(
+                                        \dfrac{{30}}{{50}} \right) \times 100 = 60 \] 180 is the \(60^\text{{th}}\)
+                                        percentile, and we denote it as \(P_{{60}}=180\).</p>
+                                </li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>Percentiles using GeoGebra</h2>
+                        <h3 class="example-header">&nbsp;Example 2</h3>
+                        <p>The following data represents the number of three-point shots made by 50 randomly selected
+                            NBA players who played at least 50 games in a season.&nbsp;</p>
+                        <ul>
+                            <li><strong>Part A:</strong> Find the \(70^\text{{th}}\) percentile of the dataset.</li>
+                            <li><strong>Part B:</strong> What is the percentile rank of a player who made 180
+                                three-pointers?</li>
+                        </ul>
+                        <p><button onclick="copyToClipboard('threedata')">Copy to Clipboard</button></p>
+                        <pre id="threedata" style="display: none;">Three-Point Shots Made
+    5
+    8
+    12
+    18
+    22
+    28
+    35
+    40
+    48
+    55
+    60
+    68
+    72
+    80
+    85
+    90
+    98
+    105
+    110
+    118
+    125
+    130
+    135
+    140
+    148
+    150
+    158
+    165
+    170
+    175
+    180
+    185
+    190
+    198
+    205
+    210
+    220
+    230
+    240
+    250
+    260
+    270
+    280
+    290
+    300
+    310
+    320
+    330
+    340
+    350
+    </pre>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h2 class="example-header">Solution</h2>
+                            <ul>
+                                <li><strong>Part A:</strong>
+                                    <p>Copy the data into the <a href="https://www.geogebra.org/m/gka7dwu7"
+                                            target="_blank" rel="noopener">Summary Statistics Calculator</a> and then
+                                        hide the spreadsheet. Click on the&nbsp;<strong>Percentile checkbox</strong>,
+                                        then type 7<strong>0</strong> into the box that appears and press enter. The
+                                        value should update and read \(P_{{70}}=208.5\). Since we can't have
+                                        half-a-player, round up to 209. Therefore, the \(70^\text{{th}}\) percentile is
+                                        209.<br><br><img
+                                            src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/../percentiles1.png"
+                                            alt="Summary Statistics Calculator shows that the 70th percentile is 208.5."
+                                            title="Summary Statistics Calculator shows that the 70th percentile is 208.5."
+                                            width="450" height="269"><br><br><strong>Note:&nbsp;</strong>If you need to
+                                        round, ignore the normal rounding rules and <strong>always round up</strong>
+                                        since you always want all the values less than the one given to you by GeoGebra.
+                                    </p>
+                                </li>
+                                <li><strong>Part B:</strong>
+                                    <p>Copy the data into the <a href="https://www.geogebra.org/m/qg4j4jc4"
+                                            target="_blank" rel="noopener">Frequency Distribution Tool</a>, and set the
+                                        options as follows:<br><br><img
+                                            src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/../percentiles2.png"
+                                            alt="Deselection Organize Data Into Classes, Select Relative Frequencies, Cumulative Frequencies, and Display as Percents."
+                                            title="Deselection Organize Data Into Classes, Select Relative Frequencies, Cumulative Frequencies, and Display as Percents."
+                                            width="401" height="153"><br><br>A recent change to the tool makes the table
+                                        moveable.&nbsp; Move the table until the Raw Data value 180 appears:<br><br><img
+                                            src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/../percentiles3.png"
+                                            alt="180 has a cumulative relative frequency of 62%."
+                                            title="180 has a cumulative relative frequency of 62%."
+                                            data-d2l-editor-default-img-style="true"
+                                            style="max-width: 100%;"><br><br>Recall that cumulative relative frequency
+                                        gives the percentage that is&nbsp;<strong>less than or equal to 180</strong>,
+                                        but we want the percentage that is&nbsp;<strong>less than 180</strong> for a
+                                        percentile.&nbsp; So, we subtract 1 to get that&nbsp;<strong>180 is the
+                                            \(61^\text{{st}}\) percentile</strong>.</p>
+                                </li>
+                            </ul>
+                            <!-- End Definition Block -->
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution --> <!-- Definition Block -->
+                        <div class="definition">
+                            <h3>What is the Difference Between Cumulative Relative Frequency and Percentiles?</h3>
+                            <ul>
+                                <li><strong>Cumulative Relative Frequency</strong> calculates the proportions/percentage
+                                    of data <strong>less than or equal to</strong> a number<strong> in the
+                                        dataset</strong>.&nbsp;&nbsp;</li>
+                                <li><strong>Percentiles</strong> calculate the percentage of data&nbsp;<strong>less
+                                        than</strong> a number <strong>in the range of the dataset</strong>.&nbsp;
+                                    <ul>
+                                        <li>Note that range means any value between the smallest and largest value in
+                                            the dataset, not just the numbers in the dataset.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Definition Block -->
+                        <div class="definition">
+                            <h3>What is the relationship between the Median and Percentiles?</h3>
+                            <p>The median is another name for the \(50^\text{{th}}\) percentile:
+                                \[\text{{Median}}=P_{{50}}.\] Do note that technology often calculate percentile and
+                                medians a little different, since median is typically a calculation for discrete data
+                                and percentile is a calculation for continuous data. We calculate percentiles for
+                                discrete data, we are pretending its continuous, but in order for it to make sense as
+                                discrete data, we often have to make minor adjustments and there isn't exactly one
+                                unique way to do this. But this leads to only minor differences in value between the
+                                median and \(P_{{50}}\) that are often very trivial.</p>
+                        </div>
+                        <!-- End Definition Block -->
+                        <h2>Interpreting Percentiles</h2>
+                        <h3 class="example-header">Example 3</h3>
+                        <p>Percentiles help compare a data value to the rest of a dataset. For each of the following
+                            scenarios, interpret the meaning of the given percentile.</p>
+                        <ul>
+                            <li><strong>Part A:</strong> A baby’s weight is in the 85th percentile.</li>
+                            <li><strong>Part B:</strong> A household income is at the 70th percentile.</li>
+                            <li><strong>Part C:</strong> A patient’s blood pressure is in the 40th percentile.</li>
+                            <li><strong>Part D:</strong> A student’s GPA is in the 75th percentile in their school.</li>
+                            <li><strong>Part E:</strong> A machine produces parts in the 98th percentile for accuracy.
+                            </li>
+                        </ul>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h2 class="example-header">Solution</h2>
+                            <ul>
+                                <li><strong>Part A:</strong>
+                                    <p>A baby’s weight is in the 85th percentile. This means the baby weighs more than
+                                        85% of other babies in the same age group and less than 15% of them.</p>
+                                </li>
+                                <li><strong>Part B:</strong>
+                                    <p>A household income is at the 70th percentile. This means the household earns more
+                                        than 70% of all households, while 30% of households earn more.</p>
+                                </li>
+                                <li><strong>Part C:</strong>
+                                    <p>A patient’s blood pressure is in the 40th percentile. This means the patient’s
+                                        blood pressure is lower than 60% of the population and higher than 40% of
+                                        people.</p>
+                                </li>
+                                <li><strong>Part D:</strong>
+                                    <p>A student’s GPA is in the 75th percentile in their school. This means the student
+                                        has a higher GPA than 75% of their classmates, while 25% of students have a
+                                        higher GPA.</p>
+                                </li>
+                                <li><strong>Part E:</strong>
+                                    <p>A machine produces parts in the 98th percentile for accuracy. This means the
+                                        parts are more precise than 98% of those produced by other machines, with only
+                                        2% of machines producing more accurate parts.</p>
+                                </li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>Conclusion</h2>
+                        <p>By calculating percentiles, we can compare individual data points to a larger dataset. They
+                            also give us another tool besides the mean, median, and mode to describe how data is
+                            clustered and spread out, and we will explore that more when we study the Five-Number
+                            Summary.</p>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
     </div>
-</nav>
-</header>
-
-<section>
-
-</section>
-
-<div class="d-flex justify-content-between mt-4 no-print-nav">
-<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
-<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
-</div>
-<button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
-</div>
-</div>
-</main>
-</div>
-<!-- jQuery local fallback (Bootstrap Dependency) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap CDN JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Course Scripts -->
-<script src="../js/loadmathjax.js"></script>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>

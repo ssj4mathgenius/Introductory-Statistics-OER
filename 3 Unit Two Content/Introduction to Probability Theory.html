@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Probability Theory</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../js/loadmathjax.js"></script>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
     <link rel="stylesheet" href="../css/main.min.css">
-
     <link rel="stylesheet" href="../css/style.css" />
 
 </head>
@@ -21,330 +29,346 @@
 <body class="content" role="document">
     <div class="container-fluid">
         <main>
-            <div class="row bottom-md">
-                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-                    <h1>Probability Theory</h1>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <p>
-                        The main objective of this lesson is to develop a sound understanding of probability values
-                        because these values constitute the underlying foundation for inferential statistics which will
-                        be used later in the course. The primary way that statisticians think is by applying the "rare
-                        event rule" when making inferences which says the following:
-                    </p>
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
-                    <!-- Rare Event Rule -->
-                    <div class="definition">
-                        <h2 class="definition-header">Rare Event Rule for Inferential Statistics</h2>
-                        <p>
-                            If, under a given assumption, the probability of a particular observed event is extremely
-                            small, we conclude that the assumption is probably not correct.
-                        </p>
-                    </div>
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Gender-Selection Drug
-                        </h2>
-                        <p>Suppose a pharmaceutical company has developed a gender-selection drug that claims to
-                            <em>greatly increase the chance of having a baby girl</em>. From 100 births using the drug,
-                            it is found that 98 girls were born and 2 boys were born. Using the <em>rare event rule</em>
-                            what would be the conclusion statisticians will make regarding this scenario in regard to
-                            the drug's claim?
-                        </p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>Statisticians will <strong>reject</strong> the idea that “98 girls in 100 births happened by
-                            chance” as an explanation because the probability of 98 girls in 100 births occurring by
-                            chance is extremely small. Moreover, statisticians will view this experiment as evidence
-                            supporting the claim that the drug is effective at increasing the chances of having a girl.
-                        </p>
-                    </div>
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
 
-                    <h2>Basic Concepts of Probability</h2>
+                            </div>
+                        </nav>
+                    </header>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Event</h2>
-                        <p>An event is any collection of results or outcomes of a procedure. For example: if the
-                            procedure was “flipping a coin,” the possible events can be <strong>heads</strong> or
-                            <strong>tails</strong>.
-                        </p>
-                    </div>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Simple Event</h2>
-                        <p>A simple event is an outcome of a procedure that cannot be further broken down into simpler
-                            components. For example: if a coin is flipped twice, the four simple events (letting H be
-                            "Head" and T being "Tail" as the side that lands faceup) would be HH, HT, TH, and TT. The
-                            two events HT and TH are distinct since HT would represent getting a Head on the first flip
-                            and a Tail on the second flip where TH represents getting a Tail first then a Head.</p>
-                    </div>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Sample Space</h2>
-                        <p>The sample space for a procedure consists of all possible simple events. Often the sample
-                            space will be written in curly braces such as { and }.</p>
-                    </div>
-
-                    <p>A few of the introductory homework exercises will ask for the sample space for a particular
-                        procedure. Understanding how to generate the sample space will be key for performing several
-                        probability exercises. The main recommended strategy when creating a sample space is to maintain
-                        a pattern when listing out all the possible outcomes for a procedure. Let's look at some
-                        examples.</p>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Sample Space for Coin
-                            Flips</h2>
-                        <p>List the sample space for flipping a coin three times.</p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>If we start with all Heads (HHH) or all Tails (TTT) we can create a pattern where we slowly
-                            introduce one new result. For instance, if we start with all Heads (which is the only way
-                            that can happen) we would then move to 2 Heads and 1 Tails listing all the possible ways
-                            that can happen. Then we would do all possible ways 1 Head and 2 Tails could happen. Then
-                            lastly we would list all Tails (TTT) as the final simple event. Our resulting sample space
-                            would be:</p>
-                        <p><strong>Sample Space = { HHH, HHT, HTH, THH, HTT, THT, TTH, TTT }</strong></p>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Sample Space for Four
-                            Coin Flips</h2>
-                        <p>List the sample space for flipping a coin four times.</p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>We would want to follow a similar pattern to the previous example: start with all H's or T's
-                            then move to a 1-3 split, then a 2-2 split, then a 3-1 split, then finish with all H's or
-                            T's whichever we didn't start with. We would get a samples space like the following:</p>
-                        <p><strong>
-                                Sample Space = { HHHH, HTHH, HHHT, HHTH, THHH, HHTT, HTHT, THTH, TTHH, HTTH, THHT, HTTT,
-                                THTT,
-                                TTHT, TTTH, TTTT }
-                            </strong></p>
-                    </div>
-
-                    <h2>Notation for Probabilities</h2>
-                    <p>Probabilities are denoted by \(P\). For instance, \(A\), \(B\), and \(C\) denote specific events,
-                        and \(P(A)\) represents the probability of event \(A\) occurring. This notation is analogous to
-                        function notation in algebra. For example, just as \(f(x)\) is read as “a function of \(x\),”
-                        \(P(A)\) is read as “probability of \(A\).”</p>
-
-                    <p>Often we may use a word phrase for the event \(A\) such as "Rain Today" so it isn't uncommon to
-                        also see \(P(\text{Rain Today})\) which is understood to mean "the probability/chance of rain
-                        today".</p>
-
-                    <h2>How to Find Probability</h2>
-                    <p>To find the probability of an event, calculate the ratio of the number of times the event can
-                        happen to the total number of outcomes. That is, to find the probability of some event \( A \)
-                        we perform the operation:
-                        \[P(A) = \frac{\text{number of times event }A\text{ occurred}}{\text{total number of possible
-                        outcomes}} \]</p>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Probability of Being
-                            Bumped from a Flight
-                        </h2>
-                        <p>Among 15,378 Delta airline passengers randomly selected, 3 were bumped from a flight against
-                            their wishes. Find the probability that a randomly selected passenger is involuntarily
-                            bumped. Is such a bumping unlikely?</p>
-                        <p>Note: <strong>"unlikely"</strong> meaning a 5% chance or less</p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>If we let \(A =\) "Bumped from a Delta Flight", we can apply the formula and calculate the
-                            probability with the following:</p>
-                        <p>\( P(A)= \frac{\text{number of times bumped}}{\text{total number of passengers}} =
-                            \dfrac{3}{15,378} = 0.000195.\)</p>
-                        <p><strong>Note:</strong> Sometimes for very small decimal values you may see technology output
-                            these in scientific notation like \(1.95\times 10^{-4}\).</p>
-                    </div>
-
-                    <h2>Probability Limits</h2>
-                    <p>Probabilities are always between 0 and 1 as well as include 0 and 1 themselves. Often you may see
-                        these as percentages too: 0 would be 0% and 1 would be equivalent to 100%. Anything in this
-                        range would be valid for a probability.</p>
-
-                    <p>The probability of an impossible event is 0 or 0%,
-                        while the probability of a certain event is 1 or 100%.</p>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Valid Probability
-                            Values</h2>
-                        <p>Which of the following values <strong>cannot</strong> represent a probability? \[\frac{3}{2},
-                            -0.1, 1, 0.17, 0, \frac{2}{5}, \sqrt{2}\].</p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>The values \(\frac{3}{2}\), \(\sqrt{2}\), and \(-0.1\) cannot represent probabilities because
-                            they fall outside
-                            the range of 0 to 1 The values of \(0.17\), 0, 1, and \(\frac{2}{5}\) are all between 0 and
-                            1 meaning they can be probabilities.</p>
-                    </div>
-
-                    <h2>Probabilities Expressed as Percentages</h2>
-                    <p>While a probability of 0.25 is mathematically equivalent to 25%, there are strong reasons to work
-                        with fractions or decimals instead of percentages. Professional journals almost exclusively
-                        express probabilities as decimals. Statistical software also outputs probabilities in decimal
-                        form, which simplifies calculations. For instance, multiplying probabilities like \(0.25 \times
-                        0.25\) is straightforward, whereas working with percentages like \(25\% \times 25\%\) can lead
-                        to confusion.</p>
-
-                    <h2>Law of Large Numbers</h2>
-                    <p>When using the relative frequency approach to estimate probabilities, we obtain approximations
-                        that improve as the total number of observations increases. This principle is described by the
-                        <strong>Law of Large Numbers</strong>:
-                    </p>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Law of Large Numbers</h2>
-                        <p>As a procedure is repeated multiple times, the relative frequency probability of an event
-                            tends to approach its actual probability.</p>
-                    </div>
-
-                    <p>This law highlights that probability estimates become more accurate with a larger number of
-                        trials. For instance, probabilities calculated from a few trials may vary significantly from the
-                        true probability, but with many trials, the estimates stabilize.</p>
-
-                    <h2>Cautions</h2>
-                    <ol>
-                        <li>
-                            <strong>Applicability to Large Numbers Only:</strong>
-                            <p>The law of large numbers applies to repeated trials, not individual outcomes. A common
-                                misconception among gamblers is the belief that a streak of losses increases the chances
-                                of a win (or vice versa), leading to irrational decisions and significant losses.</p>
-                        </li>
-                        <li>
-                            <strong>Avoiding Unsupported Assumptions:</strong>
-                            <p>If the likelihood of outcomes is unknown, we should not assume they are equally probable.
-                                For example, assuming a 50% chance of passing a statistics test just because the outcome
-                                is binary (pass or fail) ignores factors like preparation and test difficulty, which
-                                heavily influence the actual probability.</p>
-                        </li>
-                    </ol>
-
-                    <h2>Significantly High or Significantly Low Results</h2>
-                    <ul>
-                        <li>
-                            <strong>Significantly high number of successes:</strong>
-                            <p>\(x\) successes among \(n\) trials is significantly high if the probability of \(x\) or
-                                more successes is unlikely with a probability of 0.05 or less. That is, \(x\) is
-                                significantly high if \(P(x \text{ or more}) \leq 0.05\).</p>
-                        </li>
-                        <li>
-                            <strong>Significantly low number of successes:</strong>
-                            <p>\(x\) successes among \(n\) trials is significantly low if the probability of \(x\) or
-                                fewer successes is unlikely with a probability of 0.05 or less. That is, \(x\) is
-                                significantly low if \(P(x \text{ or fewer}) \leq 0.05\).</p>
-                        </li>
-                    </ul>
-                    <p><em>Note:</em> The threshold of 0.05 is not absolute; other values, such as 0.01, can be used to
-                        distinguish significant results as we will see in later chapters.</p>
-
-                    <div class="example">
-                        <h2 class="definition-header">Example <span class="example-number"></span>: Significant vs
-                            Unusual</h2>
-                        <p> Tell if the following events are “unusual” or “unlikely” using the scenario below.
-                            When a fair coin is tossed 1000 times, the probability of getting
-                            500 heads in 1000 tosses is 0.0252. Is this result unlikely? Are
-                            500 heads an unusually low or unusually high of outcomes?</p>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>The result of exactly 500 heads would be very <b>unlikely</b> since the probability of that
-                            happening in the scenario is less than 5%. However, us getting exactly 500 heads in 1000
-                            flips is <b>not an unusual</b> number of successes since we would normally expect about half
-                            of the flips to be heads.</p>
-                    </div>
-
-                    <h2>Tables and Probability</h2>
-                    <p>A lot of the problems we will be encountering in the homework have tables of all the possible
-                        outcomes. Finding the probabilities can be tricky when reading some of these tables since the
-                        tables must be read in multiple directions. See the example below as the introduction to reading
-                        these tables.</p>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Polygraph Results</h2>
-                        <p>Refer to the sample data below from a lie detector test. Complete parts (a) through (d)
-                            below.</p>
-
-                        <table aria-describedby="tableDescription">
-                            <caption>Table 1: Polygraph Results</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Test Result</th>
-                                    <th scope="col">No (Did Not Lie)</th>
-                                    <th scope="col">Yes (Lied)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Positive Test Result</th>
-                                    <td>12</td>
-                                    <td>37</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Negative Test Result</th>
-                                    <td>30</td>
-                                    <td>6</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p id="tableDescription">This table summarizes the results of a polygraph test, showing counts
-                            for positive and negative test results against actual lying and not lying behavior.</p>
-
-                        <p><strong>Note:</strong> The cell with 12 is called a <span
-                                style="text-decoration:underline;">false positive</span> because the Lie Detector
-                            indicated that the subject <em>Lied</em> when actually <em>Did Not Lie</em>.</p>
-                        <p><strong>Note:</strong> The cell with 6 is called a <span
-                                style="text-decoration:underline;">false negative</span> because the Lie Detector
-                            indicated that the subject <em>Did Not Lie</em> when actually <em>Lied</em>.</p>
-                        <ol type="a">
-                            <li>How many responses are summarized in the table?
+                    <section>
+                        <h1>Probability Theory</h1>
+                        <p>The main objective of this lesson is to develop a sound understanding of probability values
+                            because these values constitute the underlying foundation for inferential statistics which
+                            will be used later in the course. The primary way that statisticians think is by applying
+                            the "rare event rule" when making inferences which says the following:</p>
+                        <!-- Rare Event Rule -->
+                        <div class="definition">
+                            <h2 class="definition-header">Rare Event Rule for Inferential Statistics</h2>
+                            <p>If, under a given assumption, the probability of a particular observed event is extremely
+                                small, we conclude that the assumption is probably not correct.</p>
+                        </div>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Gender-Selection
+                                Drug</h2>
+                            <p>Suppose a pharmaceutical company has developed a gender-selection drug that claims to
+                                <em>greatly increase the chance of having a baby girl</em>. From 100 births using the
+                                drug, it is found that 98 girls were born and 2 boys were born. Using the <em>rare event
+                                    rule</em> what would be the conclusion statisticians will make regarding this
+                                scenario in regard to the drug's claim?</p>
+                        </div>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <p>Statisticians will <strong>reject</strong> the idea that “98 girls in 100 births happened
+                                by chance” as an explanation because the probability of 98 girls in 100 births occurring
+                                by chance is extremely small. Moreover, statisticians will view this experiment as
+                                evidence supporting the claim that the drug is effective at increasing the chances of
+                                having a girl.</p>
+                        </div>
+                        <h2>Basic Concepts of Probability</h2>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Event</h2>
+                            <p>An event is any collection of results or outcomes of a procedure. For example: if the
+                                procedure was “flipping a coin,” the possible events can be <strong>heads</strong> or
+                                <strong>tails</strong>.</p>
+                        </div>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Simple Event</h2>
+                            <p>A simple event is an outcome of a procedure that cannot be further broken down into
+                                simpler components. For example: if a coin is flipped twice, the four simple events
+                                (letting H be "Head" and T being "Tail" as the side that lands faceup) would be HH, HT,
+                                TH, and TT. The two events HT and TH are distinct since HT would represent getting a
+                                Head on the first flip and a Tail on the second flip where TH represents getting a Tail
+                                first then a Head.</p>
+                        </div>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Sample Space</h2>
+                            <p>The sample space for a procedure consists of all possible simple events. Often the sample
+                                space will be written in curly braces such as { and }.</p>
+                        </div>
+                        <p>A few of the introductory homework exercises will ask for the sample space for a particular
+                            procedure. Understanding how to generate the sample space will be key for performing several
+                            probability exercises. The main recommended strategy when creating a sample space is to
+                            maintain a pattern when listing out all the possible outcomes for a procedure. Let's look at
+                            some examples.</p>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Sample Space for
+                                Coin Flips</h2>
+                            <p>List the sample space for flipping a coin three times.</p>
+                        </div>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <p>If we start with all Heads (HHH) or all Tails (TTT) we can create a pattern where we
+                                slowly introduce one new result. For instance, if we start with all Heads (which is the
+                                only way that can happen) we would then move to 2 Heads and 1 Tails listing all the
+                                possible ways that can happen. Then we would do all possible ways 1 Head and 2 Tails
+                                could happen. Then lastly we would list all Tails (TTT) as the final simple event. Our
+                                resulting sample space would be:</p>
+                            <p><strong>Sample Space = { HHH, HHT, HTH, THH, HTT, THT, TTH, TTT }</strong></p>
+                        </div>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Sample Space for
+                                Four Coin Flips</h2>
+                            <p>List the sample space for flipping a coin four times.</p>
+                        </div>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <p>We would want to follow a similar pattern to the previous example: start with all H's or
+                                T's then move to a 1-3 split, then a 2-2 split, then a 3-1 split, then finish with all
+                                H's or T's whichever we didn't start with. We would get a samples space like the
+                                following:</p>
+                            <p><strong> Sample Space = { HHHH, HTHH, HHHT, HHTH, THHH, HHTT, HTHT, THTH, TTHH, HTTH,
+                                    THHT, HTTT, THTT, TTHT, TTTH, TTTT } </strong></p>
+                        </div>
+                        <h2>Notation for Probabilities</h2>
+                        <p>Probabilities are denoted by \(P\). For instance, \(A\), \(B\), and \(C\) denote specific
+                            events, and \(P(A)\) represents the probability of event \(A\) occurring. This notation is
+                            analogous to function notation in algebra. For example, just as \(f(x)\) is read as “a
+                            function of \(x\),” \(P(A)\) is read as “probability of \(A\).”</p>
+                        <p>Often we may use a word phrase for the event \(A\) such as "Rain Today" so it isn't uncommon
+                            to also see \(P(\text{Rain Today})\) which is understood to mean "the probability/chance of
+                            rain today".</p>
+                        <h2>How to Find Probability</h2>
+                        <p>To find the probability of an event, calculate the ratio of the number of times the event can
+                            happen to the total number of outcomes. That is, to find the probability of some event \( A
+                            \) we perform the operation: \[P(A) = \frac{\text{number of times event }A\text{
+                            occurred}}{\text{total number of possible outcomes}} \]</p>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Probability of
+                                Being Bumped from a Flight</h2>
+                            <p>Among 15,378 Delta airline passengers randomly selected, 3 were bumped from a flight
+                                against their wishes. Find the probability that a randomly selected passenger is
+                                involuntarily bumped. Is such a bumping unlikely?</p>
+                            <p>Note: <strong>"unlikely"</strong> meaning a 5% chance or less</p>
+                        </div>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <p>If we let \(A =\) "Bumped from a Delta Flight", we can apply the formula and calculate
+                                the probability with the following:</p>
+                            <p>\( P(A)= \frac{\text{number of times bumped}}{\text{total number of passengers}} =
+                                \dfrac{{3}}{15,378} = 0.000195.\)</p>
+                            <p><strong>Note:</strong> Sometimes for very small decimal values you may see technology
+                                output these in scientific notation like \(1.95\times 10^{-4}\).</p>
+                        </div>
+                        <h2>Probability Limits</h2>
+                        <p>Probabilities are always between 0 and 1 as well as include 0 and 1 themselves. Often you may
+                            see these as percentages too: 0 would be 0% and 1 would be equivalent to 100%. Anything in
+                            this range would be valid for a probability.</p>
+                        <p>The probability of an impossible event is 0 or 0%, while the probability of a certain event
+                            is 1 or 100%.</p>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Valid Probability
+                                Values</h2>
+                            <p>Which of the following values <strong>cannot</strong> represent a probability?
+                                \[\frac{{3}}{{2}}, -0.1, 1, 0.17, 0, \frac{{2}}{{5}}, \sqrt{{2}}\].</p>
+                        </div>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <p>The values \(\frac{{3}}{{2}}\), \(\sqrt{{2}}\), and \(-0.1\) cannot represent
+                                probabilities because they fall outside the range of 0 to 1 The values of \(0.17\), 0,
+                                1, and \(\frac{{2}}{{5}}\) are all between 0 and 1 meaning they can be probabilities.
+                            </p>
+                        </div>
+                        <h2>Probabilities Expressed as Percentages</h2>
+                        <p>While a probability of 0.25 is mathematically equivalent to 25%, there are strong reasons to
+                            work with fractions or decimals instead of percentages. Professional journals almost
+                            exclusively express probabilities as decimals. Statistical software also outputs
+                            probabilities in decimal form, which simplifies calculations. For instance, multiplying
+                            probabilities like \(0.25 \times 0.25\) is straightforward, whereas working with percentages
+                            like \(25\% \times 25\%\) can lead to confusion.</p>
+                        <h2>Law of Large Numbers</h2>
+                        <p>When using the relative frequency approach to estimate probabilities, we obtain
+                            approximations that improve as the total number of observations increases. This principle is
+                            described by the <strong>Law of Large Numbers</strong>:</p>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Law of Large Numbers</h2>
+                            <p>As a procedure is repeated multiple times, the relative frequency probability of an event
+                                tends to approach its actual probability.</p>
+                        </div>
+                        <p>This law highlights that probability estimates become more accurate with a larger number of
+                            trials. For instance, probabilities calculated from a few trials may vary significantly from
+                            the true probability, but with many trials, the estimates stabilize.</p>
+                        <h2>Cautions</h2>
+                        <ol>
+                            <li><strong>Applicability to Large Numbers Only:</strong>
+                                <p>The law of large numbers applies to repeated trials, not individual outcomes. A
+                                    common misconception among gamblers is the belief that a streak of losses increases
+                                    the chances of a win (or vice versa), leading to irrational decisions and
+                                    significant losses.</p>
                             </li>
-                            <li>How many times did the Polygraph provide negative test results?
-                            </li>
-                            <li>If a response is randomly selected, find the probability it is a negative test result.
-                                Express this as a decimal.
-                            </li>
-                            <li>How many times did the Polygraph provide a “false positive” test result?
-                            </li>
-                            <li>What is the probability of getting a False Positive?
+                            <li><strong>Avoiding Unsupported Assumptions:</strong>
+                                <p>If the likelihood of outcomes is unknown, we should not assume they are equally
+                                    probable. For example, assuming a 50% chance of passing a statistics test just
+                                    because the outcome is binary (pass or fail) ignores factors like preparation and
+                                    test difficulty, which heavily influence the actual probability.</p>
                             </li>
                         </ol>
-                    </div>
+                        <h2>Significantly High or Significantly Low Results</h2>
+                        <ul>
+                            <li><strong>Significantly high number of successes:</strong>
+                                <p>\(x\) successes among \(n\) trials is significantly high if the probability of \(x\)
+                                    or more successes is unlikely with a probability of 0.05 or less. That is, \(x\) is
+                                    significantly high if \(P(x \text{ or more}) \leq 0.05\).</p>
+                            </li>
+                            <li><strong>Significantly low number of successes:</strong>
+                                <p>\(x\) successes among \(n\) trials is significantly low if the probability of \(x\)
+                                    or fewer successes is unlikely with a probability of 0.05 or less. That is, \(x\) is
+                                    significantly low if \(P(x \text{ or fewer}) \leq 0.05\).</p>
+                            </li>
+                        </ul>
+                        <p><em>Note:</em> The threshold of 0.05 is not absolute; other values, such as 0.01, can be used
+                            to distinguish significant results as we will see in later chapters.</p>
+                        <div class="example">
+                            <h2 class="definition-header">Example <span class="example-number"></span>: Significant vs
+                                Unusual</h2>
+                            <p>Tell if the following events are “unusual” or “unlikely” using the scenario below. When a
+                                fair coin is tossed 1000 times, the probability of getting 500 heads in 1000 tosses is
+                                0.0252. Is this result unlikely? Are 500 heads an unusually low or unusually high of
+                                outcomes?</p>
+                        </div>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <p>The result of exactly 500 heads would be very <b>unlikely</b> since the probability of
+                                that happening in the scenario is less than 5%. However, us getting exactly 500 heads in
+                                1000 flips is <b>not an unusual</b> number of successes since we would normally expect
+                                about half of the flips to be heads.</p>
+                        </div>
+                        <h2>Tables and Probability</h2>
+                        <p>A lot of the problems we will be encountering in the homework have tables of all the possible
+                            outcomes. Finding the probabilities can be tricky when reading some of these tables since
+                            the tables must be read in multiple directions. See the example below as the introduction to
+                            reading these tables.</p>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Polygraph Results
+                            </h2>
+                            <p>Refer to the sample data below from a lie detector test. Complete parts (a) through (d)
+                                below.</p>
+                            <table aria-describedby="tableDescription">
+                                <caption>Table 1: Polygraph Results</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Test Result</th>
+                                        <th scope="col">No (Did Not Lie)</th>
+                                        <th scope="col">Yes (Lied)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Positive Test Result</th>
+                                        <td>12</td>
+                                        <td>37</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Negative Test Result</th>
+                                        <td>30</td>
+                                        <td>6</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p id="tableDescription">This table summarizes the results of a polygraph test, showing
+                                counts for positive and negative test results against actual lying and not lying
+                                behavior.</p>
+                            <p><strong>Note:</strong> The cell with 12 is called a <span
+                                    style="text-decoration: underline;">false positive</span> because the Lie Detector
+                                indicated that the subject <em>Lied</em> when actually <em>Did Not Lie</em>.</p>
+                            <p><strong>Note:</strong> The cell with 6 is called a <span
+                                    style="text-decoration: underline;">false negative</span> because the Lie Detector
+                                indicated that the subject <em>Did Not Lie</em> when actually <em>Lied</em>.</p>
+                            <ol type="a">
+                                <li>How many responses are summarized in the table?</li>
+                                <li>How many times did the Polygraph provide negative test results?</li>
+                                <li>If a response is randomly selected, find the probability it is a negative test
+                                    result. Express this as a decimal.</li>
+                                <li>How many times did the Polygraph provide a “false positive” test result?</li>
+                                <li>What is the probability of getting a False Positive?</li>
+                            </ol>
+                        </div>
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <ol type="a">
+                                <li>If we add up all the responses in the table we get the following: \( 12+37+30+6\) or
+                                    Total responses = 85</li>
+                                <li>Negative test results = 36</li>
+                                <li>Probability of a negative test result:
+                                    <ul>
+                                        <li>Decimal: \( \frac{{36}}{{85}} \approx 0.4235 \)</li>
+                                        <li>Percentage: \( 42.35\% \)</li>
+                                    </ul>
+                                </li>
+                                <li>False positives = 12</li>
+                                <li>Probability of a False Positive:
+                                    <ul>
+                                        <li>Decimal: \( \frac{{12}}{{85}} \approx 0.1412 \)</li>
+                                        <li>Percentage: \( 14.12\% \)</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
 
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <ol type="a">
-                            <li>If we add up all the responses in the table we get the following: \( 12+37+30+6\) or
-                                Total responses = 85</li>
-                            <li>Negative test results = 36</li>
-                            <li>Probability of a negative test result:
-                                <ul>
-                                    <li>Decimal: \( \frac{36}{85} \approx 0.4235 \)</li>
-                                    <li>Percentage: \( 42.35\% \)</li>
-                                </ul>
-                            </li>
-                            <li>False positives = 12</li>
-                            <li>Probability of a False Positive:
-                                <ul>
-                                    <li>Decimal: \( \frac{12}{85} \approx 0.1412 \)</li>
-                                    <li>Percentage: \( 14.12\% \)</li>
-                                </ul>
-                            </li>
-                        </ol>
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
                     </div>
-                    <div>
-                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
-                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
-                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
                 </div>
             </div>
         </main>
     </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>

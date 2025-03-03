@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability, Area, and Equally Likely Outcomes</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>Probability, Area, and Equally Likely Outcomes</h1>
+                        <h2>Probability and Area</h2>
+                        <h3 class="example-header">Example 1</h3>
+                        <p>Consider the spinner below. What is the probability of spinning yellow?<br><img
+                                src="/content/enforced/9945978-MATH1530_STATS_OER/4 Unit Two Content/Chapter 4 Probability/spinner1.png"
+                                alt="Spinner with four equal sized areas: red, blue, green, and yellow."
+                                title="Spinner with four equal sized areas: red, blue, green, and yellow."
+                                data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>The sample space in this problem is \(S=\{\text{{blue}}, \text{{red}}, \text{{green}},
+                                \text{{yellow}}\}\).&nbsp; Since there are four colors, we know that \(n(S)=4\).&nbsp;
+                            </p>
+                            <p>Let \(E\) be the event "land on yellow."&nbsp; Since there is only one yellow region, we
+                                know that \(n(\text{{yellow}})=1\).</p>
+                            <p>To compute the probability, we use the theoretical formula:
+                                \[P(\text{{yellow}})=\dfrac{n(\text{{yellow}})}{n(S)}=\dfrac{{1}}{{4}}=0.25\]</p>
+                            <h5>Note</h5>
+                            <p>Notice that the probability is the same as the proportion of area that is yellow on the
+                                spinner.&nbsp; This is not an accident.&nbsp; There is a deep connection between area
+                                and probability.&nbsp; We'll exploit that relationship in the next example, and explain
+                                it in more depth in Chapter 6.&nbsp; But we have already seen this connection between
+                                areas and proportions already:&nbsp;<strong>the empirical rule!</strong></p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 2</h3>
+                        <p>Consider the spinner below. What is the probability of spinning yellow?<br><img
+                                src="/content/enforced/9945978-MATH1530_STATS_OER/4 Unit Two Content/Chapter 4 Probability/spinner2.png"
+                                alt="Spinner with 1/2 of area yellow, 1/8 of area red and blue each, and 1/4 of area green."
+                                title="Spinner with 1/2 of area yellow, 1/8 of area red and blue each, and 1/4 of area green."
+                                data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>The sample space in this problem is still \(S=\{\text{{blue}}, \text{{red}},
+                                \text{{green}}, \text{{yellow}}\}\).&nbsp; But since all the regions aren't the same
+                                size, we cannot use the theoretical probability formula.&nbsp; In this case, we appeal
+                                to area.&nbsp; As I mentioned the last example, probability and area are deeply
+                                connected.&nbsp; In this case, the probability is just the area of the spinner that is
+                                yellow: \[P(\text{{yellow}})=\dfrac{{1}}{{2}}.\]</p>
+                            <p>How do we reconcile this with theoretical probability?&nbsp; Notice that the smallest
+                                region is 1/8 of the spinner.&nbsp; So let's subdivide the spinner so there are 8 equal
+                                subdivisions of the spinner:<br><img
+                                    src="/content/enforced/9945978-MATH1530_STATS_OER/4 Unit Two Content/Chapter 4 Probability/spinner3.png"
+                                    alt="Spinner with 4 yellow regions, 2 green regions, 1 red region, and 1 blue region."
+                                    title="Spinner with 4 yellow regions, 2 green regions, 1 red region, and 1 blue region."
+                                    data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                            <p>Since every region is equally likely to occur now, the theoretical formula applies.&nbsp;
+                                In this case, since there are 8 regions, the sample space is now&nbsp;</p>
+                            <pre style="font-family: 'Courier New', monospace; font-size: 16px; font-weight: bolder;">S = { Region 1, Region 2, Region 3, Region 4,
+          Region 5, Region 6, Region 7, Region 8 }
+    </pre>
+                            <p>and we have that \(n(S)=8\).&nbsp; Let \(E\) be the event "land on a yellow region." This
+                                means that \(n(\text{{yellow}})=4\) since there are 4 yellow regions.&nbsp; Now, we can
+                                calculate the probability:
+                                \[P(\text{yellow})=\dfrac{n(\text{yellow})}{n(S)}=\dfrac{4}{8}=\dfrac{1}{2}=0.5\]
+                            </p>
+                            <p>Notice we got the probability as before!</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <div class="definition">
+                            <h3>Can I Always Find an Equivalent Sample Space where Everything is Equally likely to
+                                Occur?</h3>
+                            <p>The answer is&nbsp;<strong>yes!!!!!</strong>&nbsp; While it is beyond the scope of this
+                                course to state this theorem correctly, it is always possible to make all outcomes
+                                equally likely.&nbsp; In our last example, we took the single yellow region and broke it
+                                up into four smaller yellow regions.&nbsp; This is the key idea: introduce parts that
+                                are labeled different (yellow region 1, yellow region 2, etc) but are functionally all
+                                have the same property (being yellow).</p>
+                        </div>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

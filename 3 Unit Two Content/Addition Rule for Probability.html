@@ -6,32 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Addition Rule for Probability</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-        MathJax = {
-            tex: {
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                inlineMath: [['\\(', '\\)']],
-                processEscapes: true,
-                tags: 'ams',
-                maxBuffer: 5 * 1024, // Optional: buffer limit for complex documents
-                // Enable line breaking
-                linebreaks: { automatic: true, width: "container" }
-            },
-            options: {
-                enableMenu: false // Optional: disable the MathJax menu
-            }
-        };
-    </script>
 
-    <script src="../js/loadmathjax.js"></script>
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
     <link rel="stylesheet" href="../css/main.min.css">
-
     <link rel="stylesheet" href="../css/style.css" />
 
 </head>
@@ -39,253 +29,350 @@
 <body class="content" role="document">
     <div class="container-fluid">
         <main>
-            <div class="row bottom-md">
-                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-                    <h1>Addition Rule for Probability</h1>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <h2>The Addition Rule for Probability "OR"</h2>
-                    <p>
-                        The addition rule calculates the probability that either event \(A\), event \(B\), or both
-                        occur. This rule is formally expressed as:
-                        \[
-                        P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B).
-                        \]
-                        This may seem a little hard to understand so we will break this down with an example below. The
-                        primary idea to focus on first is the key word in this section is "or," indicating that either
-                        event \(A\), event \(B\), or both
-                        can occur in a single trial. Let's look at an example of how we would find a compound
-                        probability (a probability where two or more events are involved) involving the word "OR".
-                    </p>
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Using the Addition Rule
-                        </h2>
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
 
-                        <p>Refer to the table below and find the probability of getting a positive
-                            test result <b>OR</b> a subject who lied when one of the 85 test subjects is chosen.</p>
-                        <table aria-describedby="tableDescription">
-                            <caption>Table 1: Polygraph Results</caption>
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>What is the Addition Rule for Probability?</h1>
+                        <h2>Mutually Exclusive Events</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h3>What Are Mutually Exclusive Events?</h3>
+                            <p>Two events are <strong>mutually exclusive</strong> if they <strong>cannot happen at the
+                                    same time</strong>. This means that if one event occurs, the other cannot.
+                                Mathematically, two events \( A \) and \( B \) are mutually exclusive if:</p>
+                            <p>\[ P(A \text{ and } B) = 0 \]</p>
+                            <p>or alternatively,</p>
+                            <p>\[ A \text{ and } B = \emptyset \]</p>
+                            <h4>Grammar Note</h4>
+                            <p>In everyday English, the word "or" is usually <strong>inclusive</strong>. For example, if
+                                someone says, "You can have cake or ice cream," they may mean that you can have either
+                                one or both since these items are typically sold separately from a meal. However, "You
+                                can choose soup or salad with your entrée" is mutually exclusive since the terms of the
+                                meal means you can have one or another, but not both, without an additional charge.</p>
+                        </div>
+                        <!-- End Definition -->
+                        <h3 class="example-header">Example 1</h3>
+                        <p>For each pair of events below, determine whether they are mutually exclusive or not.</p>
+                        <ul>
+                            <li><strong>Statement 1:</strong> A single coin flip results in either heads or tails.</li>
+                            <li><strong>Statement 2:</strong> A student passes or fails an exam.</li>
+                            <li><strong>Statement 3:</strong> A randomly chosen person is left-handed or right-handed.
+                            </li>
+                            <li><strong>Statement 4:</strong> A randomly chosen student is in a math or science class.
+                            </li>
+                        </ul>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <ul>
+                                <li><strong>Statement 1:</strong> Mutually exclusive&nbsp; – A coin flip cannot land on
+                                    both heads and tails at the same time.</li>
+                                <li><strong>Statement 2:</strong> Mutually exclusive&nbsp; – A student cannot
+                                    simultaneously pass and fail the same test.</li>
+                                <li><strong>Statement 3:</strong> Not mutually exclusive&nbsp; – Some people can be
+                                    ambidextrous and use both hands equally.</li>
+                                <li><strong>Statement 4:</strong> Not mutually exclusive&nbsp; – A student can be
+                                    enrolled in both math and science classes at the same time.</li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>The Additional Rule for Probability</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h3>What is the Addition Rule for Probability?</h3>
+                            <p>The <strong>Addition Rule for Probability</strong> states that for any two events \( E \)
+                                and \( F \) that the probability of \(E\) or \(F\) is equal to the probability of \(E\)
+                                plus the probability of \(F\) minus the probability of both events occurring at the same
+                                time.&nbsp; In symbols, we write this as \[ P(E \text{ or } F) = P(E) + P(F) - P(E
+                                \text{ and } F) \]</p>
+                            <p>If \( E \) and \( F \) are <strong>mutually exclusive</strong>, then the formula
+                                simplifies to&nbsp;\[ P(E \text{ or } F) = P(E) + P(F) \]</p>
+                            <h4>Key Words</h4>
+                            <p>We will, over the next few pages, we will define key words for different rules.&nbsp; For
+                                the Addition Rule, the key word is "or".&nbsp; So, we will start off our table like
+                                this:</p>
+                            <table style="width: auto; border: 2px solid black;">
+                                <caption style="width: max-content;">Key Probability Rules and Their Operations
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Probability Rule</th>
+                                        <th scope="col">Common Keywords</th>
+                                        <th scope="col">Mathematical Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Addition Rule</td>
+                                        <td>"Or", "Either", "At least one"</td>
+                                        <td>Addition (+)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- End Definition -->
+                        <h3 class="example-header">Example 2</h3>
+                        <p>In a hospital, some patients receive physical therapy \(T\), and some receive occupational
+                            therapy \(O\). 40% of the patients receive physical therapy, 30% receive occupational
+                            therapy, and 10% receive both physical and occupational therapy. Find the probability that a
+                            randomly chosen patient receives either type of therapy.&nbsp;</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Whenever you do an additional rule problem, the first thing you should ask yourself is:
+                                is it possible for both outcomes to occur? Since the problem states that 10% receive
+                                both types of therapy, the answer in this case is yes!&nbsp; This means we have to use
+                                the full formula \[P(T\text{ or }O)=P(T)+P(O)-P(T\text{ and }O).\] Plugging the numbers
+                                in as decimals, we get that \[\begin{align*}P(T\text{ or }O)&amp;=P(T)+P(O)-P(T\text{
+                                and }O)\\\\&amp;=0.40+0.30-0.10\\\\&amp;=0.60\end{align*}\]Thus, the probability that a
+                                patient receives at least one type of therapy is \(0.60\).</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 3</h3>
+                        <p>A study surveys college students about their mental health. Some report experiencing anxiety
+                            (\( A \)), and some report experiencing depression (\( D \)). The probability of
+                            experiencing anxiety is 0.5, the probability of experiencing depression is 0.4, and the
+                            probability of experiencing either anxiety or depression is 0.7. Find the probability that a
+                            randomly selected student experiences both anxiety and depression.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Whenever you do an addition rule problem, the first thing you should ask yourself is: is
+                                it possible for both outcomes to occur? Since the problem does not state that the two
+                                events are mutually exclusive, the answer is yes! This means we have to use the full
+                                formula:&nbsp;\[ P(A \text{ or } D) = P(A) + P(D) - P(A \text{ and } D).
+                                \]&nbsp;Plugging the given probabilities in as decimals, we get:&nbsp;\[ \begin{align*}
+                                P(A \text{ or } D) &amp;= P(A) + P(D) - P(A \text{ and }
+                                D)\\\\0.70&amp;=0.5+0.4-P(A\text{ and }D)\\\\0.7&amp;=0.9-P(A\text{ and
+                                }D)\\\\-0.2&amp;=-P(A\text{ and }D)\\\\0.2&amp;-P(A\text{ and }D) \end{align*} \]Thus,
+                                the probability that a student experiences both anxiety and depression is \( 0.2 \).</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 4</h3>
+                        <p>A nonprofit organization provides two separate assistance programs: housing support (\( H \))
+                            and job placement services (\( J \)). Each participant can only receive aid for exactly one
+                            of the two programs. The probability of qualifying for housing support is 0.45, and the
+                            probability of qualifying for job placement is 0.35. Find the probability that a randomly
+                            selected participant qualifies for at least one type of assistance.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Whenever you do an addition rule problem, the first thing you should ask yourself is: is
+                                it possible for both outcomes to occur? Since the problem states that no participant is
+                                eligible for both programs, the answer in this case is no! This means the events are
+                                mutually exclusive, and we can use the simplified formula:&nbsp;\[ P(H \text{ or } J) =
+                                P(H) + P(J). \]&nbsp;Plugging in the given probabilities, we get:&nbsp;\[ \begin{align*}
+                                P(H \text{ or } J) &amp;= P(H) + P(J) \\\\ &amp;= 0.45 + 0.35 \\\\ &amp;= 0.80
+                                \end{align*} \]&nbsp;Thus, the probability that a participant qualifies for at least one
+                                type of assistance is \( 0.80 \).</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 5</h3>
+                        <p>A bank analyzes customer behavior to determine how many people use different financial
+                            services. Some use a savings account (\( S \)), and some use a credit card (\( C \)). The
+                            probability of a customer using either a savings account or a credit card is 0.85, the
+                            probability of using a credit card is 0.6, and the probability of using both services is
+                            0.4. Find the probability that a randomly selected customer uses a savings account.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Whenever you do an addition rule problem, the first thing you should ask yourself is: is
+                                it possible for both outcomes to occur? Since the problem states that some customers use
+                                both services, the answer in this case is yes! This means we have to use the full
+                                formula:\[ P(S \text{ or } C) = P(S) + P(C) - P(S \text{ and } C). \]&nbsp;Plugging in
+                                the given probabilities, we get:&nbsp;\[ \begin{align*} P(S \text{ or } C) = P(S) + P(C)
+                                - P(S \text{ and }
+                                C)\\\\0.85&amp;=P(S)+0.60-0.40\\\\0.85&amp;=P(S)+0.20\\\\0.65&amp;-P(S) \end{align*}
+                                \]&nbsp;Thus, the probability that a randomly selected customer uses a savings account
+                                is \( 0.65 \).</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>Two-Way Tables</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h3>What Is a Two-Way Table?</h3>
+                            <p>A <strong>two-way table</strong> (also called a <strong>contingency table</strong>) is a
+                                way to organize data that involves two categorical variables. It helps us analyze
+                                relationships between categories and compute probabilities.</p>
+                            <p>A two-way table consists of:</p>
+                            <ul>
+                                <li><strong>Individual Cells:</strong> Represent counts for specific category
+                                    combinations, denoted as \( n(\text{Category 1 and Category 2}) \).</li>
+                                <li><strong>Row Totals:</strong> Represent counts for each row category, denoted as \(
+                                    n(\text{Category 1}) \).</li>
+                                <li><strong>Column Totals:</strong> Represent counts for each column category, denoted
+                                    as \( n(\text{Category 2}) \).</li>
+                                <li><strong>Grand Total:</strong> The total number of individuals surveyed, denoted as
+                                    \( n(\text{{Total}}) \).</li>
+                            </ul>
+                            <p><strong>Example</strong></p>
+                            <p>Suppose a school surveys students on their preference for lunch options, with the
+                                categories being&nbsp;<strong>Pizza or Sandwich</strong> and <strong>Milk or
+                                    Juice</strong>. The table below represents the results:</p>
+                            <table style="width: auto; border: 2px solid black;">
+                                <caption style="width: max-content;">Lunch Preferences of Students</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Lunch Preference</th>
+                                        <th scope="col">Prefers Milk</th>
+                                        <th scope="col">Prefers Juice</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Pizza</td>
+                                        <td>25</td>
+                                        <td>30</td>
+                                        <td><strong>55</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sandwich</td>
+                                        <td>15</td>
+                                        <td>20</td>
+                                        <td><strong>35</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total</strong></td>
+                                        <td><strong>40</strong></td>
+                                        <td><strong>50</strong></td>
+                                        <td><strong>90</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>Here, for example:</p>
+                            <ul>
+                                <li>\( n(\text{Pizza and Milk}) = 25 \), meaning 25 students prefer pizza and milk.</li>
+                                <li>\( n(\text{{Pizza}}) = 55 \), meaning 55 students prefer pizza regardless of drink
+                                    choice.</li>
+                                <li>\( n(\text{{Milk}}) = 40 \), meaning 40 students prefer milk regardless of food
+                                    choice.</li>
+                                <li>\( n(\text{{Total}}) = 90 \), meaning 90 students were surveyed.</li>
+                            </ul>
+                        </div>
+                        <!-- End Definition -->
+                        <h3 class="example-header">Example 6</h3>
+                        <p>A city planning department surveyed 937 residents to determine their use of buses and subways
+                            for daily commuting. The results are shown in the two-way table below. How many people use
+                            either the bus or the subway?</p>
+                        <table style="width: auto; border: 2px solid black;">
+                            <caption style="width: max-content;">Public Transportation Use</caption>
                             <thead>
                                 <tr>
-
-                                    <th scope="col">Test Result</th>
-                                    <th scope="col">No (Did Not Lie)</th>
-                                    <th scope="col">Yes (Lied)</th>
+                                    <th scope="col">Transportation Use</th>
+                                    <th scope="col">Uses Bus</th>
+                                    <th scope="col">Does Not Use Bus</th>
+                                    <th scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">Positive Test Result</th>
-                                    <td>12</td>
-                                    <td>37</td>
+                                    <td>Uses Subway</td>
+                                    <td>214</td>
+                                    <td>289</td>
+                                    <td><strong>503</strong></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Negative Test Result</th>
-                                    <td>30</td>
-                                    <td>6</td>
+                                    <td>Does Not Use Subway</td>
+                                    <td>162</td>
+                                    <td>272</td>
+                                    <td><strong>434</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total</strong></td>
+                                    <td><strong>376</strong></td>
+                                    <td><strong>561</strong></td>
+                                    <td><strong>937</strong></td>
                                 </tr>
                             </tbody>
                         </table>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>To find the number of people who use either the bus or the subway, we apply the addition
+                                rule: \[ n(\text{Bus or Subway}) = n(\text{{Subway}}) + n(\text{{Bus}}) - n(\text{Bus
+                                and Subway}) \] Plugging in the values from the table we get that:&nbsp;\[
+                                \begin{align*}n(\text{Bus or Subway}) &amp;=
+                                n(\text{{Bus}})+n(\text{{Subway}})-n(\text{Bus and Subway})\\\\&amp;=376+503 -
+                                214\\\\&amp;=655\end{align*} \]&nbsp;Therefore, 665 residents use either a bus subway.
+                            </p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                    </section>
 
-                        <p id="tableDescription" class="visually-hidden">This table summarizes the results of a
-                            polygraph test, showing counts
-                            for
-                            positive and negative test results against actual lying and not lying behavior.</p>
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
                     </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>
-                            If we want to solve this, we will simply count the number of subjects who tested positive
-                            <b>or</b> lied making sure that we do not count subjects <strong>twice</strong>. If we are
-                            applying the formal formula for finding \( P(A \text{ or }B) \) it would look like the
-                            following:
-                            \[ P(\text{tested positive OR lied}) = P(\text{tested positive}) + P(\text{lied}) -
-                            P(\text{overlap of positive and lied})\]
-                            which would reduce to
-                            \[ P(\text{tested positive OR lied}) = \dfrac{12+37}{85} + \dfrac{37+6}{85} -
-                            \dfrac{37}{85}=\dfrac{12+37+37+6-37}{85}=\dfrac{55}{85}\]
-                            Sum the
-                            relevant counts and then divide by the total number of subjects. We get:
-                            \[
-                            P(\text{tested positive or lied}) = \dfrac{12+37+6}{85}=\dfrac{55}{85} \approx 0.647.
-                            \]
-                        </p>
-                    </div>
-
-                    <p>So we can see that to apply the addition rule we will be adding the probability of event A and
-                        the probability of event B and, if there is any overlap that causes double-counting, compensate
-                        for it by subtracting the probability of outcomes that are included twice. This approach is
-                        reflected in the above formal addition rule. However, it may be easier to consider this more
-                        intuitive approach documented below when working with these problems in this introductory
-                        course.</p>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Intuitive Approach to Addition Rule</h2>
-                        <p>
-                            To find \(P(A \text{ or } B)\), add the number of ways event \(A\) can occur and the number
-                            of ways event \(B\) can occur, ensuring every outcome is counted <b>only once</b>. Then,
-                            divide this sum
-                            by the total number of outcomes in the sample space.
-                        </p>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Practice Problems</h2>
-                        <p>Using the polygraph results table provided earlier, solve the following problems:</p>
-                        <ol type="a">
-                            <li>Find \( P( \text{tested negative or lied}) \).</li>
-                            <li>Find \( P( \text{didn’t lie or positive test}) \).</li>
-                            <li>Find \( P( \text{positive test or negative test}) \).</li>
-                        </ol>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <ol type="a">
-                            <li>
-                                <p>To find \(P(\text{tested negative or lied})\), sum the probabilities of each relevant
-                                    event and subtract the overlap:
-                                    \[
-                                    P(\text{negative or lied}) = \dfrac{36}{85} + \dfrac{43}{85} - \dfrac{6}{85} =
-                                    \dfrac{73}{85} \approx 0.8588.
-                                    \]
-                                    You could alternatively add the number of negative results or results where the
-                                    individuals lied, but make sure not to add the "6" people who both lied and had a
-                                    negative result twice:
-                                    \[ P(\text{negative or lied}) = \dfrac{30+6+37}{85} = \dfrac{73}{85} \approx 0.8588
-                                    \]
-                                </p>
-                            </li>
-
-                            <li>
-                                <p>To find \(P(\text{didn’t lie or positive test})\), sum the probabilities of each
-                                    relevant event making sure not to double count the "12" individuals that both didn't
-                                    lie and had a positive result:
-                                    \[
-                                    P(\text{didn’t lie or positive test}) = \dfrac{37+12+30}{85} = \dfrac{79}{85}
-                                    \approx 0.9294.
-                                    \]
-                                </p>
-                            </li>
-
-                            <li>
-                                <p>To find \(P(\text{positive test or negative test})\) we will simply add every outcome
-                                    since all the outcomes are classified as either positive or negative:
-                                    \[
-                                    P(\text{positive test or negative test}) = \dfrac{30+6+37+12}{85} = 1.
-                                    \]
-                                    If we were using the formal rule for finding \( P(A \text{ or } B) \), something
-                                    interesting would happen in this case since these two events do not share any
-                                    overlap. We would have gotten
-                                    \[
-                                    P(\text{positive result or negative result}) = \dfrac{12+37}{85} + \dfrac{30+6}{85}
-                                    - \dfrac{0}{85} = \dfrac{49}{85}+\dfrac{36}{85}-0 = 1.
-                                    \]
-                                </p>
-                            </li>
-
-                        </ol>
-                    </div>
-
-                    <h2>Disjoint Events and Complements</h2>
-                    <p>
-                        Whenever events \(A\) and \(B\) are disjoint, \(P(A \text{ and } B)\) becomes zero in the formal
-                        addition rule which happened for our previous problem.</p>
-                    <div class="definition">
-                        <h2 class="definition-header">Definition</h2>
-                        <p>
-                            Events \(A\) and \(B\) are disjoint (or mutually exclusive) if they cannot occur at the same
-                            time, meaning they do not overlap. For example, if we had these two events
-                        <ul>
-                            <li>Randomly selecting an inaccurate order from McDonald's</li>
-                            <li>Randomly selecting an accurate order from McDonald's</li>
-                        </ul>
-                        we would say these two events are disjoint since it is impossible to select an order that is
-                        both accurate and inaccurate.
-                        </p>
-                    </div>
-                    <p>For disjoint events \(A\) and \(B\), we have a more reduced "addition rule" for finding
-                        probabilities of "OR" problems (as was observed in the previous example) like
-                        \[
-                        P(A \text{ or } B) = P(A) + P(B).
-                        \]
-                        since there is no overlap to subtract. However, instead of blindly applying the formula, it is
-                        more effective to understand and
-                        intuitively apply the addition rule.
-                    </p>
-                    <div class="definition">
-                        <h2 class="definition-header">Key Points of the Addition Rule</h2>
-                        <ol>
-                            <li>To find \(P(A \text{ or } B)\), associate the word "or" with addition.</li>
-                            <li>To calculate \(P(A \text{ or } B)\), add the number of ways \(A\) can occur and the
-                                number of ways \(B\) can occur, being careful to avoid double-counting.</li>
-                        </ol>
-                    </div>
-
-                    <p>
-                        The most common way we will encounter disjoint events is when looking at an event's
-                        <b>complement</b>,
-                        which is denoted often with a "bar" over the event itself.
-                    </p>
-                    <div class="definition">
-                        <h2 class="example-header">Definition: Complement of an Event</h2>
-                        <p>
-                            For any event \( A \), it's <b>complement</b> \( \overline{A} \) is all outcomes in which
-                            event \( A \) does not occur. Common
-                            sense dictates the following principle: We are certain (with probability 1) that either an
-                            event
-                            \( A \) occurs or it does not occur. Thus, it follows that:
-                            \[
-                            P(A \text{ or } \overline{A}) = 1
-                            \]
-                        </p>
-                    </div>
-                    <p>
-                        Because events \( A \) and \( \overline{A} \) must be disjoint, we can use the addition rule to
-                        express this principle as:
-                        \[
-                        P(A \text{ or } \overline{A}) = P(A) + P(\overline{A}) = 1
-                        \]
-                        This result of the addition rule leads to the following three equivalent expressions, which are
-                        just different forms of the same principle:
-                    </p>
-                    <div class="definition">
-                        <h3 class="definition-header">Rule of Complementary Events</h3>
-                        <ul>
-                            <li>\( P(A) + P(\overline{A}) = 1 \)</li>
-                            <li>\( P(\overline{A}) = 1 - P(A) \)</li>
-                            <li>\( P(A) = 1 - P(\overline{A}) \)</li>
-                        </ul>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Complement Probability
-                        </h2>
-                        <p>Assume \(P(\text{rain today}) = 20\%\). Write out the complement and calculate its
-                            probability.</p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>
-                            The complement of \(P(\text{rain today})\) is \(P(\text{no rain today})\), and if we want to
-                            find the \(P(\text{no rain today}) \) we could use the second formula above: \(
-                            P(\overline{A}) = 1 - P(A) \). Writing \(P(\text{rain today})\) as a decimal we know \(20\%
-                            = 0.20\) giving us
-                            \[
-                            P(\text{no rain today}) = 1 - P(\text{rain today}) = 1 - 0.2 = 0.8 \text{ or } 80\%.
-                            \]
-                        </p>
-                    </div>
-                    <div>
-                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
-                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
-                    </div>
-
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
                 </div>
             </div>
         </main>
     </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>

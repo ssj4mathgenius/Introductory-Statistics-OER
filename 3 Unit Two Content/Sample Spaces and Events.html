@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Spaces and Events</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>What are Sample Spaces and Events?</h1>
+                        <h2>Sample Spaces</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h3>What is a Sample Space?</h3>
+                            <p>The <strong>sample space</strong> of an experiment is the <strong data-end="275"
+                                    data-start="229">population of all unique possible results</strong>&nbsp;that could
+                                occur in that experiment. It is typically denoted by \(S\)</p>
+                        </div>
+                        <!-- End Definition --> <!-- Definition -->
+                        <div class="definition">
+                            <h3>What is an Outcome?</h3>
+                            <p>An <strong>outcome</strong> is a <strong>single possible result</strong> of an
+                                experiment. Similar to data, we often \(x\) to denote an outcome.</p>
+                        </div>
+                        <!-- End Definition -->
+                        <h3 class="example-header">Example 1</h3>
+                        <p>Consider rolling a fair six-sided die. What is the sample space for this experiment?</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>The sample space consists of all possible outcomes when rolling a six-sided die.&nbsp;\[
+                                S = \{1, 2, 3, 4, 5, 6\} \]</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 2</h3>
+                        <p>Consider rolling two fair four-sided dice (2d4). What is the sample space for this
+                            experiment?</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Each die has four possible outcomes: \( \{1, 2, 3, 4\} \). Since two dice are rolled,
+                                each result consists of two digits, where:</p>
+                            <ul>
+                                <li>The first digit represents the result of the first die.</li>
+                                <li>The second digit represents the result of the second die.</li>
+                            </ul>
+                            <p>These are not single numbers but rather a shorthand notation for listing two separate
+                                results. Instead of writing the outcome as \( (2,3) \) or \( 2,3 \), we omit unnecessary
+                                commas and parentheses to focus on the values and their positions.</p>
+                            <p>So, when you see \( 23 \) in this example, think of rolling a \( 2 \) on the first die
+                                and a \( 3 \) on the second die, rather than interpreting it as the number twenty-three.
+                            </p>
+                            <p>The sample space consists of all possible outcomes:</p>
+                            <pre style="font-family: 'Courier New', monospace; font-size: 16px; font-weight: bolder;">S = { 11,  12,  13,  14,  
+          21,  22,  23,  24,  
+          31,  32,  33, &nbsp;34,  
+          41,  42,  43,  44 }
+    </pre>
+                            $$\tag*{\(\blacksquare\)}$$
+                        </div>
+                        <h3 class="example-header">Example 3</h3>
+                        <p>Consider flipping a fair coin 4 times. Each flip results in either Heads (H) or Tails (T).
+                            The outcome of the experiment is a sequence of four letters representing the results of each
+                            flip. For example, the outcome THHT represents getting tails on the first flip, heads on the
+                            second and third flips, and tails on the last flip.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Each flip has two possible outcomes: \( \{H, T\} \). Since the coin is flipped 4 times,
+                                each result consists of a sequence of four letters, where:</p>
+                            <ul>
+                                <li>The first letter represents the result of the first flip.</li>
+                                <li>The second letter represents the result of the second flip.</li>
+                                <li>The third letter represents the result of the third flip.</li>
+                                <li>The fourth letter represents the result of the fourth flip.</li>
+                            </ul>
+                            <p>Similar to the dicerolling example, we think of these sequence of letters as an list
+                                representing the result of each flip. Instead of writing the outcome as \( (T, H, H, T)
+                                \) or \( T, H, H, T \), we omit unnecessary commas and parentheses to focus on the
+                                sequence and its position.</p>
+                            <p>So, when you see \( THHT \) in this example, think of flipping Tails first, then Heads
+                                twice, then Tails last.</p>
+                            <p>The sample space consists of all possible sequences of four coin flips:</p>
+                            <pre style="font-family: 'Courier New', monospace; font-size: 16px; font-weight: bolder;">S = { HHHH,  HHHT,  HHTH,  HHTT,
+          HTHH,  HTHT,  HTTH,  HTTT,
+          THHH,  THHT,  THTH, &nbsp;THTT,
+          TTHH,  TTHT,  TTTH,  TTTT }
+    </pre>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>Events</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h3>What is an Event?</h3>
+                            <p>An event is a <strong>subset</strong> is any collection of results from sample space that
+                                satisfy a given condition.</p>
+                        </div>
+                        <!-- End Definition -->
+                        <h3 class="example-header">Example 4</h3>
+                        <p>Consider rolling a fair six-sided die. The sample space is:</p>
+                        <p>\( S = \{1, 2, 3, 4, 5, 6\} \)</p>
+                        <p>List the outcomes for the event of rolling an even number.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>The event of rolling an even number consists of the outcomes where the result is
+                                divisible by 2:</p>
+                            <p>\( E = \{2, 4, 6\} \)</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 5</h3>
+                        <p>Consider rolling two fair four-sided dice (2d4). The sample space consists of all two-digit
+                            sequences where each digit represents a separate die roll:</p>
+                        <pre>S = { 11  12  13  14  
+          21  22  23  24  
+          31  32  33  34  
+          41  42  43  44 }
+    </pre>
+                        <p>List the outcomes for the event of rolling a total sum of 5.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>The event consists of all outcomes where the sum of the two dice equals 5:</p>
+                            <p>\( E = \{14, 23, 32, 41\} \)</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 6</h3>
+                        <p>Consider flipping a fair coin 4 times. The sample space consists of all possible sequences of
+                            four flips:</p>
+                        <pre>S = { HHHH  HHHT  HHTH  HHTT
+          HTHH  HTHT  HTTH  HTTT
+          THHH  THHT  THTH  THTT
+          TTHH  TTHT  TTTH  TTTT }
+    </pre>
+                        <p>List the outcomes for the event of getting two or more heads.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>The event consists of all outcomes where at least two of the four flips are heads:</p>
+                            <pre>E = { HHHH  HHHT  HHTH  HHTT
+          HTHH  HTHT  HTTH  
+          THHH  THHT  THTH  
+          TTHH }
+    </pre>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>The Number of Outcomes</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h3>How Do I Denote the Number of Outcomes in a Sample Space or Event?</h3>
+                            <p>The notation \( n(A) \) represents the number of elements in a set \( A \).</p>
+                            <ul>
+                                <li>When applied to a sample space \( S \), \( n(S) \) gives the total number of
+                                    possible outcomes in the experiment.</li>
+                                <li>Similarly, for an event \( E \), \( n(E) \) represents the number of outcomes that
+                                    satisfy the event's condition.</li>
+                            </ul>
+                        </div>
+                        <!-- End Definition -->
+                        <h3 class="example-header">Example 7</h3>
+                        <p>Consider rolling a fair six-sided die. The sample space is: \( S = \{1, 2, 3, 4, 5, 6\} \).
+                            The event of rolling an even number is: \( E = \{2, 4, 6\} \). Compute \( n(S) \) and \(
+                            n(E) \).</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <ul>
+                                <li>\( n(S) = 6 \), since there are 6 possible outcomes.</li>
+                                <li>\( n(E) = 3 \), since there are 3 even numbers in the sample space.</li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 8</h3>
+                        <p>Consider rolling two fair four-sided dice (2d4). The sample space consists of all two-digit
+                            sequences where each digit represents a separate die roll:</p>
+                        <pre>S = { 11  12  13  14  
+          21  22  23  24  
+          31  32  33  34  
+          41  42  43  44 }
+    </pre>
+                        <p>The event of rolling a total sum of 5 is:</p>
+                        <pre>E = { 14  23  32  41 }
+    </pre>
+                        <p>Compute \( n(S) \) and \( n(E) \).</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <ul>
+                                <li>\( n(S) = 16 \), since there are 16 possible rolls.</li>
+                                <li>\( n(E) = 4 \), since there are 4 outcomes where the sum is 5.</li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 9</h3>
+                        <p>Consider flipping a fair coin 4 times. The sample space consists of all possible sequences of
+                            four flips:</p>
+                        <pre>S = { HHHH  HHHT  HHTH  HHTT
+          HTHH  HTHT  HTTH  HTTT
+          THHH  THHT  THTH  THTT
+          TTHH  TTHT  TTTH  TTTT }
+    </pre>
+                        <p>The event of getting two or more heads is:</p>
+                        <pre>E = { HHHH  HHHT  HHTH  HHTT
+          HTHH  HTHT  HTTH  THHH  <br>      THHT  THTH  TTHH }
+    </pre>
+                        <p>Compute \( n(S) \) and \( n(E) \).</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <ul>
+                                <li>\( n(S) = 16 \), since there are 16 possible flip sequences.</li>
+                                <li>\( n(E) = 10 \), since there are 10 sequences that contain at least 2 heads.&nbsp;
+                                </li>
+                            </ul>
+                        </div>
+                        <h2>Theoretical Probablity</h2>
+                        <!-- Definition -->
+                        <div class="definition">
+                            <h3>What is Theoretical Probability?</h3>
+                            <p>The <strong>theoretical probability</strong> of an event \( E \) occurring is given by
+                                the ratio:</p>
+                            <p>\[ P(E) = \dfrac{n(E)}{n(S)} \]</p>
+                            <p>where:</p>
+                            <ul>
+                                <li>\( n(E) \) is the number of outcomes in the event.</li>
+                                <li>\( n(S) \) is the total number of outcomes in the sample space.</li>
+                            </ul>
+                            <p>Theoretical probability assumes that all outcomes in the sample space are equally likely.
+                            </p>
+                        </div>
+                        <!-- End Definition -->
+                        <h3 class="example-header">Example 10</h3>
+                        <p>Consider rolling a fair six-sided die. The sample space is:</p>
+                        <p>\( S = \{1, 2, 3, 4, 5, 6\} \)</p>
+                        <p>The event of rolling an even number is:</p>
+                        <p>\( E = \{2, 4, 6\} \)</p>
+                        <p>Compute \( P(E) \).</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <ul>
+                                <li>\( n(S) = 6 \), since there are 6 possible outcomes.</li>
+                                <li>\( n(E) = 3 \), since there are 3 even numbers.</li>
+                            </ul>
+                            <p>Using the formula for theoretical probability:</p>
+                            <p>\[ P(E) = \dfrac{n(E)}{n(S)} = \dfrac{{3}}{{6}} = \dfrac{{1}}{{2}} \]</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 11</h3>
+                        <p>Consider rolling two fair four-sided dice (2d4). The sample space consists of all two-digit
+                            sequences where each digit represents a separate die roll:</p>
+                        <pre>S = { 11  12  13  14  
+          21  22  23  24  
+          31  32  33  34  
+          41  42  43  44 }
+    </pre>
+                        <p>The event of rolling a total sum of 5 is:</p>
+                        <pre>E = { 14  23  32  41 }
+    </pre>
+                        <p>Compute \( P(E) \).</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <ul>
+                                <li>\( n(S) = 16 \), since there are \( 4 \times 4 = 16 \) possible rolls.</li>
+                                <li>\( n(E) = 4 \), since there are 4 outcomes where the sum is 5.</li>
+                            </ul>
+                            <p>Using the formula for theoretical probability:</p>
+                            <p>\[ P(E) = \dfrac{n(E)}{n(S)} = \dfrac{{4}}{{16}} = \dfrac{{1}}{{4}} \]</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 12</h3>
+                        <p>Consider flipping a fair coin 4 times. The sample space consists of all possible sequences of
+                            four flips:</p>
+                        <pre>S = { HHHH  HHHT  HHTH  HHTT
+          HTHH  HTHT  HTTH  HTTT
+          THHH  THHT  THTH  THTT
+          TTHH  TTHT  TTTH  TTTT }
+    </pre>
+                        <p>The event of getting two or more heads is:</p>
+                        <pre>E = { HHHH  HHHT  HHTH  HHTT
+          HTHH  HTHT  HTTH  THHH  \<br>      THHT  THTH  TTHH }
+    </pre>
+                        <p>Compute \( P(E) \).</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <ul>
+                                <li>\( n(S) = 16 \), since there are \( 2^4 = 16 \) possible flip sequences.</li>
+                                <li>\( n(E) = 10 \), since there are 10 sequences that contain at least 2 heads.</li>
+                            </ul>
+                            <p>Using the formula for theoretical probability:</p>
+                            <p>\[ P(E) = \dfrac{n(E)}{n(S)} = \dfrac{{10}}{{16}} = \dfrac{{5}}{{8}} \]</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>Putting it all together</h2>
+                        <h3 class="example-header">Example 13</h3>
+                        <p>A nurse is monitoring 3 patients in a clinic for signs of fever (F) or no fever (N). Based on
+                            prior data, each patient has a 75% chance of having a fever. The sample space consists of
+                            all possible outcomes for the 3 patients.</p>
+                        <p>List the sample space and compute the probability that exactly 2 patients have a fever.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Each patient can either have a fever (F) or no fever (N). Since there are 3 patients, the
+                                sample space consists of all sequences of three letters:</p>
+                            <pre>S = { FFF  FFN  FNF  FNN  
+          NFF  NFN  NNF  NNN }
+    </pre>
+                            <p>Since each patient has one of two possible outcomes, the total number of outcomes in the
+                                sample space is:</p>
+                            <ul>
+                                <li>\( n(S) = 2^3 = 8 \)</li>
+                            </ul>
+                            <p>Now, list the outcomes where exactly 2 patients have a fever:</p>
+                            <pre>E = { FFN  FNF  NFF }
+    </pre>
+                            <p>Counting these outcomes gives:</p>
+                            <ul>
+                                <li>\( n(E) = 3 \)</li>
+                            </ul>
+                            <p>Using the probability formula:</p>
+                            <p>\[ P(E) = \dfrac{n(E)}{n(S)} = \dfrac{{3}}{{8}}=0.375 \]</p>
+                            <p>Thus, the probability that exactly 2 patients have a fever is 3/8 or 37.5%.</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

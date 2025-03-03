@@ -2,94 +2,377 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculating a Z-Score</title>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculating a Z-Score</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<!-- Bootstrap CDN CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Optional Bootstrap theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-<!-- Optional Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-<!-- Custom Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- CSS Stylesheets Used in Course Content Pages -->
-<link rel="stylesheet" href="../css/main.min.css">
-<link rel="stylesheet" href="../css/style.css" />
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-<div class="container-fluid">
-<main>
-<div class="row mb-4">
-<div class="col-10 offset-1 col-md-10 offset-md-1">
-<header>
-<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <!-- Home & About Buttons as Links -->
-        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
-        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
-<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
-        <!-- Search Bar -->
-        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
-            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
 
-        <!-- Theme Toggle Dropdown Button -->
-        <div class="dropdown">
-            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
-                </svg>
-                <span class="ms-2">Theme</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
-                <li><a class="dropdown-item" href="#" data-theme="light">
-                    <i class="bi bi-sun"></i> Light
-                </a></li>
-                <li><a class="dropdown-item" href="#" data-theme="dark">
-                    <i class="bi bi-moon"></i> Dark
-                </a></li>
-                <li><a class="dropdown-item" href="#" data-theme="auto">
-                    <i class="bi bi-circle-half"></i> Auto
-                </a></li>
-            </ul>
-        </div>
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
 
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>How to Calculate a \(z\)-score</h1>
+                        <!-- Introduction -->
+                        <p>A \(z\)-score measures how many standard deviations a data point is from the mean, allowing
+                            for direct comparisons between different datasets. This helps identify unusually high or low
+                            values in contexts such as test scores, physical measurements, and financial data. This
+                            section explains \(z\)-scores, their formulas, and their applications using real-world
+                            examples.</p>
+                        <h2>\(z\)-scores</h2>
+                        <!-- Definition Block -->
+                        <div class="definition">
+                            <h3>What is a Z-Score?</h3>
+                            <p>A <strong>\(z\)-score</strong>, also called a <strong>standard score</strong>, measures
+                                how many standard deviations a data point is above or below the mean.&nbsp;</p>
+                        </div>
+                        <!-- End Definition Block -->
+                        <h3 class="example-header">Example 1</h3>
+                        <p>We have a normal distribution of heights with mean 175 cm and standard deviation 7
+                            cm.&nbsp;&nbsp;</p>
+                        <div class="two-columns">
+                            <div class="column">
+                                <table style="width: auto;">
+                                    <caption style="width: max-content;">Distribution of Heights</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Height (cm)</th>
+                                            <th scope="col">Empirical Rule Calculation</th>
+                                            <th scope="col">\(z\)-score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>154</td>
+                                            <td>\[ \begin{align*} \mu + (-3 \times \sigma) &amp;= 175 + (-3 \times 7) \\
+                                                &amp;= 175 - 21 \\ &amp;= 154 \end{align*} \]</td>
+                                            <td>-3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>161</td>
+                                            <td>\[ \begin{align*} \mu + (-2 \times \sigma) &amp;= 175 + (-2 \times 7) \\
+                                                &amp;= 175 - 14 \\ &amp;= 161 \end{align*} \]</td>
+                                            <td>-2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>168</td>
+                                            <td>\[ \begin{align*} \mu + (-1 \times \sigma) &amp;= 175 + (-1 \times 7) \\
+                                                &amp;= 175 - 7 \\ &amp;= 168 \end{align*} \]</td>
+                                            <td>-1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>175</td>
+                                            <td>\[ \begin{align*} \mu + (0 \times \sigma) &amp;= 175 + (0 \times 7) \\
+                                                &amp;= 175 + 0 \\ &amp;= 175 \end{align*} \]</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>182</td>
+                                            <td>\[ \begin{align*} \mu + (1 \times \sigma) &amp;= 175 + (1 \times 7) \\
+                                                &amp;= 175 + 7 \\ &amp;= 182 \end{align*} \]</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>189</td>
+                                            <td>\[ \begin{align*} \mu + (2 \times \sigma) &amp;= 175 + (2 \times 7) \\
+                                                &amp;= 175 + 14 \\ &amp;= 189 \end{align*} \]</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>196</td>
+                                            <td>\[ \begin{align*} \mu + (3 \times \sigma) &amp;= 175 + (3 \times 7) \\
+                                                &amp;= 175 + 21 \\ &amp;= 196 \end{align*} \]</td>
+                                            <td>3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="column">
+                                <p>Notice that the number we multiply \(\sigma\) by always ends up being the value of
+                                    the \(z\)-score.&nbsp; Therefore, a \(z\)-score counts how many standard deviations
+                                    a data point is above or below the mean.<br><br>The image below shows both the
+                                    \(z\)-score and the values from the empirical rule for this distribution.</p>
+                                <img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/recreated_zscores.png"
+                                    alt="Normal distribution with heights and z-scores labeled on the x-axis."
+                                    title="Normal distribution with heights and z-scores labeled on the x-axis."
+                                    width="451" height="351">
+                            </div>
+                        </div>
+                        <h2>How to Calculate a \(z\)-score</h2>
+                        <!-- Note Block -->
+                        <div class="definition">
+                            <h3>Formula for a Z-Score</h3>
+                            <p>The formula for a z-score depends on the context, but all follow the general structure:
+                            </p>
+                            <p>\[ z = \dfrac{\text{{data}} - \text{{mean}}}{\text{standard deviation}} \]</p>
+                        </div>
+                        <!-- End Note Block --> <!-- Definition Block -->
+                        <div class="definition">
+                            <h3>Z-Score for Different Contexts</h3>
+                            <ul>
+                                <li><strong>Individuals in a Population:</strong>
+                                    <p>If an individual is randomly chosen from a population, the z-score is calculated
+                                        using the formula:</p>
+                                    <p>\[ z = \dfrac{x - \mu}{\sigma} \]</p>
+                                </li>
+                                <li><strong>Individuals in a Sample:</strong>
+                                    <p>If an individual is randomly chosen from a sample, the z-score is calculated
+                                        using the formula:</p>
+                                    <p>\[ z = \dfrac{x - \bar{{x}}}{{s}} \]</p>
+                                </li>
+                            </ul>
+                            <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/zscores2.png"
+                                    alt="Two normal distributions, one with data on the x-axis, one with z-scores on the x-axis."
+                                    title="Two normal distributions, one with data on the x-axis, one with z-scores on the x-axis."
+                                    data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                        </div>
+                        <!-- End Definition Block --> <!-- Definition Block -->
+                        <div class="definition">
+                            <h3>Important Features of \(z\)-Scores</h3>
+                            <ul>
+                                <li>\(z\)-scores measure the distance from the mean but have <strong>no units</strong>.
+                                </li>
+                                <li>A <strong>positive z-score</strong> means the value is above the mean.</li>
+                                <li>A <strong>negative z-score</strong> means the value is below the mean.</li>
+                                <li>A data point is <strong>significantly low</strong> if \( z &lt; -2 \).</li>
+                                <li>A data point is <strong>significantly high</strong> if \( z &gt; 2 \).</li>
+                                <li>\(z\)-scores allow comparisons of relative standing between different datasets.</li>
+                            </ul>
+                        </div>
+                        <!-- End Definition Block -->
+                        <h3 class="example-header">Example 2</h3>
+                        <p>The height of men and the height of women both follow a bell-shaped distribution. The mean
+                            and standard deviation for each group are given below. Who is relatively taller: A man or a
+                            woman who is 5’8”?</p>
+                        <table style="width: auto;">
+                            <caption style="width: max-content;">Average Heights and Standard Deviations</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Group</th>
+                                    <th scope="col">Mean Height (in)</th>
+                                    <th scope="col">Standard Deviation (in)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Men</td>
+                                    <td>69.9</td>
+                                    <td>3.0</td>
+                                </tr>
+                                <tr>
+                                    <td>Women</td>
+                                    <td>64.3</td>
+                                    <td>2.6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h2 class="example-header">Solution</h2>
+                            <ul>
+                                <li><strong>Step 1: Compute the Z-Scores</strong>
+                                    <p>Convert 5'8" (or 68 inches) into z-scores for both men and women.</p>
+                                    <p>\[ z_{\text{{men}}} = \dfrac{68 - 69.9}{3.0} = \dfrac{-1.9}{3.0} \approx -0.63 \]
+                                    </p>
+                                    <p>\[ z_{\text{{women}}} = \dfrac{68 - 64.3}{2.6} = \dfrac{3.7}{2.6} \approx 1.42 \]
+                                    </p>
+                                </li>
+                                <li><strong>Step 2: Interpret the Results</strong>
+                                    <p>The z-score for men is negative, meaning 5’8” is below average for men. The
+                                        z-score for women is positive, meaning 5’8” is above average for women. Since
+                                        the z-score for women is higher in magnitude than the z-score for men, a 5’8”
+                                        woman is relatively taller than a 5’8” man.</p>
+                                </li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h3 class="example-header">Example 3</h3>
+                        <p>The ACT has an average score of 20.8 with a standard deviation of 5.8. The SAT has an average
+                            score of 1500 with a standard deviation of 300. Who performed worse relative to their peers:
+                            A student who scored 1075 on the SAT or a student who scored 15 on the ACT?</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h2 class="example-header">Solution</h2>
+                            <ul>
+                                <li><strong>Step 1: Compute the Z-Scores</strong>
+                                    <p>Convert both scores into z-scores.</p>
+                                    <p>\[ z_{\text{{SAT}}} = \dfrac{1075 - 1500}{{300}} = \dfrac{-425}{{300}} \approx
+                                        -1.42 \]</p>
+                                    <p>\[ z_{\text{{ACT}}} = \dfrac{15 - 20.8}{5.8} = \dfrac{-5.8}{5.8} = -1.00 \]</p>
+                                </li>
+                                <li><strong>Step 2: Interpret the Results</strong>
+                                    <p>The SAT student has a z-score of -1.42, meaning they scored 1.42 standard
+                                        deviations below the mean. The ACT student has a z-score of -1.00, meaning they
+                                        scored 1.00 standard deviation below the mean. Since -1.42 is lower than -1.00,
+                                        the SAT student performed worse relative to their peers.</p>
+                                </li>
+                            </ul>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <h2>Extreme Values</h2>
+                        <!-- Definition Block -->
+                        <div class="definition">
+                            <h3>What Does it Mean for One Value to be More Extreme than Another?</h3>
+                            <p>Let \(x\) and \(y\) be two values from one or more normal distributions. The value \(x\)
+                                is more extreme than \(y\) if its distance from the mean, measured in standard
+                                deviations, is greater.</p>
+                            <h3>How Do We Compute This?</h3>
+                            <p>To determine which value is more extreme, recall that absolute value measures distance,
+                                and standard deviation quantifies how far a data point is from the mean. Therefore,
+                                taking the absolute value of the \(z\)-scores will tell us which value is more extreme.
+                                In other words, the larger the absolute value of the \(z\)-score, the more extreme the
+                                data point is.</p>
+                            <p></p>
+                            <p>The formal procedure is:&nbsp;</p>
+                            <ul>
+                                <li><strong>Step 1:</strong> Compute the \( z \)-score for both data points.</li>
+                                <li><strong>Step 2:</strong> Take the absolute value of both \( z \)-scores.</li>
+                                <li><strong>Step 3:</strong> The value with the largest absolute \( z \)-score is the
+                                    more extreme value.</li>
+                            </ul>
+                        </div>
+                        <!-- End Definition Block -->
+                        <h3 class="example-header">Example 4</h3>
+                        <p>The weight of men and women in their 30s follows a normal distribution. The average weight
+                            for men is 208 lbs with a standard deviation of 25 lbs, while the average weight for women
+                            is 175 lbs with a standard deviation of 25 lbs. Determine which weight is more extreme: a
+                            man who weighs 145 lbs or a woman who weighs 224 lbs.</p>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>To determine which weight is more extreme, we calculate the absolute value of the z-score
+                                for each case:</p>
+                            <ul>
+                                <li><strong>Man who weighs 145 lbs</strong>
+                                    <p>\[ z = \left| \dfrac{155 - 208}{{25}} \right| = \left| \dfrac{-53}{{25}} \right|
+                                        = \left| -2.12 \right| = 2.12 \]</p>
+                                </li>
+                                <li><strong>Woman who weighs 224 lbs</strong>
+                                    <p>\[ z = \left| \dfrac{224 - 175}{{20}} \right| = \left| \dfrac{{49}}{{20}} \right|
+                                        = \left| 2.45 \right| = 2.45 \]</p>
+                                </li>
+                            </ul>
+                            <p>Since \(2.45\) is the larger value, the woman who weights 224lbs has the more extreme
+                                weight.</p>
+                            <div class="two-columns">
+                                <div>
+                                    <h5>Man \(z=-2.12\)</h5>
+                                    <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/../zscores3.png"
+                                            alt="Normal distribution measuring from z=-2.12 to z=0."
+                                            title="Normal distribution measuring from z=-2.12 to z=0."
+                                            data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                                </div>
+                                <div>
+                                    <h5>Woman \(z=2.45\)</h5>
+                                    <p><img src="/content/enforced/9945978-MATH1530_STATS_OER/3 Unit One Content/zscores4.png"
+                                            alt="Normal distribution measuring from z=0 to z=2.45"
+                                            title="Normal distribution measuring from z=0 to z=2.45"
+                                            data-d2l-editor-default-img-style="true" style="max-width: 100%;"></p>
+                                </div>
+                            </div>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution --> <!-- Conclusion -->
+                        <h2>Conclusion</h2>
+                        <p>\(z\)-scores provide a standardized way to compare data points within and across
+                            distributions by measuring how many standard deviations a value is from the mean. This
+                            concept is essential for identifying extreme values, assessing relative standing, and making
+                            meaningful comparisons between datasets. In future topics, we will expand on z-scores by
+                            exploring the standard normal distribution, probabilities associated with z-values, and
+                            confidence intervals, and hypothesis testing. Understanding z-scores now will help build a
+                            strong foundation for these future topics!</p>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
     </div>
-</nav>
-</header>
-
-<section>
-
-</section>
-
-<div class="d-flex justify-content-between mt-4 no-print-nav">
-<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
-<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
-</div>
-<button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
-</div>
-</div>
-</main>
-</div>
-<!-- jQuery local fallback (Bootstrap Dependency) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap CDN JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Course Scripts -->
-<script src="../js/loadmathjax.js"></script>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>

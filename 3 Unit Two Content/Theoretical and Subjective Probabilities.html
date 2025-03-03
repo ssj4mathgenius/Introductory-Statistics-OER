@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chebyshev's Inequality</title>
+    <title>Theoretical and Subjective Probabilities</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Bootstrap CDN CSS -->
@@ -81,62 +81,78 @@
                     </header>
 
                     <section>
-                        <h1>Chebyshev’s Inequality</h1>
-                        <!-- Introduction -->
-                        <p>Chebyshev’s Inequality is a powerful tool in statistics that applies to all data
-                            distributions, not just normal ones. Unlike the Empirical Rule, which only works for
-                            bell-shaped distributions, Chebyshev’s Inequality guarantees the minimum percentage of data
-                            within a certain number of standard deviations from the mean—regardless of the data’s shape.
-                            This makes it especially useful for skewed data, where the Empirical Rule may not apply.</p>
-                        <h2>Chebyshev’s Inequality</h2>
+                        <h1>Theoretical and Subjective Probability</h1>
+                        <h2>Theoretical Probability</h2>
                         <div class="definition">
-                            <h3>What is the Formula for Chebyshev's Inequality?</h3>
-                            <p>The formula for Chebyshev’s Inequality is:</p>
-                            \[ \text{At least } \left( 1 - \dfrac{{1}}{k^2} \right) \times 100\% \text{ of the data lies
-                            within } k \text{ standard deviations of the mean, for } k &gt; 1. \]
-                            <h4>Key Percentages</h4>
-                            <ul>
-                                <li><strong>\(k = 2\):</strong> At least 75% of the data lies within 2 standard
-                                    deviations of the mean.</li>
-                                <li><strong>\(k = 3\):</strong> At least 88.9% of the data lies within 3 standard
-                                    deviations of the mean.</li>
-                                <li><strong>\(k = 4\):</strong> At least 93.75% of the data lies within 4 standard
-                                    deviations of the mean.</li>
-                            </ul>
+                            <h3>What is Theoretical Probability?</h3>
+                            <p>For any sample of size n, the empirical probability that a randomly chosen individual
+                                from the sample has property E is given by the following formula:
+                                \[P(E)=\dfrac{n(E)}{{n}}=\dfrac{\text{number of the objects with property
+                                }E}{\text{sample size}}\]</p>
+                            <h4>Important Note</h4>
+                            <p>This is just our formula for relative frequency.&nbsp; We will discuss the relationship
+                                between theoretical probability, empirical probability, and relatively frequency
+                                shortly.</p>
                         </div>
                         <h3 class="example-header">Example 1</h3>
-                        <p>A hospital is studying the distribution of systolic blood pressure among patients in a
-                            particular age group. Blood pressure is known to be a skewed data set, not a normal
-                            distribution. The mean systolic blood pressure is 120 mmHg, with a standard deviation of 15
-                            mmHg. Use Chebyshev’s Inequality to determine the minimum percentage of patients with
-                            systolic blood pressure between 90 mmHg and 150 mmHg.</p>
+                        <p>In a sample of 30 people, it was found that 18 had blue eyes. What is the probability that,
+                            when you select one of the 18 people at random, you get a person with blue eyes?</p>
                         <!-- Solution -->
                         <div class="solution">
                             <h4 class="example-header">Solution</h4>
-                            <p>We need to determine how many standard deviations the values 90 mmHg and 150 mmHg are
-                                from the mean:</p>
-                            \[ k = \dfrac{\text{{value}} - \text{{mean}}}{\text{standard deviation}} \]
-                            <p>First, calculate the number of standard deviations for both values:</p>
-                            <ul>
-                                <li>For 90 mmHg: \[ k = \dfrac{120 - 90}{{15}} = 2 \]</li>
-                                <li>For 150 mmHg: \[ k = \dfrac{150 - 120}{{15}} = 2 \]</li>
-                            </ul>
-                            <p>Since both values are 2 standard deviations from the mean, we apply Chebyshev’s
-                                Inequality for \( k = 2 \):</p>
-                            \[ \text{At least } \left( 1 - \dfrac{{1}}{2^2} \right) \times 100\% = \left( 1 -
-                            \dfrac{{1}}{{4}} \right) \times 100\% = 75\% \]
-                            <p><strong>Conclusion:</strong> According to Chebyshev’s Inequality, at least 75% of
-                                patients have systolic blood pressure between 90 mmHg and 150 mmHg.</p>
+                            <p>\[P(\text{{blue}})=\dfrac{\text{number with blue eyes}}{\text{sample
+                                size}}=\dfrac{{18}}{{30}}=\frac{{3}}{{5}}=0.6\]</p>
                             <p>$$\tag*{\(\blacksquare\)}$$</p>
                         </div>
                         <!-- End Solution -->
-                        <h2>Conclusion</h2>
-                        <p>Chebyshev’s Inequality is an essential tool for analyzing data when the distribution is
-                            unknown or skewed. It guarantees a minimum percentage of data within a specific number of
-                            standard deviations from the mean. This method is particularly useful in fields like
-                            medicine, where many data sets (such as blood pressure) are not normally distributed. While
-                            the Empirical Rule works only for normal distributions, Chebyshev’s Inequality is applicable
-                            to any distribution, making it a more universal tool.</p>
+                        <h3 class="example-header">Example 2</h3>
+                        <p>Follow <a href="https://www.statcrunch.com/applets/type3&amp;coins" target="_blank"
+                                rel="noopener">this link</a> to open a StatCrunch simulation on flipping a fair quarter.
+                        </p>
+                        <ul>
+                            <li><strong>Part A</strong>: Flip a fair coin 10 times.&nbsp; What proportion of heads did
+                                you get?</li>
+                            <li><strong>Part B:&nbsp;</strong>Flip a fair coin 10,000 times.&nbsp; What proportion of
+                                heads did you get?</li>
+                        </ul>
+                        <!-- Solution -->
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Since the results are random, watch the lecture video to see what was done in class.</p>
+                            <p>$$\tag*{\(\blacksquare\)}$$</p>
+                        </div>
+                        <!-- End Solution -->
+                        <div class="definition">
+                            <h3>Borel's Law of Large Numbers</h3>
+                            <p>For a sufficiently large sample size \(n\), \[\text{empirical probability
+                                }\approx\text{theoretical probability}\]</p>
+                        </div>
+                        <h2>Probability and Relative Frequency</h2>
+                        <div class="definition">
+                            <h3>What is the difference between probability and relative frequency?</h3>
+                            <ul>
+                                <li><strong>Relative Frequency </strong>tells us what percentage of the data has a given
+                                    property.</li>
+                                <li><strong>Empirical</strong><strong> Probability</strong> estimates the percentage of
+                                    time a property should appear when an experiment is repeatedly done forever.</li>
+                                <li><strong>Theoretical Probability&nbsp;</strong>is the exact percentage of time a
+                                    property appears when an experiment is repeatedly done forever.</li>
+                            </ul>
+                        </div>
+                        <h2>Subjective Probability</h2>
+                        <div class="definition">
+                            <h3>What is Subjective Probability?</h3>
+                            <p>The probability of an event E occurring is estimated by using knowledge of the relevant
+                                circumstances.</p>
+                        </div>
+                        <h3 class="example-header">Example 3</h3>
+                        <p>Estimate the probability that the next time you turn on a light bulb, you discover that it is
+                            still in working order. Why isn't this a good way to determine probability?</p>
+                        <div class="solution">
+                            <h4 class="example-header">Solution</h4>
+                            <p>Each person will come up with a different probability, and people are bad judges of how
+                                often theings occur.</p>
+                        </div>
                     </section>
 
                     <div class="d-flex justify-content-between mt-4 no-print-nav">

@@ -42,17 +42,28 @@
         "2 Unit One Content/Understanding Standard Deviation.html",
         "2 Unit One Content/Finding Outliers for Normal Distributions.html",
         "2 Unit One Content/Empirical Rule.html",
+        "2 Unit One Content/Chebyshev Inequality.html",
+        "2 Unit One Content/Calculating a Percentile.html",
+        "2 Unit One Content/Calculating a zScore.html",
+        "2 Unit One Content/Calculating the Five Number Summary.html",
+        "2 Unit One Content/Finding Outliers for Skewed Distributions.html",
+        "2 Unit One Content/Creating a Boxplot.html",
         "2 Unit One Content/Chapter 3 Lecture Notes.html"
     ],
     "3 Unit Two Content": [
+        "3 Unit Two Content/Sample Spaces and Events.html",
+        "3 Unit Two Content/Probability Area and Equally Likely Outcomes.html",
+        "3 Unit Two Content/Theoretical and Subjective Probabilities.html",
+        "3 Unit Two Content/Properties of Probability.html",
         "3 Unit Two Content/Addition Rule for Probability.html",
-        "3 Unit Two Content/Binomial Probability Distributions.html",
+        "3 Unit Two Content/Conditional Probability.html",
         "3 Unit Two Content/Conditional Probability and At Least One.html",
         "3 Unit Two Content/Introduction to Probability Distributions.html",
         "3 Unit Two Content/Introduction to Probability Theory.html",
         "3 Unit Two Content/Multiplication Rule for Probability.html",
         "3 Unit Two Content/Normal Probability Distributions.html",
-        "3 Unit Two Content/Uniform Probability Distributions.html"
+        "3 Unit Two Content/Uniform Probability Distributions.html",
+        "3 Unit Two Content/Chapter 4 Lecture Notes.html"
     ],
     "4 Unit Three Content": [
         "4 Unit Three Content/Estimating a Population Mean.html",
