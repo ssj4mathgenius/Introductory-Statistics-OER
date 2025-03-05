@@ -4,7 +4,7 @@
 <head>
  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Descriptive Statistics</title>
+<title>Chapter 2: Organizing and Summarizing Data</title>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 <!-- Bootstrap CDN CSS -->
@@ -132,6 +132,33 @@
                         </nav>
                     </header>
 
+                    <button id="copySections">Copy All Sections</button>
+                    <script>
+                        document.getElementById("copySections").addEventListener("click", function () {
+                        const contentDiv = document.getElementById("content");
+                    
+                        if (!contentDiv) {
+                            console.warn("⚠️ No content div found.");
+                            return;
+                        }
+                    
+                        let textToCopy = contentDiv.innerHTML; // Get all inner content (including section tags)
+                    
+                        // Create a temporary textarea to copy the text
+                        const tempTextArea = document.createElement("textarea");
+                        tempTextArea.value = textToCopy;
+                        document.body.appendChild(tempTextArea);
+                    
+                        // Select and copy the text
+                        tempTextArea.select();
+                        document.execCommand("copy");
+                    
+                        // Remove the temporary element
+                        document.body.removeChild(tempTextArea);
+                    
+                        alert("✅ All sections copied to clipboard!");
+                    });
+                    </script>
                     <div id="content"></div>
 
                     <div class="d-flex justify-content-between mt-4 no-print-nav">
