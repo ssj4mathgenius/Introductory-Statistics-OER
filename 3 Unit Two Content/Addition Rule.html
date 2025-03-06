@@ -2,290 +2,500 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Addition Rule for Probability</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-        MathJax = {
-            tex: {
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                inlineMath: [['\\(', '\\)']],
-                processEscapes: true,
-                tags: 'ams',
-                maxBuffer: 5 * 1024, // Optional: buffer limit for complex documents
-                // Enable line breaking
-                linebreaks: { automatic: true, width: "container" }
-            },
-            options: {
-                enableMenu: false // Optional: disable the MathJax menu
-            }
-        };
-    </script>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Addition Rule for Probability</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <script src="../js/loadmathjax.js"></script>
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="../css/main.min.css">
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/style.css" />
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-    <div class="container-fluid">
-        <main>
-            <div class="row bottom-md">
-                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-                    <h1>Addition Rule for Probability</h1>
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <h2>The Addition Rule for Probability "OR"</h2>
-                    <p>
-                        The addition rule calculates the probability that either event \(A\), event \(B\), or both
-                        occur. This rule is formally expressed as:
-                        \[
-                        P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B).
-                        \]
-                        This may seem a little hard to understand so we will break this down with an example below. The
-                        primary idea to focus on first is the key word in this section is "or," indicating that either
-                        event \(A\), event \(B\), or both
-                        can occur in a single trial. Let's look at an example of how we would find a compound
-                        probability (a probability where two or more events are involved) involving the word "OR".
-                    </p>
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Using the Addition Rule
-                        </h2>
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
 
-                        <p>Refer to the table below and find the probability of getting a positive
-                            test result <b>OR</b> a subject who lied when one of the 85 test subjects is chosen.</p>
-                        <table aria-describedby="tableDescription">
-                            <caption>Table 1: Polygraph Results</caption>
-                            <thead>
-                                <tr>
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
 
-                                    <th scope="col">Test Result</th>
-                                    <th scope="col">No (Did Not Lie)</th>
-                                    <th scope="col">Yes (Lied)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Positive Test Result</th>
-                                    <td>12</td>
-                                    <td>37</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Negative Test Result</th>
-                                    <td>30</td>
-                                    <td>6</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p id="tableDescription" class="visually-hidden">This table summarizes the results of a
-                            polygraph test, showing counts
-                            for
-                            positive and negative test results against actual lying and not lying behavior.</p>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>
-                            If we want to solve this, we will simply count the number of subjects who tested positive
-                            <b>or</b> lied making sure that we do not count subjects <strong>twice</strong>. If we are
-                            applying the formal formula for finding \( P(A \text{ or }B) \) it would look like the
-                            following:
-                            \[ P(\text{tested positive OR lied}) = P(\text{tested positive}) + P(\text{lied}) -
-                            P(\text{overlap of positive and lied})\]
-                            which would reduce to
-                            \[ P(\text{tested positive OR lied}) = \dfrac{12+37}{85} + \dfrac{37+6}{85} -
-                            \dfrac{37}{85}=\dfrac{12+37+37+6-37}{85}=\dfrac{55}{85}\]
-                            Sum the
-                            relevant counts and then divide by the total number of subjects. We get:
-                            \[
-                            P(\text{tested positive or lied}) = \dfrac{12+37+6}{85}=\dfrac{55}{85} \approx 0.647.
-                            \]
-                        </p>
-                    </div>
-
-                    <p>So we can see that to apply the addition rule we will be adding the probability of event A and
-                        the probability of event B and, if there is any overlap that causes double-counting, compensate
-                        for it by subtracting the probability of outcomes that are included twice. This approach is
-                        reflected in the above formal addition rule. However, it may be easier to consider this more
-                        intuitive approach documented below when working with these problems in this introductory
-                        course.</p>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Intuitive Approach to Addition Rule</h2>
-                        <p>
-                            To find \(P(A \text{ or } B)\), add the number of ways event \(A\) can occur and the number
-                            of ways event \(B\) can occur, ensuring every outcome is counted <b>only once</b>. Then,
-                            divide this sum
-                            by the total number of outcomes in the sample space.
-                        </p>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Practice Problems</h2>
-                        <p>Using the polygraph results table provided earlier, solve the following problems:</p>
-                        <ol type="a">
-                            <li>Find \( P( \text{tested negative or lied}) \).</li>
-                            <li>Find \( P( \text{didn’t lie or positive test}) \).</li>
-                            <li>Find \( P( \text{positive test or negative test}) \).</li>
-                        </ol>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <ol type="a">
-                            <li>
-                                <p>To find \(P(\text{tested negative or lied})\), sum the probabilities of each relevant
-                                    event and subtract the overlap:
-                                    \[
-                                    P(\text{negative or lied}) = \dfrac{36}{85} + \dfrac{43}{85} - \dfrac{6}{85} =
-                                    \dfrac{73}{85} \approx 0.8588.
-                                    \]
-                                    You could alternatively add the number of negative results or results where the
-                                    individuals lied, but make sure not to add the "6" people who both lied and had a
-                                    negative result twice:
-                                    \[ P(\text{negative or lied}) = \dfrac{30+6+37}{85} = \dfrac{73}{85} \approx 0.8588
-                                    \]
-                                </p>
-                            </li>
-
-                            <li>
-                                <p>To find \(P(\text{didn’t lie or positive test})\), sum the probabilities of each
-                                    relevant event making sure not to double count the "12" individuals that both didn't
-                                    lie and had a positive result:
-                                    \[
-                                    P(\text{didn’t lie or positive test}) = \dfrac{37+12+30}{85} = \dfrac{79}{85}
-                                    \approx 0.9294.
-                                    \]
-                                </p>
-                            </li>
-
-                            <li>
-                                <p>To find \(P(\text{positive test or negative test})\) we will simply add every outcome
-                                    since all the outcomes are classified as either positive or negative:
-                                    \[
-                                    P(\text{positive test or negative test}) = \dfrac{30+6+37+12}{85} = 1.
-                                    \]
-                                    If we were using the formal rule for finding \( P(A \text{ or } B) \), something
-                                    interesting would happen in this case since these two events do not share any
-                                    overlap. We would have gotten
-                                    \[
-                                    P(\text{positive result or negative result}) = \dfrac{12+37}{85} + \dfrac{30+6}{85}
-                                    - \dfrac{0}{85} = \dfrac{49}{85}+\dfrac{36}{85}-0 = 1.
-                                    \]
-                                </p>
-                            </li>
-
-                        </ol>
-                    </div>
-
-                    <h2>Disjoint Events and Complements</h2>
-                    <p>
-                        Whenever events \(A\) and \(B\) are disjoint, \(P(A \text{ and } B)\) becomes zero in the formal
-                        addition rule which happened for our previous problem.</p>
-                    <div class="definition">
-                        <h2 class="definition-header">Definition</h2>
-                        <p>
-                            Events \(A\) and \(B\) are disjoint (or mutually exclusive) if they cannot occur at the same
-                            time, meaning they do not overlap. For example, if we had these two events
-                        <ul>
-                            <li>Randomly selecting an inaccurate order from McDonald's</li>
-                            <li>Randomly selecting an accurate order from McDonald's</li>
-                        </ul>
-                        we would say these two events are disjoint since it is impossible to select an order that is
-                        both accurate and inaccurate.
-                        </p>
-                    </div>
-                    <p>For disjoint events \(A\) and \(B\), we have a more reduced "addition rule" for finding
-                        probabilities of "OR" problems (as was observed in the previous example) like
-                        \[
-                        P(A \text{ or } B) = P(A) + P(B).
-                        \]
-                        since there is no overlap to subtract. However, instead of blindly applying the formula, it is
-                        more effective to understand and
-                        intuitively apply the addition rule.
-                    </p>
-                    <div class="definition">
-                        <h2 class="definition-header">Key Points of the Addition Rule</h2>
-                        <ol>
-                            <li>To find \(P(A \text{ or } B)\), associate the word "or" with addition.</li>
-                            <li>To calculate \(P(A \text{ or } B)\), add the number of ways \(A\) can occur and the
-                                number of ways \(B\) can occur, being careful to avoid double-counting.</li>
-                        </ol>
-                    </div>
-
-                    <p>
-                        The most common way we will encounter disjoint events is when looking at an event's
-                        <b>complement</b>,
-                        which is denoted often with a "bar" over the event itself.
-                    </p>
-                    <div class="definition">
-                        <h2 class="example-header">Definition: Complement of an Event</h2>
-                        <p>
-                            For any event \( A \), it's <b>complement</b> \( \overline{A} \) is all outcomes in which
-                            event \( A \) does not occur. Common
-                            sense dictates the following principle: We are certain (with probability 1) that either an
-                            event
-                            \( A \) occurs or it does not occur. Thus, it follows that:
-                            \[
-                            P(A \text{ or } \overline{A}) = 1
-                            \]
-                        </p>
-                    </div>
-                    <p>
-                        Because events \( A \) and \( \overline{A} \) must be disjoint, we can use the addition rule to
-                        express this principle as:
-                        \[
-                        P(A \text{ or } \overline{A}) = P(A) + P(\overline{A}) = 1
-                        \]
-                        This result of the addition rule leads to the following three equivalent expressions, which are
-                        just different forms of the same principle:
-                    </p>
-                    <div class="definition">
-                        <h3 class="definition-header">Rule of Complementary Events</h3>
-                        <ul>
-                            <li>\( P(A) + P(\overline{A}) = 1 \)</li>
-                            <li>\( P(\overline{A}) = 1 - P(A) \)</li>
-                            <li>\( P(A) = 1 - P(\overline{A}) \)</li>
-                        </ul>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Complement Probability
-                        </h2>
-                        <p>Assume \(P(\text{rain today}) = 20\%\). Write out the complement and calculate its
-                            probability.</p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>
-                            The complement of \(P(\text{rain today})\) is \(P(\text{no rain today})\), and if we want to
-                            find the \(P(\text{no rain today}) \) we could use the second formula above: \(
-                            P(\overline{A}) = 1 - P(A) \). Writing \(P(\text{rain today})\) as a decimal we know \(20\%
-                            = 0.20\) giving us
-                            \[
-                            P(\text{no rain today}) = 1 - P(\text{rain today}) = 1 - 0.2 = 0.8 \text{ or } 80\%.
-                            \]
-                        </p>
-                    </div>
-                    <div>
-                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
-                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
-                    </div>
-
-                </div>
-            </div>
-        </main>
     </div>
+</nav>
+</header>
+
+<section>
+    <h1>Addition Rule for Probability</h1>
+
+    <h2>The Addition Rule for Probability "OR"</h2>
+    <p>
+        The addition rule calculates the probability that either event \(A\), event \(B\), or both
+        occur. This rule is formally expressed as:
+        \[
+        P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and } B).
+        \]
+        This may seem a little hard to understand so we will break this down with an example below.
+        The
+        primary idea to focus on first is the key word in this section is "or," indicating that
+        either
+        event \(A\), event \(B\), or both
+        can occur in a single trial. Let's look at an example of how we would find a compound
+        probability (a probability where two or more events are involved) involving the word "OR".
+    </p>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Using the Addition
+            Rule
+        </h2>
+
+        <p>Refer to the table below and find the probability of getting a positive
+            test result <b>OR</b> a subject who lied when one of the 85 test subjects is chosen.</p>
+        <table aria-describedby="tableDescription">
+            <caption>Table 1: Polygraph Results</caption>
+            <thead>
+                <tr>
+
+                    <th scope="col">Test Result</th>
+                    <th scope="col">No (Did Not Lie)</th>
+                    <th scope="col">Yes (Lied)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Positive Test Result</th>
+                    <td>12</td>
+                    <td>37</td>
+                </tr>
+                <tr>
+                    <th scope="row">Negative Test Result</th>
+                    <td>30</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p id="tableDescription" class="visually-hidden">This table summarizes the results of a
+            polygraph test, showing counts
+            for
+            positive and negative test results against actual lying and not lying behavior.</p>
+
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1in"></div>
+            <div class="dontprint">
+                <p>
+                    If we want to solve this, we will simply count the number of subjects who tested
+                    positive
+                    <b>or</b> lied making sure that we do not count subjects <strong>twice</strong>.
+                    If we are
+                    applying the formal formula for finding \( P(A \text{ or }B) \) it would look
+                    like the
+                    following:
+                    \[ P(\text{tested positive OR lied}) = P(\text{tested positive}) +
+                    P(\text{lied}) -
+                    P(\text{overlap of positive and lied})\]
+                    which would reduce to
+                    \[ P(\text{tested positive OR lied}) = \dfrac{12+37}{85} + \dfrac{37+6}{85} -
+                    \dfrac{37}{85}=\dfrac{12+37+37+6-37}{85}=\dfrac{55}{85}\]
+                    Sum the
+                    relevant counts and then divide by the total number of subjects. We get:
+                    \[
+                    P(\text{tested positive or lied}) = \dfrac{12+37+6}{85}=\dfrac{55}{85} \approx
+                    0.647.
+                    \]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <p>So we can see that to apply the addition rule we will be adding the probability of event A
+        and
+        the probability of event B and, if there is any overlap that causes double-counting,
+        compensate
+        for it by subtracting the probability of outcomes that are included twice. This approach is
+        reflected in the above formal addition rule. However, it may be easier to consider this more
+        intuitive approach documented below when working with these problems in this introductory
+        course.</p>
+
+    <div class="definition">
+        <h2 class="definition-header">Definition: Intuitive Approach to Addition Rule</h2>
+        <p>
+            To find \(P(A \text{ or } B)\), add the number of ways event \(A\) can occur and the
+            number
+            of ways event \(B\) can occur, ensuring every outcome is counted <span
+                class="blanked"><b>only once</b></span>. Then,
+            divide this sum
+            by the total number of outcomes in the sample space.
+        </p>
+    </div>
+
+    <div class="notes-page-break"></div>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Practice Problems
+        </h2>
+        <p>Using the polygraph results table provided earlier, solve the following problems:</p>
+        <ol type="a">
+            <li>Find \( P( \text{tested negative or lied}) \).</li>
+            <li>Find \( P( \text{didn’t lie or positive test}) \).</li>
+            <li>Find \( P( \text{positive test or negative test}) \).</li>
+        </ol>
+
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <ol type="a">
+                    <li>
+                        <p>To find \(P(\text{tested negative or lied})\), sum the probabilities of
+                            each relevant
+                            event and subtract the overlap:
+                            \[
+                            P(\text{negative or lied}) = \dfrac{36}{85} + \dfrac{43}{85} -
+                            \dfrac{6}{85} =
+                            \dfrac{73}{85} \approx 0.8588.
+                            \]
+                            You could alternatively add the number of negative results or results
+                            where the
+                            individuals lied, but make sure not to add the "6" people who both lied
+                            and had a
+                            negative result twice:
+                            \[ P(\text{negative or lied}) = \dfrac{30+6+37}{85} = \dfrac{73}{85}
+                            \approx 0.8588
+                            \]
+                        </p>
+                    </li>
+                    <li>
+                        <p>To find \(P(\text{didn’t lie or positive test})\), sum the probabilities
+                            of each
+                            relevant event making sure not to double count the "12" individuals that
+                            both didn't
+                            lie and had a positive result:
+                            \[
+                            P(\text{didn’t lie or positive test}) = \dfrac{37+12+30}{85} =
+                            \dfrac{79}{85}
+                            \approx 0.9294.
+                            \]
+                        </p>
+                    </li>
+                    <li>
+                        <p>To find \(P(\text{positive test or negative test})\) we will simply add
+                            every outcome
+                            since all the outcomes are classified as either positive or negative:
+                            \[
+                            P(\text{positive test or negative test}) = \dfrac{30+6+37+12}{85} = 1.
+                            \]
+                            If we were using the formal rule for finding \( P(A \text{ or } B) \),
+                            something
+                            interesting would happen in this case since these two events do not
+                            share any
+                            overlap. We would have gotten
+                            \[
+                            P(\text{positive result or negative result}) = \dfrac{12+37}{85} +
+                            \dfrac{30+6}{85}
+                            - \dfrac{0}{85} = \dfrac{49}{85}+\dfrac{36}{85}-0 = 1.
+                            \]
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <h2>Disjoint Events and Complements</h2>
+    <p>
+        Whenever events \(A\) and \(B\) are disjoint, \(P(A \text{ and } B)\) becomes zero in the
+        formal
+        addition rule which happened for our previous problem.</p>
+    <div class="definition">
+        <h2 class="definition-header">Definition</h2>
+        <p>
+            Events \(A\) and \(B\) are disjoint (or mutually exclusive) if they cannot occur at the
+            same time, meaning they do not overlap. For example, if we had these two events
+        <ul>
+            <li>Randomly selecting an inaccurate order from McDonald's</li>
+            <li>Randomly selecting an accurate order from McDonald's</li>
+        </ul>
+        we would say these two events are disjoint since it is impossible to select an order that is
+        both accurate and inaccurate.
+        </p>
+    </div>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Identifying Disjoint Events</h2>
+        <p>Consider a standard deck of 52 playing cards. Suppose we randomly select one card. Let events \(A\),
+            \(B\), \(B\), and \(D\) be as follows:</p>
+        <ol class="list-a">
+            <li>Event \( A \): The card drawn is a red card.</li>
+            <li>Event \( B \): The card drawn is a black card.</li>
+            <li>Event \( C \): The card drawn is a face card (King, Queen, or Jack).</li>
+            <li>Event \( D \): The card drawn is a spade.</li>
+        </ol>
+        <p>Determine whether the following pairs of events are disjoint:</p>
+        <ol class="list-a">
+            <li>\( A \) and \( B \)</li>
+            <li>\( C \) and \( D \)</li>
+        </ol>
+
+    <div class="notes-page-break"></div>
+
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1in"></div>
+            <div class="dontprint">
+                <p>Two events are disjoint if they cannot occur at the same time. This means that if one event occurs, the other cannot.</p>
+                <p><strong>Part (a): Events \( A \) (red card) and \( B \) (black card)</strong></p>
+                <p>Since a card cannot be both red and black at the same time, these two events have no overlap. That is, \( A \cap B = \emptyset \). Therefore, these events are disjoint.</p>
+                <p><strong>Part (b): Events \( C \) (face card) and \( D \) (spade)</strong></p>
+                <p>A card can be both a face card and a spade. For example, the King of Spades, Queen of Spades, and Jack of Spades are all in both event \( C \) and event \( D \). Since there is overlap, \( C \cap D \neq \emptyset \), meaning these events are not disjoint.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+    
+    <p>For disjoint events \(A\) and \(B\), we have a more reduced "addition rule" for finding
+        probabilities of "OR" problems (as was observed in the previous example) like
+        \[P(A \text{ or } B) = P(A) + P(B).\]
+        since there is no overlap to subtract. However, instead of blindly applying the formula, it is
+        more effective to understand and intuitively apply the addition rule.
+    </p>
+    <div class="definition">
+        <h2 class="definition-header">Key Points of the Addition Rule</h2>
+        <ol>
+            <li>To find \(P(A \text{ or } B)\), associate the word "or" with addition.</li>
+            <li>To calculate \(P(A \text{ or } B)\), add the number of ways \(A\) can occur and the
+                number of ways \(B\) can occur, being careful to only count subjects <span
+                    class="blanked">once</span>, not twice.</li>
+        </ol>
+    </div>
+
+    <p>
+        The most common way we will encounter disjoint events is when looking at an event's
+        <b>complement</b>,
+        which is denoted often with a "bar" over the event itself.
+    </p>
+    <div class="definition">
+        <h2 class="example-header">Definition: Complement of an Event</h2>
+        <p>
+            For any event \( A \), it's <span class="blanked"><b>complement</b></span> \(
+            \overline{A} \) is all outcomes in which
+            event \( A \) does not occur. Common
+            sense dictates the following principle: We are certain (with probability 1) that either
+            an
+            event
+            \( A \) occurs or it does not occur. Thus, it follows that:
+            \[P(A \text{ or } \overline{A}) = 1\]
+        </p>
+    </div>
+    <p>
+        Because events \( A \) and \( \overline{A} \) must be disjoint, we can use the addition rule
+        to
+        express this principle as:
+        \[P(A \text{ or } \overline{A}) = P(A) + P(\overline{A}) = 1\]
+        This result of the addition rule leads to the following three equivalent expressions, which
+        are just different forms of the same principle:
+    </p>
+    <div class="definition">
+        <h2 class="definition-header">Rule of Complementary Events</h2>
+        <ul>
+            <li> \(P(A) + P(\overline{A}) = \) <span class="blanked"> \( 1 \)</span> </li>
+            <p>Other useful variations of this formula:</p>
+            <li>\( P(\overline{A}) = 1 - P(A) \)</li>
+            <li>\( P(A) = 1 - P(\overline{A}) \)</li>
+        </ul>
+    </div>
+
+    <div class="notes-page-break"></div>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Complement
+            Probability
+        </h2>
+        <p>Assume \(P(\text{rain today}) = 20\%\). Write out the complement and calculate its
+            probability.</p>
+
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1in"></div>
+            <div class="dontprint">
+                <p>
+                    The complement of \(P(\text{rain today})\) is \(P(\text{no rain today})\), and
+                    if we want to
+                    find the \(P(\text{no rain today}) \) we could use the second formula above: \(
+                    P(\overline{A}) = 1 - P(A) \). Writing \(P(\text{rain today})\) as a decimal we
+                    know \(20\%
+                    = 0.20\) giving us
+                    \[
+                    P(\text{no rain today}) = 1 - P(\text{rain today}) = 1 - 0.2 = 0.8 \text{ or }
+                    80\%.
+                    \]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Finding the Complement Probability</h2>
+        <p>A survey conducted by a fitness organization found that 40% of respondents exercise at least three times a week. What is the probability of randomly selecting a respondent who exercises fewer than three times a week?</p>
+    
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="1in"></div>
+            <div class="dontprint">
+                <p>The complement of \( P(\text{exercises at least three times a week}) \) is \( P(\text{exercises fewer than three times a week}) \), which will be equal to \( 100\% - 40\% = 60\% \).</p>
+                <p>Thus, the probability is <strong>60%</strong>.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Interpreting the Complement Probability</h2>
+        <p>A transportation study found that the probability of a commuter taking public transit to work is \( P(T) = 0.45 \), where \( T \) denotes a response of using public transit. What does \( P(\bar{T}) \) represent, and what is its value?</p>
+    
+        <div class="solution">
+                <h2 class="solution-header">Solution</h2>
+                <div class="inches" data-height="1in"></div>
+                <div class="dontprint">
+                <p>\( P(\bar{T}) \) represents \( P(\text{commuter does not take public transit}) \), which will be equal to \( 1 - 0.45 = 0.55 \), or <strong>55%</strong>.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="notes-page-break"></div>
+    
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Blood Groups and Probabilities</h2>
+        <p>The data in the following table summarizes blood groups and Rh types for 100 typical people. Use the table to answer the problems below.</p>
+    
+        <table aria-describedby="bloodTableDescription">
+            <caption>Blood Groups and Rh Types Distribution</caption>
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">O</th>
+                    <th scope="col">A</th>
+                    <th scope="col">B</th>
+                    <th scope="col">AB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Rh+</th>
+                    <td>30</td>
+                    <td>35</td>
+                    <td>7</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <th scope="row">Rh-</th>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <p id="bloodTableDescription" class="visually-hidden">This table displays the number of people with each blood group (O, A, B, AB) categorized by Rh type (positive or negative). The total number of people surveyed is 100.</p>
+    
+        <p><strong>(a)</strong> If one person is randomly selected, find the probability of getting someone who is <strong>not group AB</strong>. (Use Complements)</p>
+    
+        <p><strong>(b)</strong> If one person is randomly selected, find the probability of getting a person who is <strong>Type B or Rh-</strong>.</p>
+    
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+    <div class="inches" data-heigh="2in"></div>
+            <div class="dontprint">
+                <p><strong>Part (a):</strong></p>
+                <p>The probability of selecting someone with blood group AB is:</p>
+                <p>\[
+                P(\text{Group AB}) = \frac{8+2}{100} = \frac{10}{100} = 0.10
+                \]</p>
+                <p>The complement is:</p>
+                <p>\[
+                P(\text{Not Group AB}) = 1 - P(\text{Group AB}) = 1 - 0.10 = 0.90
+                \]</p>
+                <p>Thus, the probability of selecting someone who is not in group AB is <strong>0.90 (or 90%)</strong>.</p>
+                <p><strong>Part (b):</strong></p>
+                <p>The probability of selecting someone who is either Type B or Rh- involves adding the total number of people in these categories:</p>
+                <p>Type B: \( 7 + 4 = 11 \)</p>
+                <p>Rh-: \( 6 + 8 + 4 + 2 = 20 \)</p>
+                <p>Since individuals with Type B and Rh- have been counted twice (the 4 people who are both Type B and Rh-), we subtract this overlap:</p>
+                <p>\[
+                P(\text{Type B or Rh-}) = \frac{11 + 20 - 4}{100} = \frac{27}{100} = 0.27
+                \]</p>
+                <p>Thus, the probability of selecting someone who is Type B or Rh- is <strong>0.27 (or 27%)</strong>.</p>
+                <p>$$\tag*{\(\blacksquare\)}$$</p>
+            </div>
+        </div>
+    </div>                        
+
+</section>
+
+<div class="d-flex justify-content-between mt-4 no-print-nav">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>
