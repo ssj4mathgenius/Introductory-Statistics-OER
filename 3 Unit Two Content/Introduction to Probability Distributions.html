@@ -94,11 +94,12 @@
                             (represented
                             by \(\sigma\)) symbols.</p>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Random Variable</h2>
-                        <p>A random variable is a variable (typically represented by the variable \(X\)) that has a
-                            single numerical value, determined by chance, for each outcome of a procedure.</p>
-                    </div>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Random Variable</h2>
+                            <p>A <span class="blanked">random variable</span> is a variable (typically represented by
+                                the variable \(X\)) that has a
+                                single numerical value, determined by chance, for each outcome of a procedure.</p>
+                        </div>
 
 
                         <p>Below are some examples of a random variable:</p>
@@ -113,45 +114,63 @@
                                     variable</b> since movies are countable objects)</li>
                         </ul>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Discrete Random Variable</h2>
-                        <p>A discrete random variable has either a finite number of values or a countable number of
-                            values, where “countable” refers to the fact that there might be infinitely many values, but
-                            they can be associated with a counting process, so that the number of values is \(0, 1, 2,
-                            3, \dots\).</p>
-                    </div>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Discrete Random Variable</h2>
+                            <p>A <span class="blanked">discrete</span> random variable has either a finite number of
+                                values or a countable number of
+                                values, where “countable” refers to the fact that there might be infinitely many values,
+                                but
+                                they can be associated with a counting process, so that the number of values is \(0, 1,
+                                2,
+                                3, \dots\).</p>
+                        </div>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Continuous Random Variable</h2>
-                        <p>A continuous random variable has infinitely many values, and those values can be associated
-                            with measurements on a continuous scale without gaps or interruptions.</p>
-                    </div>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Continuous Random Variable</h2>
+                            <p>A <span class="blanked">continuous</span> random variable has infinitely many values, and
+                                those values can be
+                                associated
+                                with measurements on a continuous scale without gaps or interruptions.</p>
+                        </div>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Classifying Random
-                            Variables</h2>
-                        <p>Tell if each of the following random variables is a <b>discrete random variable</b> or a
-                            <b>continuous random variable</b>:
-                        </p>
-                        <ul>
-                            <li>The number of people now driving a car in the United States</li>
-                            <li>The height of the last airplane that departed from JFK Airport in New York City</li>
-                            <li>The total amount (in ounces) of soft drinks that a person consumed in the past year</li>
-                        </ul>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <ul>
-                            <li><b>Discrete</b> since the number of people is countable (0, 1, 2, etc)</li>
-                            <li><b>Continuous</b> since distances are always measured from a continuous scale</li>
-                            <li><b>Continuous</b> since volumes are always measured from a continuous scale</li>
-                        </ul>
-                    </div>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Classifying Random
+                                Variables</h2>
+                            <p>Tell if each of the following random variables is a <b>discrete random variable</b> or a
+                                <b>continuous random variable</b>:
+                            </p>
+                            <ul>
+                                <li>The number of people now driving a car in the United States</li>
+                                <li>The height of the last airplane that departed from JFK Airport in New York City</li>
+                                <li>The total amount (in ounces) of soft drinks that a person consumed in the past year
+                                </li>
+                                <li>The number of prescriptions a Pharmacist fills in a randomly selected hour.</li>
+                            </ul>
 
-                    <p>From this point forward we will mostly be focusing on discrete random variables in this section
-                        as we cover <b>probability distributions</b> and, later, <b>binomial distributions</b>, but in
-                        future sections we will cover distributions that are continuous (such as the Uniform and Normal
-                        distributions).</p>
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="1in"></div>
+                                <div class="dontprint">
+                                    <ul>
+                                        <li><b>Discrete</b> since the number of people is countable (0, 1, 2, etc)</li>
+                                        <li><b>Continuous</b> since distances are always measured from a continuous
+                                            scale</li>
+                                        <li><b>Continuous</b> since volumes are always measured from a continuous scale
+                                        </li>
+                                        <li><b>Discrete</b> since the number of prescriptions is countable.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>From this point forward in this section we will mostly be focusing on <strong>discrete random
+                                variables</strong>
+                            as we cover <b>probability distributions</b> and, later, <b>binomial distributions</b>, but
+                            in
+                            future sections we will cover distributions that are continuous (such as the Uniform and
+                            Normal distributions).</p>
+
+                        <div class="notes-page-break"></div>
 
                         <h2>Probability Distributions</h2>
 
@@ -232,217 +251,261 @@ x,P(x)
                             number of peas with green pods. The probabilities are listed in the second column.
                         </p>
 
-                    <p> Probability distributions can be very helpful since they list out all possible outcomes meaning
-                        we will not have to calculate individual probabilities like the previous sections. For instance,
-                        if we wanted to know the "probability of getting exactly <b>two</b> green peas in an experiment
-                        with 5" then we know from the table this probability would be <b>0.088</b> or <b>8.8%</b>.
-                        Similarly, if we wanted to know the "probability of getting <b>2 or fewer</b> peas with green"
-                        then we would know to add 0.088, 0.015, and 0.001 to get the sum of <b>0.104</b> or <b>10.4%
-                            chance to get 2 or fewer green peas</b>.</p>
+                        <p> Probability distributions can be very helpful since they list out all possible outcomes
+                            meaning
+                            we will not have to calculate individual probabilities like the previous sections. For
+                            instance,
+                            if we wanted to know the "probability of getting exactly <b>two</b> green peas in an
+                            experiment
+                            with 5" then we know from the table this probability would be <span
+                                class="blanked"><b>0.088</b></span> or <b>8.8%</b>.
+                            Similarly, if we wanted to know the "probability of getting <b>2 or fewer</b> peas with
+                            green"
+                            then we would know to add <span class="blanked">0.088, 0.015, and 0.001</span> to get the
+                            sum of <b>0.104</b> or <b>10.4%
+                                chance to get 2 or fewer green peas</b>.</p>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Verifying if a Table is a Probability Distribution</h2>
-                        <p>When determining whether a table represents a probability distribution, there are two main
-                            conditions to check in order for a distribution to actually be a probability distribution:
-                        </p>
-                        <ol>
-                            <li>All probability \(P(x)\) values must be between \(0\) and \(1\), inclusive.</li>
-                            <li>The sum of all probabilities \(P(x)\) must equal \(1\).</li>
-                        </ol>
-                    </div>
-
-                        <div class="notes-page-break"></div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example: Verifying Probability Distributions</h2>
-                        <p>Determine if the tables below represent probability distributions. If any table isn't a
-                            probability distribution, identify the requirement that is not satisfied.</p>
-                        <ol class="list-a">
-                            <li>
-                                <p>The table below gives the number of goals \(x\) and the probability \(P(x)\) of
-                                    making that many goals for the soccer team Atletico Madrid.</p>
-                                <pre id="goalData" style="display: none;">
-        x,P(x)
-        0,0.18
-        1,0.34
-        2,0.35
-        3,0.11
-        4,0.02
-                    </pre>
-                                <button onclick="copyToClipboard('goalData')">Copy Data to Clipboard</button>
-                                <table aria-describedby="goalTableDescription">
-                                    <caption>Number of Goals \(x\) for Atletico Madrid and Probabilities</caption>
-                                    <thead>
-                                        <tr>
-                                            <th>Goals \(x\)</th>
-                                            <th>\(P(x)\)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>0</td>
-                                            <td>0.18</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>0.34</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>0.35</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>0.11</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>0.02</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p id="goalTableDescription" class="visually-hidden">
-                                    This table represents the number of goals \(x\) scored by Atletico Madrid and the
-                                    corresponding probabilities \(P(x)\).
-                                </p>
-                            </li>
-                            <li>
-                                <p>The table below gives the number of cups/cans (\(x\)) of caffeinated beverages
-                                    consumed by Americans each day.</p>
-                                <pre id="caffeineData" style="display: none;">
-        x,P(x)
-        0,0.2200
-        1,0.1603
-        2,0.2105
-        3,0.1611
-                    </pre>
-                                <button onclick="copyToClipboard('caffeineData')">Copy Data to Clipboard</button>
-                                <table aria-describedby="caffeineTableDescription">
-                                    <caption>Cups/Cans of Caffeinated Beverages Consumed</caption>
-                                    <thead>
-                                        <tr>
-                                            <th>Number of Beverages \(x\)</th>
-                                            <th>\(P(x)\)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>0</td>
-                                            <td>0.2200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>0.1603</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>0.2105</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>0.1611</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p id="caffeineTableDescription" class="visually-hidden">
-                                    This table represents the number of cups or cans of caffeinated beverages (\(x\))
-                                    consumed by Americans each day and their respective probabilities \(P(x)\).
-                                </p>
-                            </li>
-                        </ol>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <ol class="list-a">
-                            <li>
-                                <p>Yes, this <b>is a valid probability distribution</b> as all probabilities are between
-                                    \(0\) and \(1\), and the probabilities \(P(x)\) all add to \(1\).</p>
-                            </li>
-                            <li>
-                                <p>This <b>is not a valid probability distribution</b> because the probabilities do not
-                                    sum to \(1\). The sum of the \(P(x)\) values is:
-                                    \[
-                                    0.2200 + 0.1603 + 0.2105 + 0.1611 = 0.7519
-                                    \]
-                                    which is less than \(1\), not meeting both conditions to be a probability
-                                    distribution.
-                                </p>
-                            </li>
-                        </ol>
-                    </div>
+                        <div class="definition">
+                            <h2 class="definition-header">Verifying if a Table is a Probability Distribution</h2>
+                            <p>When determining whether a table represents a probability distribution, there are two
+                                main
+                                conditions to check in order for a distribution to actually be a probability
+                                distribution:
+                            </p>
+                            <ol>
+                                <li>All probability \(P(x)\) values must be between <span class="blanked">\(0\) and
+                                        \(1\)</span>, inclusive.</li>
+                                <li>The sum of all probabilities \(P(x)\) must equal <span class="blanked">\(1\)</span>.
+                                </li>
+                            </ol>
+                        </div>
 
                         <div class="notes-page-break"></div>
 
-                    <div class="definition">
-                        <h2 class="definition-header">Descriptive Statistics from a Probability Distribution using
-                            GeoGebra</h2>
-                        <p>You can find the mean and the standard deviation of a probability distribution using GeoGebra
-                            by following these directions:</p>
-                        <ol>
-                            <li>Export your probability distribution into GeoGebra (or manually type it in).</li>
-                            <li>Use “Stat” > “Calculators” > “Custom” to find the mean (\(\mu\)) and the standard
-                                deviation (\(\sigma\)).</li>
-                        </ol>
-                        <p>The mean and standard deviation will be displayed at the bottom of the probability graph of
-                            the custom calculator screen.</p>
-                    </div>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Verifying Probability Distributions</h2>
+                            <p>Determine if the tables below represent probability distributions. If any table isn't a
+                                probability distribution, identify the requirement that is not satisfied.</p>
+                            <ol class="list-a">
+                                <li>
+                                    <p>The table below gives the number of goals \(x\) and the probability \(P(x)\) of
+                                        making that many goals for the soccer team Atletico Madrid.</p>
+                                    <pre id="goalData" style="display: none;">
+x,P(x)
+0,0.18
+1,0.34
+2,0.35
+3,0.11
+4,0.02
+    </pre>
+                                    <button onclick="copyToClipboard('goalData')">Copy Data to Clipboard</button>
+                                    <table aria-describedby="goalTableDescription">
+                                        <caption>Number of Goals \(x\) for Atletico Madrid and Probabilities</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>Goals \(x\)</th>
+                                                <th>\(P(x)\)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>0</td>
+                                                <td>0.18</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>0.34</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>0.35</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>0.11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>0.02</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p id="goalTableDescription" class="visually-hidden">
+                                        This table represents the number of goals \(x\) scored by Atletico Madrid and
+                                        the
+                                        corresponding probabilities \(P(x)\).
+                                    </p>
+                                </li>
+                                
+                                <li>
+                                    <p>The table below gives the number of cups/cans (\(x\)) of caffeinated beverages
+                                        consumed by Americans each day.</p>
+                                    <pre id="caffeineData" style="display: none;">
+x,P(x)
+0,0.2200
+1,0.1603
+2,0.2105
+3,0.1611
+    </pre>
+                                    <button onclick="copyToClipboard('caffeineData')">Copy Data to Clipboard</button>
+                                    <table aria-describedby="caffeineTableDescription">
+                                        <caption>Cups/Cans of Caffeinated Beverages Consumed</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>Number of Beverages \(x\)</th>
+                                                <th>\(P(x)\)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>0</td>
+                                                <td>0.2200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>0.1603</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>0.2105</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>0.1611</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p id="caffeineTableDescription" class="visually-hidden">
+                                        This table represents the number of cups or cans of caffeinated beverages
+                                        (\(x\))
+                                        consumed by Americans each day and their respective probabilities \(P(x)\).
+                                    </p>
+                                </li>
+                            </ol>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span></h2>
-                        <p>Determine if the table below represents a probability distribution. If it does, find the mean
-                            (\(\mu\)) and standard deviation (\(\sigma\)) for the distribution. Round mean and standard
-                            deviation to one decimal place.</p>
-                        <p>The following table represents the number of customer complaints received by a local coffee
-                            shop per day, along with their probabilities:</p>
-                        <pre id="distributionData" style="display: none;">
-            x,P(x)
-            0,0.45
-            1,0.40
-            2,0.10
-            3,0.05
-                </pre>
-                        <button onclick="copyToClipboard('distributionData')">Copy Data to Clipboard</button>
-                        <table aria-describedby="distributionDescription">
-                            <caption>Probability Distribution Table</caption>
-                            <thead>
-                                <tr>
-                                    <th>\(x\)</th>
-                                    <th>\(P(x)\)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>0</td>
-                                    <td>0.45</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>0.40</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>0.10</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>0.05</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p id="distributionDescription" class="visually-hidden">
-                            This table represents the number of customer complaints (\(x\)) received per day and the
-                            associated probabilities (\(P(x)\)).
-                        </p>
-                    </div>
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>You can use technology (e.g., GeoGebra) to find the mean and standard deviation for this
-                            probability distribution. The results are as follows:</p>
-                        <ul>
-                            <li>Mean (\(\mu\)): \(0.8\)</li>
-                            <li>Standard Deviation (\(\sigma\)): \(0.8\)</li>
-                        </ul>
-                    </div>
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="2in"></div>
+                                <div class="dontprint">
+                                    <ol class="list-a">
+                                        <li>
+                                            <p>Yes, this <b>is a valid probability distribution</b> as all probabilities
+                                                are
+                                                between
+                                                \(0\) and \(1\), and the probabilities \(P(x)\) all add to \(1\).</p>
+                                        </li>
+                                        <li>
+                                            <p>This <b>is not a valid probability distribution</b> because the
+                                                probabilities do
+                                                not
+                                                sum to \(1\). The sum of the \(P(x)\) values is:
+                                                \[
+                                                0.2200 + 0.1603 + 0.2105 + 0.1611 = 0.7519
+                                                \]
+                                                which is less than \(1\), not meeting both conditions to be a
+                                                probability
+                                                distribution.
+                                            </p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notes-page-break"></div>
+
+                        <div class="definition">
+                            <h2 class="definition-header">Descriptive Statistics from a Probability Distribution using
+                                GeoGebra</h2>
+                            <p>You can find the mean and the standard deviation of a probability distribution using the
+                                GeoGebra Summary Statistics Calculator by following these directions:</p>
+                            <ol>
+                                <li>Set the "problem type" to "weighted" and the source to "population".</li>
+                                <figure><img class="img-centered" src="../images/summaryStatsProbDist1.jpg" alt="Image showing the GeoGebra Summary Statistics Calculator with the selections mentioned above made"
+                                aria-describedby="GeoGebraCaptionforProbabiltyDistribution1">
+                                <figcaption id="GeoGebraCaptionforProbabiltyDistribution1" class="visually-hidden">
+                                    The GeoGebra summary statistics calculator is pictured with problem type set to "weighted" and the source set to "population".
+                                </figcaption>
+                                </figure>
+                                <li>Now import the probability distribution into GeoGebra (or manually type it in) to get the mean (\(\mu\)) and the standard deviation (\(\sigma\)).</li>
+                                <figure><img class="img-centered" src="../images/summaryStatsProbDist2.jpg" alt="Image showing the GeoGebra Summary Statistics Calculator with data entered and a mean and standard deviation calculated"
+                                    aria-describedby="GeoGebraCaptionforProbabiltyDistribution2">
+                                    <figcaption id="GeoGebraCaptionforProbabiltyDistribution2" class="visually-hidden">
+                                        The GeoGebra summary statistics calculator is pictured with problem type set to "weighted" and the source set to "population" and has data from the above probability distribution entered into the spreadsheet portion of GeoGebra with an X column and a P(x) column.
+                                    </figcaption>
+                                    </figure>
+                            </ol>
+                            <p>The mean and standard deviation will be displayed at the bottom of the probability graph
+                                of
+                                the custom calculator screen.</p>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>Determine if the table below represents a probability distribution. If it does, find the
+                                mean
+                                (\(\mu\)) and standard deviation (\(\sigma\)) for the distribution. Round mean and
+                                standard
+                                deviation to one decimal place.</p>
+                            <p>The following table represents the number of customer complaints received by a local
+                                coffee
+                                shop per day, along with their probabilities:</p>
+                            <pre id="distributionData" style="display: none;">
+x,P(x)
+0,0.45
+1,0.40
+2,0.10
+3,0.05
+</pre>
+                            <button onclick="copyToClipboard('distributionData')">Copy Data to Clipboard</button>
+                            <table aria-describedby="distributionDescription">
+                                <caption>Probability Distribution Table</caption>
+                                <thead>
+                                    <tr>
+                                        <th>\(x\)</th>
+                                        <th>\(P(x)\)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0.45</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>0.40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>0.10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>0.05</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p id="distributionDescription" class="visually-hidden">
+                                This table represents the number of customer complaints (\(x\)) received per day and the
+                                associated probabilities (\(P(x)\)).
+                            </p>
+
+                            <div class="notes-page-break"></div>
+
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="1in"></div>
+                                <div class="dontprint">
+                                    <p>You can use technology (e.g., GeoGebra) to find the mean and standard deviation
+                                        for this
+                                        probability distribution. The results are as follows:</p>
+                                    <ul>
+                                        <li>Mean (\(\mu\)): \(0.8\)</li>
+                                        <li>Standard Deviation (\(\sigma\)): \(0.8\)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <div class="definition">
@@ -455,153 +518,187 @@ x,P(x)
                             </ul>
                         </div>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Probability
-                            Distribution Significant Values</h2>
-                        <p>The table below describes the results from groups of 8 births from 8 different sets of
-                            parents. The random variable \(x\) represents the number of girls born among 8 children.
-                            Complete the parts below.</p>
-                        <pre id="birthData" style="display: none;">
-    x,P(x)
-    0,0.0039
-    1,0.0313
-    2,0.1094
-    3,0.2188
-    4,0.2734
-    5,0.2188
-    6,0.1094
-    7,0.0313
-    8,0.0039
-        </pre>
-                        <button onclick="copyToClipboard('birthData')">Copy Data to Clipboard</button>
-                        <table aria-describedby="birthTableDescription">
-                            <caption>Number of Girls Born in a Family of 8</caption>
-                            <thead>
-                                <tr>
-                                    <th>Number of Girls \(x\)</th>
-                                    <th>\(P(x)\)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>0</td>
-                                    <td>0.0039</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>0.0313</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>0.1094</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>0.2188</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>0.2734</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>0.2188</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>0.1094</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>0.0313</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>0.0039</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p id="birthTableDescription" class="visually-hidden">
-                            This table represents the number of girls (\(x\)) born in a family of 8 children, along with
-                            the probabilities (\(P(x)\)).
-                        </p>
-                        <ul>
-                            <li>Find the probability of getting exactly 6 girls in 8 births \(P(x=6)\).</li>
-                            <li>Find the probability of getting 6 or more girls in a family of 8 children \(P(x \geq
-                                6)\).</li>
-                            <li>Find the mean and the standard deviation for the probability distribution above.</li>
-                            <li>Is getting 6 girls in a family of 8 children considered a “significant number” of girls?
-                                Explain how you got your answer with a sentence.</li>
-                        </ul>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <ol>
-                            <li>\(P(x=6) = 0.1094\) which is directly from reading the table. </li>
-                            <li>Adding the values from the table for \(x=6,7,\) and \(8\) we would get \(P(x \geq 6) =
-                                P(x=6) + P(x=7) + P(x=8) = 0.1094 + 0.0313 + 0.0039 = 0.1446\)</li>
-                            <li>
-                                <p>The mean and the standard deviation can be calculated using technology (eg.,
-                                    GeoGebra)</p>
-                                <p>Results: \(\mu = 4.0\), \(\sigma = 1.4\).</p>
-                            </li>
-                            <li>
-                                <p>Significant values are outside the range \(\mu - 2\sigma\) to \(\mu + 2\sigma\):</p>
-                                <p>
-                                    \[
-                                    \mu - 2\sigma = 4.0 - 2(1.4) = 1.2, \quad \mu + 2\sigma = 4.0 + 2(1.4) = 6.8
-                                    \]
-                                </p>
-                                <p>Since \(6\) is within this range, 6 girls <b>is not considered a significant
-                                        number</b> of girls.</p>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Alternative Way to Identify Significant Values</h2>
-                        <p>You can also use probability values to identify significant values by adding probabilities
-                            and comparing them to 5%. A value \(x\) is considered:</p>
-                        <ul>
-                            <li>Significantly low if \(P(x \text{ or fewer}) < 0.05\).</li>
-                            <li>Significantly high if \(P(x \text{ or more}) < 0.05\).</li>
-                        </ul>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span></h2>
-                        <p>Complete the statements below using the given information:</p>
-                        <ol>
-                            <li>Say that we add the probabilities of \(2\) or fewer (so \(P(0) + P(1) + P(2)\)) and get
-                                the value \(0.0912\). Then we know that “\(2\) is <b>not a significantly low number</b>
-                                of successes since the probability of \(2\) or fewer is not less than \(5\%\).”</li>
-                            <li>Say that we add the probabilities of \(7\) or more for a random variable with \(9\)
-                                trials (so \(P(7) + P(8) + P(9)\)) and get the value \(0.0124\). Then we know that
-                                “\(7\) <b>is a significantly high number of successes</b> since the probability of \(7\)
-                                or more is less than \(5\%\).”</li>
-                        </ol>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span></h2>
-                        <p>Use the table in the previous example to determine if \(6\) girls is a significantly high
-                            number of successes by using probabilities.</p>
-                        <div class="solution">
-                            <h2 class="solution-header">Solution</h2>
-                            <p>Add the probabilities \(P(6) + P(7) + P(8)\):</p>
-                            <p>
-                                \[
-                                P(6) + P(7) + P(8) = 0.1094 + 0.0313 + 0.0039 = 0.1446
-                                \]
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Probability
+                                Distribution Significant Values</h2>
+                            <p>The table below describes the results from groups of 8 births from 8 different sets of
+                                parents. The random variable \(x\) represents the number of girls born among 8 children.
+                                Complete the parts below.</p>
+                            <pre id="birthData" style="display: none;">
+x,P(x)
+0,0.0039
+1,0.0313
+2,0.1094
+3,0.2188
+4,0.2734
+5,0.2188
+6,0.1094
+7,0.0313
+8,0.0039
+</pre>
+                            <button onclick="copyToClipboard('birthData')">Copy Data to Clipboard</button>
+                            <table aria-describedby="birthTableDescription">
+                                <caption>Number of Girls Born in a Family of 8</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Number of Girls \(x\)</th>
+                                        <th>\(P(x)\)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0.0039</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>0.0313</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>0.1094</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>0.2188</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>0.2734</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>0.2188</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>0.1094</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>0.0313</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>0.0039</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p id="birthTableDescription" class="visually-hidden">
+                                This table represents the number of girls (\(x\)) born in a family of 8 children, along
+                                with
+                                the probabilities (\(P(x)\)).
                             </p>
-                            <p>Since \(0.1446 > 0.05\), \(6\) girls is not a significantly high number of successes.</p>
+                            <ul>
+                                <li>Find the probability of getting exactly 6 girls in 8 births \(P(x=6)\).</li>
+                                <li>Find the probability of getting 6 or more girls in a family of 8 children \(P(x \geq
+                                    6)\).</li>
+                                <li>Find the mean and the standard deviation for the probability distribution above.
+                                </li>
+                                <li>Is getting 6 girls in a family of 8 children considered a “significant number” of
+                                    girls?
+                                    Explain how you got your answer with a sentence.</li>
+                            </ul>
 
+
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="2in"></div>
+                                <div class="dontprint">
+                                    <ol>
+                                        <li>\(P(x=6) = 0.1094\) which is directly from reading the table. </li>
+                                        <li>Adding the values from the table for \(x=6,7,\) and \(8\) we would get \(P(x
+                                            \geq 6)
+                                            =
+                                            P(x=6) + P(x=7) + P(x=8) = 0.1094 + 0.0313 + 0.0039 = 0.1446\)</li>
+                                        <li>
+                                            <p>The mean and the standard deviation can be calculated using technology
+                                                (eg.,
+                                                GeoGebra)</p>
+                                            <p>Results: \(\mu = 4.0\), \(\sigma = 1.4\).</p>
+                                        </li>
+                                        <li>
+                                            <p>Significant values are outside the range \(\mu - 2\sigma\) to \(\mu +
+                                                2\sigma\):
+                                            </p>
+                                            <p>
+                                                \[
+                                                \mu - 2\sigma = 4.0 - 2(1.4) = 1.2, \quad \mu + 2\sigma = 4.0 + 2(1.4) =
+                                                6.8
+                                                \]
+                                            </p>
+                                            <p>Since \(6\) is within this range, 6 girls <b>is not considered a
+                                                    significant
+                                                    number</b> of girls.</p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
-                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
+
+<div class="notes-page-break"></div>
+
+                        <div class="definition">
+                            <h2 class="definition-header">Alternative Way to Identify Significant Values</h2>
+                            <p>You can also use probability values to identify significant values by adding
+                                probabilities
+                                and comparing them to 5%. A value \(x\) is considered:</p>
+                            <ul>
+                                <li><strong>Significantly low</strong> if \(P(x \text{ or fewer}) < 0.05\).</li>
+                                <li><strong>Significantly high</strong> if \(P(x \text{ or more}) < 0.05\).</li>
+                            </ul>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span></h2>
+                            <p>Complete the statements below using the given information:</p>
+                            <ol>
+                                <li>Say that we add the probabilities of \(2\) or fewer (so \(P(0) + P(1) + P(2)\)) and
+                                    get
+                                    the value \(0.0912\). Then we know that “\(2\) is <span class="blanked">
+                                        <b>not a significantly low
+                                            number</b>
+                                    </span>
+                                    of successes since the probability of \(2\) or fewer is not less than \(5\%\).”</li>
+                                <li>Say that we add the probabilities of \(7\) or more for a random variable with \(9\)
+                                    trials (so \(P(7) + P(8) + P(9)\)) and get the value \(0.0124\). Then we know that
+                                    “\(7\) <span class="blanked"><b>is a significantly high number of successes</b></span> since the probability of
+                                    \(7\)
+                                    or more is less than \(5\%\).”</li>
+                            </ol>
+
+
+                            <div class="example">
+                                <h2 class="example-header">Example <span class="example-number"></span></h2>
+                                <p>Use the table in the previous example to determine if \(6\) girls is a significantly
+                                    high
+                                    number of successes by using probabilities.</p>
+                                <div class="solution">
+                                    <h2 class="solution-header">Solution</h2>
+                                    <div class="inches" data-height="1in"></div>
+                                    <div class="dontprint">
+                                        <p>Add the probabilities \(P(6) + P(7) + P(8)\):</p>
+                                        <p>
+                                            \[
+                                            P(6) + P(7) + P(8) = 0.1094 + 0.0313 + 0.0039 = 0.1446
+                                            \]
+                                        </p>
+                                        <p>Since \(0.1446 > 0.05\), \(6\) girls is not a significantly high number of
+                                            successes.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
                     </div>
                     <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
                 </div>
