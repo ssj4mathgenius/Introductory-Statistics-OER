@@ -93,17 +93,8 @@
             <li>The trials are independent (the outcome of any trial does not affect subsequent trials).
             </li>
             <li>The probability of success remains the same in all trials.</li>
-            <li>Each trial has outcomes classified into two categories: "success" and "failure."</li>
+            <li>Each trial has outcomes classified into <span class="blanked">two</span> categories: "success" and "failure."</li>
         </ul>
-    </div>
-
-    <div class="caution">
-        <h2 class="caution-header">"Success" and "Failure"</h2>
-        <p>When speaking about "success", we are not necessarily meaning an outcome that is "good". The
-            term "success" is just an arbitrary term used for the desired outcome or the outcome we are
-            testing claims about or estimating in later sections. So for instance if we are flipping
-            coins and we assign \(x\) as the number of heads then "success" for us would be <b>heads</b>
-            meaning that "failure" would be <b>tails</b>.</p>
     </div>
 
     <div class="example">
@@ -116,21 +107,25 @@
                 or “no” they didn't get a headache.</li>
             <li>Treating \(863\) subjects with Lipitor and asking them “How does your head feel?”</li>
         </ol>
-    </div>
+    
     <div class="solution">
         <h2 class="solution-header">Solution</h2>
-        <ol class="list-a">
-            <li>Yes, this is a binomial distribution because it satisfies all the requirements: 863
-                fixed number of trials, each person responding if they got a headache or not is
-                independent of others, the probability of "success" (or getting a headache) will be the
-                same in all trials since everyone used the same drug Lipitor, and there are two
-                categories of outcomes - "yes" or "no".</li>
-            <li>No, this is not a binomial distribution. Similar to part (a) it meets most of the
-                qualifications to be binomial except for the condition where the outcomes are classified
-                into just two categories: recording an open-ended response like "how does your head
-                feel" opens the door for more than two outcomes or responses.</li>
-        </ol>
+        <div class="inches" data-height="1.5in"></div>
+        <div class="dontprint">
+            <ol class="list-a">
+                <li>Yes, this is a binomial distribution because it satisfies all the requirements: 863
+                    fixed number of trials, each person responding if they got a headache or not is
+                    independent of others, the probability of "success" (or getting a headache) will be the
+                    same in all trials since everyone used the same drug Lipitor, and there are two
+                    categories of outcomes - "yes" or "no".</li>
+                <li>No, this is not a binomial distribution. Similar to part (a) it meets most of the
+                    qualifications to be binomial except for the condition where the outcomes are classified
+                    into just two categories: recording an open-ended response like "how does your head
+                    feel" opens the door for more than two outcomes or responses.</li>
+            </ol>
+        </div>
     </div>
+</div>
 
     <div class="definition">
         <h2 class="definition-header">Using Technology to Find Binomial Probabilities</h2>
@@ -138,14 +133,31 @@
             identify these three variables:</p>
         <ul>
             <li>\(n\): the total number of trials</li>
-            <li>\(p\): the probability of success (or probability of the desired outcome), written as a
+            <li>\(p\): the probability of <span class="blanked"><strong>success</strong></span> (or probability of the desired outcome), written as a
                 decimal.</li>
             <li>\(x\): the number of successes desired, which must be a whole number up to and including
-                \(n\), but cannot exceed \(n\).</li>
+                \(n\). This value cannot exceed \(n\).</li>
         </ul>
-        <p>Once you have these values, plug them into GeoGebra to find the probability of \(x\) success.
+        <p>Once you have these values, you can plug them into GeoGebra to find the probability of \(x\) success.
         </p>
+        <figure><img class="img-centered responsive-img" src="../images/binomGeoGebraApp.jpg" alt="Image showing the GeoGebra Binomial Distribution Calculator"
+            aria-describedby="GeoGebraCaptionforBinomialDistribution1">
+            <figcaption id="GeoGebraCaptionforBinomialDistribution1" class="visually-hidden">
+                The GeoGebra binomial distribution calculator is pictured with \(n\) set to 20 and \(p\) set ot 0.50. The "problem type" shows a dropdown menu with all 5 selections visible to choose from. A statement at the bottom \(P(X=9)=0.1602\) is shown with the value \(9\) being the entered number.
+            </figcaption>
+            </figure>
+            <p>You simply enter a value for \(n\) first \(p\). Then you can choose your "problem type" depending on what is required. Lastly, enter your \(x\) value for the number of successes desired. Then the resulting probability will be automatically calculated.</p>
     </div>
+
+    <div class="caution">
+        <h2 class="caution-header">"Success" and "Failure"</h2>
+        <p>When speaking about "success", we are not necessarily meaning an outcome that is "good". The
+            term "success" is just an arbitrary term used for the desired outcome or the outcome we are
+            testing claims about or estimating in later sections. So for instance if we are flipping
+            coins and we assign \(x\) as the number of heads then "success" for us would be <b>heads</b>
+            meaning that "failure" would be <b>tails</b>.</p>
+    </div>
+
 
     <div class="example">
         <h2 class="example-header">Example <span class="example-number"></span>: Finding Binomial
@@ -154,25 +166,30 @@
         <ol>
             <li>\(P(x=3)\) where \(n=10\) and \(p=0.2\).</li>
             <li>\(P(x \geq 2)\) where \(n=5\) and \(p=0.6\).</li>
+            <li>\(P(x=1)\) where \(n=5\) and \(q=0.3\) where \(q\) is the "probability of failure".</li>
         </ol>
-    </div>
+   
     <div class="solution">
         <h2 class="solution-header">Solution</h2>
-        <ol>
-            <li>
-                Using technology to enter \(n=10\), \(x=3\), and \(p=0.2\), we find:
-                \[
-                P(x=3) = 0.2013
-                \]
-            </li>
-            <li>
-                Using technology to calculate \(P(x \geq 2)\) with \(n=5\) and \(p=0.6\), we find:
-                \[
-                P(x \geq 2) = 0.9130
-                \]
-            </li>
-        </ol>
+        <div class="inches" data-height="1.3in"></div>
+        <div class="dontprint">
+            <ol>
+                <li>
+                    Using technology to enter \(n=10\), \(x=3\), and \(p=0.2\), we find:
+                    \[
+                    P(x=3) = 0.2013
+                    \]
+                </li>
+                <li>
+                    Using technology to calculate \(P(x \geq 2)\) with \(n=5\) and \(p=0.6\), we find:
+                    \[
+                    P(x \geq 2) = 0.9130
+                    \]
+                </li>
+            </ol>
+        </div>
     </div>
+</div>
 
 
     <div class="example">
@@ -181,16 +198,19 @@
         <p>In a certain city, the probability of a person being selected for jury duty in a given year
             is 10% (\(p=0.10\)). Suppose a group of 8 people (\(n=8\)) is randomly selected. Use
             technology to find the probability that exactly 4 of them are selected for jury duty.</p>
-    </div>
     <div class="solution">
         <h2 class="solution-header">Solution</h2>
-        <p>Using technology to compute \(P(x=4)\) with \(n=8\) and \(p=0.1\), we find:</p>
-        <p>
-            \[
-            P(x=4) = 0.0017
-            \]
-        </p>
+        <div class="inches" data-height="1.3in"></div>
+        <div class="dontprint">
+            <p>Using technology to compute \(P(x=4)\) with \(n=8\) and \(p=0.1\), we find:</p>
+            <p>
+                \[
+                P(x=4) = 0.0017
+                \]
+            </p>
+        </div>
     </div>
+</div>
 
     <div class="example">
         <h2 class="example-header">Example <span class="example-number"></span>: How Binomial
@@ -198,68 +218,72 @@
         <p>Multiple choice questions on Professor Smith's second exam have 6 possible answers (a, b, c,
             d, e, f). Let “C” represent getting a question right and “W” represent getting one wrong.
             Assume there are 3 such questions on this exam (\(n=3\)). Answer the questions below:</p>
-        <ol>
+        <ol class="list-a">
             <li>Use the multiplication rule to find the probability of getting the first one correct,
                 the second one wrong, and the last one correct. In other words, find \(P(CWC)\).</li>
             <li>Find the probabilities of \(WCC\) and \(CCW\). Then, combine these with \(CWC\) to get
                 the probability of “getting exactly two questions correct.”</li>
             <li>For this problem, confirm this is a binomial situation. Then identify \(n\),\(x\), and
-                \(p\) for the scenario of getting "exactly two questions correct".</li>
+                \(p\) for the scenario of getting "exactly two questions correct". Confirm your answer from part </li>
         </ol>
-    </div>
+   
     <div class="solution">
         <h2 class="solution-header">Solution</h2>
-        <ol>
-            <li>
-                Each question has a \(1/6\) probability of being correct and a \(5/6\) probability of
-                being wrong:
-                \[
-                P(CWC) = \frac{1}{6} \cdot \frac{5}{6} \cdot \frac{1}{6} = \frac{5}{216} \approx 0.0231
-                \]
-            </li>
-            <li>
-                Similarly calculate \(P(WCC)\) and \(P(CCW)\):
-                \[
-                P(WCC) = \frac{5}{6} \cdot \frac{1}{6} \cdot \frac{1}{6} = \frac{5}{216}
-                \]
-                \[
-                P(CCW) = \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{5}{6} = \frac{5}{216}
-                \]
-                Combine the probabilities:
-                \[
-                P(\text{exactly 2 correct}) = P(CWC) + P(WCC) + P(CCW) = \frac{5}{216} + \frac{5}{216} +
-                \frac{5}{216} = \frac{15}{216} = 0.0694
-                \]
-            </li>
-            <li>
-                <p>
-                    This is a binomial situation because:
-                <ul>
-                    <li>There are a fixed number of trials (\(n=3\)), representing the 3 questions.</li>
-                    <li>Each trial has only two possible outcomes: correct (\(C\)) or wrong (\(W\)).
-                    </li>
-                    <li>The probability of success (\(p\)) remains constant at \(1/6\) for each
-                        question.</li>
-                    <li>The trials are independent, as the outcome of one question does not affect the
-                        others.</li>
-                </ul>
-                For the scenario of getting "exactly two questions correct," the parameters are:
-                <ul>
-                    <li>\(n = 3\) (number of trials)</li>
-                    <li>\(x = 2\) (number of successes)</li>
-                    <li>\(p = 1/6\) (probability of success on each trial)</li>
-                </ul>
-                <p>Using technology to find this binomial probability we get 0.0694 which is the same
-                    value we got above finding all the different combinations of getting "two correct
-                    answers"</p>
-                <p>While in this example it isn't difficult to find all the possible combinations of
-                    getting "two correct answers" to perform this calculation using the multiplication
-                    rule, imagine having a larger number of trials which would significantly increase
-                    the combinations of "two successes". This is why it is best to use technology to
-                    find these binomial probabilities.</p>
-            </li>
-        </ol>
+        <div class="inches" data-height="2in"></div>
+        <div class="dontprint">
+            <ol class="list-a">
+                <li>
+                    Each question has a \(1/6\) probability of being correct and a \(5/6\) probability of
+                    being wrong:
+                    \[
+                    P(CWC) = \frac{1}{6} \cdot \frac{5}{6} \cdot \frac{1}{6} = \frac{5}{216} \approx 0.0231
+                    \]
+                </li>
+                <li>
+                    Similarly calculate \(P(WCC)\) and \(P(CCW)\):
+                    \[
+                    P(WCC) = \frac{5}{6} \cdot \frac{1}{6} \cdot \frac{1}{6} = \frac{5}{216}
+                    \]
+                    \[
+                    P(CCW) = \frac{1}{6} \cdot \frac{1}{6} \cdot \frac{5}{6} = \frac{5}{216}
+                    \]
+                    Combine the probabilities:
+                    \[
+                    P(\text{exactly 2 correct}) = P(CWC) + P(WCC) + P(CCW) = \frac{5}{216} + \frac{5}{216} +
+                    \frac{5}{216} = \frac{15}{216} = 0.0694
+                    \]
+                </li>
+                <li>
+                    <p>
+                        This is a binomial situation because:
+                    <ul>
+                        <li>There are a fixed number of trials (\(n=3\)), representing the 3 questions.</li>
+                        <li>Each trial has only two possible outcomes: correct (\(C\)) or wrong (\(W\)).
+                        </li>
+                        <li>The probability of success (\(p\)) remains constant at \(1/6\) for each
+                            question.</li>
+                        <li>The trials are independent, as the outcome of one question does not affect the
+                            others.</li>
+                    </ul>
+                    For the scenario of getting "exactly two questions correct," the parameters are:
+                    <ul>
+                        <li>\(n = 3\) (number of trials)</li>
+                        <li>\(x = 2\) (number of successes)</li>
+                        <li>\(p = 1/6\) (probability of success on each trial)</li>
+                    </ul>
+                    <p>Using technology to find this binomial probability we get 0.0694 which is the same
+                        value we got above finding all the different combinations of getting "two correct
+                        answers"</p>
+                    <p>While in this example it isn't difficult to find all the possible combinations of
+                        getting "two correct answers" to perform this calculation using the multiplication
+                        rule, imagine having a larger number of trials which would significantly increase
+                        the combinations of "two successes". This is why it is best to use technology to
+                        find these binomial probabilities.</p>
+                </li>
+            </ol>
+        </div>
     </div>
+</div>
 
     <div class="definition">
         <h2 class="definition-header">Construction of a Binomial Probability Distribution</h2>
@@ -268,9 +292,12 @@
             deviation.</p>
         <p>Steps:</p>
         <ol>
-            <li>Follow the steps for binomial probability calculations in GeoGebra.</li>
+            <li>Construct a probability distribution table putting in values for \(x\) starting from 0 and listing up until the value for \(n\).</li>
+            <li>Open the GeoGebra Binomial Probability calculator tool and follow the steps for binomial probability calculations in GeoGebra for each \(P(x)\) probability in the table generated.</li>
         </ol>
     </div>
+
+    <div class="notes-page-break"></div>
 
     <div class="example">
         <h2 class="example-header">Example <span class="example-number"></span>: Constructing a Binomial
@@ -285,83 +312,87 @@
             </li>
             <li>Is 0 people knowing Wendy’s a significantly low number of people?</li>
         </ol>
-    </div>
+  
     <div class="solution">
         <h2 class="solution-header">Solution</h2>
-        <ol>
-            <li>
-                <p>The binomial probability distribution is as follows:</p>
-                <table aria-describedby="wendysTableDescription">
-                    <caption>Binomial Probability Distribution Representing the Chance of \(x\) People
-                        Recognizing the name Wendy's</caption>
-                    <thead>
-                        <tr>
-                            <th>\(x\) (Number of People Recognizing Wendy's)</th>
-                            <th>\(P(x)\)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0</td>
-                            <td>0.0024</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>0.0284</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>0.1323</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>0.3087</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>0.3602</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>0.1681</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p id="wendysTableDescription" class="visually-hidden">
-                    This table shows the binomial probabilities for the number of people (0 to 5)
-                    recognizing Wendy’s in a group of 5, with a 70% probability of recognition.
-                </p>
-                <pre id="wendysData" style="display: none;">
-x,P(x)
-0,0.0024
-1,0.0284
-2,0.1323
-3,0.3087
-4,0.3602
-5,0.1681
-</pre>
-                <button onclick="copyToClipboard('wendysData')">Copy Data to Clipboard</button>
-            </li>
-            <li>
-                \(P(x=2) = 0.1323\)
-            </li>
-            <li>
-                \(P(x \leq 2) = P(x=0) + P(x=1) + P(x=2) = 0.0024 + 0.0284 + 0.1323 = 0.1631\)
-            </li>
-            <li>
-                Mean: \(\mu = n \cdot p = 5 \cdot 0.7 = 3.5\)
-                Standard deviation: \(\sigma = \sqrt{n \cdot p \cdot (1-p)} = \sqrt{5 \cdot 0.7 \cdot
-                0.3} = 1.1\)
-            </li>
-            <li>
-                Significant values are outside the range \(\mu - 2\sigma\) to \(\mu + 2\sigma\):
-                \[
-                \mu - 2\sigma = 3.5 - 2(1.1) = 1.3, \quad \mu + 2\sigma = 3.5 + 2(1.1) = 5.7
-                \]
-                \(x=0\) is below \(1.3\), so it is a significantly low number of people knowing Wendy’s.
-            </li>
-        </ol>
+        <div class="inches" data-height="6in"></div>
+        <div class="dontprint">
+            <ol>
+                <li>
+                    <p>The binomial probability distribution is as follows:</p>
+                    <table aria-describedby="wendysTableDescription">
+                        <caption>Binomial Probability Distribution Representing the Chance of \(x\) People
+                            Recognizing the name Wendy's</caption>
+                        <thead>
+                            <tr>
+                                <th>\(x\) (Number of People Recognizing Wendy's)</th>
+                                <th>\(P(x)\)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>0.0024</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0.0284</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.1323</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.3087</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0.3602</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0.1681</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p id="wendysTableDescription" class="visually-hidden">
+                        This table shows the binomial probabilities for the number of people (0 to 5)
+                        recognizing Wendy’s in a group of 5, with a 70% probability of recognition.
+                    </p>
+                    <pre id="wendysData" style="display: none;">
+            x,P(x)
+            0,0.0024
+            1,0.0284
+            2,0.1323
+            3,0.3087
+            4,0.3602
+            5,0.1681
+            </pre>
+                    <button onclick="copyToClipboard('wendysData')">Copy Data to Clipboard</button>
+                </li>
+                <li>
+                    \(P(x=2) = 0.1323\)
+                </li>
+                <li>
+                    \(P(x \leq 2) = P(x=0) + P(x=1) + P(x=2) = 0.0024 + 0.0284 + 0.1323 = 0.1631\)
+                </li>
+                <li>
+                    Mean: \(\mu = n \cdot p = 5 \cdot 0.7 = 3.5\)
+                    Standard deviation: \(\sigma = \sqrt{n \cdot p \cdot (1-p)} = \sqrt{5 \cdot 0.7 \cdot
+                    0.3} = 1.1\)
+                </li>
+                <li>
+                    Significant values are outside the range \(\mu - 2\sigma\) to \(\mu + 2\sigma\):
+                    \[
+                    \mu - 2\sigma = 3.5 - 2(1.1) = 1.3, \quad \mu + 2\sigma = 3.5 + 2(1.1) = 5.7
+                    \]
+                    \(x=0\) is below \(1.3\), so it is a significantly low number of people knowing Wendy’s.
+                </li>
+            </ol>
+        </div>
     </div>
+</div>
 
     <div class="definition">
         <h2 class="definition-header">Mean and Standard Deviation of Binomial Distributions</h2>
@@ -386,33 +417,36 @@ x,P(x)
             <li>Would it be significant for someone to randomly guess on all the questions and get 60
                 correct? Why or why not?</li>
         </ol>
-    </div>
+    
     <div class="solution">
         <h2 class="solution-header">Solution</h2>
-        <ol>
-            <li>
-                <p>This scenario represents a binomial distribution because it satisfies the following
-                    conditions: there is a fixed number of trials (\(n=100\)), each question represents
-                    an independent trial, there are only two outcomes per trial (correct or incorrect),
-                    and the probability of success (\(p=0.2\)) remains constant for each trial.</p>
-
-                <p> \(n = 100\), \(p = \frac{1}{5} = 0.2\).
-                    Mean: \(\mu = n \cdot p = 100 \cdot 0.2 = 20\).
-                    Standard deviation: \(\sigma = \sqrt{n \cdot p \cdot (1-p)} = \sqrt{100 \cdot 0.2
-                    \cdot 0.8} = \sqrt{16} = 4\).</p>
-            </li>
-            <li>
-                <p>
-                    Significant values are outside the range \(\mu - 2\sigma\) to \(\mu + 2\sigma\):
-                    \[
-                    \mu - 2\sigma = 20 - 2(4) = 12, \quad \mu + 2\sigma = 20 + 2(4) = 28
-                    \]
-                    \(60\) is far above \(28\), making it a significantly high number of correct
-                    answers. This result would likely not occur by random guessing.
-                </p>
-            </li>
-        </ol>
+        <div class="inches" data-height="1.5in"></div>
+        <div class="dontprint">
+            <ol>
+                <li>
+                    <p>This scenario represents a binomial distribution because it satisfies the following
+                        conditions: there is a fixed number of trials (\(n=100\)), each question represents
+                        an independent trial, there are only two outcomes per trial (correct or incorrect),
+                        and the probability of success (\(p=0.2\)) remains constant for each trial.</p>
+                    <p> \(n = 100\), \(p = \frac{1}{5} = 0.2\).
+                        Mean: \(\mu = n \cdot p = 100 \cdot 0.2 = 20\).
+                        Standard deviation: \(\sigma = \sqrt{n \cdot p \cdot (1-p)} = \sqrt{100 \cdot 0.2
+                        \cdot 0.8} = \sqrt{16} = 4\).</p>
+                </li>
+                <li>
+                    <p>
+                        Significant values are outside the range \(\mu - 2\sigma\) to \(\mu + 2\sigma\):
+                        \[
+                        \mu - 2\sigma = 20 - 2(4) = 12, \quad \mu + 2\sigma = 20 + 2(4) = 28
+                        \]
+                        \(60\) is far above \(28\), making it a significantly high number of correct
+                        answers. This result would likely not occur by random guessing.
+                    </p>
+                </li>
+            </ol>
+        </div>
     </div>
+</div>
 </section>
 
 <div class="d-flex justify-content-between mt-4 no-print-nav">
