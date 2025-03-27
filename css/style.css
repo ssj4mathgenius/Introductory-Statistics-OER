@@ -544,7 +544,7 @@ section:not(#content section) {
     }
 
     body {
-        font-size: 80%;
+        font-size: 95%;
         background-color: var(--background-color) !important;
         color: var(--text-color) !important;
     }
