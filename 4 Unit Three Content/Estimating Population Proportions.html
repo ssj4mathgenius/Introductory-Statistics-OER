@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estimating Population Proportions</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../js/loadmathjax.js"></script>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
     <link rel="stylesheet" href="../css/main.min.css">
-
     <link rel="stylesheet" href="../css/style.css" />
 
 </head>
@@ -21,240 +29,383 @@
 <body class="content" role="document">
     <div class="container-fluid">
         <main>
-            <div class="row bottom-md">
-                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-                    <h1>Estimating a Population Proportion</h1>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <p>Inferential statistics focuses on using sample data to make generalizations about a population.
-                        In this context, estimating a population proportion involves utilizing sample proportions to
-                        approximate the actual proportion of a characteristic within a population. This concept is
-                        foundational in understanding how statistics enable data-driven decisions.</p>
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
 
-                    <p>For instance, consider a survey of 1,007 adults where 85% of participants indicated awareness of
-                        Twitter. This sample proportion can be used to estimate the percentage of all U.S. adults who
-                        know about Twitter, leveraging inferential statistics.</p>
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
 
-                    <h2>Notation for Proportion</h2>
-                    <p>The following notations are used in discussing proportions:</p>
-                    <ul>
-                        <li>\( p \): Population proportion</li>
-                        <li>\( \hat{p} \): Sample proportion of successes (\( \hat{p} \) is pronounced "p-hat")</li>
-                        <li>\( 1 - \hat{p} \): Sample proportion of failures</li>
-                    </ul>
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
 
-                    <h2>Point Estimates</h2>
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Point Estimate</h2>
-                        <p>A point estimate is a single value (or point) used to approximate a population parameter. The
-                            sample proportion (\( \hat{p} \)) is the best point estimate for the population proportion
-                            (\( p \)).</p>
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>Estimating a Population Proportion</h1>
+
+                        <p>Inferential statistics focuses on using sample data to make generalizations about a
+                            population.
+                            In this context, estimating a population proportion involves utilizing sample proportions to
+                            approximate the actual proportion of a characteristic within a population. This concept is
+                            foundational in understanding how statistics enable data-driven decisions.</p>
+
+                        <p>For instance, suppose a random survey of 1,200 adults was conducted to assess awareness of a
+                            new nationwide anti-smoking campaign. Out of those surveyed, 930 individuals reported being
+                            aware of the campaign. This results in a sample proportion of 77.5% which will be used to
+                            estimate the percentage of all U.S. adults who are aware of the campaign. Applying the
+                            principles of inferential statistics it will be clear that <strong>around 77.5%</strong> of adults are aware of the campaign.</p>
+
+
+                        <h2>Notation for Proportion</h2>
+                        <p>The following notations are used in discussing proportions:</p>
+                        <ul>
+                            <li>\( p \): Population proportion</li>
+                            <li>\( \hat{p} \): Sample proportion of successes (\( \hat{p} \) is pronounced "p-hat") found by \(\cfrac{x}{n}\)</li>
+                            <li>\( 1 - \hat{p} \): Sample proportion of failures</li>
+                        </ul>
+
+                        <h2>Point Estimates</h2>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Point Estimate</h2>
+                            <p>A point estimate is a single value (or point) used to approximate a population parameter.
+                                The <span class="blanked"><strong>sample proportion</strong></span> (\( \hat{p} \)) is the best point estimate for the population proportion (\( p \)).</p>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Find the Best Point Estimate
+                            </h2>
+                            <p>A survey conducted by KRC Research asked 1,002 respondents if they felt vulnerable to
+                                identity theft. Among them, 531 said “yes.” What is the best point estimate for the
+                                proportion of adults who feel vulnerable to identity theft?</p>
+
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="inches" data-height="1in"></div>
+                            <div class="dontprint">
+                                <p>The best point estimate is the sample proportion:</p>
+                                <p>\[
+                                    \hat{p} = \frac{531}{1002} \approx 0.5309
+                                    \]</p>
+                                <p>Thus, the best estimate for the population proportion is approximately 53.1%.</p>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="notes-page-break"></div>
 
                     <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Best Point Estimate
-                        </h2>
-                        <p>A survey conducted by KRC Research asked 1,002 respondents if they felt vulnerable to
-                            identity theft. Among them, 531 said “yes.” What is the best point estimate for the
-                            proportion of adults who feel vulnerable?</p>
-                    </div>
+                        <h2 class="example-header">Example <span class="example-number"></span>: Finding a Point Estimate from Survey Results</h2>
+                        <p>In a survey of 850 college students, 72% indicated that they believe financial literacy should be a required part of the general education curriculum. Find the best point estimate for the percentage of all college students who feel this way. Also, how many students in the sample believed financial literacy should be required?</p>
+                        
+                        <div class="solution">
+                          <h2 class="solution-header">Solution</h2>
+                          <div class="inches" data-height="1.5in"></div>
+                          <div class="dontprint">
+                              <p>The best point estimate for the population proportion is the sample proportion, which is given as 72%. So, the best point estimate is <strong>72%</strong>.</p>
+                              <p>To find the number of students in the sample who believe financial literacy should be required, calculate:</p>
+                              <p>\[
+                              0.72 \times 850 = 612
+                              \]</p>
+                              <p>So, 612 students in the sample supported requiring financial literacy.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
 
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>The best point estimate is the sample proportion:</p>
-                        <p>\[
-                            \hat{p} = \frac{531}{1002} \approx 0.5309
-                            \]</p>
-                        <p>Thus, the best estimate for the population proportion is approximately 53.1%.</p>
-                    </div>
-
-                    <h2>Confidence Intervals</h2>
-                    <p>Point estimates alone do not convey the accuracy of the approximation. Confidence intervals
-                        provide a range of values within which the true population proportion is expected to lie. This
-                        interval is based on the sample data and reflects a specified level of confidence (e.g., 95%).
-                    </p>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Interval</h2>
-                        <p>In mathematics, an interval is a set of numbers with the property that any number between two
-                            endpoints is also included. For example, \([0, 1]\) includes all numbers between 0 and 1,
-                            including 0 and 1.</p>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Interval Forms</h2>
-                        <p>Express the inequality \( 2.7 \leq x < 5.9 \) in interval notation.</p>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>The interval \( 2.7 \leq x < 5.9 \) can be expressed as \([2.7, 5.9)\), where the square
-                                bracket indicates inclusion of 2.7, and the parenthesis indicates exclusion of 5.9.</p>
-                    </div>
-
-                    <h2>Interactive Confidence Interval Tool</h2>
-                    <div class="iframe-container">
-                        <iframe id="ciCalculator" scrolling="no"
-                            title="Confidence Interval and Hypothesis Test Calculator"
-                            src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-                            width="1100px" height="651px" style="border:0px;">
-                        </iframe>
-                        <p class="visually-hidden" id="iframeDescription">Interactive calculator for confidence
-                            intervals and hypothesis testing.</p>
-                        <button onclick="window.open('https://www.geogebra.org/material/iframe/id/sqbsgdkk', '_blank')"
-                            aria-describedby="iframeButtonDescription">Open in a New Tab</button>
-                        <p id="iframeButtonDescription" class="visually-hidden">Opens the calculator in a new tab.</p>
-                    </div>
-
-                    <h2>Examples: Confidence Intervals</h2>
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Confidence Interval for
-                            a Proportion</h2>
-                        <p>In a survey of 427 women, 29% indicated they purchase books online. Construct a 95%
-                            confidence interval for the true proportion.</p>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>Using technology, the 95% confidence interval for the population proportion is found to be \(
-                            [0.256, 0.324] \).</p>
-                    </div>
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Writing Confidence
-                            Intervals in Multiple Formats</h2>
-                        <p>Rewrite the interval \( 0.256 \leq p \leq 0.324 \) in interval notation and margin of error
-                            format.</p>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>In interval notation, the confidence interval is written as:</p>
-                        <p>\([0.256, 0.324]\)</p>
-                        <p>To express this as a margin of error, calculate the midpoint and margin of error:</p>
-                        <p>\[
-                            \text{Point Estimate: } \hat{p} = \frac{0.256 + 0.324}{2} = 0.29
-                            \]</p>
-                        <p>\[
-                            \text{Margin of Error: } E = \frac{0.324 - 0.256}{2} = 0.034
-                            \]</p>
-                        <p>Thus, the confidence interval can also be written as:</p>
-                        <p>\[
-                            \hat{p} \pm E = 0.29 \pm 0.034
-                            \]</p>
-                    </div>
-
-                    <h2>Interpreting Confidence Intervals</h2>
-                    <p>The correct interpretation of a confidence interval requires precise language. For example, if a
-                        95% confidence interval for a population proportion is \([0.256, 0.324]\), the correct
-                        interpretation is:</p>
-                    <p>"We are 95% confident that the interval from 0.256 to 0.324 contains the true population
-                        proportion."</p>
-                    <p>Incorrect interpretations include:</p>
-                    <ul>
-                        <li>"There is a 95% chance that the true proportion lies between 0.256 and 0.324."</li>
-                        <li>"95% of sample proportions will fall within this interval."</li>
-                    </ul>
-
-                    <h2>Margin of Error</h2>
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Margin of Error</h2>
-                        <p>The margin of error (\(E\)) represents the maximum expected difference between the true
-                            population parameter and the sample estimate. It quantifies the uncertainty of an estimate.
+                        <h2>Confidence Intervals</h2>
+                        <p>Point estimates alone do not convey the accuracy of the approximation. Confidence intervals
+                            provide a range of values within which the true population proportion is expected to lie.
+                            This
+                            interval is based on the sample data and reflects a specified level of confidence (e.g.,
+                            95%).
                         </p>
+
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Interval</h2>
+                            <p>In mathematics, an <strong>interval</strong> is a set of numbers with the property that any number between
+                                two endpoints is also included. For example, \([0, 1]\) includes all numbers <span class="blanked">between 0 and 1</span>, including 0 and 1.</p>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Interval Forms</h2>
+                            <p>Write the following statements as intervals using the correct grouping symbols.</p>
+                            <ol class="list-a">
+                              <li>\( -4 \leq x \leq 3 \)</li>
+                              <li>\( 0.421 \leq x < 0.723 \)</li>
+                              <li>\( -2 < z < 2 \)</li>
+                              <li>\( x > 6 \)</li>
+                            </ol>
+                          
+                            <div class="solution">
+                              <h2 class="solution-header">Solution</h2>
+                              <div class="inches" data-height="1in"></div>
+                              <div class="dontprint">
+                                <ol class="list-a">
+                                  <li>\( -4 \leq x \leq 3 \) is written as \([-4, 3]\).</li>
+                                  <li>\( 0.421 \leq x < 0.723 \) is written as \([0.421, 0.723)\).</li>
+                                  <li>\( -2 < z < 2 \) is written as \((-2, 2)\).</li>
+                                  <li>\( x > 6 \) is written as \((6, \infty)\).</li>
+                                </ol>
+                              </div>
+                            </div>
+                          </div>                          
+
+                    <div class="notes-page-break"></div>
+
+                        <h2>Interactive Confidence Interval Tool</h2>
+                        <figure>
+                            <img src="../images/confidenceintervalGeoGebraApp1.jpg"
+                                alt="Picture of the GeoGebra Confidence Interval calculator application"
+                                aria-describedby="confidenceGeoGebraApp">
+                            <figcaption id="confidenceGeoGebraApp" class="visually-hidden">
+                                an image of the confidence interval GeoGebra applet.
+                            </figcaption>
+                        </figure>
+                        <div class="dontprint">
+                            <div class="iframe-container">
+                                <iframe id="ciCalculator" scrolling="no" title="Confidence Interval and Hypothesis Test Calculator"
+                                src="https://www.geogebra.org/material/iframe/id/yqvx78n5/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                                </iframe>
+                                <p class="visually-hidden" id="ciCalculator">Interactive calculator for confidence
+                                    intervals and hypothesis testing.</p>
+                                <button
+                                    onclick="window.open('https://www.geogebra.org/material/iframe/id/sqbsgdkk', '_blank')"
+                                    aria-describedby="iframeButtonDescription">Open in a New Tab</button>
+                                <p id="iframeButtonDescription" class="visually-hidden">Opens the calculator in a new tab.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2>Examples: Confidence Intervals</h2>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Confidence Interval
+                                for a Proportion</h2>
+                            <p>In a survey of 427 women, 29% of them indicated they purchase books online. Identify the number of women that said they purchase books online. Then construct a 95% confidence interval for the true proportion of women that said they purchase books online.</p>
+
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="inches" data-height="1.5in"></div>
+                            <div class="dontprint">
+                                <p>Using technology, the 95% confidence interval for the population proportion is found to
+                                    be \(
+                                    [0.256, 0.324] \).</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Calculating Margin of
-                            Error</h2>
-                        <p>Given the confidence interval \([0.637, 0.767]\), find the margin of error and the point
-                            estimate.</p>
+                        <h2>Interpreting Confidence Intervals</h2>
+                        <p>The correct interpretation of a confidence interval requires precise language. For example,
+                            if a 95% confidence interval for a population proportion is \([0.256, 0.324]\), the correct
+                            interpretation is:</p>
+                        <p><strong>"We are 95% confident that the interval from 0.256 to 0.324 contains the true population proportion."</strong></p>
+                        <p>Common incorrect interpretations include:</p>
+                        <ul>
+                            <li>"There is a 95% chance that the true proportion lies between 0.256 and 0.324."</li>
+                            <li>"95% of sample proportions will fall within this interval."</li>
+                        </ul>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Interpreting a Confidence Interval for a Proportion</h2>
+                            <p>In a study of 1,200 patients who visited a community health clinic, 276 reported experiencing side effects after receiving a new vaccine. Construct a 95% confidence interval for the proportion of all patients who may experience side effects after receiving this vaccine. Then interpret the confidence interval.</p>
+                          
+                            <div class="solution">
+                              <h2 class="solution-header">Solution</h2>
+                              <div class="inches" data-height="2in"></div>
+                              <div class="dontprint">
+                                <p>First, calculate the sample proportion:</p>
+                                <p>\[
+                                \hat{p} = \frac{276}{1200} = 0.23
+                                \]</p>
+                                <p>Now use GeoGebra to find the confidence interval boundaries:</p>
+                                <p>The confidence interval in decimal form is:</p>
+                                <p>\[
+                                (0.2077,\ 0.2523)
+                                \]</p>
+                                <p>Converting to percentages:</p>
+                                <p>\[
+                                (20.77\%,\ 25.23\%)
+                                \]</p>
+                                <p><strong>Interpretation:</strong> We are 95% confident that the true percentage of all patients who may experience side effects after receiving this vaccine is between 20.77% and 25.23%.</p>
+                                <p>$$\tag*{\(\blacksquare\)}$$</p>
+                              </div>
+                            </div>
+                          </div>
+
+                        <h2>Margin of Error</h2>
+                        <div class="definition">
+                            <h2 class="definition-header">Definition: Margin of Error</h2>
+                            <p>The <span class="blanked">margin of error</span> (\(E\)) represents the maximum expected difference between the true
+                                population parameter and the sample estimate. It quantifies the uncertainty of an
+                                estimate.
+                            </p>
+                        </div>
+
+                        <p>In election polling, results are often reported with a margin of error. For example, a poll may state that 48% of respondents plan to vote for a particular candidate, with a margin of error of \(\pm\)3%. This means the true percentage of voters supporting the candidate could reasonably be as low as 45% or as high as 51%. In interval form, this would be written as <span class="blanked">(45%, 51%)</span>.</p>
+
+                        <div class="definition">
+                            <h2 class="definition-header">Useful Formulas for Margin of Error and Sample Proportion</h2>
+                            <p>When a confidence interval is given in the form \((\text{lower bound}, \text{upper bound})\), the margin of error \(E\) can be found using the formula:</p>
+<p>\[E = \frac{\text{upper bound} - \text{lower bound}}{2}\]</p>
+<div class="notes-page-break"></div>
+<p>Similarly, the sample proportion \(\hat{p}\) can be estimated by averaging the endpoints of the interval:</p>
+<p>\[\hat{p} = \frac{\text{upper bound} + \text{lower bound}}{2}\]</p>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Writing Confidence
+                                Intervals in Multiple Formats</h2>
+                            <p>Rewrite the interval \( 0.256 &lt; p &lt; 0.324 \) in interval notation and margin of error format.</p>
+
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="inches" data-height="1.5in"></div>
+                            <div class="dontprint">
+                                <p>In interval notation, the confidence interval is written as:</p>
+                                <p>\((0.256, 0.324)\)</p>
+                                <p>To express this as a margin of error, calculate the midpoint and margin of error:</p>
+                                <p>\[
+                                    \text{Point Estimate: } \hat{p} = \frac{0.256 + 0.324}{2} = 0.29
+                                    \]</p>
+                                <p>\[
+                                    \text{Margin of Error: } E = \frac{0.324 - 0.256}{2} = 0.034
+                                    \]</p>
+                                <p>Thus, the confidence interval can also be written as:</p>
+                                <p>\[
+                                    \hat{p} \pm E = 0.29 \pm 0.034
+                                    \]</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>The point estimate is the midpoint of the interval:</p>
-                        <p>\[
-                            \hat{p} = \frac{0.637 + 0.767}{2} = 0.702
-                            \]</p>
-                        <p>The margin of error is half the width of the interval:</p>
-                        <p>\[
-                            E = \frac{0.767 - 0.637}{2} = 0.065
-                            \]</p>
-                        <p>Therefore, the interval can also be expressed as:</p>
-                        <p>\[
-                            0.702 \pm 0.065
-                            \]</p>
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Titanic Data</h2>
+                            <p>Use the Titanic dataset linked below to estimate the proportion of passengers who
+                                survived. Construct a 90% confidence interval for the proportion of people who survived the
+                                Titanic crash using the data below and write the interval in <strong>margin of error</strong> format.</p>
+                            <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed
+                                visually in a scrollable table by clicking the button below or by downloading the data
+                                here:
+                                <a href="../datasets/titanic_data.csv" download>Download Titanic Data</a>.
+                            </p>
+                            <button aria-describedby="titanicTableDescription"
+                                onclick="generateTable('../datasets/titanic_data.csv', 'Table: Titanic Passenger Data')">View
+                                Table of Titanic Data</button>
+                            <p id="titanicTableDescription" class="visually-hidden">This button loads and displays data
+                                from
+                                a CSV file with Titanic passenger information on this page.</p>
+                            <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
+                        
+                        <pre id="titanicData" style="display:none;">Survived,Sex
+No,male
+Yes,female
+No,female
+Yes,male
+Yes,male
+No,male
+Yes,female
+No,female
+Yes,male
+No,male
+No,female
+No,male
+Yes,female
+No,male
+No,female
+Yes,male
+Yes,male
+No,male
+Yes,female
+No,male
+Yes,female
+No,male
+Yes,male
+No,female
+Yes,male
+No,male
+Yes,female
+No,male
+Yes,male
+Yes,male
+No,male
+Yes,female
+Yes,male
+No,female</pre>
+                        <button onclick="copyToClipboard('titanicData')">Copy Data to Clipboard</button>
+
+                        <div class="solution">
+                            <h2 class="solution-header">Solution</h2>
+                            <div class="inches" data-height="2in"></div>
+                            <div class="dontprint">
+                                <p>Using the dataset, count the number of survivors (\(x\)) and the total number of
+                                    passengers
+                                    (\(n\)). Let \( \hat{p} = x/n \). Use technology to compute the confidence interval,
+                                    ensuring assumptions are met for inference.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Titanic Data</h2>
-                        <p>Use the Titanic dataset linked below to estimate the proportion of passengers who survived.
-                            Construct a 90% confidence interval for the proportion of people who survived the Titanic
-                            crash using the data below. Analyze whether the survival rate appears significantly
-                            different for certain groups based on the data.</p>
-                        <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed
-                            visually in a scrollable table by clicking the button below or by downloading the data here:
-                            <a href="../datasets/titanic_data.csv" download>Download Titanic Data</a>.</p>
-                        <button aria-describedby="titanicTableDescription"
-                            onclick="generateTable('../datasets/titanic_data.csv', 'Table: Titanic Passenger Data')">View
-                            Table of Titanic Data</button>
-                        <p id="titanicTableDescription" class="visually-hidden">This button loads and displays data from
-                            a CSV file with Titanic passenger information on this page.</p>
-                        <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
-                    </div>
-                    <pre id="titanicData" style="display:none;">Survived,Sex
-        No,male
-        Yes,female
-        No,female
-        Yes,male
-        Yes,male
-        No,male
-        Yes,female
-        No,female
-        Yes,male
-        No,male
-        No,female
-        No,male
-        Yes,female
-        No,male
-        No,female
-        Yes,male
-        Yes,male
-        No,male
-        Yes,female
-        No,male
-        Yes,female
-        No,male
-        Yes,male
-        No,female
-        Yes,male
-        No,male
-        Yes,female
-        No,male
-        Yes,male
-        Yes,male
-        No,male
-        Yes,female
-        Yes,male
-        No,female</pre>
-                    <button onclick="copyToClipboard('titanicData')">Copy Data to Clipboard</button>
+                    </section>
 
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>Using the dataset, count the number of survivors (\(x\)) and the total number of passengers
-                            (\(n\)). Let \( \hat{p} = x/n \). Use technology to compute the confidence interval,
-                            ensuring assumptions are met for inference.</p>
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
                     </div>
-
-                    <div>
-                        <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
-                        <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
-                    </div>
-
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
                 </div>
             </div>
         </main>
     </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>
