@@ -2,243 +2,330 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estimating a Population Mean</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../js/loadmathjax.js"></script>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estimating a Population Mean</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- Bootstrap CDN CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/main.min.css">
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-    <link rel="stylesheet" href="../css/style.css" />
+<!-- Optional Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<!-- Custom Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CSS Stylesheets Used in Course Content Pages -->
+<link rel="stylesheet" href="../css/main.min.css">
+<link rel="stylesheet" href="../css/style.css" />
 
 </head>
 
 <body class="content" role="document">
-    <div class="container-fluid">
-        <main>
-            <div class="row bottom-md">
-                <div class="col-sm-offset-1 col-xs-offset-1 col-xs-10">
-                    <h1>Estimating a Population Mean</h1>
-                    <p>In addition to estimating population proportions, inferential statistics also focuses on
-                        estimating population means. A population mean (\( \mu \)) is a central measure of a
-                        quantitative dataset, often unknown and estimated using sample data.</p>
+<div class="container-fluid">
+<main>
+<div class="row mb-4">
+<div class="col-10 offset-1 col-md-10 offset-md-1">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1" style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <h2>The Best Point Estimate for a Population Mean</h2>
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Best Point Estimate for the Mean</h2>
-                        <p>The best point estimate for a population mean (\( \mu \)) is the sample mean (\( \bar{x} \)).
-                            The sample mean provides the most unbiased estimate of the population mean based on sample
-                            data.</p>
-                    </div>
+        <!-- Home & About Buttons as Links -->
+        <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+        <a href="../1 Start Here/About This Course.html" class="btn btn-outline-secondary me-2">About</a>
+<a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print Lecture Blank Notes</a>
 
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Calculating the Best
-                            Point Estimate</h2>
-                        <p>A study collected pulse rates (beats per minute) from 10 randomly selected adults: 72, 75,
-                            68, 80, 77, 74, 70, 73, 78, and 76. What is the best point estimate for the population mean
-                            pulse rate?</p>
-                    </div>
+        <!-- Search Bar -->
+        <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search this page..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
 
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>To find the sample mean, calculate the sum of all pulse rates and divide by the total number
-                            of observations:</p>
-                        <p>\[
-                            \bar{x} = \frac{72 + 75 + 68 + 80 + 77 + 74 + 70 + 73 + 78 + 76}{10} = 74.3
-                            \]</p>
-                        <p>Thus, the best point estimate for the population mean is 74.3 beats per minute.</p>
-                    </div>
+        <!-- Theme Toggle Dropdown Button -->
+        <div class="dropdown">
+            <button id="theme-toggle" class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 0 8 1v14z"/>
+                </svg>
+                <span class="ms-2">Theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                <li><a class="dropdown-item" href="#" data-theme="light">
+                    <i class="bi bi-sun"></i> Light
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">
+                    <i class="bi bi-moon"></i> Dark
+                </a></li>
+                <li><a class="dropdown-item" href="#" data-theme="auto">
+                    <i class="bi bi-circle-half"></i> Auto
+                </a></li>
+            </ul>
+        </div>
 
-                    <h2>Confidence Intervals for Estimating the Population Mean</h2>
-                    <p>Confidence intervals for population means provide a range of values within which the true mean is
-                        likely to lie. These intervals are calculated using the sample mean, sample standard deviation
-                        (\( s \)), and the sample size (\( n \)).</p>
-
-                    <div class="definition">
-                        <h2 class="definition-header">Definition: Confidence Interval for a Mean</h2>
-                        <p>A confidence interval for the population mean is given by:</p>
-                        <p>\[
-                            \bar{x} \pm t^* \frac{s}{\sqrt{n}}
-                            \]</p>
-                        <p>Where:</p>
-                        <ul>
-                            <li>\( \bar{x} \): Sample mean</li>
-                            <li>\( t^* \): Critical value from the \( t \)-distribution based on the confidence level
-                            </li>
-                            <li>\( s \): Sample standard deviation</li>
-                            <li>\( n \): Sample size</li>
-                        </ul>
-                    </div>
-
-                    <div class="iframe-container">
-                        <iframe id="ciCalculatorMean" scrolling="no" title="Confidence Interval Calculator for Means"
-                            src="https://www.geogebra.org/material/iframe/id/sqbsgdkk/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
-                            width="1100px" height="651px" style="border:0px;">
-                        </iframe>
-                        <p class="visually-hidden" id="iframeDescription">Interactive calculator for confidence
-                            intervals of population means.</p>
-                        <button onclick="window.open('https://www.geogebra.org/material/iframe/id/sqbsgdkk', '_blank')"
-                            aria-describedby="iframeButtonDescription">Open in a New Tab</button>
-                        <p id="iframeButtonDescription" class="visually-hidden">Opens the calculator in a new tab.</p>
-                    </div>
-
-                    <h2>Examples: Confidence Intervals for a Mean</h2>
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Constructing a
-                            Confidence Interval</h2>
-                        <p>A random sample of 25 students recorded an average study time of 6.4 hours per week with a
-                            standard deviation of 1.2 hours. Construct a 95% confidence interval for the population mean
-                            study time.</p>
-                    </div>
-
-                    <div class="solution">
-                        <h2 class="solution-header">Solution</h2>
-                        <p>Using the formula for confidence intervals, identify the values:</p>
-                        <ul>
-                            <li>\( \bar{x} = 6.4 \)</li>
-                            <li>\( s = 1.2 \)</li>
-                            <li>\( n = 25 \)</li>
-                            <li>\( t^* = 2.064 \) (from the \( t \)-distribution table for 24 degrees of freedom at 95%
-                                confidence)</li>
-                        </ul>
-                        <p>The confidence interval is calculated as:</p>
-                        <p>\[
-                            \bar{x} \pm t^* \frac{s}{\sqrt{n}} = 6.4 \pm 2.064 \cdot \frac{1.2}{\sqrt{25}} = 6.4 \pm
-                            0.495
-                            \]</p>
-                        <p>Thus, the confidence interval is \([5.905, 6.895]\).</p>
-                    </div>
-
-
-                    <div class="example">
-                        <h2 class="example-header">Example <span class="example-number"></span>: Pulse Rate Data</h2>
-                        <p>A study measured the resting pulse rates (in beats per minute) of 30 males and 30 females.
-                            Use the pulse rate dataset linked below to construct a 95% confidence interval for the mean
-                            pulse rate for males and then for females. Compare the two intervals to determine if there
-                            is evidence of a significant difference between the two groups.</p>
-                        <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed
-                            visually in a scrollable table by clicking the button below or by downloading the data here:
-                            <a href="../datasets/pulse_rate_data.csv" download>Download Pulse Rate Data</a>.</p>
-                        <button aria-describedby="pulseRateTableDescription"
-                            onclick="generateTable('../datasets/pulse_rate_data.csv', 'Table: Pulse Rate Data')">View
-                            Table of Pulse Rate Data</button>
-                        <p id="pulseRateTableDescription" class="visually-hidden">This button loads and displays data
-                            from a CSV file with pulse rate information on this page.</p>
-                        <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
-
-                        <pre id="pulseRateData" style="display:none;">
-            Group,Rate
-            Male,72
-            Male,75
-            Male,70
-            Male,74
-            Male,76
-            Male,73
-            Male,77
-            Male,72
-            Male,78
-            Male,74
-            Male,75
-            Male,73
-            Male,76
-            Male,74
-            Male,71
-            Male,72
-            Male,73
-            Male,75
-            Male,76
-            Male,74
-            Male,73
-            Male,72
-            Male,74
-            Male,73
-            Male,72
-            Male,75
-            Male,76
-            Male,74
-            Male,73
-            Male,72
-            Female,80
-            Female,82
-            Female,78
-            Female,79
-            Female,81
-            Female,83
-            Female,82
-            Female,79
-            Female,84
-            Female,81
-            Female,80
-            Female,83
-            Female,81
-            Female,84
-            Female,79
-            Female,80
-            Female,81
-            Female,83
-            Female,82
-            Female,81
-            Female,80
-            Female,83
-            Female,81
-            Female,82
-            Female,84
-            Female,80
-            Female,79
-            Female,83
-            Female,81
-            Female,82
-                        </pre>
-                        <button onclick="copyToClipboard('pulseRateData')">Copy Data to Clipboard</button>
-
-                        <div class="solution">
-                            <h2 class="solution-header">Solution</h2>
-                            <p>1. For males:</p>
-                            <ul>
-                                <li>\( \bar{x}_{male} = 74.5 \)</li>
-                                <li>\( s_{male} = 2.1 \)</li>
-                                <li>\( n_{male} = 30 \)</li>
-                                <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at
-                                    95% confidence)</li>
-                            </ul>
-                            <p>The confidence interval is:</p>
-                            <p>\[
-                                \bar{x}_{male} \pm t^* \frac{s_{male}}{\sqrt{n_{male}}} = 74.5 \pm 2.045 \cdot
-                                \frac{2.1}{\sqrt{30}} = 74.5 \pm 0.785
-                                \]</p>
-                            <p>Confidence interval for males: \([73.715, 75.285]\).</p>
-                            <p>2. For females:</p>
-                            <ul>
-                                <li>\( \bar{x}_{female} = 81.5 \)</li>
-                                <li>\( s_{female} = 1.8 \)</li>
-                                <li>\( n_{female} = 30 \)</li>
-                                <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at
-                                    95% confidence)</li>
-                            </ul>
-                            <p>The confidence interval is:</p>
-                            <p>\[
-                                \bar{x}_{female} \pm t^* \frac{s_{female}}{\sqrt{n_{female}}} = 81.5 \pm 2.045 \cdot
-                                \frac{1.8}{\sqrt{30}} = 81.5 \pm 0.673
-                                \]</p>
-                            <p>Confidence interval for females: \([80.827, 82.173]\).</p>
-                            <p>The male and female intervals do not overlap, indicating a statistically significant
-                                difference in the mean pulse rates between the two groups. This suggests that males and
-                                females may have different resting pulse rates on average.</p>
-                        </div>
-                        <div>
-                            <button id="prevPage" class="navigation-link previous" role="button">Previous Page</button>
-                            <button id="nextPage" class="navigation-link next" role="button">Next Page</button>
-                        </div>
-
-                    </div>
-                </div>
-        </main>
     </div>
+</nav>
+</header>
+
+<section>
+    <h1>Estimating a Population Mean</h1>
+    <p>In addition to estimating population proportions, inferential statistics also focuses on
+        estimating population means. A population mean (\( \mu \)) is a central measure of a
+        quantitative dataset, often unknown and estimated using sample data.</p>
+
+    <h2>The Best Point Estimate for a Population Mean</h2>
+    <div class="definition">
+        <h2 class="definition-header">Definition: Best Point Estimate for the Population Mean</h2>
+        <p>The best point estimate for a population mean (\( \mu \)) is the <span class="blanked">sample mean</span> (\( \bar{x} \)).
+            The sample mean provides the most unbiased estimate of the population mean based on sample
+            data. This means that sample means (\( \bar{x} \)) target the true population mean (\( \mu \)) as more samples are collected.</p>
+    </div>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Calculating the Best
+            Point Estimate</h2>
+        <p>A study collected pulse rates (beats per minute) from 10 randomly selected adults: 72, 75,
+            68, 80, 77, 74, 70, 73, 78, and 76. What is the best point estimate for the population mean
+            pulse rate?</p>
+
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <div class="inches" data-height="1in"></div>
+        <div class="dontprint">
+            <p>To find the sample mean, calculate the sum of all pulse rates and divide by the total number
+                of observations:</p>
+            <p>\[
+                \bar{x} = \frac{72 + 75 + 68 + 80 + 77 + 74 + 70 + 73 + 78 + 76}{10} = 74.3
+                \]</p>
+            <p>Thus, the best point estimate for the population mean is 74.3 beats per minute.</p>
+        </div>
+    </div>
+</div>
+
+    <h2>Confidence Intervals for Estimating the Population Mean</h2>
+    <p>Confidence intervals for population means provide a range of values within which the true mean is
+        likely to lie. These intervals are calculated using the sample mean (\( \bar{x} \)), sample standard deviation
+        (\( s \)), and the sample size (\( n \)) as well as technology (such as GeoGebra) to find the upper and lower bounds.</p>
+
+        <div class="notes-page-break"></div>
+
+        <h3>Interactive Confidence Interval Tool</h3>
+        <figure>
+            <img src="../images/confidenceintervalGeoGebraApp2.jpg"
+                alt="Picture of the GeoGebra Confidence Interval calculator application"
+                aria-describedby="confidenceGeoGebraApp">
+            <figcaption id="confidenceGeoGebraApp" class="visually-hidden">
+                an image of the confidence interval GeoGebra applet.
+            </figcaption>
+        </figure>
+        <div class="dontprint">
+            <div class="iframe-container">
+                <iframe id="ciCalculator" scrolling="no" title="Confidence Interval and Hypothesis Test Calculator"
+                src="https://www.geogebra.org/material/iframe/id/yqvx78n5/width/1100/height/651/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                </iframe>
+                <p class="visually-hidden" id="ciCalculator">Interactive calculator for confidence
+                    intervals and hypothesis testing.</p>
+                <button
+                    onclick="window.open('https://www.geogebra.org/material/iframe/id/sqbsgdkk', '_blank')"
+                    aria-describedby="iframeButtonDescription">Open in a New Tab</button>
+                <p id="iframeButtonDescription" class="visually-hidden">Opens the calculator in a new tab.
+                </p>
+            </div>
+        </div>
+
+    <div class="definition">
+        <h2 class="definition-header">Definition: Confidence Interval Representations for Estimating Population Mean</h2>
+        <p>A confidence interval estimate for the population mean can be represented in three different ways</p>
+        <p>\[(\text{lower bound} , \text{upper bound})\]</p>
+        <p>\[\text{lower bound} &lt; \mu &lt; \text{upper bound}\]</p>
+        <p>\[\bar{x} \pm E \]</p>
+        <p>Where:</p>
+        <ul>
+            <li>\( \bar{x} \): Sample mean</li>
+            <li>\( E \): Margin of Error</li>
+        </ul>
+        <p><strong>Note:</strong> Margin of Error \(E\) and sample mean \(\bar{x}\) can be found with the following formulas if you are given the confidence interval:</p>
+        <ul>
+            <li>\( \bar{x} = \cfrac{\text{upper bound}+\text{lower bound}}{2} \)</li>
+            <li>\( E = \cfrac{\text{upper bound}-\text{lower bound}}{2}\)</li>
+        </ul>
+    </div>
+
+<div class="notes-page-break"></div>
+
+    <h2>Examples: Confidence Intervals for a Mean</h2>
+<div class="example">
+    <h2 class="example-header">Example <span class="example-number"></span>: Confidence Interval for Mean Study Time</h2>
+    <p>A random sample of 25 students recorded an average study time of 6.4 hours per week with a standard deviation of 1.2 hours. Use this information to answer the following questions:</p>
+    <ol class="list-a">
+        <li>Find the best point estimate for the mean study time.</li>
+        <li>Find a 95% confidence interval estimate for the mean study time.</li>
+        <li>Interpret the confidence interval found in part (b).</li>
+        <li>Would it be reasonable to claim that the true population mean study time is 7.5 hours per week? Use the confidence interval from part (b) to justify the answer.</li>
+    </ol>
+
+    <div class="solution">
+        <h2 class="solution-header">Solution</h2>
+        <div class="inches" data-height="2in"></div>
+        <div class="dontprint">
+            <p><strong>Part (a)</strong>: The best point estimate for the mean study time is the sample mean, which is:</p>
+            <p>\( \bar{x} = 6.4 \) hours</p>
+            <p><strong>Part (b)</strong>: Using the GeoGebra Confidence Interval and Hypothesis Test Calculator, the 95% confidence interval for the mean study time is:</p>
+            <p>\( 5.905 , 6.895 \) hours (rounded to three decimal places)</p>
+            <p><strong>Part (c)</strong>: Interpretation:</p>
+            <p>We are 95% confident that the interval from 5.9 hours to 6.9 hours actually contains the true population mean time for students studying in a week.</p>
+            <p><strong>Part (d)</strong>: Since 7.5 hours is not within the confidence interval from part (b), it would not be reasonable to claim that the true population mean study time is 7.5 hours per week. The interval suggests that the true mean is likely between 5.9 and 6.9 hours.</p>
+        </div>
+    </div>
+</div>
+
+<div class="notes-page-break"></div>
+
+    <div class="example">
+        <h2 class="example-header">Example <span class="example-number"></span>: Pulse Rate Data</h2>
+        <p>A study measured the resting pulse rates (in beats per minute) of 30 males and 30 females.
+        Use the pulse rate dataset linked below to construct a 95% confidence interval for the mean
+        pulse rate for males and then for females. Write the confidence intervals for each in Margin of Error format \( \bar{x} \pm E \).Then compare the two intervals to determine if there is evidence of a significant difference between the two groups.</p>
+        <p>Because of the amount of data, this dataset is omitted from viewing but can be viewed
+            visually in a scrollable table by clicking the button below or by downloading the data here:
+            <a href="../datasets/pulse_rate_data.csv" download>Download Pulse Rate Data</a>.</p>
+        <button aria-describedby="pulseRateTableDescription"
+            onclick="generateTable('../datasets/pulse_rate_data.csv', 'Table: Pulse Rate Data')">View
+            Table of Pulse Rate Data</button>
+        <p id="pulseRateTableDescription" class="visually-hidden">This button loads and displays data
+            from a CSV file with pulse rate information on this page.</p>
+        <div id="tableContainer" class="scrollable-wrapper" style="display:none;"></div>
+
+        <pre id="pulseRateData" style="display:none;">
+Group,Rate
+Male,72
+Male,75
+Male,70
+Male,74
+Male,76
+Male,73
+Male,77
+Male,72
+Male,78
+Male,74
+Male,75
+Male,73
+Male,76
+Male,74
+Male,71
+Male,72
+Male,73
+Male,75
+Male,76
+Male,74
+Male,73
+Male,72
+Male,74
+Male,73
+Male,72
+Male,75
+Male,76
+Male,74
+Male,73
+Male,72
+Female,80
+Female,82
+Female,78
+Female,79
+Female,81
+Female,83
+Female,82
+Female,79
+Female,84
+Female,81
+Female,80
+Female,83
+Female,81
+Female,84
+Female,79
+Female,80
+Female,81
+Female,83
+Female,82
+Female,81
+Female,80
+Female,83
+Female,81
+Female,82
+Female,84
+Female,80
+Female,79
+Female,83
+Female,81
+Female,82
+        </pre>
+        <button onclick="copyToClipboard('pulseRateData')">Copy Data to Clipboard</button>
+
+        <div class="solution">
+            <h2 class="solution-header">Solution</h2>
+            <div class="inches" data-height="2in"></div>
+            <div class="dontprint">
+                <p>1. For males:</p>
+                <ul>
+                    <li>\( \bar{x}_{male} = 74.5 \)</li>
+                    <li>\( s_{male} = 2.1 \)</li>
+                    <li>\( n_{male} = 30 \)</li>
+                    <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at
+                        95% confidence)</li>
+                </ul>
+                <p>The confidence interval is:</p>
+                <p>\[
+                    \bar{x}_{male} \pm t^* \frac{s_{male}}{\sqrt{n_{male}}} = 74.5 \pm 2.045 \cdot
+                    \frac{2.1}{\sqrt{30}} = 74.5 \pm 0.785
+                    \]</p>
+                <p>Confidence interval for males: \([73.715, 75.285]\).</p>
+                <p>2. For females:</p>
+                <ul>
+                    <li>\( \bar{x}_{female} = 81.5 \)</li>
+                    <li>\( s_{female} = 1.8 \)</li>
+                    <li>\( n_{female} = 30 \)</li>
+                    <li>\( t^* = 2.045 \) (from the \( t \)-distribution table for 29 degrees of freedom at
+                        95% confidence)</li>
+                </ul>
+                <p>The confidence interval is:</p>
+                <p>\[
+                    \bar{x}_{female} \pm t^* \frac{s_{female}}{\sqrt{n_{female}}} = 81.5 \pm 2.045 \cdot
+                    \frac{1.8}{\sqrt{30}} = 81.5 \pm 0.673
+                    \]</p>
+                <p>Confidence interval for females: \([80.827, 82.173]\).</p>
+                <p>The confidence interval for males in margin of error format is:</p>
+<p>\( 74.5 \pm 0.785 \)</p>
+
+<p>The confidence interval for females in margin of error format is:</p>
+<p>\( 81.5 \pm 0.673 \)</p>
+                <p>The male and female intervals do not overlap, indicating a statistically significant
+                    difference in the mean pulse rates between the two groups. This suggests that males and
+                    females may have different resting pulse rates on average.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="d-flex justify-content-between mt-4 no-print-nav">
+<button id="prevPage" class="btn btn-outline-primary navigation-link previous" role="button">Previous Page</button>
+<button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next Page</button>
+</div>
+<button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+</div>
+</div>
+</main>
+</div>
+<!-- jQuery local fallback (Bootstrap Dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap CDN JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Course Scripts -->
+<script src="../js/loadmathjax.js"></script>
 </body>
 
 </html>
