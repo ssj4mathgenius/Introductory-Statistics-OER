@@ -295,6 +295,12 @@ table {
     margin: 20px 0;
 }
 
+/* Remove first-row header color in row-header-only tables */
+table.row-header-only thead th {
+    background-color: transparent;
+    color: inherit;
+  }
+
 caption {
     caption-side: top;
     font-size: 1.5em;
@@ -544,7 +550,7 @@ section:not(#content section) {
     }
 
     body {
-        font-size: 95%;
+        font-size: 90%;
         background-color: var(--background-color) !important;
         color: var(--text-color) !important;
     }
