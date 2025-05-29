@@ -42,6 +42,8 @@
         border-radius: 5px;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         min-width: 280px;
+        padding-bottom: 10px;
+        margin-bottom: 14px;
       }
 
       .cheat-item h3 {
@@ -105,27 +107,497 @@
       .cheat-table td {
         border-top: 1px solid #ccc;
       }
+
+      .item-explanation {
+        position: relative;
+        margin-top: 10px;
+        padding: 10px 12px 10px 40px;
+        background-color: #fffbe6;
+        /* light yellow background */
+        border-left: 5px solid #f1c40f;
+        /* golden border */
+        color: #4d4d1f;
+        /* dark yellow-brown text */
+        font-style: normal;
+        font-size: 0.95em;
+        border-radius: 4px;
+      }
+
+      /* Add the lightbulb icon using a pseudo-element */
+      .item-explanation::before {
+        content: "💡";
+        position: absolute;
+        left: 12px;
+        top: 10px;
+        font-size: 1.2em;
+      }
+
+      .item-explanation code {
+        background-color: #fdf3c1; /* soft yellow backdrop */
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: Consolas, monospace;
+        font-size: 0.95em;
+      }
+
+      /* Hide tips by default */
+      .item-explanation.hidden {
+        display: none;
+      }
+
+      .toggle-tip {
+        background-color: #f1c40f;
+        border: none;
+        padding: 6px 12px;
+        margin: 8px 0;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 4px;
+        color: #4d4d1f;
+      }
+
+      /* Show tips in print mode */
+      @media print {
+        .item-explanation {
+          display: block !important;
+        }
+
+        .toggle-tip {
+          display: none;
+        }
+      }
+
+      .backtick {
+        font-family: Consolas, monospace;
+        background-color: transparent;
+        padding: 0 2px;
+      }
+
+      .backtick::after {
+        content: "`";
+        font-family: Consolas, monospace;
+      }
+
+      .cheat-item code {
+        display: block;
+        margin-bottom: 4px; /* reduce space below code */
+      }
+
+      .tip-container {
+        margin-top: 4px; /* reduce space above the button */
+      }
+
+      .toggle-tip {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     </style>
   </head>
+
   <body>
     <main>
       <h1>Code used in the "Common Control"</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-        odio. Praesent libero. Sed cursus ante dapibus diam.
+        Below are commonly used code snippets for use in the Common Control
+        section of MOM.
       </p>
       <div class="section-container">
         <div class="cheat-item">
-          <h3>Random Integer</h3>
-          <code>$a = rand(1,10);</code>
-        </div>
-        <div class="cheat-item">
-          <h3>Array Assignment</h3>
-          <code>$a,$b = diffrands(1,5,2);</code>
-        </div>
-        <div class="cheat-item">
           <h3>Conditional Assignment</h3>
           <code>$x = 4 if ($a == 2);</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This assigns the value <code>4</code> to <code>$x</code> only if
+                the condition <code>$a == 2</code> is true. In the Common
+                Control environment, this shorthand syntax works for simple
+                one-line conditionals.
+              </p>
+              <p>
+                For more complex logic, you can use a full
+                <code>if...else</code> structure like this:
+              </p>
+              <code>
+                if ($a &gt; 10) {<br />
+                &nbsp;&nbsp;$x = 100;<br />
+                } else {<br />
+                &nbsp;&nbsp;$x = 0;<br />
+                }
+              </code>
+              <p>
+                This checks whether <code>$a</code> is greater than 10 and
+                assigns a value to <code>$x</code> accordingly.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Declare answer types for multipart</h3>
+          <code>$anstypes = array("number", "choices");</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                You can declare different input types for each part of a
+                multipart problem using strings like
+                <code>"number"</code>, <code>"choices"</code>,
+                <code>"multans"</code> (multiple answer checkboxes),
+                <code>"calculated"</code> (MathQuill input),
+                <code>"string"</code>, or <code>"essay"</code> Each entry in the
+                array corresponds to one part of the question.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Assign weights to multipart parts</h3>
+          <code>$answeights = array(0.5, 0.5);</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This controls how much each part of a multipart question
+                contributes to the total score. For example,
+                <code>$answeights = array(0.5, 0.5);</code> means the first part
+                will be worth 50% of the points and the second 50%. You can also
+                assign different weights, like
+                <code>array(0.4, 0.4, 0.2)</code> — here, the first two parts
+                are each worth 40% and the third is worth 20%.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Declare answer value(s)</h3>
+          <code>$answer[0] = "5";</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                If the problem has only one part or answer box, you can simply
+                use
+                <code>$answer = "5";</code>. For multipart problems, use indexed
+                answers like <code>$answer[0]</code> for the first part,
+                <code>$answer[1]</code> for the second part, and so on. Each
+                value should match the corresponding
+                <code>$anstypes</code> definition.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Declare choices for a question</h3>
+          <code>$choices[1] = array("Yes", "No");</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                The <code>$choices</code> array defines the answer options for a
+                multiple-choice question. In a multipart problem, each index
+                corresponds to one part: for example,
+                <code>$choices[0]</code> provides the choices for
+                <code>$answerbox[0]</code>, while
+                <code>$choices[2]</code> defines the choices for the third part
+                of the problem (<code>$answerbox[2]</code>). Be sure each
+                <code>$choices[x]</code> array matches the corresponding
+                <code>$anstypes[x]</code> as <code>"choices"</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Control formatting of answer display</h3>
+          <code>$displayformat = "decimal";</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                The <code>$displayformat</code> setting controls how the
+                student's answer is shown in the answer box. Common options
+                include:
+              </p>
+              <ul>
+                <li>
+                  <code>"decimal"</code> – Displays the input as a plain decimal
+                  number (default for numerical questions).
+                </li>
+                <li>
+                  <code>"mixednumber"</code> – Allows or requires a mixed number
+                  format like 1 1/2.
+                </li>
+                <li>
+                  <code>"fraction"</code> – Displays a proper or improper
+                  fraction like 3/4 or 7/5.
+                </li>
+                <li>
+                  <code>"scinot"</code> – Displays numbers in scientific
+                  notation (e.g., 3.2e5).
+                </li>
+                <li>
+                  <code>"sigfig"</code> – Enforces a specific number of
+                  significant figures (requires <code>$sigfigs</code> to be
+                  set).
+                </li>
+                <li>
+                  <code>"logic"</code> – For logical expressions (true/false
+                  logic).
+                </li>
+                <li>
+                  <code>"list"</code> – For list-style answers (e.g., entering
+                  multiple numbers separated by commas).
+                </li>
+                <li>
+                  <code>"string"</code> – For free-response string input (used
+                  with <code>$anstypes = "string"</code>).
+                </li>
+                <li>
+                  <code>"typein"</code> – A basic text box (used with
+                  <code>"string"</code> type).
+                </li>
+                <li>
+                  <code>"noinput"</code> – Hides the answer box entirely (used
+                  for display-only questions).
+                </li>
+              </ul>
+              <p>
+                Choose the format that best matches your question's expectations
+                and grading method.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Require decimal precision</h3>
+          <code>$reqdecimals = 2;</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This setting enforces that a student’s answer is entered with a
+                specific number of decimal places. For example,
+                <code>$reqdecimals = 2;</code> means all answers must have
+                exactly 2 decimal places. To require precision on just one part
+                of a multipart question, use an index like
+                <code>$reqdecimals[1] = 3;</code> to enforce 3 decimals on only
+                the second part.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Set absolute tolerance</h3>
+          <code>$abstolerance = 0.01;</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This sets how far a student's numerical answer can deviate from
+                the correct answer and still be marked correct. For example,
+                <code>$abstolerance = 0.01;</code> allows answers within ±0.01
+                of the correct value. For multipart questions, you can apply it
+                to just one part using an index like
+                <code>$abstolerance[0] = 0.05;</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Set relative tolerance</h3>
+          <code>$reltolerance = 0.001;</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This sets the tolerance as a percentage of the correct answer,
+                rather than a fixed amount. For example,
+                <code>$reltolerance = 0.001;</code> allows answers within 0.1%
+                of the correct value. To apply this to only one part of a
+                multipart question, use an index like
+                <code>$reltolerance[2] = 0.01;</code> to allow a 1% margin on
+                the third part.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Load custom macro library</h3>
+          <code>loadlibrary("stats");</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                The <code>loadlibrary()</code> function allows you to bring in
+                additional macros and functions that expand what you can do in
+                the Common Control section. You can load multiple libraries at
+                once by separating them with commas, like
+                <code>loadlibrary("stats,fractions");</code>.
+              </p>
+              <p>
+                For example, the <code>"stats"</code> library gives you access
+                to functions such as:
+              </p>
+              <ul>
+                <li>
+                  <code>mean(array)</code> – Computes the mean of a data set
+                </li>
+                <li>
+                  <code>stdev(array)</code> – Computes the standard deviation
+                </li>
+                <li><code>percentile(array, p)</code> – Finds a percentile</li>
+                <li>
+                  <code>histogram(array,...)</code> – Generates histogram
+                  display data
+                </li>
+                <li>
+                  <code>linreg(xarray, yarray)</code> – Performs linear
+                  regression
+                </li>
+              </ul>
+              <p>
+                Another useful library is <code>"fractions"</code>, which
+                enables fraction-specific operations and representations (like
+                handling reduced forms). Load only the libraries you need to
+                keep your problem lightweight and avoid unnecessary function
+                conflicts.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Generate random int from range</h3>
+          <code>$x = rand(1, 10);</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This generates a random integer value between 1 and 10,
+                inclusive:
+                <code>$x = rand(1, 10);</code>
+              </p>
+              <p>
+                To generate a random number between 1 and 10 to one decimal
+                place, you can do:
+                <code>$x = rand(10, 100) / 10;</code><br />
+                This generates a random integer from 10 to 100 and then divides
+                by 10 to produce values like 1.2, 7.5, or 9.8.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Generate random float from range</h3>
+          <code>$r = rand(100, 200)/100;</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This technique is useful when you want to generate decimal
+                values (floats) with consistent formatting for use in real-world
+                contexts like prices, measurements, probabilities, or
+                statistical data. For example,
+                <code>$r = rand(100, 200)/100;</code> produces values between
+                1.00 and 2.00, which are commonly needed in statistics,
+                economics, and applied math problems.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Choose random decimal from array</h3>
+          <code
+            >$alpha = $alphas[rand(0,2)]; // $alphas = array(0.01, 0.05,
+            0.10);</code
+          >
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This code selects a random value from the
+                <code>$alphas</code> array. The expression
+                <code>rand(0,2)</code> generates a random index (0, 1, or 2),
+                and <code>$alphas[...]</code> retrieves the corresponding value
+                — in this case, one of <code>0.01</code>, <code>0.05</code>, or
+                <code>0.10</code>.
+              </p>
+              <p>
+                To randomly select multiple values from an array, you can
+                shuffle the array and then pick the first few elements. For
+                example:
+                <code>
+                  $alphas = array(0.01, 0.05, 0.10, 0.15);<br />
+                  shuffle($alphas);<br />
+                  $alpha1 = $alphas[0];<br />
+                  $alpha2 = $alphas[1];
+                </code>
+                This randomly selects two distinct alpha values from the
+                original list.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Create array of random values</h3>
+          <code>$a,$b = diffrands(1,10,2);</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This code uses <code>diffrands(1,10,2)</code> to generate two
+                different random integers between 1 and 10. The values are
+                stored in <code>$a</code> and <code>$b</code>. This is useful
+                when you need multiple values that are guaranteed to be
+                distinct.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cheat-item">
+          <h3>Round variable $r to decimal places</h3>
+          <code>$z = round($r, 2);</code>
+          <div class="tip-container">
+            <button class="toggle-tip" onclick="toggleTip(this)">
+              Show Usage Tip
+            </button>
+            <div class="item-explanation hidden">
+              <p>
+                This code rounds the value of <code>$r</code> to 2 decimal
+                places and stores the result in <code>$z</code>. You can also
+                use rounding directly in the answer declaration, such as
+                <code>$answer = round($r, 2);</code> for a single-part problem,
+                or <code>$answer[0] = round($r, 3);</code> to round to 3 decimal
+                places in a multipart problem.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -152,8 +624,8 @@
       <h1>Code used anywhere in MOM</h1>
       <p>
         The following symbols are available to use in most parts of MyOpenMath
-        by wrapping them in backtick (&#96;) marks. For more examples and full
-        syntax details, please visit
+        by wrapping them in backtick (<span class="backtick"></span>) marks. For
+        more examples and full syntax details, please visit
         <a
           href="https://asciimath.org/"
           target="_blank"
@@ -208,123 +680,276 @@
         </div>
 
         <div class="cheat-item">
-  <h2>Relations</h2>
-  <div class="cheat-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>See</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>=</td><td>`=`</td></tr>
-        <tr><td>!=</td><td>`!=`</td></tr>
-        <tr><td>&lt;</td><td>`<`</td></tr>
-        <tr><td>&lt;=</td><td>`<=`</td></tr>
-        <tr><td>&gt;</td><td>`>`</td></tr>
-        <tr><td>&gt;=</td><td>`>=`</td></tr>
-        <tr><td>in</td><td>`in`</td></tr>
-        <tr><td>notin</td><td>`notin`</td></tr>
-        <tr><td>subset</td><td>`subset`</td></tr>
-        <tr><td>supe</td><td>`supe`</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+          <h2>Relations</h2>
+          <div class="cheat-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>See</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>=</td>
+                  <td>`=`</td>
+                </tr>
+                <tr>
+                  <td>!=</td>
+                  <td>`!=`</td>
+                </tr>
+                <tr>
+                  <td>&lt;</td>
+                  <td>`<`< /td></td>
+                </tr>
 
+                <tr>
+                  <td>&lt;=</td>
+                  <td>`<=`< /td></td>
+                </tr>
 
-        <div class="cheat-item">
-  <h2>Calculus</h2>
-  <div class="cheat-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>See</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>int</td><td>`int`</td></tr>
-        <tr><td>int_a^b</td><td>`int_a^b`</td></tr>
-        <tr><td>sum</td><td>`sum`</td></tr>
-        <tr><td>sum_(i=1)^n</td><td>`sum_(i=1)^n`</td></tr>
-        <tr><td>lim_(x->0)</td><td>`lim_(x->0)`</td></tr>
-        <tr><td>del</td><td>`del`</td></tr>
-        <tr><td>grad</td><td>`grad`</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-
-        <div class="cheat-item">
-  <h2>Symbols</h2>
-  <div class="cheat-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>See</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>oo</td><td>`oo`</td></tr>
-        <tr><td>pi</td><td>`pi`</td></tr>
-        <tr><td>theta</td><td>`theta`</td></tr>
-        <tr><td>phi</td><td>`phi`</td></tr>
-        <tr><td>sigma</td><td>`sigma`</td></tr>
-        <tr><td>Delta</td><td>`Delta`</td></tr>
-        <tr><td>Gamma</td><td>`Gamma`</td></tr>
-        <tr><td>lambda</td><td>`lambda`</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+                <tr>
+                  <td>&gt;</td>
+                  <td>`>`</td>
+                </tr>
+                <tr>
+                  <td>&gt;=</td>
+                  <td>`>=`</td>
+                </tr>
+                <tr>
+                  <td>in</td>
+                  <td>`in`</td>
+                </tr>
+                <tr>
+                  <td>notin</td>
+                  <td>`notin`</td>
+                </tr>
+                <tr>
+                  <td>subset</td>
+                  <td>`subset`</td>
+                </tr>
+                <tr>
+                  <td>supe</td>
+                  <td>`supe`</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         <div class="cheat-item">
-  <h2>Greek Letters</h2>
-  <div class="cheat-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>See</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>alpha</td><td>`alpha`</td></tr>
-        <tr><td>beta</td><td>`beta`</td></tr>
-        <tr><td>gamma</td><td>`gamma`</td></tr>
-        <tr><td>delta</td><td>`delta`</td></tr>
-        <tr><td>epsilon</td><td>`epsilon`</td></tr>
-        <tr><td>zeta</td><td>`zeta`</td></tr>
-        <tr><td>eta</td><td>`eta`</td></tr>
-        <tr><td>theta</td><td>`theta`</td></tr>
-        <tr><td>iota</td><td>`iota`</td></tr>
-        <tr><td>kappa</td><td>`kappa`</td></tr>
-        <tr><td>lambda</td><td>`lambda`</td></tr>
-        <tr><td>mu</td><td>`mu`</td></tr>
-        <tr><td>nu</td><td>`nu`</td></tr>
-        <tr><td>xi</td><td>`xi`</td></tr>
-        <tr><td>Xi</td><td>`Xi`</td></tr>
-        <tr><td>pi</td><td>`pi`</td></tr>
-        <tr><td>rho</td><td>`rho`</td></tr>
-        <tr><td>sigma</td><td>`sigma`</td></tr>
-        <tr><td>tau</td><td>`tau`</td></tr>
-        <tr><td>upsilon</td><td>`upsilon`</td></tr>
-        <tr><td>phi</td><td>`phi`</td></tr>
-        <tr><td>chi</td><td>`chi`</td></tr>
-        <tr><td>psi</td><td>`psi`</td></tr>
-        <tr><td>omega</td><td>`omega`</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+          <h2>Calculus</h2>
+          <div class="cheat-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>See</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>int</td>
+                  <td>`int`</td>
+                </tr>
+                <tr>
+                  <td>int_a^b</td>
+                  <td>`int_a^b`</td>
+                </tr>
+                <tr>
+                  <td>sum</td>
+                  <td>`sum`</td>
+                </tr>
+                <tr>
+                  <td>sum_(i=1)^n</td>
+                  <td>`sum_(i=1)^n`</td>
+                </tr>
+                <tr>
+                  <td>lim_(x->0)</td>
+                  <td>`lim_(x->0)`</td>
+                </tr>
+                <tr>
+                  <td>del</td>
+                  <td>`del`</td>
+                </tr>
+                <tr>
+                  <td>grad</td>
+                  <td>`grad`</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
+        <div class="cheat-item">
+          <h2>Symbols</h2>
+          <div class="cheat-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>See</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>oo</td>
+                  <td>`oo`</td>
+                </tr>
+                <tr>
+                  <td>pi</td>
+                  <td>`pi`</td>
+                </tr>
+                <tr>
+                  <td>theta</td>
+                  <td>`theta`</td>
+                </tr>
+                <tr>
+                  <td>phi</td>
+                  <td>`phi`</td>
+                </tr>
+                <tr>
+                  <td>sigma</td>
+                  <td>`sigma`</td>
+                </tr>
+                <tr>
+                  <td>Delta</td>
+                  <td>`Delta`</td>
+                </tr>
+                <tr>
+                  <td>Gamma</td>
+                  <td>`Gamma`</td>
+                </tr>
+                <tr>
+                  <td>lambda</td>
+                  <td>`lambda`</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="cheat-item">
+          <h2>Greek Letters</h2>
+          <div class="cheat-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>See</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>alpha</td>
+                  <td>`alpha`</td>
+                </tr>
+                <tr>
+                  <td>beta</td>
+                  <td>`beta`</td>
+                </tr>
+                <tr>
+                  <td>gamma</td>
+                  <td>`gamma`</td>
+                </tr>
+                <tr>
+                  <td>delta</td>
+                  <td>`delta`</td>
+                </tr>
+                <tr>
+                  <td>epsilon</td>
+                  <td>`epsilon`</td>
+                </tr>
+                <tr>
+                  <td>zeta</td>
+                  <td>`zeta`</td>
+                </tr>
+                <tr>
+                  <td>eta</td>
+                  <td>`eta`</td>
+                </tr>
+                <tr>
+                  <td>theta</td>
+                  <td>`theta`</td>
+                </tr>
+                <tr>
+                  <td>iota</td>
+                  <td>`iota`</td>
+                </tr>
+                <tr>
+                  <td>kappa</td>
+                  <td>`kappa`</td>
+                </tr>
+                <tr>
+                  <td>lambda</td>
+                  <td>`lambda`</td>
+                </tr>
+                <tr>
+                  <td>mu</td>
+                  <td>`mu`</td>
+                </tr>
+                <tr>
+                  <td>nu</td>
+                  <td>`nu`</td>
+                </tr>
+                <tr>
+                  <td>xi</td>
+                  <td>`xi`</td>
+                </tr>
+                <tr>
+                  <td>Xi</td>
+                  <td>`Xi`</td>
+                </tr>
+                <tr>
+                  <td>pi</td>
+                  <td>`pi`</td>
+                </tr>
+                <tr>
+                  <td>rho</td>
+                  <td>`rho`</td>
+                </tr>
+                <tr>
+                  <td>sigma</td>
+                  <td>`sigma`</td>
+                </tr>
+                <tr>
+                  <td>tau</td>
+                  <td>`tau`</td>
+                </tr>
+                <tr>
+                  <td>upsilon</td>
+                  <td>`upsilon`</td>
+                </tr>
+                <tr>
+                  <td>phi</td>
+                  <td>`phi`</td>
+                </tr>
+                <tr>
+                  <td>chi</td>
+                  <td>`chi`</td>
+                </tr>
+                <tr>
+                  <td>psi</td>
+                  <td>`psi`</td>
+                </tr>
+                <tr>
+                  <td>omega</td>
+                  <td>`omega`</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
     <script src="../../js/ASCIIMathML.js"></script>
+    <script>
+      function toggleTip(button) {
+        const tip = button.nextElementSibling;
+        const isHidden = tip.classList.toggle("hidden");
+        button.textContent = isHidden ? "Show Usage Tip" : "Hide Usage Tip";
+      }
+    </script>
   </body>
 </html>
