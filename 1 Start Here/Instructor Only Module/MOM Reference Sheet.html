@@ -619,6 +619,47 @@
           <h3>Hint Location</h3>
           <code>&lt;!-- &lt;p&gt;$hintloc&lt;/p&gt; --&gt;</code>
         </div>
+        <div class="cheat-item">
+  <h3>Apply Custom CSS Styling from Another Problem</h3>
+  <code>// Common Control<br>includecodefrom(1610504);</code>
+  <code>// Top of Question Text<br>$css</code>
+
+  <div class="tip-container">
+    <button class="toggle-tip" onclick="toggleTip(this)">Show Usage Tip</button>
+    <div class="item-explanation hidden">
+      <p>
+        <code>includecodefrom(1610504)</code> pulls in the Common Control code from problem ID 1610504, which defines a variable called <code>$css</code>. This variable contains embedded CSS styling for custom classes you can use inside the Question Text section, such as:
+      </p>
+      <ul>
+        <li><code>.problem-mom</code> – for boxed problem containers</li>
+        <li><code>.note-mom</code> – for highlighted instructions or notes</li>
+        <li><code>.alist-mom</code> – for styled answer lists</li>
+        <li><code>.redtext-mom</code> – for emphasized red warning text</li>
+      </ul>
+      <p>
+        In the <strong>Question Text</strong> section, you must place <code>$css</code> as the <strong>very first line</strong> — it should appear alone, with <strong>no HTML tags around it</strong>. This is required for the styles to load properly.
+      </p>
+      <p>Here’s an example of how your Question Text might look:</p>
+
+<code>
+$css<br>
+&lt;div class="problem-mom"&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Solve the equation: <code>`$expr`</code>&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Answer: <code>`$var =`</code> $answerbox&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;p class="redtext-mom"&gt;(separate answers with a comma as necessary)&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;div class="note-mom"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Write your answers as a list of integers or reduced fractions, with your answers separated by a comma as necessary. For example, if you get <code>`4`</code> and <code>`-2/3`</code> as your answers, then enter <code>`4,-2/3`</code> in the box.<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/div&gt;
+</code>
+
+      <p>
+        These styles help create consistency and visual polish across custom MyOpenMath problems.
+      </p>
+    </div>
+  </div>
+</div>
+
       </div>
 
       <h1>Code used anywhere in MOM</h1>
