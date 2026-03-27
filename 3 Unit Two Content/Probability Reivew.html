@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability Review</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CDN CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Optional Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets Used in Course Content Pages -->
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body class="content" role="document">
+    <div class="container-fluid">
+        <main>
+            <div class="row mb-4">
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <header>
+                        <nav class="navbar navbar-expand-lg navbar-light px-3 rounded-1"
+                            style="background-color: #d0e6f9; position: relative;" data-bs-theme="light">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!-- Home & About Buttons as Links -->
+                                <a href="../index.html" class="btn btn-outline-success me-2">Home</a>
+                                <a href="../1 Start Here/About This Course.html"
+                                    class="btn btn-outline-secondary me-2">About</a>
+                                <a id="printNotes" class="btn btn-outline-primary" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="<span style='color:yellow;'>⚠️</span> <strong>Use Ctrl+P to Print Full Notes Without Blanks</strong>">Print
+                                    Lecture Blank Notes</a>
+
+                                <!-- Search Bar -->
+                                <form class="d-flex ms-auto me-3" onsubmit="searchPage(event)">
+                                    <input id="searchInput" class="form-control me-2" type="search"
+                                        placeholder="Search this page..." aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+
+                                <!-- Theme Toggle Dropdown Button -->
+                                <div class="dropdown">
+                                    <button id="theme-toggle"
+                                        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-circle-half" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 0 8 1v14z" />
+                                        </svg>
+                                        <span class="ms-2">Theme</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="position: absolute !important;">
+                                        <li><a class="dropdown-item" href="#" data-theme="light">
+                                                <i class="bi bi-sun"></i> Light
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="dark">
+                                                <i class="bi bi-moon"></i> Dark
+                                            </a></li>
+                                        <li><a class="dropdown-item" href="#" data-theme="auto">
+                                                <i class="bi bi-circle-half"></i> Auto
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </header>
+
+                    <section>
+                        <h1>Probability Review Exercises</h1>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Probability from a
+                                Contingency Table
+                            </h2>
+                            <p>A college health center recorded whether \(200\) students received a flu vaccine and
+                                whether they were
+                                diagnosed with the flu during the winter term. The results are shown in the contingency
+                                table below.</p>
+
+                            <div class="cstate-graph">
+                                <table border="1" style="border-collapse: collapse; margin: 0 auto;">
+                                    <caption>Student flu diagnoses and vaccination status for a sample of \(200\)
+                                        students</caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Flu</th>
+                                            <th scope="col">No Flu</th>
+                                            <th style="background-color: #f4b084;" scope="col">Totals</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Vaccinated</th>
+                                            <td style="text-align:center;">18</td>
+                                            <td style="text-align:center;">102</td>
+                                            <td
+                                                style="background-color: #f4b084; font-weight: bold; text-align:center;">
+                                                120</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Not Vaccinated</th>
+                                            <td style="text-align:center;">42</td>
+                                            <td style="text-align:center;">38</td>
+                                            <td
+                                                style="background-color: #f4b084; font-weight: bold; text-align:center;">
+                                                80</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #f4b084; font-weight: bold;" scope="row">Totals
+                                            </th>
+                                            <td
+                                                style="background-color: #f4b084; font-weight: bold; text-align:center;">
+                                                60</td>
+                                            <td
+                                                style="background-color: #f4b084; font-weight: bold; text-align:center;">
+                                                140</td>
+                                            <td
+                                                style="background-color: #f4b084; font-weight: bold; text-align:center;">
+                                                200</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p>Use the table to find each probability below.</p>
+                            <ol class="list-a">
+                                <li>Find the probability that a randomly selected student had the flu.</li>
+                                <li>Find the probability that a randomly selected student was vaccinated
+                                    <strong>or</strong> had the flu.
+                                </li>
+                                <li>Find the probability that a randomly selected student was vaccinated
+                                    <strong>and</strong> had the flu.
+                                </li>
+                                <li>If one student is selected at random, replaced, and then another student is
+                                    selected, find the
+                                    probability that both selected students had the flu.</li>
+                                <li>If two students are selected at random <strong>without replacement</strong>, find
+                                    the probability that
+                                    both selected students had the flu.</li>
+                                <li>Find the probability that a student had the flu <strong>given that</strong> the
+                                    student was vaccinated.
+                                </li>
+                            </ol>
+
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="2.2in"></div>
+                                <div class="dontprint">
+                                    <ol class="list-a">
+                                        <li>
+                                            <p>The probability of selecting a student who had the flu is</p>
+                                            \[
+                                            P(\text{Flu})=\frac{60}{200}=0.30
+                                            \]
+                                        </li>
+                                        <li>
+                                            <p>For an <strong>or</strong> probability, add the two individual
+                                                probabilities and subtract the
+                                                overlap:</p>
+                                            \[
+                                            P(\text{Vaccinated or
+                                            Flu})=P(\text{Vaccinated})+P(\text{Flu})-P(\text{Vaccinated and Flu})
+                                            \]
+                                            \[
+                                            =\frac{120}{200}+\frac{60}{200}-\frac{18}{200}
+                                            =\frac{162}{200}=0.81
+                                            \]
+                                        </li>
+                                        <li>
+                                            <p>The overlap is the cell where both conditions happen together:</p>
+                                            \[
+                                            P(\text{Vaccinated and Flu})=\frac{18}{200}=0.09
+                                            \]
+                                        </li>
+                                        <li>
+                                            <p>With replacement, the probability stays the same on both draws:</p>
+                                            \[
+                                            P(\text{Flu twice with replacement})=\frac{60}{200}\cdot\frac{60}{200}
+                                            =\frac{9}{100}=0.09
+                                            \]
+                                        </li>
+                                        <li>
+                                            <p>Without replacement, the second probability changes after the first
+                                                selection:</p>
+                                            \[
+                                            P(\text{Flu twice without replacement})=\frac{60}{200}\cdot\frac{59}{199}
+                                            =\frac{177}{1990}\approx 0.0889
+                                            \]
+                                        </li>
+                                        <li>
+                                            <p>A conditional probability uses the vaccinated row total as the new
+                                                denominator:</p>
+                                            \[
+                                            P(\text{Flu}\mid \text{Vaccinated})=\frac{18}{120}=0.15
+                                            \]
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example">
+                            <h2 class="example-header">Example <span class="example-number"></span>: Finding an “At
+                                Least One” Probability
+                            </h2>
+                            <p>A quality-control manager randomly selects \(3\) light bulbs from a shipment of \(10\)
+                                bulbs. In the
+                                shipment, \(2\) bulbs are defective and \(8\) are not defective. If the bulbs are
+                                selected without
+                                replacement, find the probability that <strong>at least one</strong> of the selected
+                                bulbs is defective.</p>
+
+                            <div class="solution">
+                                <h2 class="solution-header">Solution</h2>
+                                <div class="inches" data-height="1.5in"></div>
+                                <div class="dontprint">
+                                    <p>To find an <strong>at least one</strong> probability, it is usually easiest to
+                                        subtract the
+                                        probability of the complement from \(1\).</p>
+                                    <p>The complement of “at least one defective” is “no defective bulbs are selected.”
+                                    </p>
+                                    \[
+                                    P(\text{at least one defective})=1-P(\text{no defective})
+                                    \]
+                                    <p>The probability of selecting \(3\) nondefective bulbs without replacement is</p>
+                                    \[
+                                    P(\text{no defective})=\frac{8}{10}\cdot\frac{7}{9}\cdot\frac{6}{8}
+                                    =\frac{7}{15}
+                                    \]
+                                    <p>So,</p>
+                                    \[
+                                    P(\text{at least one defective})=1-\frac{7}{15}=\frac{8}{15}\approx 0.5333
+                                    \]
+                                    <p>Therefore, the probability of selecting at least one defective bulb is
+                                        \(\frac{8}{15}\), or about
+                                        \(0.5333\).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="d-flex justify-content-between mt-4 no-print-nav">
+                        <button id="prevPage" class="btn btn-outline-primary navigation-link previous"
+                            role="button">Previous Page</button>
+                        <button id="nextPage" class="btn btn-outline-primary navigation-link next" role="button">Next
+                            Page</button>
+                    </div>
+                    <button id="printNotes" class="btn btn-outline-primary no-print-nav">Print Notes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- jQuery local fallback (Bootstrap Dependency) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Course Scripts -->
+    <script src="../js/loadmathjax.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyOpenMath Cheatsheet — Operations & Syntax</title>
+  <style>
+    :root{
+      --bg:#0f172a;         /* slate-900 */
+      --panel:#111827;      /* gray-900  */
+      --ink:#e5e7eb;        /* gray-200  */
+      --muted:#9ca3af;      /* gray-400  */
+      --accent:#60a5fa;     /* sky-400   */
+      --ok:#22c55e;         /* green-500 */
+      --warn:#f59e0b;       /* amber-500 */
+      --bad:#ef4444;        /* red-500   */
+      --code:#0b1220;       /* deep panel*/
+      --chip:#1f2937;       /* gray-800  */
+      --border:#1f2937;     /* gray-800  */
+      --tableEven:#0d1426;  /* subtle row*/
+      --tableOdd:#0b1220;   /* subtle row*/
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:linear-gradient(180deg,var(--bg),#0b1022 60%); color:var(--ink); font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial}
+    a{color:var(--accent)}
+    .wrap{width:min(1100px,100%); margin-inline:auto; padding:28px}
+    header{display:flex; gap:12px; align-items:center; margin-bottom:18px}
+    h1{margin:0; font-size:clamp(22px,4vw,40px)}
+    .tag{background:var(--chip); border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-size:12px}
+    .section{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:16px 16px 6px; box-shadow:0 10px 30px rgba(0,0,0,.25); margin-bottom:16px}
+    .section h2{margin:4px 0 10px; font-size:20px}
+    .subtle{color:var(--muted)}
+
+    .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:14px}
+    .card h3{margin:0 0 8px; font-size:16px}
+    p{margin:8px 0}
+
+    code, pre{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
+    pre{background:var(--code); color:#e6edf3; padding:12px; border-radius:12px; border:1px solid #0b1220; overflow:auto}
+    .kbd{padding:.2rem .4rem; border:1px solid var(--border); background:var(--chip); border-radius:8px; font-size:12px}
+
+    table{width:100%; border-collapse:collapse; font-size:14px}
+    th, td{padding:8px 10px; text-align:left}
+    thead th{background:#0e1a33; color:#cfe0ff; border-bottom:1px solid var(--border)}
+    tbody tr:nth-child(odd){background:var(--tableOdd)}
+    tbody tr:nth-child(even){background:var(--tableEven)}
+    td{border-top:1px solid #0f1930}
+
+    .pill{display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; font-size:12px; border:1px solid var(--border); background:#111827}
+    .ok{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)} .accent{color:var(--accent)}
+
+    .tip{position:relative; margin-top:10px; padding:10px 12px 10px 42px; background:#1a1420; border-left:4px solid var(--warn); color:#ffecb3; border-radius:10px}
+    .tip::before{content:"💡"; position:absolute; left:12px; top:10px}
+    .tip.hidden{display:none}
+    .btn{background:var(--warn); color:#1a1200; border:none; padding:6px 10px; border-radius:8px; font-weight:600; cursor:pointer}
+
+    @media print{
+      body{background:white}
+      .section, .card{break-inside:avoid}
+      .btn{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>MyOpenMath Cheatsheet</h1>
+      <span class="tag">Dark Theme • Standalone HTML</span>
+    </header>
+
+    <!-- SECTION 1: Common Control (authoring code) -->
+    <section class="section">
+      <h2>1) Common Control — Authoring Snippets</h2>
+      <p class="subtle">Frequently used code when scripting problem logic in the <strong>Common Control</strong> area.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Conditional assignment</h3>
+          <pre><code>$x = 4 if ($a == 2);</code></pre>
+          <button class="btn" onclick="toggleTip(this)">Show Usage Tip</button>
+          <div class="tip hidden">
+            Assigns <code>4</code> to <code>$x</code> only when <code>$a == 2</code>. For multi-line logic, use a full <code>if {...} else {...}</code> block.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Multipart answer types</h3>
+          <pre><code>$anstypes = array("number", "choices");</code></pre>
+          <button class="btn" onclick="toggleTip(this)">Show Usage Tip</button>
+          <div class="tip hidden">
+            Types apply per part. Common: <code>number</code>, <code>choices</code>, <code>multans</code>, <code>calculated</code>, <code>string</code>, <code>essay</code>.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Part weights</h3>
+          <pre><code>$answeights = array(0.5, 0.5);</code></pre>
+          <button class="btn" onclick="toggleTip(this)">Show Usage Tip</button>
+          <div class="tip hidden">
+            Controls scoring per part. Example: <code>array(0.4,0.4,0.2)</code>.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Declare answers</h3>
+          <pre><code>$answer[0] = "5";  // or single-part: $answer = "5";</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>Choices (per part)</h3>
+          <pre><code>$choices[1] = array("Yes","No");</code></pre>
+          <button class="btn" onclick="toggleTip(this)">Show Usage Tip</button>
+          <div class="tip hidden">
+            Ensure the corresponding <code>$anstypes[x]</code> is <code>"choices"</code>.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Display formatting</h3>
+          <pre><code>$displayformat = "decimal"; // "mixednumber", "fraction", "scinot", "sigfig", "logic", "list", "string", "typein", "noinput"</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>Precision & tolerances</h3>
+          <pre><code>$reqdecimals = 2;
+$abstolerance = 0.01;
+$reltolerance = 0.001;</code></pre>
+          <button class="btn" onclick="toggleTip(this)">Show Usage Tip</button>
+          <div class="tip hidden">
+            Use indexed forms (e.g., <code>$reqdecimals[1] = 3;</code>) to target a specific part in multipart questions.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Load macro libraries</h3>
+          <pre><code>loadlibrary("stats");
+// or multiple: loadlibrary("stats,fractions");</code></pre>
+          <button class="btn" onclick="toggleTip(this)">Show Usage Tip</button>
+          <div class="tip hidden">
+            Examples: <code>mean()</code>, <code>stdev()</code>, <code>percentile()</code>, <code>linreg()</code> from <code>stats</code>.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Randomization helpers</h3>
+          <pre><code>$x = rand(1, 10);          // random int 1..10
+$r = rand(100, 200)/100;  // random float 1.00..2.00
+$alpha = $alphas[rand(0,2)]; // pick from array</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>Distinct randoms</h3>
+          <pre><code>$a,$b = diffrands(1,10,2);</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>Rounding</h3>
+          <pre><code>$z = round($r, 2);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Question Text (presentation) -->
+    <section class="section">
+      <h2>2) Question Text — Presentation Snippets</h2>
+      <p class="subtle">HTML and inline math you’ll place in the <strong>Question Text</strong> editor.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Answer box placement</h3>
+          <pre><code>&lt;p&gt;What is 2 + 2? $answerbox&lt;/p&gt;</code></pre>
+        </div>
+        <div class="card">
+          <h3>Math expression (ASCIIMath)</h3>
+          <pre><code>`x^2 + 4x + 4`</code></pre>
+        </div>
+        <div class="card">
+          <h3>Hint location (commented)</h3>
+          <pre><code>&lt;!-- &lt;p&gt;$hintloc&lt;/p&gt; --&gt;</code></pre>
+        </div>
+        <div class="card">
+          <h3>Apply shared CSS from another problem</h3>
+          <pre><code>// Common Control
+includecodefrom(1610504);
+// Top of Question Text
+$css</code></pre>
+          <button class="btn" onclick="toggleTip(this)">Show Usage Tip</button>
+          <div class="tip hidden">
+            Place <code>$css</code> as the <em>first line</em> of Question Text (no wrapping tags). Then use provided classes like <code>.problem-mom</code>, <code>.note-mom</code>, <code>.alist-mom</code>, <code>.redtext-mom</code>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ASCIIMath reference -->
+    <section class="section">
+      <h2>3) ASCIIMath Reference — Common Symbols</h2>
+      <p class="subtle">Wrap expressions in backticks. Full reference: <a href="https://asciimath.org/" target="_blank" rel="noopener noreferrer">ASCIIMath</a>.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Basic Operations</h3>
+          <table>
+            <thead><tr><th>Type</th><th>ASCIIMath</th></tr></thead>
+            <tbody>
+              <tr><td>+</td><td>`+`</td></tr>
+              <tr><td>-</td><td>`-`</td></tr>
+              <tr><td>*</td><td>`*`</td></tr>
+              <tr><td>/</td><td>`/`</td></tr>
+              <tr><td>2^3</td><td>`2^3`</td></tr>
+              <tr><td>sqrt(x)</td><td>`sqrt(x)`</td></tr>
+              <tr><td>root(3)(x)</td><td>`root(3)(x)`</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Relations</h3>
+          <table>
+            <thead><tr><th>Type</th><th>ASCIIMath</th></tr></thead>
+            <tbody>
+              <tr><td>=</td><td>`=`</td></tr>
+              <tr><td>!=</td><td>`!=`</td></tr>
+              <tr><td>&lt;</td><td>`&lt;`</td></tr>
+              <tr><td>&lt;=</td><td>`&lt;=`</td></tr>
+              <tr><td>&gt;</td><td>`&gt;`</td></tr>
+              <tr><td>&gt;=</td><td>`&gt;=`</td></tr>
+              <tr><td>in</td><td>`in`</td></tr>
+              <tr><td>notin</td><td>`notin`</td></tr>
+              <tr><td>subset</td><td>`subset`</td></tr>
+              <tr><td>supe</td><td>`supe`</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Calculus</h3>
+          <table>
+            <thead><tr><th>Type</th><th>ASCIIMath</th></tr></thead>
+            <tbody>
+              <tr><td>int</td><td>`int`</td></tr>
+              <tr><td>∫<sub>a</sub><sup>b</sup></td><td>`int_a^b`</td></tr>
+              <tr><td>sum</td><td>`sum`</td></tr>
+              <tr><td>∑ from i=1 to n</td><td>`sum_(i=1)^n`</td></tr>
+              <tr><td>lim as x→0</td><td>`lim_(x->0)`</td></tr>
+              <tr><td>∇ (del)</td><td>`del`</td></tr>
+              <tr><td>∇ (grad)</td><td>`grad`</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Symbols</h3>
+          <table>
+            <thead><tr><th>Type</th><th>ASCIIMath</th></tr></thead>
+            <tbody>
+              <tr><td>∞</td><td>`oo`</td></tr>
+              <tr><td>π</td><td>`pi`</td></tr>
+              <tr><td>θ</td><td>`theta`</td></tr>
+              <tr><td>φ</td><td>`phi`</td></tr>
+              <tr><td>σ</td><td>`sigma`</td></tr>
+              <tr><td>Δ</td><td>`Delta`</td></tr>
+              <tr><td>Γ</td><td>`Gamma`</td></tr>
+              <tr><td>λ</td><td>`lambda`</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Greek Letters</h3>
+          <table>
+            <thead><tr><th>Name</th><th>ASCIIMath</th></tr></thead>
+            <tbody>
+              <tr><td>alpha</td><td>`alpha`</td></tr>
+              <tr><td>beta</td><td>`beta`</td></tr>
+              <tr><td>gamma</td><td>`gamma`</td></tr>
+              <tr><td>delta</td><td>`delta`</td></tr>
+              <tr><td>epsilon</td><td>`epsilon`</td></tr>
+              <tr><td>zeta</td><td>`zeta`</td></tr>
+              <tr><td>eta</td><td>`eta`</td></tr>
+              <tr><td>theta</td><td>`theta`</td></tr>
+              <tr><td>iota</td><td>`iota`</td></tr>
+              <tr><td>kappa</td><td>`kappa`</td></tr>
+              <tr><td>lambda</td><td>`lambda`</td></tr>
+              <tr><td>mu</td><td>`mu`</td></tr>
+              <tr><td>nu</td><td>`nu`</td></tr>
+              <tr><td>xi</td><td>`xi`</td></tr>
+              <tr><td>Xi</td><td>`Xi`</td></tr>
+              <tr><td>pi</td><td>`pi`</td></tr>
+              <tr><td>rho</td><td>`rho`</td></tr>
+              <tr><td>sigma</td><td>`sigma`</td></tr>
+              <tr><td>tau</td><td>`tau`</td></tr>
+              <tr><td>upsilon</td><td>`upsilon`</td></tr>
+              <tr><td>phi</td><td>`phi`</td></tr>
+              <tr><td>chi</td><td>`chi`</td></tr>
+              <tr><td>psi</td><td>`psi`</td></tr>
+              <tr><td>omega</td><td>`omega`</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="subtle" style="margin-top:18px;font-size:13px;">
+      Tip: Wrap math in backticks (ASCIIMath). Print shows all tips; buttons are hidden when printing.
+    </footer>
+  </div>
+
+  <!-- ASCIIMath via MathJax (optional; works when online) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+  <script>
+    function toggleTip(btn){
+      const tip = btn.nextElementSibling; const hidden = tip.classList.toggle('hidden');
+      btn.textContent = hidden ? 'Show Usage Tip' : 'Hide Usage Tip';
+    }
+  </script>
+</body>
+</html>

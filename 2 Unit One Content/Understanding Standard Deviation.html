@@ -101,8 +101,8 @@
                         </div>
                         <h2 class="example-header">Example <span class="example-number"></span></h2>
                         <p>Compute the squared deviation for our example on salaries from our <a
-                                href="Calculating Deviations of a Dataset.html"
-                                target="_blank" rel="noopener">discussion on deviations</a> and find their sum.</p>
+                                href="Calculating Deviations of a Dataset.html" target="_blank"
+                                rel="noopener">discussion on deviations</a> and find their sum.</p>
                         <div class="solution">
                             <h4 class="solution-header">Solution</h4>
                             <table style="width: auto;">
@@ -194,20 +194,19 @@
                             <p>Let's create a new stack of dot, and again, we want to arrange the dots into stacks of
                                 3.&nbsp; Suppose we are are only told the heights of six of the seven stacks:<br><br>
                             </p>
-                            <p><img src="../images/variance1.png"
+                            <p><img class="img-downsized" src="../images/variance1.png"
                                     alt="Stacks of 1, 2, 4, 2, 3, and 5 dots, respectively."
                                     title="Stacks of 1, 2, 4, 2, 3, and 5 dots, respectively." width="300" height="226">
                             </p>
                             <p><br>If we ask the questions, if \(\overline{{x}}=3\) and we know the six of the seven
                                 data points (1, 2, 4, 2, 3, 5), can we find the missing data point?&nbsp; The answer is
-                                YES!&nbsp; If we rearrange the dots<br><br><img
+                                YES!&nbsp; If we rearrange the dots<br><br><img class="img-downsized"
                                     src="../images/variance2.png"
                                     alt="One stack is still height 2 after arranging all the dots into even stacks of 3."
                                     title="One stack is still height 2 after arranging all the dots into even stacks of 3."
                                     width="299" height="218"><br><br>notice that one stack is still missing a dot.&nbsp;
                                 This means that the last stack should be 1 above average; in other words, it should be a
-                                stack of four dots.<br><br><img
-                                    src="../images/variance3.png"
+                                stack of four dots.<br><br><img class="img-downsized" src="../images/variance3.png"
                                     alt="The original stacks with a stack of four dots adding as the seventh stack."
                                     title="The original stacks with a stack of four dots adding as the seventh stack."
                                     width="300" height="220"><br><br>Notice that if we know the mean and all but one of
@@ -215,10 +214,10 @@
                             <p>This example shows that if we know the mean and all but one of the data points, the
                                 missing value is not free to vary—it’s determined by the others. Therefore, we divide by
                                 \(n-1\) to account for the fact that only \(n-1\) data points are free to vary
-                                independently. This concept is known as <strong>degrees of freedom</strong>. You’ll encounter it again
+                                independently. This concept is known as <strong>degrees of freedom</strong>. You’ll
+                                encounter it again
                                 in Chapters 8 and 9!</p>
                         </div>
-
                         <div class="example">
                             <h2 class="example-header">Example <span class="example-number"></span></h2>
                             <p>Compute the variance for our example on salaries.</p>
@@ -227,7 +226,8 @@
                                 <div class="inches" data-height="1in"></div>
                                 <div class="dontprint">
                                     <p>In our previous example, we computed the sum of the deviations squared as
-                                        \[\sum(x-\overline{{x}})=1162.50.\]&nbsp; Since \(n=10\), we divide this number by
+                                        \[\sum(x-\overline{{x}})=1162.50.\]&nbsp; Since \(n=10\), we divide this number
+                                        by
                                         \(n-1=9\) to get that \[s^2=\dfrac{1162.50}{{9}}\approx 129.167.\]</p>
                                 </div>
                             </div>
@@ -236,7 +236,8 @@
                         <p>There are two major disadvantages to calculating variance:</p>
                         <ul>
                             <li><strong>The units are squared:</strong> In this example, the units are dollars-squared,
-                                which doesn’t make sense. In general, variance always has units that are the <span class="blanked">square</span> of
+                                which doesn’t make sense. In general, variance always has units that are the <span
+                                    class="blanked">square</span> of
                                 the original data’s units (e.g., if the data is in meters, the variance is in meters²).
                             </li>
                             <li><strong>The value is unusually large:</strong> This happens because all deviations are
@@ -246,13 +247,12 @@
                             transforms the units back to the original scale and reduces the size of the value, giving us
                             the <strong>standard deviation</strong>.</p>
 
-                            <div class="notes-page-break"></div>
-                            
                         <h2>Standard Deviation</h2>
                         <!-- Definition: Standard Deviation -->
                         <div class="definition">
                             <h2 class="definition-header">What is Standard Deviation?</h2>
-                            <p>The <span class="blanked"><strong>standard deviation</strong></span> is the square root of the variance. It is expressed as:</p>
+                            <p>The <span class="blanked"><strong>standard deviation</strong></span> is the square root
+                                of the variance. It is expressed as:</p>
                             <ul>
                                 <li><strong>Population Standard Deviation:</strong> \(\sigma = \sqrt{\dfrac{\sum (x -
                                     \mu)^2}{{N}}}\)</li>
@@ -261,7 +261,8 @@
                             </ul>
                             <h3>What are the Important Properties of Standard Deviation</h3>
                             <ul>
-                                <li>Measures how much data values (on average) deviate from the <span class="blanked">mean</span>.</li>
+                                <li>Measures how much data values (on average) deviate from the <span
+                                        class="blanked">mean</span>.</li>
                                 <li>Always greater than or equal to zero. (If it equals zero, all the data points are
                                     the same value.)</li>
                                 <li>Larger standard deviations indicate more variation.</li>
@@ -272,27 +273,29 @@
 
                         <div class="example">
                             <h2 class="example-header">Example <span class="example-number"></span></h2>
-                            <p>Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank" rel="noopener">Summary
+                            <p>Use the <a href="https://www.geogebra.org/m/gka7dwu7" target="_blank"
+                                    rel="noopener">Summary
                                     Statistics Calculator</a> to calculate the standard deviation of the salaries.</p>
                             <!-- Solution Shell -->
                             <div class="solution">
                                 <h4 class="example-header">Solution</h4>
                                 <div class="inches" data-height="1in"></div>
                                 <div class="dontprint">
-                                    <p>Our tool should still look like this: <br><br><img
+                                    <p>Our tool should still look like this: <br><br><img class="img-downsized"
                                             src="../images/deviations_example1c.png"
                                             alt="The average value of the deviations is always 0 for any dataset."
-                                            title="The average value of the deviations is always 0 for any dataset." width="498"
-                                            height="304"><br><br>We need to change the dataset back to A, and notice that the
-                                        standard deviation is checked by default.&nbsp; Therefore, the standard deviation is
-                                        \(s\approx 11.365\)<br><br><img
-                                            src="../images/std1.png"
+                                            title="The average value of the deviations is always 0 for any dataset."
+                                            width="498" height="304"><br><br>We need to change the dataset back to A,
+                                        and notice that the
+                                        standard deviation is checked by default.&nbsp; Therefore, the standard
+                                        deviation is
+                                        \(s\approx 11.365\)<br><br><img class="img-downsized" src="../images/std1.png"
                                             alt="The column has been changed back to A.  The standard deviation is calculated to be 11.3652."
                                             title="The column has been changed back to A.  The standard deviation is calculated to be 11.3652."
                                             width="495" height="297"></p>
                                     <h5>Quick Note</h5>
                                     <p>There is also a checkbox for the variance as well.<br><br><img
-                                            src="../images/std2.png"
+                                            class="img-downsized" src="../images/std2.png"
                                             alt="The variance checkbox is selected and shows that the variance is 129.1667."
                                             title="The variance checkbox is selected and shows that the variance is 129.1667."
                                             width="500" height="284"></p>
