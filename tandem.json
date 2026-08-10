@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "config": {
+    "understandingChecks": true
+  },
+  "docs": [
+    {
+      "path": "dev-docs/PRD.md",
+      "scope": "general",
+      "purpose": "Product requirements, target users, tech stack decisions, project scope",
+      "tags": ["prd", "requirements", "scope", "stack"]
+    }
+  ]
+}
