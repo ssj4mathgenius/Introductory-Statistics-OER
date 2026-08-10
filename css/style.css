@@ -647,6 +647,10 @@ section:not(#content section) {
     display: none;
   }
 
+  .dontprint {
+    display: none !important;
+  }
+
   @media print {
     button[onclick^="copyToClipboard"] {
       display: none !important;
