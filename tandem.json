@@ -9,6 +9,12 @@
       "scope": "general",
       "purpose": "Product requirements, target users, tech stack decisions, project scope",
       "tags": ["prd", "requirements", "scope", "stack"]
+    },
+    {
+      "path": "dev-docs/ROADMAP.md",
+      "scope": "general",
+      "purpose": "Ordered implementation steps with checkboxes and user stories",
+      "tags": ["roadmap", "planning"]
     }
   ]
 }
