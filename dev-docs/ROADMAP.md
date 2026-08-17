@@ -30,8 +30,8 @@ These aren't one-off steps, they apply any time a step below touches a page's ma
 - [x] **Step 4: Extract the print-notes module**
   Move `replaceBlanksForPrint()`, `restoreOriginalText()`, `setDivHeightFromData()`, and the `#printNotes` click handler into `js/modules/printNotes.js`. Verify the "Print Lecture Blank Notes" button still blanks out the right elements, triggers the print dialog, and restores original text afterward, on a page that actually has `.blanked` and `.inches` content (check a Lecture Notes page in Unit One or Unit Two).
 
-- [ ] **Step 5: Extract the search module**
-  Move `searchPage()`, `highlightText()`, and `removeHighlights()` into `js/modules/search.js`. Wire it to the search form's `onsubmit` in `index.html`. Verify searching highlights matches and a second search clears the previous highlights first.
+- [x] **Step 5: Extract the search module**
+  Move `searchPage()`, `highlightText()`, and `removeHighlights()` into `js/modules/search.js`. Update: the inline `onsubmit="searchPage(event)"` attribute doesn't work once `searchPage` lives in a module (module scope isn't global), so it was replaced with `id="searchForm"` on all 77 pages that had it, and `search.js`'s `init()` attaches the submit listener via `addEventListener`, matching the pattern used by `theme.js`/`printNotes.js`. Verified searching highlights matches and a second search clears the previous highlights first, on `index.html` and content pages.
 
 - [ ] **Step 6: Extract the table-generation module**
   Move `generateTable()`, `generateTableFromPre()`, `toggleTable()`, `copyToClipboard()`, and `copyCodeToClipboard()` into `js/modules/tables.js`. These are used together on data-heavy pages, so they belong in one module. Verify on a page that uses one of these (search the unit content for `onclick="generateTable` or `toggleTable` to find one) that tables still render from CSV/`<pre>` data and the copy-to-clipboard buttons still work.
