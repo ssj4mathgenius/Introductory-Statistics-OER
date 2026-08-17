@@ -1,40 +1,3 @@
-// Define MathJax configuration BEFORE loading the script
-window.MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    },
-    options: {
-        renderActions: {
-            addDarkMode: [200, function (doc) {
-                const style = document.createElement('style');
-                style.innerHTML = `
-                .mjx-container * {
-                    color: var(--mjx-color, inherit) !important;
-                }
-                @media print {
-                    .mjx-container * {
-                        color: var(--mjx-color, inherit) !important;
-                    }
-                }
-            `;
-                document.head.appendChild(style);
-            }, '', false]
-        }
-    }
-};
-
-// Function to set color scheme for MathJax
-function setMathJaxColorScheme() {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.style.setProperty('--mjx-color', isDarkMode ? '#ffffff' : '#000000');
-}
-
-// Update color scheme dynamically when user switches modes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setMathJaxColorScheme);
-
-console.log("entered load mathjax javascript file and ensured color schemes are visible for any browser mode");
-
 //Function to dynamically set the height of inches div container
 function setDivHeightFromData() {
     // Select all divs with the class "inches"
@@ -288,28 +251,7 @@ async function generateTable(csvUrl, captionText) {
     }
 };
 
-// Script to handle theme toggling
-document.getElementById("theme-toggle").addEventListener("click", function () {
-    const nav = document.querySelector("nav");
-    const currentTheme = nav.getAttribute("data-bs-theme");
-
-    // Cycle through themes: light -> dark -> auto
-    const nextTheme = currentTheme === "light" ? "dark" : currentTheme === "dark" ? "auto" : "light";
-    nav.setAttribute("data-bs-theme", nextTheme);
-
-    // Update button appearance based on theme
-    const themeIcon = this.querySelector("svg");
-    if (nextTheme === "light") {
-        themeIcon.innerHTML = '<path d="M8 15A7 7 0 1 0 8 1v14z"/>'; // Half-circle icon for light theme
-    } else if (nextTheme === "dark") {
-        themeIcon.innerHTML = '<path d="M4.5 0a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-.5.5H4a4 4 0 1 1 0-16h.5z"/>'; // Icon for dark theme
-    } else {
-        themeIcon.innerHTML = '<path d="M8 4a4 4 0 1 1 0 8A4 4 0 0 1 8 4z"/>'; // Icon for auto theme
-    }
-});
-
-
-//Javascript function to operate navbar "search" feature. 
+//Javascript function to operate navbar "search" feature.
 function searchPage(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -506,33 +448,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Handle Theme Toggle Dropdown
-    const themeToggle = document.getElementById("theme-toggle");
-    const dropdownItems = document.querySelectorAll(".dropdown-menu .dropdown-item");
-    if (themeToggle) {
-        const icon = themeToggle.querySelector("svg");
-
-        dropdownItems.forEach(item => {
-            item.addEventListener("click", function () {
-                let selectedTheme = this.getAttribute("data-theme");
-                document.documentElement.setAttribute("data-bs-theme", selectedTheme);
-                updateIcon(selectedTheme);
-            });
-        });
-
-        function updateIcon(theme) {
-            if (theme === "light") {
-                icon.innerHTML = '<path d="M3.646 6.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L6.5 5.207V9.5a.5.5 0 0 1-1 0V5.207L4.354 6.354a.5.5 0 0 1-.708 0z"/>';
-            } else if (theme === "dark") {
-                icon.innerHTML = '<path d="M6 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"/>';
-            } else {
-                icon.innerHTML = '<path d="M8 15A7 7 0 1 0 8 1v14z"/>';
-            }
-        }
-    } else {
-        console.warn("⚠️ Warning: theme-toggle button not found!");
-    }
-
     //Javascript code to operate the "print notes" button at bottom of page to print notes with blanks/spacing for in-class notes
     const printButton = document.getElementById("printNotes");
     if (printButton) {
@@ -656,80 +571,6 @@ function restoreOriginalText() {
 
     // Set height for spacing divs
     setDivHeightFromData();
-
-    // Dynamically add MathJax script
-    // Dynamically add MathJax script
-    var head = document.getElementsByTagName("head")[0];
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-    script.async = true;
-
-    script.onload = function () {
-        console.log("✅ MathJax script loaded!");
-
-        // if (window.MathJax) {
-        //     window.MathJax = {
-        //         tex: {
-        //             inlineMath: [['$', '$'], ['\\(', '\\)']],
-        //             displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        //         },
-        //         options: {
-        //             renderActions: {
-        //                 addDarkMode: [200, function (doc) {
-        //                     const style = document.createElement('style');
-        //                     style.innerHTML = `
-        //                     .mjx-container * {
-        //                         color: var(--mjx-color, inherit) !important;
-        //                     }
-        //                     @media print {
-        //                         .mjx-container * {
-        //                             color: var(--mjx-color, inherit) !important;
-        //                         }
-        //                     }
-        //                 `;
-        //                     document.head.appendChild(style);
-        //                 }, '', false]
-        //             }
-        //         }
-        //     };
-
-        console.log("🔢 Running MathJax Typesetting...");
-
-        // Check if MathJax is available before running typesetting
-        if (window.MathJax && typeof MathJax.startup !== "undefined" && typeof MathJax.typesetPromise === "function") {
-            MathJax.typesetPromise().then(() => {
-                console.log("✅ MathJax rendering complete.");
-            }).catch((err) => {
-                console.error("🚨 MathJax error during typesetting:", err);
-            });
-        } else {
-            console.error("🚨 MathJax is not defined or typesetPromise is unavailable.");
-        }
-    };
-
-    console.log("📌 DOM fully loaded. Ensuring MathJax is processed...");
-
-    if (window.MathJax && typeof MathJax.typesetPromise === "function") {
-        setTimeout(() => {
-            MathJax.typesetPromise().then(() => {
-                console.log("✅ MathJax successfully reprocessed after refresh.");
-            }).catch(err => console.error("🚨 MathJax error after refresh:", err));
-        }, 300); // Delay to ensure all content is loaded
-    } else {
-        console.warn("⚠️ MathJax is not available. Retrying in 500ms...");
-        setTimeout(() => {
-            if (window.MathJax && typeof MathJax.typesetPromise === "function") {
-                MathJax.typesetPromise().then(() => {
-                    console.log("✅ MathJax reprocessed successfully after retry.");
-                }).catch(err => console.error("🚨 MathJax retry error:", err));
-            } else {
-                console.error("🚨 MathJax is still not available after retry.");
-            }
-        }, 500);
-    }
-
-    document.head.appendChild(script);
 
     document.querySelectorAll("a[target='_blank']").forEach(link => {
         link.setAttribute("rel", "noopener noreferrer");

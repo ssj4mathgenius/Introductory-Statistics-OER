@@ -18,14 +18,14 @@ These aren't one-off steps, they apply any time a step below touches a page's ma
 
 ## Steps
 
-- [ ] **Step 1: Set up the ES module foundation**
+- [x] **Step 1: Set up the ES module foundation**
   Create a `js/modules/` directory and a single entry point, `js/main.js`, that uses `<script type="module">`. For now `main.js` can just import a placeholder module or two, nothing extracted yet. Wire `index.html` to load `js/main.js` instead of (or alongside) `js/loadmathjax.js`, and confirm the page still behaves exactly as before. This step doesn't move any real logic yet, it just proves the module-loading pattern works with the existing no-build GitHub Pages deploy before any code gets moved into it.
 
-- [ ] **Step 2: Extract the MathJax module**
+- [x] **Step 2: Extract the MathJax module**
   Move MathJax config, `setMathJaxColorScheme()`, the dark-mode color style injection, and the dynamic MathJax script-loading logic out of `loadmathjax.js` into `js/modules/mathjax.js`. Import it from `main.js`. Verify on `index.html` and one content page (e.g. `2 Unit One Content/Calculating Mean of a Data Set.html`) that math still renders correctly in both light and dark mode.
 
-- [ ] **Step 3: Extract the theme toggle module (keep the click-to-cycle version)**
-  There are currently two competing theme-toggle implementations in `loadmathjax.js`: a click-to-cycle version (clicking the button cycles light to dark to auto) wired to the `#theme-toggle` button, and a separate dropdown-item version tied to the `<ul class="dropdown-menu">` items in the same button's markup. Keep the click-to-cycle version and move it into `js/modules/theme.js`. Remove the dropdown-item click handler code, and clean up the now-unused dropdown markup on the theme-toggle button (the `data-bs-toggle="dropdown"` attribute and `<ul class="dropdown-menu">`) in `index.html` so the button is a plain cycle-on-click control with nothing fighting it for the click event. Verify theme switching still works on `index.html`.
+- [x] **Step 3: Extract the theme toggle module (keep the click-to-cycle version, light/dark only)**
+  There are currently two competing theme-toggle implementations in `loadmathjax.js`: a click-to-cycle version (clicking the button cycles light to dark to auto) wired to the `#theme-toggle` button, and a separate dropdown-item version tied to the `<ul class="dropdown-menu">` items in the same button's markup. Keep the click-to-cycle version, but drop "auto" so it only cycles light and dark, and move it into `js/modules/theme.js`. Remove the dropdown-item click handler code, and clean up the now-unused dropdown markup on the theme-toggle button (the `data-bs-toggle="dropdown"` attribute and `<ul class="dropdown-menu">`) in `index.html` so the button is a plain cycle-on-click control with nothing fighting it for the click event. Note: this toggle only themes Bootstrap chrome inside `<nav>` (search bar, dropdown colors) via `data-bs-theme` — it does not control the page's actual dark mode, which follows the OS-level `prefers-color-scheme` media query in `style.css` independently. Making the toggle drive page-wide theming is out of scope for this step. Verify theme switching still works on `index.html`.
 
 - [ ] **Step 4: Extract the print-notes module**
   Move `replaceBlanksForPrint()`, `restoreOriginalText()`, `setDivHeightFromData()`, and the `#printNotes` click handler into `js/modules/printNotes.js`. Verify the "Print Lecture Blank Notes" button still blanks out the right elements, triggers the print dialog, and restores original text afterward, on a page that actually has `.blanked` and `.inches` content (check a Lecture Notes page in Unit One or Unit Two).
